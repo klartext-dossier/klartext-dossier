@@ -1,0 +1,7 @@
+*.html text eol=lf
+*.xhtml text eol=lf
+*.md text eol=lf
+*.dm text eol=lf
+*.kt text eol=lf
+*.xml text eol=lf
+*.sh text eol=lf

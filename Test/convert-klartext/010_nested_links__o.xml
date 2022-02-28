@@ -1,0 +1,6 @@
+<tag id="ID">
+    <link ref="ID">
+        <nested ref="ID">
+        </nested>
+    </link>
+</tag>

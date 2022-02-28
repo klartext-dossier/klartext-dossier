@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+@media screen {
+
+  html body[data-type="book"]
+  {
+      margin: 1em 2em 1em 2em;
+      padding: 2em 4em 2em 4em;
+
+      box-shadow: black 0px 5.55px 18.5px 0px;
+
+      section[data-type="titlepage"]
+      {
+        border-top: 4px solid @headline-color;
+      }
+      
+      aside[data-type="sidebar"]
+      {
+        width: 20%;
+        box-shadow: black 0px 5.55px 18.5px 0px;
+        margin: 0 20px 20px 20px;
+      }    
+
+      section[data-type="copyright-page"]
+      {
+          padding-top: 1em;
+          p {
+            text-align: center;
+          }
+      }
+  }
+
+}

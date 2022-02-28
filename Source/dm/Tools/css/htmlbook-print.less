@@ -1,0 +1,195 @@
+@charset "UTF-8";
+
+@media print {
+
+    // page layout for 'normal' pages
+    @page {
+      size: A4 portrait;
+
+      @top-left {
+        content: string(document-title, last);
+        font-family: @sans-font;
+        font-size: @base-font-size;
+        text-align: left;
+        color: darkgray;
+        font-weight: bold;
+        margin: @small-skip 0 @small-skip 0;
+      }
+
+      @bottom-right {
+        content: counter(page) "/" counter(pages);
+        font-family: @sans-font;
+        font-size: @base-font-size;
+        color: darkgray;
+        font-weight: bold;
+      }
+    }
+
+    // page layout for blank pages
+    @page blank-page {
+      size: A4 portrait;
+
+      @top-left {
+        content: normal;
+      }
+
+      @bottom-right {
+        content: normal;
+      }
+    }
+
+    // page layout for frontmatter pages
+    @page frontmatter-page 
+    {
+      size: A4 portrait;
+
+      @top-left {
+        content: normal;
+      }
+    }
+
+    html body[data-type="book"]
+    {
+      margin: 0;
+      padding: 0;
+
+      section[data-type="appendix"], section[data-type="bibliography"], section[data-type="glossary"], section[data-type="colophon"], section[data-type="acknowledgments"], section[data-type="afterword"], section[data-type="conclusion"], div[data-type="part"]
+
+      {    
+        page-break-after: always;
+        page-break-before: always;
+      }
+
+      section[data-type="foreword"], section[data-type="preface"]
+      {
+        page-break-after: always;
+        page: frontmatter-page;
+      }
+
+      section[data-type="introduction"]
+      {
+        page-break-after: always;
+      }
+
+      section[data-type="titlepage"]
+      {
+        page: blank-page;
+        page-break-after: always;
+        border: 0;
+        margin-top: 5cm;
+      }
+
+      section[data-type="halftitlepage"]
+      {
+        page-break-after: always;
+        page: blank-page;
+        margin-top: 5cm;
+      }
+
+      section[data-type="copyright-page"], section[data-type="dedication"]
+      {
+        page-break-after: always;
+        page: blank-page;
+      }
+
+      div[data-type="part"]
+      {
+       > section[data-type="chapter"]
+        {
+          page-break-before: always;
+        }
+      }
+
+      // 3.10 Table of Contents.
+      nav[data-type="toc"]
+      {
+        page-break-after: always;
+        page: frontmatter-page;
+
+        h1 {
+          margin-bottom: 2em;
+        }
+
+        ol 
+        {          
+          padding-left: 0;
+          margin-left: 0;
+
+          li 
+          {
+            list-style-type: none;
+            width: 15.3cm;
+
+            a
+            {
+              color: @text-color;
+              position: relative;
+              left: 4em;
+            }
+          }
+
+          li.part {
+            
+            padding-bottom: 2em;
+            font-size: 140%;
+            font-weight: bold;
+
+            li.chapter {
+              padding-top: 1em;
+            }
+
+            a:after {
+              content: "";
+            }
+
+            a:before
+            {
+              position: absolute;
+              left: -3.8em;
+              content: "Part " attr(data-nr);
+            }
+          }
+
+          li.chapter {
+            font-weight: 700;
+            padding-top: 1em;
+            font-size: @base-font-size;
+
+            a:after 
+            { 
+                content: leader(dotted) target-counter(attr(href url), page, decimal) 
+            }
+
+            a:before
+            {
+              position: absolute;
+              left: -3.8em;
+              width: 3em;
+              content: attr(data-nr);
+            }
+        }
+
+          li.chapter:first-of-type {
+            padding-top: 0;
+          }
+
+          li.sect1 {
+            font-weight: 400;
+          }
+
+          li.sect2 {
+            font-weight: 300;
+          }
+        }
+      }
+      
+    }
+
+    // capture the title
+    // TODO: Decide the order of precedence!
+    body[data-type="book"] > h1, body[data-type="book"] > header > h1, section[data-type="titlepage"] h1, head > title
+    {
+      string-set: document-title content();
+    }
+
+}

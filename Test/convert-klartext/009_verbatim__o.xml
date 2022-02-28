@@ -1,0 +1,16 @@
+<tag>
+<p xmlns="http://www.w3.org/1999/xhtml">Verbatim environment:</p>
+<p xmlns="http://www.w3.org/1999/xhtml"><pre><code>No indent.
+ One indent.
+    Full indent.
+    ```
+    tag:
+</code></pre></p>
+    <another>
+        <and>
+        </and>
+    </another>
+</tag>
+<last>
+<p xmlns="http://www.w3.org/1999/xhtml">Text</p>
+</last>

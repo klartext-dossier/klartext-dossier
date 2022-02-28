@@ -1,0 +1,9 @@
+<test>
+<section data-type="chapter" xmlns="http://www.w3.org/1999/xhtml"><h1>Section</h1>
+<section data-type="sect1" xmlns="http://www.w3.org/1999/xhtml"><h1>Subsection</h1>
+<p xmlns="http://www.w3.org/1999/xhtml">Text before.
+<tag class="c">
+</tag>
+Text after.</p>
+</section></section>
+</test>

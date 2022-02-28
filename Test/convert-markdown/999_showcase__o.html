@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title> </title> <meta name="author" content="Matthias H&#xF6;lzer-Kl&#xFC;pfel"/>
+        <meta name="template" content="formal"/>
+        <meta name="company" content="The Company, Inc."/>
+        <meta name="doc_type" content="EXPL"/>
+        <meta name="doc_id" content="1230"/>
+        <meta name="status" content="Draft"/>
+        <meta name="keywords" content="a, b, c"/>
+        <meta name="language" content="en"/>
+        <meta name="subject" content="A demonstration"/>
+        <meta name="version" content="2019-06-11"/>
+        
+        <link rel="stylesheet" type="text/css" href="htmlbook.css"/>
+    </head>
+
+    <body data-type="book">
+        <section data-type="preface">
+<h1 id="_72a2f6ca0d570cdf665f52a1b3a11ae8">Dossier Markdown Showcase</h1>
+</section>
+<nav xmlns:xhtml="http://www.w3.org/1999/xhtml" data-type="toc"><h1 id="_94bac49c74980710e6f9c4f196ccf78a">Table of Contents</h1><ol><li class="chapter"><a data-nr="1" href="#_05b8d5d66d0522ebfdb466e990cdb76e">About Dossier Markdown</a></li><li class="chapter"><a data-nr="2" href="#_c51fdbaa70b4d1808575dc64febf04c8">Writing Documents</a><ol><li class="sect1"><a data-nr="2.1" href="#_9e1962f2dcae6db5b575cec8bb3ec8d4">Writing simple text</a></li><li class="sect1"><a data-nr="2.2" href="#_c7708887487ae9b111054095f661ab53">Decorating text</a></li><li class="sect1"><a data-nr="2.3" href="#_53d79759782248ba418b6de3c8226e5d">Lists and enumerations</a></li><li class="sect1"><a data-nr="2.4" href="#_218ce162ae197070f5419f9cff6a4de9">Definition lists</a></li><li class="sect1"><a data-nr="2.5" href="#_e5fa5a2e51d8a51d4cb8d4ab1662395d">Checklists</a></li><li class="sect1"><a data-nr="2.6" href="#_c22fc51fc2f6aa3d44fca8de42c8920e">Adding structure</a></li><li class="sect1"><a data-nr="2.7" href="#_c6069cb7f1ee76603895442c686a5413">Quoting text</a></li><li class="sect1"><a data-nr="2.8" href="#_6e5eb6d461f6a6b0a143c91ebf554af6">Quoting code</a></li></ol></li></ol></nav>
+<section data-type="chapter">
+<h1 id="_05b8d5d66d0522ebfdb466e990cdb76e">About Dossier Markdown</h1>
+<p>The “Dossier” documentation system uses a variant of the widely used “Markdown” markup language.</p>
+<p>The markup language is specified in the <a href="https://spec.commonmark.org/current">CommonMark Specification</a>.</p>
+<p>This showcase explains the use of the most prominent features of the markup language used by “Dossier”, and how they are rendered in the different output formats.</p>
+</section>
+<section data-type="chapter">
+<h1 id="_c51fdbaa70b4d1808575dc64febf04c8">Writing Documents</h1>
+<p>The following sections demonstrate how to write documents in the “Dossier” markup language.</p>
+<section data-type="sect1">
+<h1 id="_9e1962f2dcae6db5b575cec8bb3ec8d4">Writing simple text</h1>
+<p>Writing simple text is as simple as it can be: just type away the text. For example, the following markup</p>
+<pre><code class="highlight">This is a simple paragraph containing normal text.
+
+This is another simple paragraph containing normal text.
+</code></pre>
+<p>will be rendered as</p>
+<blockquote>
+<p>This is a simple paragraph containing normal text.</p>
+<p>This is another simple paragraph containing normal text.</p>
+</blockquote>
+</section>
+<section data-type="sect1">
+<h1 id="_c7708887487ae9b111054095f661ab53">Decorating text</h1>
+<p>Decorating text, e.g. to put emphasis on some terms, is not much more difficult. Those are the options:</p>
+<pre><code class="highlight">This paragraph has <span class="ge">_italic_</span> text.
+
+This one has <span class="gs">**bold**</span> text.
+</code></pre>
+<p>will be rendered as</p>
+<blockquote>
+<p>This paragraph has <em>italic</em> text.</p>
+<p>This one has <strong>bold</strong> text.</p>
+</blockquote>
+</section>
+<section data-type="sect1">
+<h1 id="_53d79759782248ba418b6de3c8226e5d">Lists and enumerations</h1>
+<p>There are two basic types of lists: ordered lists, aka enumerations, and unordered lists. Both are easy to write:</p>
+<pre><code class="highlight">Unordered list:
+
+<span class="k">*</span> first item
+<span class="k">*</span> second item
+<span class="k">*</span> third item
+</code></pre>
+<p>will be rendered as</p>
+<blockquote>
+<p>Unordered list:</p>
+<ul>
+<li>first item</li>
+<li>second item</li>
+<li>third item</li>
+</ul>
+</blockquote>
+<pre><code class="highlight">Ordered list:
+
+<span class="k">1.</span> first item
+<span class="k">2.</span> second item
+<span class="k">3.</span> third item
+</code></pre>
+<p>will be rendered as</p>
+<blockquote>
+<p>Ordered list:</p>
+<ol>
+<li>first item</li>
+<li>second item</li>
+<li>third item</li>
+</ol>
+</blockquote>
+<p>Both types of lists can be nested:</p>
+<pre><code class="highlight"><span class="k">1.</span> first item
+<span class="k">2.</span> second item
+    <span class="k">*</span> first subitem
+    <span class="k">*</span> second subitem
+    <span class="k">*</span> third subitem
+<span class="k">3.</span> third item
+</code></pre>
+<p>will be rendered as</p>
+<blockquote>
+<ol>
+<li>first item</li>
+<li>second item<ul>
+<li>first subitem</li>
+<li>second subitem</li>
+<li>third subitem</li>
+</ul>
+</li>
+<li>third item</li>
+</ol>
+</blockquote>
+</section>
+<section data-type="sect1">
+<h1 id="_218ce162ae197070f5419f9cff6a4de9">Definition lists</h1>
+<p>Definition lists can be used, for example, to define terms:</p>
+<pre><code class="highlight">Foobar
+: This is a Foobar
+
+Killroy
+: This is a Killroy
+</code></pre>
+<p>will be rendered as</p>
+<blockquote>
+<dl>
+<dt>Foobar</dt>
+<dd>This is a Foobar</dd>
+<dt>Killroy</dt>
+<dd>This is a Killroy</dd>
+</dl>
+</blockquote>
+</section>
+<section data-type="sect1">
+<h1 id="_e5fa5a2e51d8a51d4cb8d4ab1662395d">Checklists</h1>
+<p>Checklists can be added like this:</p>
+<pre><code class="highlight"><span class="k">* [ ]</span> do something
+<span class="k">* [ ]</span> save the world
+<span class="k">* [x]</span> read a book
+<span class="k">* [ ]</span> do something else
+</code></pre>
+<p>will be rendered as</p>
+<ul class="checklist">
+<li class="unchecked"> do something</li>
+<li class="unchecked"> save the world</li>
+<li class="checked"> read a book</li>
+<li class="unchecked"> do something else</li>
+</ul>
+</section>
+<section data-type="sect1">
+<h1 id="_c22fc51fc2f6aa3d44fca8de42c8920e">Adding structure</h1>
+<p>Structure can be added to a document by using section headers:</p>
+<pre><code class="highlight"><span class="gu">### Second level heading</span>
+
+<span class="gu">### Another second level heading</span>
+
+<span class="gu">#### And a third level</span>
+</code></pre>
+</section>
+<section data-type="sect1">
+<h1 id="_c6069cb7f1ee76603895442c686a5413">Quoting text</h1>
+<p>There are several options available to quote text. First the simple inline quotes:</p>
+<pre><code class="highlight">This is a paragraph containing a &lt;q&gt;html quote&lt;/q&gt;.
+
+This is a paragraph containing a 'straight single quote'.
+
+This is a paragraph containing a "straight double quote".
+
+This is a paragraph containing a ‘typographic single quote’.
+
+This is a paragraph containing a “typographic double quote”.
+</code></pre>
+<p>will be rendered as</p>
+<blockquote>
+<p>This is a paragraph containing a 'straight single quote'.</p>
+<p>This is a paragraph containing a "straight double quote".</p>
+<p>This is a paragraph containing a ‘typographic single quote’.</p>
+<p>This is a paragraph containing a “typographic double quote”.</p>
+</blockquote>
+<p>Alternatively, sections of text can be quoted using a blockquote:</p>
+<pre><code class="highlight"><span class="k">&gt; </span><span class="ge">This is a quoted section of text.</span>
+</code></pre>
+<p>will be rendered as</p>
+<blockquote>
+<blockquote>
+<p>This is a quoted section of text.</p>
+</blockquote>
+</blockquote>
+</section>
+<section data-type="sect1">
+<h1 id="_6e5eb6d461f6a6b0a143c91ebf554af6">Quoting code</h1>
+<p>For quoting code or code sections, there are again two options:</p>
+<ol>
+<li>inline code</li>
+<li>code sections</li>
+</ol>
+<pre><code class="highlight">Inline <span class="sb">`code`</span> has <span class="sb">`back-ticks around`</span> it.
+</code></pre>
+<p>will be rendered as</p>
+<p>Inline <code>code</code> has <code>back-ticks around</code> it.</p>
+<pre><code class="highlight">git checkout -b featureA
+</code></pre>
+<p>will be rendered as</p>
+<pre><code class="highlight">git checkout -b featureA
+</code></pre>
+</section>
+</section>
+    </body>
+
+</html>

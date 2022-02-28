@@ -1,0 +1,290 @@
+@charset "UTF-8";
+
+@sans-font: 			  Roboto, LiberationSans, sans-serif;
+@serif-font:              Palatino, serif;
+@mono-font:               JetBrainsMono, monospace;
+
+html 
+{
+    body[data-type="book"] 
+    {
+        font-family: @sans-font;
+        font-size: @base-font-size;
+        font-weight: 300;
+        hyphens: auto;
+
+        p 
+        {
+            text-align: justify;
+        }
+
+        em
+        {
+            font-style: italic;
+        }
+
+        strong
+        {
+            font-weight: bold;
+        }
+
+        code
+        {
+            font-family: @mono-font;
+            margin: 0;
+        }
+
+        span.underline
+        {
+            text-decoration: underline;
+        }
+
+        span.overline
+        {
+            text-decoration: overline;
+        }
+
+        span.line-through
+        {
+            text-decoration: line-through;
+        }
+        
+        sup
+        {
+            vertical-align: super;
+            font-size: 70%
+        }
+
+        sub
+        {
+            vertical-align: sub;
+            font-size: 70%
+        }
+
+        div[data-type="part"] 
+        {        
+            > h1, > header h1 
+            { 
+                font-weight: bold;
+                font-size: 200%;
+            }
+        }
+        
+        section[data-type="chapter"], nav[data-type="toc"], section[data-type="introduction"], section[data-type="appendix"], section[data-type="bibliography"], section[data-type="glossary"], section[data-type="colophon"], section[data-type="acknowledgments"], section[data-type="afterword"], section[data-type="conclusion"]
+        {       
+            > h1, > header h1 
+            { 
+                font-weight: bold;
+                line-height: 130%;
+                font-size: 180%;
+            }    
+        }
+
+        h1
+        {
+            font-size: 160%;
+            line-height: 130%;
+            font-weight: bold;
+        }
+
+        h2
+        {
+            font-size: 140%;
+            font-weight: bold;
+        }
+
+        h3
+        {
+            font-size: 130%;
+            font-weight: bold;
+        }
+
+        h4
+        {
+            font-size: 120%;    
+        }
+
+        h5
+        {
+            font-size: 110%;
+        }
+
+        h6
+        {
+            font-size: 100%;
+        }
+
+        dfn, dt
+        {
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        header p[data-type="author"]
+        {
+            font-style: italic;
+        }
+
+        section[data-type="dedication"] 
+        {
+            font-style: italic;
+        }
+        
+        aside[data-type="sidebar"], div[data-type='note'], div[data-type='warning'], div[data-type='tip'], div[data-type='caution'], div[data-type='important']
+        {
+            text-indent: 0;
+
+            h1, h2, h3, h4, h5, h6
+            {      
+                font-size: 110%;
+            }
+        }
+
+        aside[data-type="sidebar"]
+        {
+            font-size: smaller;
+        }
+
+        div[data-type="equation"]
+        {
+            font-family: @serif-font;
+
+            h1, h2, h3, h4, h5, h6
+            {      
+                font-family: @sans-font;
+            }
+        }    
+        
+        pre
+        {
+            font-family: @mono-font;
+            font-size: smaller;
+        }  
+
+        table
+        {
+            line-height: 1.2;
+            
+            caption
+            {
+                font-size: smaller;
+                font-weight: bold;              
+            }
+
+            th, td
+            {
+                font-size: 80%;
+            }
+
+            thead, th
+            {
+                font-weight: bold;
+            }
+
+            tbody tr
+            {
+                td
+                {
+                    vertical-align: top;
+                }
+            }
+        }
+
+        figure 
+        {
+            figcaption
+            {
+                font-size: smaller;
+                font-weight: bold;
+            }        
+        }
+
+        ul
+        {
+            > li 
+            {
+                list-style-type: "‣ ";
+            }
+        }
+
+        ol {            
+            > li 
+            {
+                list-style-type: decimal;                
+            }
+        }
+      
+        dl
+        {
+            dt
+            {
+                font-family: @sans-font;
+                font-weight: bold;
+            }
+        }
+
+        blockquote
+        {
+            p[data-type="attribution"]
+            {
+                font-style: italic;
+                font-size: 80%;
+                text-align: right;
+            }
+        }
+
+        ul.checklist
+        {
+            > li 
+            {
+                list-style-type: none;
+            }
+
+            > li.checked:before
+            {
+                content: "☑";
+            }
+
+            > li.unchecked:before
+            {
+                content: "☐";
+            }
+        }
+        
+        a
+        {
+          text-decoration: none;
+        }
+
+        section[data-type="titlepage"]
+        {
+            h1 
+            {
+                text-align: center;
+            }
+
+            p[data-type="subtitle"] 
+            {
+                text-align: center;
+                font-size: 160%;
+            }
+            
+            p[data-type="author"] 
+            {
+                text-align: center;
+                font-style: italic;
+                font-size: 140%;
+            }  
+        }
+
+        section[data-type="halftitlepage"] 
+        {
+            h1 
+            {
+                font-weight: bold;
+                text-align: center;
+                font-size: 200%;
+            }
+        }        
+    }
+}

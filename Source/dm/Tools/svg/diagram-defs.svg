@@ -1,0 +1,12 @@
+<defs xmlns="http://www.w3.org/2000/svg">
+
+    <marker id="arrow" refX="9" refY="5" markerWidth="8" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" />
+    </marker>
+
+    <filter id="shadow">
+      <!-- <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" /> -->
+      <!-- <feBlend in="SourceGraphic" in2="offOut" mode="normal" /> -->
+    </filter>
+
+</defs>

@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+<document>
+  <paragraph style="Title">
+    <run>HTMLBook Document</run>
+  </paragraph>
+  <paragraph style="Subtitle">
+    <run>A complete example</run>
+  </paragraph>
+  <paragraph>
+    <run style="Subtle Emphasis">Matthias Hölzer-Klüpfel</run>
+  </paragraph>
+  <break class="page"/>
+  <paragraph>
+    <run>This book is dedicated to anyone.</run>
+  </paragraph>
+  <break class="page"/>
+  <heading level="1">Foreword</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <paragraph>
+    <run>Jane Doe</run>
+  </paragraph>
+  <break class="page"/>
+  <heading level="1">Preface</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <paragraph>
+    <run>Matthias Hölzer-Klüpfel</run>
+  </paragraph>
+  <break class="page"/>
+  <heading level="1">Introduction</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <break class="page"/>
+  <heading level="1">Overview</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <heading level="2">About Formatting</heading>
+  <paragraph>
+    <run>This text is</run>
+    <style class="i">
+      <run>emphasized</run>
+    </style>
+    <run>.</run>
+  </paragraph>
+  <paragraph>
+    <run>This text is</run>
+    <style class="b">
+      <run>strong</run>
+    </style>
+    <run>.</run>
+  </paragraph>
+  <paragraph>
+    <run>This text is</run>
+    <style class="code">
+      <run>literal</run>
+    </style>
+    <run>.</run>
+  </paragraph>
+  <paragraph>
+    <run>This text is</run>
+    <style class="sup">
+      <run>supscript</run>
+    </style>
+    <run>.</run>
+  </paragraph>
+  <paragraph>
+    <run>This text is</run>
+    <style class="sub">
+      <run>subscript</run>
+    </style>
+    <run>.</run>
+  </paragraph>
+  <paragraph>
+    <run>This text is</run>
+    <style class="ul">
+      <run>underlined</run>
+    </style>
+    <run>.</run>
+  </paragraph>
+  <paragraph>
+    <run>This text is</run>
+    <run>overlined</run>
+    <run>.</run>
+  </paragraph>
+  <paragraph>
+    <run>This text is</run>
+    <style class="strike">
+      <run>lined-through</run>
+    </style>
+    <run>.</run>
+  </paragraph>
+  <heading level="2">About Lists</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet:</run>
+  </paragraph>
+  <paragraph style="List Number">
+    <run>One</run>
+  </paragraph>
+  <paragraph style="List Number">
+    <run>Two</run>
+  </paragraph>
+  <paragraph style="List Number">
+    <run>Three</run>
+  </paragraph>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet:</run>
+  </paragraph>
+  <paragraph style="List Bullet">
+    <run>One</run>
+  </paragraph>
+  <paragraph style="List Bullet">
+    <run>Two</run>
+  </paragraph>
+  <paragraph style="List Bullet">
+    <run>Three</run>
+  </paragraph>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet:</run>
+  </paragraph>
+  <paragraph style="List Number">
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</run>
+  </paragraph>
+  <paragraph style="List Number">
+    <run>Two</run>
+  </paragraph>
+  <paragraph style="List Bullet 2">
+    <run>One</run>
+  </paragraph>
+  <paragraph style="List Bullet 2">
+    <run>Two</run>
+  </paragraph>
+  <paragraph style="List Bullet 2">
+    <run>Three</run>
+  </paragraph>
+  <paragraph style="List Number">
+    <run>Three</run>
+  </paragraph>
+  <paragraph style="List Number 2">
+    <run>One</run>
+  </paragraph>
+  <paragraph style="List Number 2">
+    <run>Two</run>
+  </paragraph>
+  <paragraph style="List Number 2">
+    <run>Three</run>
+  </paragraph>
+  <paragraph style="List Bullet 2">
+    <run>One</run>
+  </paragraph>
+  <paragraph style="List Bullet 2">
+    <run>Two</run>
+  </paragraph>
+  <paragraph style="List Bullet 2">
+    <run>Three</run>
+  </paragraph>
+  <heading level="2">About Tables</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet:</run>
+  </paragraph>
+  <paragraph style="Caption">
+    <run>State capitals</run>
+  </paragraph>
+  <table>
+    <tr>
+                        <th>State</th>
+                        <th>Capital</th>
+                    </tr>
+    <tr>
+                        <td>Massachusetts</td>
+                        <td>Boston</td>
+                    </tr>
+  </table>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <table>
+    <tr>
+                            <th>First</th>
+                            <th>Middle Initial</th>
+                            <th>Last</th>
+                        </tr>
+    <tr>
+                            <td>Alfred</td>
+                            <td>E.</td>
+                            <td>Newman</td>
+                        </tr>
+  </table>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <heading level="2">About Figures</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet:</run>
+  </paragraph>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <run>An atom</run>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <heading level="2">About Definition Lists</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet:</run>
+  </paragraph>
+  <run>Term one</run>
+  <run>Definition one</run>
+  <run>Term two</run>
+  <run>Definition two</run>
+  <run>Some code</run>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <heading level="2">About Equations</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet:</run>
+  </paragraph>
+  <run>Pythagorean Theorem</run>
+  <run>a</run>
+  <run>2</run>
+  <run>+</run>
+  <run>b</run>
+  <run>2</run>
+  <run>=</run>
+  <run>c</run>
+  <run>2</run>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <heading level="2">About Quotes</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet:</run>
+  </paragraph>
+  <paragraph>
+    <run>When in the course of human events...</run>
+  </paragraph>
+  <paragraph>
+    <run>U.S. Declaration of Independence</run>
+  </paragraph>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <heading level="2">About Sidebars</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet:</run>
+  </paragraph>
+  <run>Amusing Digression</run>
+  <paragraph>
+    <run>Did you know that in Boston, they call it</run>
+    <run>soda</run>
+    <run>, and in Chicago, they call it</run>
+    <run>pop</run>
+    <run>?</run>
+  </paragraph>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <heading level="2">About Admonitions</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet:</run>
+  </paragraph>
+  <run>Helpful Info</run>
+  <paragraph>
+    <run>Please take note of this</run>
+    <style class="i">
+      <run>important information</run>
+    </style>
+    <run>!</run>
+  </paragraph>
+  <run>Helpful Info</run>
+  <paragraph>
+    <run>Please take note of this</run>
+    <style class="i">
+      <run>important information</run>
+    </style>
+    <run>!</run>
+  </paragraph>
+  <run>Helpful Info</run>
+  <paragraph>
+    <run>Please take note of this</run>
+    <style class="i">
+      <run>important information</run>
+    </style>
+    <run>!</run>
+  </paragraph>
+  <run>Helpful Info</run>
+  <paragraph>
+    <run>Please take note of this</run>
+    <style class="i">
+      <run>important information</run>
+    </style>
+    <run>!</run>
+  </paragraph>
+  <run>Helpful Info</run>
+  <paragraph>
+    <run>Please take note of this</run>
+    <style class="i">
+      <run>important information</run>
+    </style>
+    <run>!</run>
+  </paragraph>
+  <run>Make sure to get your AsciiDoc markup right!</run>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <heading level="2">About Programming</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <run>Python Example</run>
+  <run># Program to check if a number is prime or not num = 407 # To take input from the user #num = int(input("Enter a number: ")) # prime numbers are greater than 1 if num &gt; 1: # check for factors for i in range(2,num): if (num % i) == 0: print(num,"is not a prime number") print(i,"times",num//i,"is",num) break else: print(num,"is a prime number") # if input number is less than # or equal to 1, it is not prime else: print(num,"is not a prime number"))</run>
+  <paragraph>
+    <run>A standalone example:</run>
+  </paragraph>
+  <run>void main(int argc, char **argv) {}</run>
+  <run>First Appendix</run>
+  <heading level="2">Section</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <run>Second Appendix</run>
+  <heading level="2">Section</heading>
+  <paragraph>
+    <run>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</run>
+  </paragraph>
+  <heading level="1">Acknowledgments</heading>
+  <paragraph>
+    <run>Acknowledgments content</run>
+  </paragraph>
+  <break class="page"/>
+  <heading level="1">Glossary</heading>
+  <run>jQuery</run>
+  <run>Widely used JavaScript library</run>
+  <break class="page"/>
+  <heading level="1">Bibliography</heading>
+  <paragraph>
+    <run>Bibliography content</run>
+  </paragraph>
+  <heading level="2">Standards</heading>
+  <break class="page"/>
+</document>

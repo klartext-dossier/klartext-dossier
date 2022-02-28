@@ -1,0 +1,566 @@
+@page {
+  size: 32cm 24cm;
+  margin: 0.25cm 0.5cm 1cm 0.5cm;
+  @bottom-right {
+    content: counter(page) "/" counter(pages);
+    color: darkgray;
+    font-family: Roboto, LiberationSans, sans-serif;
+  }
+}
+@page section-page {
+  size: 32cm 24cm;
+  margin: 0;
+  @bottom-right {
+    content: "";
+  }
+}
+@page objective-page {
+  size: 32cm 24cm;
+  margin: 0;
+  @bottom-right {
+    content: "";
+  }
+  background: url(image-objectives-background.png) no-repeat center center fixed;
+  background-size: cover;
+}
+body {
+  font-family: Roboto, LiberationSans, sans-serif;
+}
+a {
+  color: #000000;
+  text-decoration: none;
+}
+h3 {
+  font-family: Roboto, Cabin, sans-serif;
+  color: #C74D1F;
+}
+section.presentation {
+  margin: 0;
+  page: section-page;
+  page-break-after: always;
+}
+section.presentation h3 {
+  position: absolute;
+  top: 0.5cm;
+  left: 1.5cm;
+  width: 29cm;
+  font-size: 64pt;
+  bookmark-level: 1;
+}
+section.presentation h3.subtitle {
+  position: absolute;
+  top: 4.5cm;
+  left: 1.6cm;
+  width: 29cm;
+  font-size: 32pt;
+  bookmark-level: none;
+  color: #777777;
+  font-weight: normal;
+}
+section.presentation img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 15cm;
+}
+section.presentation ul {
+  position: absolute;
+  top: 10cm;
+  left: 0.5cm;
+}
+section.presentation ul li {
+  list-style-type: none;
+  font-size: 24pt;
+  margin-left: 0;
+}
+section.presentation ul li a {
+  color: #777777;
+}
+section.presentation p.author {
+  position: absolute;
+  left: 1.6cm;
+  top: 21.5cm;
+  font-size: 24pt;
+  font-family: Kalam;
+  color: #90C13E;
+}
+section.section {
+  margin: 0;
+  page: section-page;
+  page-break-after: always;
+}
+section.section h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 31cm;
+  font-size: 48pt;
+  border-bottom: 2px solid #C74D1F;
+  margin: 0.25cm 0.5cm 1cm 0.5cm;
+  bookmark-level: 1;
+}
+section.section img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 32cm;
+}
+section.table {
+  margin: 0;
+  page-break-after: always;
+}
+section.table h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 31cm;
+  font-size: 48pt;
+  border-bottom: 2px solid #C74D1F;
+  margin: 0;
+  bookmark-level: 2;
+}
+section.table table {
+  position: absolute;
+  top: 4.5cm;
+  left: 0;
+  width: 31cm;
+  font-size: 24pt;
+  border-collapse: collapse;
+}
+section.table table th {
+  background-color: #C74D1F;
+  color: white;
+  font-weight: bold;
+}
+section.table table th,
+section.table table td {
+  padding-right: 1em;
+  padding-left: 1ex;
+  padding-top: 1ex;
+  padding-bottom: 1ex;
+  vertical-align: top;
+  border: 2pt white solid;
+}
+section.table table tr:nth-child(2n) {
+  background-color: rgba(199, 77, 31, 0.4);
+}
+section.table table tr:nth-child(2n+1) {
+  background-color: rgba(199, 77, 31, 0.2);
+}
+section.objectives {
+  margin: 0;
+  page: objective-page;
+  font-family: Kalam, serif;
+  font-weight: 300;
+  line-height: 200%;
+  page-break-after: always;
+}
+section.objectives h3 {
+  position: absolute;
+  top: 0;
+  width: 31cm;
+  text-align: center;
+  font-size: 48pt;
+  margin: 1ex 0 0 0;
+  bookmark-level: 2;
+  color: #FFC000;
+  font-family: Kalam, serif;
+}
+section.objectives table {
+  position: absolute;
+  top: 4.5cm;
+  left: 0;
+  width: 31cm;
+  margin-left: 5mm;
+  font-size: 24pt;
+  color: white;
+  border: none;
+}
+section.objectives table th,
+section.objectives table td {
+  padding-right: 1em;
+  padding-left: 1ex;
+  padding-top: 1ex;
+  padding-bottom: 1ex;
+  vertical-align: top;
+}
+section.objectives table tr td:first-child {
+  width: 20%;
+}
+section.activities {
+  margin: 0;
+  page-break-after: always;
+}
+section.activities h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 31cm;
+  font-size: 48pt;
+  border-bottom: 2px solid #C74D1F;
+  margin: 0;
+  bookmark-level: 2;
+}
+section.activities table {
+  position: absolute;
+  top: 4.5cm;
+  left: 0.5cm;
+  width: 30cm;
+  margin-left: 0;
+  font-size: 22pt;
+  border: none;
+  border-spacing: 4px;
+}
+section.activities table th {
+  display: none;
+}
+section.activities table td {
+  padding-right: 1ex;
+  padding-left: 1ex;
+  padding-top: 0.2ex;
+  padding-bottom: 0.2ex;
+  vertical-align: middle;
+  border: 0;
+}
+section.activities table td.abc {
+  background-color: #d2f8d2;
+}
+section.activities table td.abc + td {
+  background-color: lightgreen;
+}
+section.activities table td.bc {
+  background-color: #ffd34d;
+}
+section.activities table td.bc + td {
+  background-color: #FFC000;
+}
+section.activities table td.c {
+  background-color: #e4784f;
+}
+section.activities table td.c + td {
+  background-color: #C74D1F;
+}
+section.activities table tr td:first-child {
+  width: 95%;
+}
+section.activities table tr td:last-child {
+  text-align: right;
+}
+section.image {
+  margin: 0;
+  page-break-after: always;
+}
+section.image h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 31cm;
+  font-size: 48pt;
+  border-bottom: 2px solid #C74D1F;
+  margin: 0;
+  bookmark-level: 2;
+}
+section.image img {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 30cm;
+  max-height: 20cm;
+  display: block;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+section.image img.bordered {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+}
+section.image p {
+  position: absolute;
+  top: 21.5cm;
+  left: 1.5cm;
+  width: 29.5cm;
+  font-size: 12pt;
+  line-height: 125%;
+  text-align: right;
+  color: #777777;
+}
+section.diagram {
+  margin: 0;
+  page-break-after: always;
+}
+section.diagram h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 31cm;
+  font-size: 48pt;
+  border-bottom: 2px solid #C74D1F;
+  margin: 0;
+  bookmark-level: 2;
+}
+section.diagram div.diagram {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28cm;
+  height: 18cm;
+  display: block;
+  margin: auto;
+}
+section.diagram div.diagram div.ssc {
+  position: absolute;
+  font-size: 24pt;
+}
+section.diagram div.diagram div.ssc p {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  white-space: nowrap;
+}
+section.diagram div.diagram div.sscmark {
+  position: absolute;
+  font-size: 96pt;
+  border-radius: 10px;
+}
+section.diagram div.diagram div.sscmark p {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  white-space: nowrap;
+}
+section.diagram div.diagram div.ssc.A {
+  background-color: #bcf5bc;
+}
+section.diagram div.diagram div.ssc.B {
+  background-color: #ffd34d;
+}
+section.diagram div.diagram div.ssc.C {
+  background-color: #e4784f;
+}
+section.diagram div.diagram div.sscmark.A {
+  background-color: lightgreen;
+}
+section.diagram div.diagram div.sscmark.B {
+  background-color: #FFC000;
+}
+section.diagram div.diagram div.sscmark.C {
+  background-color: #C74D1F;
+}
+section.diagram div.diagram div.block {
+  position: absolute;
+  font-size: 16pt;
+}
+section.diagram div.diagram div.block p {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  white-space: nowrap;
+}
+section.diagram div.diagram div.block.small p {
+  font-size: 10pt;
+}
+section.diagram div.diagram div.process {
+  position: absolute;
+  font-size: 32pt;
+  background-color: #e78965;
+}
+section.diagram div.diagram div.process img {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: -0.25cm;
+}
+section.diagram div.diagram div.process p {
+  padding: 0 0 0 2.5em;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+section.diagram div.diagram hr.separator {
+  position: absolute;
+  border: 1px dashed black;
+  margin: 0;
+}
+section.diagram div.diagram .secondary {
+  background-color: #aaaaaa;
+  border: 2px solid #777777;
+}
+section.diagram div.diagram .primary {
+  background-color: #e78965;
+  border: 2px solid #C74D1F;
+}
+section.slide {
+  margin: 0;
+  page-break-after: always;
+}
+section.slide h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 31cm;
+  font-size: 48pt;
+  border-bottom: 2px solid #C74D1F;
+  margin: 0;
+  bookmark-level: 2;
+}
+section.slide div.text {
+  position: absolute;
+  top: 4.5cm;
+  left: 1.5cm;
+  width: 28cm;
+  font-size: 24pt;
+  line-height: 125%;
+}
+section.slide div.text pre {
+  font-size: 12pt;
+  line-height: 115%;
+  background-color: #fcfbe8;
+  padding: 1ex;
+}
+section.slide ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.25;
+}
+section.slide ul li {
+  padding-left: 1em;
+}
+section.slide ul ul {
+  font-size: 80%;
+  margin-bottom: 1ex;
+}
+section.slide li::marker {
+  content: "‣ ";
+  color: #C74D1F;
+}
+section.slide dl dt {
+  font-size: larger;
+  font-weight: bold;
+}
+section.slide dl dd {
+  padding-bottom: 1em;
+}
+section.contact {
+  margin: 0;
+  page: section-page;
+  page-break-after: always;
+}
+section.contact h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 31cm;
+  font-size: 48pt;
+  border-bottom: 2px solid #C74D1F;
+  margin: 0.25cm 0.5cm 1cm 0.5cm;
+  bookmark-level: 1;
+}
+section.contact div.text {
+  position: absolute;
+  top: 4.5cm;
+  left: 14cm;
+  width: 18cm;
+  font-size: 24pt;
+  line-height: 125%;
+  z-index: 1;
+  white-space: pre;
+}
+section.contact div.text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.25;
+}
+section.contact div.text ul li {
+  padding-left: 1em;
+  padding-bottom: 1em;
+}
+section.contact div.text ul ul {
+  font-size: 80%;
+  margin-bottom: 1ex;
+}
+section.contact div.text strong {
+  font-size: 110%;
+}
+section.contact div.text p {
+  margin: 1ex;
+}
+section.contact li::marker {
+  content: "‣ ";
+  color: #C74D1F;
+}
+section.contact img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 20cm;
+  z-index: 0;
+}
+section.summary {
+  margin: 0;
+  page: section-page;
+  page-break-after: always;
+}
+section.summary h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 31cm;
+  font-size: 48pt;
+  border-bottom: 2px solid #C74D1F;
+  margin: 0.25cm 0.5cm 1cm 0.5cm;
+  bookmark-level: 2;
+}
+section.summary div.text {
+  position: absolute;
+  top: 4.5cm;
+  left: 8cm;
+  width: 22cm;
+  font-size: 24pt;
+  line-height: 125%;
+}
+section.summary div.text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.25;
+}
+section.summary div.text ul li {
+  padding-left: 1em;
+  padding-bottom: 1em;
+}
+section.summary div.text ul ul {
+  font-size: 80%;
+  margin-bottom: 1ex;
+}
+section.summary div.text strong {
+  font-size: 110%;
+}
+section.summary li::marker {
+  content: "‣ ";
+  color: #C74D1F;
+}
+section.summary img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 20cm;
+}

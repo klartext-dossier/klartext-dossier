@@ -1,0 +1,19 @@
+<single><p xmlns="http://www.w3.org/1999/xhtml">Some Content</p>
+</single>
+<nocontent>
+    <tag>
+<p xmlns="http://www.w3.org/1999/xhtml">sada</p>
+    </tag>
+</nocontent>
+<one id="ID"><p xmlns="http://www.w3.org/1999/xhtml">content 1</p>
+    <two key="value" anotherkey="anothervalue" id="id"><p xmlns="http://www.w3.org/1999/xhtml">content 2</p>
+        <three><p xmlns="http://www.w3.org/1999/xhtml">content 3</p>
+        </three>
+    </two>
+</one>
+<onemore id="ID"><p xmlns="http://www.w3.org/1999/xhtml">content 1</p>
+    <twomore key="value" id="id"><p xmlns="http://www.w3.org/1999/xhtml">content 2</p>
+        <threemore><p xmlns="http://www.w3.org/1999/xhtml">content 3</p>
+        </threemore>
+    </twomore>
+</onemore>

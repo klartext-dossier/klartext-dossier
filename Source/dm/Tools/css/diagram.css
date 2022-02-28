@@ -1,0 +1,17 @@
+rect {
+    fill: none;
+    stroke: black;
+    stroke-width: 1px;
+}
+
+circle {
+    fill: none;
+    stroke: black;
+    stroke-width: 1px;
+}
+
+text {
+    stroke: black;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}

@@ -1,0 +1,998 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" media="print" href="../common/style-template.css"/></head><body data-type="book"><header id="pageHeader"><table><tr><td></td><td class="title">Software Development Plan<br/>(Template)</td><td>Doc.-Vers.<br/>1.0 (draft)</td></tr></table></header><section data-type="titlepage"><header><h1 id="idm45363414669096">Software Development Plan</h1><p data-type="subtitle">(Template)</p><p data-type="author">GTC Software Engineering</p></header></section><nav xmlns="http://www.w3.org/1999/xhtml" xmlns:xhtml="http://www.w3.org/1999/xhtml" data-type="toc"><h1 xmlns="http://www.w3.org/1999/xhtml" id="idm45363408518792">Contents</h1><table class="toc" width="100%"><tr class="chapter"><td width="10%"><a href="#idm45363408099448">1</a></td><td width="80%"><a href="#idm45363408099448">Introduction</a></td><td width="10%" class="second"><a href="#idm45363408099448"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363420117752">1.1</a></td><td width="80%"><a href="#idm45363420117752">Purpose</a></td><td width="10%" class="second"><a href="#idm45363420117752"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363409174744">1.2</a></td><td width="80%"><a href="#idm45363409174744">Scope</a></td><td width="10%" class="second"><a href="#idm45363409174744"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363426020104">1.3</a></td><td width="80%"><a href="#idm45363426020104">Typography</a></td><td width="10%" class="second"><a href="#idm45363426020104"/></td></tr><tr class="chapter"><td width="10%"><a href="#idm45363419475832">2</a></td><td width="80%"><a href="#idm45363419475832">Software Development Project</a></td><td width="10%" class="second"><a href="#idm45363419475832"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363424674552">2.1</a></td><td width="80%"><a href="#idm45363424674552">Project Description</a></td><td width="10%" class="second"><a href="#idm45363424674552"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363409185624">2.2</a></td><td width="80%"><a href="#idm45363409185624">Project Identification</a></td><td width="10%" class="second"><a href="#idm45363409185624"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363409563400">2.3</a></td><td width="80%"><a href="#idm45363409563400">Software to Develop</a></td><td width="10%" class="second"><a href="#idm45363409563400"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363409329400">2.4</a></td><td width="80%"><a href="#idm45363409329400">Software Classification</a></td><td width="10%" class="second"><a href="#idm45363409329400"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363409185176">2.5</a></td><td width="80%"><a href="#idm45363409185176">Coordination With Product Development</a></td><td width="10%" class="second"><a href="#idm45363409185176"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363409149304">2.6</a></td><td width="80%"><a href="#idm45363409149304">Roles and Responsibilities</a></td><td width="10%" class="second"><a href="#idm45363409149304"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363404177464">2.7</a></td><td width="80%"><a href="#idm45363404177464">Project/Release Planning</a></td><td width="10%" class="second"><a href="#idm45363404177464"/></td></tr><tr class="chapter"><td width="10%"><a href="#idm45363408500616">3</a></td><td width="80%"><a href="#idm45363408500616">Software Engineering Life Cycle Definition</a></td><td width="10%" class="second"><a href="#idm45363408500616"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363409198872">3.1</a></td><td width="80%"><a href="#idm45363409198872">Software Development Process</a></td><td width="10%" class="second"><a href="#idm45363409198872"/></td></tr><tr class="sect2"><td width="10%"><a href="#idm45363408599000">3.1.1</a></td><td width="80%"><a href="#idm45363408599000">Standard Operating Procedures</a></td><td width="10%" class="second"><a href="#idm45363408599000"/></td></tr><tr class="sect2"><td width="10%"><a href="#idm45363408531640">3.1.2</a></td><td width="80%"><a href="#idm45363408531640">Standards</a></td><td width="10%" class="second"><a href="#idm45363408531640"/></td></tr><tr class="sect2"><td width="10%"><a href="#idm45363419388360">3.1.3</a></td><td width="80%"><a href="#idm45363419388360">Software Engineering Life Cycle</a></td><td width="10%" class="second"><a href="#idm45363419388360"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363418745352">3.2</a></td><td width="80%"><a href="#idm45363418745352">Project Specific Tailoring</a></td><td width="10%" class="second"><a href="#idm45363418745352"/></td></tr><tr class="sect2"><td width="10%"><a href="#idm45363420334056">3.2.1</a></td><td width="80%"><a href="#idm45363420334056">Tailoring Criteria</a></td><td width="10%" class="second"><a href="#idm45363420334056"/></td></tr><tr class="sect2"><td width="10%"><a href="#idm45363409139672">3.2.2</a></td><td width="80%"><a href="#idm45363409139672">Tailoring Decisions</a></td><td width="10%" class="second"><a href="#idm45363409139672"/></td></tr><tr class="chapter"><td width="10%"><a href="#idm45363419442376">4</a></td><td width="80%"><a href="#idm45363419442376">Methods &amp; Tools</a></td><td width="10%" class="second"><a href="#idm45363419442376"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363418859304">4.1</a></td><td width="80%"><a href="#idm45363418859304">Common Software Defect Avoidance</a></td><td width="10%" class="second"><a href="#idm45363418859304"/></td></tr><tr class="sect2"><td width="10%"><a href="#idm45363420366600">4.1.1</a></td><td width="80%"><a href="#idm45363420366600">C++ Programming</a></td><td width="10%" class="second"><a href="#idm45363420366600"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363416697368">4.2</a></td><td width="80%"><a href="#idm45363416697368">Software Requirements Analysis</a></td><td width="10%" class="second"><a href="#idm45363416697368"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363408771288">4.3</a></td><td width="80%"><a href="#idm45363408771288">Software Architectural Design</a></td><td width="10%" class="second"><a href="#idm45363408771288"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363419432360">4.4</a></td><td width="80%"><a href="#idm45363419432360">Software Detailed Design</a></td><td width="10%" class="second"><a href="#idm45363419432360"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363419655592">4.5</a></td><td width="80%"><a href="#idm45363419655592">Software Unit Implementation</a></td><td width="10%" class="second"><a href="#idm45363419655592"/></td></tr><tr class="sect2"><td width="10%"><a href="#idm45363408773944">4.5.1</a></td><td width="80%"><a href="#idm45363408773944">C++ Programming</a></td><td width="10%" class="second"><a href="#idm45363408773944"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363420532088">4.6</a></td><td width="80%"><a href="#idm45363420532088">Software Unit Verification</a></td><td width="10%" class="second"><a href="#idm45363420532088"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363409365752">4.7</a></td><td width="80%"><a href="#idm45363409365752">Software Integration</a></td><td width="10%" class="second"><a href="#idm45363409365752"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363408725400">4.8</a></td><td width="80%"><a href="#idm45363408725400">Software Integration Testing</a></td><td width="10%" class="second"><a href="#idm45363408725400"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363408760936">4.9</a></td><td width="80%"><a href="#idm45363408760936">Software Design Verification</a></td><td width="10%" class="second"><a href="#idm45363408760936"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363408778360">4.10</a></td><td width="80%"><a href="#idm45363408778360">Software Release</a></td><td width="10%" class="second"><a href="#idm45363408778360"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363419460472">4.11</a></td><td width="80%"><a href="#idm45363419460472">Software Risk Management</a></td><td width="10%" class="second"><a href="#idm45363419460472"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363419444696">4.12</a></td><td width="80%"><a href="#idm45363419444696">Software Configuration Management</a></td><td width="10%" class="second"><a href="#idm45363419444696"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363408866008">4.13</a></td><td width="80%"><a href="#idm45363408866008">Software Problem Resolution</a></td><td width="10%" class="second"><a href="#idm45363408866008"/></td></tr><tr class="chapter"><td width="10%"><a href="#idm45363420424856">5</a></td><td width="80%"><a href="#idm45363420424856">Software Development Environment</a></td><td width="10%" class="second"><a href="#idm45363420424856"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363420563720">5.1</a></td><td width="80%"><a href="#idm45363420563720">Software Development Tools</a></td><td width="10%" class="second"><a href="#idm45363420563720"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363419430120">5.2</a></td><td width="80%"><a href="#idm45363419430120">Controls for the Software Development Environment</a></td><td width="10%" class="second"><a href="#idm45363419430120"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363416071240">5.3</a></td><td width="80%"><a href="#idm45363416071240">Tool Validation</a></td><td width="10%" class="second"><a href="#idm45363416071240"/></td></tr><tr class="chapter"><td width="10%"><a href="#idm45363416069944">6</a></td><td width="80%"><a href="#idm45363416069944">Software Documentation</a></td><td width="10%" class="second"><a href="#idm45363416069944"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363419685560">6.1</a></td><td width="80%"><a href="#idm45363419685560">Required by Milestone SW-MS2</a></td><td width="10%" class="second"><a href="#idm45363419685560"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363409336824">6.2</a></td><td width="80%"><a href="#idm45363409336824">Required by Milestone SW-MS2.1</a></td><td width="10%" class="second"><a href="#idm45363409336824"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363419691576">6.3</a></td><td width="80%"><a href="#idm45363419691576">Required by Milestone SW-MS3</a></td><td width="10%" class="second"><a href="#idm45363419691576"/></td></tr><tr class="chapter"><td width="10%"><a href="#idm45363420050936">7</a></td><td width="80%"><a href="#idm45363420050936">Traceability</a></td><td width="10%" class="second"><a href="#idm45363420050936"/></td></tr><tr class="chapter"><td width="10%"><a href="#idm45363409300008">A</a></td><td width="80%"><a href="#idm45363409300008">Referenced Documents</a></td><td width="10%" class="second"><a href="#idm45363409300008"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363409299256">A.1</a></td><td width="80%"><a href="#idm45363409299256">Standards and Guidances</a></td><td width="10%" class="second"><a href="#idm45363409299256"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363420408600">A.2</a></td><td width="80%"><a href="#idm45363420408600">Quality Management System</a></td><td width="10%" class="second"><a href="#idm45363420408600"/></td></tr><tr class="sect1"><td width="10%"><a href="#idm45363416110552">A.3</a></td><td width="80%"><a href="#idm45363416110552">Guidelines and Best Practices</a></td><td width="10%" class="second"><a href="#idm45363416110552"/></td></tr><tr class="chapter"><td width="10%"><a href="#idm45363416120088">B</a></td><td width="80%"><a href="#idm45363416120088">Defined Terms</a></td><td width="10%" class="second"><a href="#idm45363416120088"/></td></tr><tr class="chapter"><td width="10%"><a href="#idm45363420014712">C</a></td><td width="80%"><a href="#idm45363420014712">Version History</a></td><td width="10%" class="second"><a href="#idm45363420014712"/></td></tr><tr class="chapter"><td width="10%"><a href="#idm45363409386920">D</a></td><td width="80%"><a href="#idm45363409386920">Approvals</a></td><td width="10%" class="second"><a href="#idm45363409386920"/></td></tr><tr class="chapter"><td width="10%"><a href="#idm45363419268552">E</a></td><td width="80%"><a href="#idm45363419268552">Template Version History (to be removed)</a></td><td width="10%" class="second"><a href="#idm45363419268552"/></td></tr></table></nav><section data-type="chapter"><h1 id="idm45363408099448">Introduction</h1><section data-type="sect1"><h1 id="idm45363420117752">Purpose</h1><purpose>
+        <p>Provides overall plan for conducting a software development effort. Describes <a href="#glossary-Process">processes</a> to be followed and determines <a href="#glossary-Method">methods</a> and <a href="#glossary-Tool">tools</a> to be used. Serves to communicate <a href="#glossary-Procedure">procedures</a> and goals to members of the development team.</p>
+    </purpose></section><section data-type="sect1"><h1 id="idm45363409174744">Scope</h1><scope>
+        <p>The scope of this <a href="#glossary-Guideline">guideline</a> is <a href="#glossary-Medical Device Software">medical device software</a>.</p> 
+    </scope></section><section data-type="sect1"><h1 id="idm45363426020104">Typography</h1><p>The following typograpic conventions are used throughout this document:</p><div data-type="warning"><h5 id="idm45363420131960">Warnings</h5><p>Warnings are displayed with a red background.</p></div><div data-type="note"><h5 id="idm45363422629944">Notes</h5><p>Notes are displayed with a yellow background.</p></div><div data-type="tip"><h5 id="idm45363419488744">Recommendations</h5><p>Recommendations are displayed with a green background.</p></div><div data-type="example"><h5 id="idm45363408081112">Examples</h5><p>Examples are displayed with a gray background.</p></div><blockquote class="template"><h5 id="idm45363412891528">Template Meta-Information</h5><p>Template meta-information, e.g. instructions how to use a template, are displayed with a blue margin line.</p><p>Make sure to remove these information when using the template!</p></blockquote></section></section>
+
+        <section data-type="chapter">
+            <h1 id="idm45363419475832">Software Development Project</h1>
+
+            <section data-type="sect1">
+                <h1 id="idm45363424674552">Project Description</h1>
+
+                <div class="template">
+                    <p>The goal of the project is to develop an <span class="template">updated firmware</span> for the Ultra Dialysis Machine to provide additional functionality.</p>
+                </div>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363409185624">Project Identification</h1>
+
+                <table width="100%">
+                    <tr>
+                        <th>Project Name</th>
+                        <td><span class="template">New UDM Firmware</span></td>
+                    </tr>
+                    <tr>
+                        <th>Project Number</th>
+                        <td><span class="template">P4711</span></td>
+                    </tr>
+                </table>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363409563400">Software to Develop</h1>
+
+                <table width="100%">
+                    <tr>
+                        <th>Software Title/Name</th>
+                        <td><span class="template">Ultra Dialysis Machine Firmware</span></td>
+                    </tr>
+                    <tr>
+                        <th>Software Manufacturer</th>
+                        <td><span class="template">Fresenius Medical Care Deutschland GmbH</span></td>
+                    </tr>                    
+                    <tr>
+                        <th>Software Version</th>
+                        <td><span class="template">47.1.1</span></td>
+                    </tr>
+                </table>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363409329400">Software Classification</h1>
+
+                <p>Based on the <a href="#external-input-product-risk-analysis">Product Risk Analysis</a>, the initial classification of the <a href="#glossary-Software">software</a> is as follows:</p>
+
+                <table width="100%">
+                    <tr>
+                        <th>Software Safety Class</th>
+                        <td><span class="template">C</span></td>
+                    </tr>
+                    <tr>
+                        <th>Software Level of Concern</th>
+                        <td><span class="template">Major</span></td>
+                    </tr>                    
+                </table>
+
+                <p>The detailed classification of the <a href="#glossary-Software">software</a> and the justification for the classification can be found in the <a href="#deliverable-medical-device-software-safety-classification">Medical Device Software Classification</a>.</p>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363409185176">Coordination With Product Development</h1>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-development-plan-coordination-with-product-development" name="Coordination With Product Development">
+			<items>
+				<ul>
+					<li>References to inputs for <a href="#glossary-Software">software</a> development from <a href="#glossary-Product">product</a> development (e.g. <a href="#glossary-Product Requirement">product requirements</a> or <a href="#glossary-Component Requirement">component requirements</a>, <a href="#glossary-Product">product</a> architecture, <a href="#glossary-Product">product</a> risk analysis).</li>
+					<li>References to procedures for coordinating <a href="#glossary-Software">software</a> development with <a href="#glossary-Product">product</a> development such as <a href="#glossary-Product">product</a> integration, <a href="#glossary-Verification">verification</a> and <a href="#glossary-Validation">validation</a>.</li>
+					<li>Alignment of major milestones between <a href="#glossary-Software">software</a> development and <a href="#glossary-Product">product</a> development.</li>
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+
+                <p>The software development is part of the development of a <a href="#glossary-Product">product</a>. The <a href="#glossary-Product">product</a> development project is performed according to <a href="#reference-cqms-sop-000163">CQMS-SOP-000163</a> (<a href="#reference-cqms-sop-000163">Process of Product Development</a>).</p>
+
+                <p>The following <a href="#glossary-Product">product</a> level documents are input into the software development:</p>
+
+                <table width="100%"><thead><tr><th width="50%">Document Class</th><th width="50%">Document Instance/s</th></tr></thead><tbody><tr><td id="external-application-specification">Application Specification</td><td><span class="template">Ultra Dialysis Machine Application Specification</span></td></tr><tr><td id="external-input-product-design-and-development-plan">Design and Development Plan</td><td><span class="template">Ultra Dialysis Machine Design and Development Plan</span></td></tr><tr><td id="external-input-product-architectural-design">Product Architectural Design</td><td><span class="template">Ultra Dialysis Machine Product Architectural Design</span></td></tr><tr><td id="external-input-product-risk-analysis">Product Risk Analysis</td><td><span class="template">Ultra Dialysis Machine Product Risk Analysis</span></td></tr><tr><td id="external-input-product-or-components-requirements">Product or Component Requirements</td><td><span class="template">Ultra Dialysis Machine Product or Component Requirements</span></td></tr><tr><td id="deliverable-threat-model">Threat Model</td><td><span class="template">Ultra Dialysis Machine Threat Model</span></td></tr></tbody></table>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363409149304">Roles and Responsibilities</h1>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-development-plan-roles-and-responsibilities" name="Roles and Responsibilities">
+			<items>
+				<ul>
+					<li>Reference to or definition of project-specific <a href="#glossary-Software">software</a> engineering <a href="#glossary-Role">roles</a>.</li>
+					<li>Assignment of responsible persons to <a href="#glossary-Software">software</a> engineering <a href="#glossary-Role">roles</a>.</li>
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+
+                <p>The roles defined for the software development are based on the common role definitions in <a href="#reference-role-definitions">PEC.MAQ/PEC.MID Role Definitions</a>.</p>
+
+                <p>The following table shows the roles and the assigned people for this project, as well as the responsibilities of each role:</p>
+
+                <table width="100%"><thead><tr><th width="30%">Role</th><th width="20%">Assignee/s</th><th width="50%">Responsibilities</th></tr></thead><tbody><tr><td>Design Quality Assurance</td><td><span class="template">J. Doe</span></td><td><ul><li>Justify Deviations From Acceptance Criteria</li></ul></td></tr><tr><td>Requirement Engineer</td><td><span class="template">J. Doe</span></td><td><ul><li>Define Initial Software Requirements</li><li>Trace Initial Software Requirements to Source</li><li>Verify Initial Software Requirements</li><li>Trace Initial Software Requirements to Software Architecture</li><li>Refine Software Requirements</li><li>Add Risk Control Measures to Software Requirements</li><li>Add Security Control Measures to Software Requirements</li><li>Trace Software Requirements to Source</li><li>Verify Software Requirements</li><li>Trace Software Requirements to Software Architecture</li><li>Ensure Traceability of Software Hazards</li></ul></td></tr><tr><td>Security Advisor</td><td><span class="template">J. Doe</span></td><td><ul><li>Review the Threat Model</li><li>Estimate and Evaluate the Security Risks</li><li>Define Security Risk Control Measures</li><li>Review and Update the Threat Model</li><li>Monitor Effectiveness of Risk Control Measures</li></ul></td></tr><tr><td>Software Architect</td><td><span class="template">J. Doe</span></td><td><ul><li>Define Coding Standards</li><li>Define Secure Design Best Practices</li><li>Define Software System Context</li><li>Define Software Items</li><li>Design Secure Software Architecture</li><li>Define Interactions of Software Items</li><li>Define Segregation</li><li>Verify Initial Software Architecture</li><li>Refine Software Architecture</li><li>Identify SOUP Items</li><li>Specify Requirements for SOUP Items</li><li>Specify Prerequisites for SOUP Items</li><li>Define Granularity of Software Unit</li><li>Verify Software Architecture</li><li>Document Threats</li><li>Ensure Security Capabilities Traceability</li></ul></td></tr><tr><td>Software Configuration Manager</td><td><span class="template">J. Doe</span></td><td><ul><li>Define Software Development Environment</li><li>Protect Software Development Environment</li><li>Define Software Integration Approach</li><li>Review Software Configuration Management Plan</li><li>Plan Software Configuration Management</li><li>Identify Software Configuration Items</li><li>Provide Cybersecurity Bill of Materials</li><li>Define Software Build Process</li><li>Integrate Software</li><li>Verify Software Integration</li><li>Provide Integrity Verification Mechanism</li><li>Create Release Candidate Build</li><li>Create Master Software Image</li><li>Document Software Build</li><li>Document Released Version</li><li>Document Released Configuration</li><li>Assure Reliable Delivery</li><li>Archive Software</li></ul></td></tr><tr><td>Software Engineer</td><td><span class="template">J. Doe</span></td><td><ul><li>Decompose Software Items Into Software Units</li><li>Develop Detailed Design of Software Unit</li><li>Develop Detailed Design of Interfaces</li><li>Verify Software Detailed Design</li><li>Implement Software Units</li><li>Perform Software Unit Verification</li><li>Verify Software Integration Test Protocols</li></ul></td></tr><tr><td>Software Risk Manager</td><td><span class="template">J. Doe</span></td><td><ul><li>Review Software Risk Management Plan</li><li>Plan Software Risk Management</li><li>Determine Initial Software Safety Class</li><li>Determine Software Level of Concern</li><li>Identify Contributing Software Items</li><li>Identify Potential Causes for Contribution</li><li>Define Risk Control Measures</li><li>Determine Software Safety Class</li><li>Evaluate Residual Anomalies</li></ul></td></tr><tr><td>Technical Project Leader Software</td><td><span class="template">J. Doe</span></td><td><ul><li>Define Software Engineering Life Cycle Model</li><li>Coordinate between Software Engineering and Product Development</li><li>Assign Software Engineering Roles and Responsibilities</li><li>Document the Level of Independence</li><li>Define Software Deliverables</li><li>Define Software Traceability Approach</li><li>Define Software Development Standards and Methods</li><li>Establish Software Unit Verification Approach</li><li>Plan Software Problem Resolution</li><li>Define Software Integration Test Approach</li><li>Plan Procedures for Avoiding Common Software Defects</li><li>Organize Project In Releases</li><li>Review Software Development Plan</li><li>Define Software Release Scope</li><li>Provide Release Candidate</li><li>Release Software for Utilization on Product Level</li><li>Plan Software Feedback Monitoring</li><li>Plan Timely Delivery of Security Updates</li><li>Plan Software Maintenance</li><li>Plan SOUP Maintenance</li><li>Monitor Feedback</li><li>Monitor Public Incident Reports</li><li>Evaluate Anomaly's Impact on Safety</li><li>Evaluate Impact of Changing the Software</li><li>Verify Security Updates</li><li>Approve Changing the Software</li><li>Resolve Anomaly</li><li>Communicate Software Change</li><li>Communicate Software Security Updates</li><li>Deliver Security Updates</li></ul></td></tr><tr><td>Verification Engineer</td><td><span class="template">J. Doe</span></td><td><ul><li>Specify Software Integration Tests</li><li>Specify Security Tests</li><li>Specify Threat Mitigation Tests</li><li>Specify Vulnerability Tests</li><li>Specify Penetration Tests</li><li>Perform Software Integration Test</li></ul></td></tr></tbody></table>
+
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363404177464">Project/Release Planning</h1>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-development-plan-release-plan" name="Release Plan">
+			<items>
+				<ul>
+					<li>Information on <a href="#glossary-Software">software</a> <a href="#glossary-Release">releases</a> planned in the course of the project.</li>
+					<li>Information on how features (or functionality) will be released and delivered.</li>
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-development-plan-release-scope" name="Release Scope">
+			<items>
+				<ul>
+					<li>Information on the scope for each <a href="#glossary-Software">software</a> <a href="#glossary-Release">release</a> (e.g. features or functionalities, bugfixes).</li>
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2.1</p>
+		</content></blockquote>
+            </section>
+            
+        </section>
+
+        <section data-type="chapter">
+            <h1 id="idm45363408500616">Software Engineering Life Cycle Definition</h1>
+
+            <section data-type="sect1">
+                <h1 id="idm45363409198872">Software Development Process</h1>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-development-plan-software-development-lifecycle" name="Software Engineering Life Cycle">
+			<items>
+				<ul>
+					<li>References to standard operating procedures to be taken into account when determining the <a href="#glossary-Software Engineering Life Cycle">Software Engineering Life Cycle</a>.</li>
+					<li>References to standards and norms to be taken into account when determining the <a href="#glossary-Software Engineering Life Cycle">Software Engineering Life Cycle</a>.</li>
+					<li>Reference to or definition of the <a href="#glossary-Software Engineering Life Cycle">Software Engineering Life Cycle Model</a> to be used.</li>
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+
+                <section data-type="sect2">
+                    <h2 id="idm45363408599000">Standard Operating Procedures</h2>
+                    
+                    <p>The following standard operating procedures are taken into account to define the software development <a href="#glossary-Process">process</a>:</p>
+
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <th width="30%">SOP</th>
+                                <th width="70%">Title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="#reference-cqms-sop-000174">CQMS-SOP-000174</a></td>
+                                <td><a href="#reference-cqms-sop-000174">Software Life Cycle Processes</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#reference-cqms-sop-000163">CQMS-SOP-000163</a></td>
+                                <td><a href="#reference-cqms-sop-000163">Process of Product Development</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#reference-cqms-sop-000160">CQMS-SOP-000160</a></td>
+                                <td><a href="#reference-cqms-sop-000160">Design and Development Planning</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#reference-cqms-sop-000189">CQMS-SOP-000189</a></td>
+                                <td><a href="#reference-cqms-sop-000189">Process of R&amp;D Risk Management</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#reference-cqms-sop-000164">CQMS-SOP-000164</a></td>
+                                <td><a href="#reference-cqms-sop-000164">Process of Design Change</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#reference-cqms-sop-000169">CQMS-SOP-000169</a></td>
+                                <td><a href="#reference-cqms-sop-000169">Pre-Production Defect Management</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+                <section data-type="sect2">
+                    <h2 id="idm45363408531640">Standards</h2>
+                    
+                    <p>The following standards are taken into account to define the software development <a href="#glossary-Process">process</a>:</p>
+
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <th width="30%">Standard</th>
+                                <th width="70%">Title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="#reference-iec-62304">IEC 62304:2015</a></td>
+                                <td><a href="#reference-iec-62304">Medical device software - Software life cycle processes</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#reference-iso-14971">ISO 14971:2019</a></td>
+                                <td><a href="#reference-iso-14971">Medical devices - Application of risk management to medical devices</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#reference-iec-tr-80002-1">IEC/TR 80002-1:2009</a></td>
+                                <td><a href="#reference-iec-tr-80002-1">Medical device software - Part 1: Guidance on the application of ISO 14971 to medical device software</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a></td>
+                                <td><a href="#reference-iec-81001-5-1">Health software and health IT systems safety, effectiveness and security - Part 5: Security - Part 5-1: Security - Activities in the product life cycle</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#reference-aami-tir-45">AAMI TIR45:2018</a></td>
+                                <td><a href="#reference-aami-tir-45">Guidance on the use of AGILE practices in the development of medical device software</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#reference-general-principles-software-validation">FDA GPSV:2002</a></td>
+                                <td><a href="#reference-general-principles-software-validation">General Principles of Software Validation</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#reference-ots-software-in-medical-devices">FDA OTS:2019</a></td>
+                                <td><a href="#reference-ots-software-in-medical-devices">Off-The-Shelf Software Use in Medical Devices</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#reference-software-contents-in-submission">FDA CONT:2005</a></td>
+                                <td><a href="#reference-software-contents-in-submission">Guidance for the Content of Premarket Submissions for Software Contained in Medical Devices</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section data-type="sect2">
+                    <h2 id="idm45363419388360">Software Engineering Life Cycle</h2>
+
+                    <p>The software engineering life cycle follows the model defined in the “<a href="#reference-selc-model">Software Engineering</a>”.</p>
+
+                    <p>The following figure provides a brief overview on the Software Engineering Life Cycle spanning across the product development <a href="#glossary-Phase">phases</a> <a href="#phase-project-planning">Planning of Project &amp; Design Inputs</a> and <a href="#phase-project-development">Design Development &amp; Verification</a> of the gPDP:</p>
+
+                    <img src="image-life-cycle-overview.png" alt="Software Engineering Life Cycle Overview" width="100%" class="bordered"/>
+
+                    <p>The Software Engineering Life Cycle distinguishes two layers in which software engineering <a href="#glossary-Activity">activities</a> are executed:</p>
+
+                    <ul>
+                        <li>Project layer: The project layer comprises the complete set of <a href="#glossary-Activity">activities</a> needed to deliver a finished software ready for being released for <a href="#phase-project-transfer">Design Transfer &amp; Validation</a>.</li>
+
+                        <li>Release layer: The release layer comprises <a href="#glossary-Activity">activities</a> to create a usable <a href="#glossary-Software">software</a>. A software development project is made up of one or more software releases. A software release might generate a <a href="#glossary-Software">software</a> that is or could be released to <a href="#phase-project-transfer">Design Transfer &amp; Validation</a>, or it might generate a completed, consistent set of functionalities intended only for internal use (e.g. for product integration and/or <a href="#glossary-Verification">verification</a> and validation).</li>
+                    </ul>
+
+                    <p>In addition to the execution layers, the <a href="#glossary-Software Engineering Life Cycle">Software Engineering Life Cycle</a> defines distinct work <a href="#glossary-Phase">phases</a> to produce the <a href="#glossary-Software">software</a> in a systematic manner:</p>   
+
+                    <ul>
+                        <li><a href="#phase-software-project-initiation">Development Project Initiation</a>: This <a href="#glossary-Phase">phase</a> is run through only once and comprises the planning of the software development and <a href="#glossary-Verification">verification</a> approach as well as the initial setup (e.g., <a href="#glossary-Software Development Environment">software development environment</a>, build process, or configuration management) for the software development project. The scope is outlined by an initial software requirements analysis and software architecture. In addition, the initial <a href="#glossary-Software Safety Class">software safety class</a> of the <a href="#glossary-Software System">software system</a> is determined.</li>
+
+                        <li>Software Release Development &amp; Verification: This <a href="#glossary-Phase">phase</a> comprises the development and <a href="#glossary-Verification">verification</a> of the software releases. For each software release, it splits up into the following sub-phases:
+
+                            <ul>
+                                <li><a href="#phase-software-release-development">Release Development</a>: Based on the scope of the software release, the software design is further refined and implemented which also includes the advancement of the documentation. The <a href="#glossary-Software">software</a> is continuously integrated and tested on each level of integration. Eventually, a <a href="#deliverable-release-candidate">Software Release Candidate</a> is created which is a stable software version that is considered complete, i.e. all features and functionalities planned for this software release have been designed, implemented and integration tested.</li>
+
+                                <li><a href="#phase-software-design-verification">Design Verification</a>: During this <a href="#glossary-Phase">phase</a>, design verification activities for the software release candidate are planned and executed formally, i.e. producing formal verification records. These <a href="#glossary-Activity">activities</a> typically rely on and use already existing tests prepared in previous <a href="#glossary-Phase">phases</a> but may also leverage older verification results. Note that meanwhile, the development of the next software release may start.</li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#phase-software-development-project-closure">Development Project Closure</a>: In this <a href="#glossary-Phase">phase</a>, the final software release (“production release”) is prepared. It is checked that all <a href="#glossary-Activity">activities</a> have been conducted and the documentation has been completed. The <a href="#glossary-Software">software</a> has passed all <a href="#glossary-Verification">verifications</a> and known <a href="#glossary-Residual Anomaly">residual anomalies</a> are evaluated and considered as acceptable. Handing over the final software release to phase <a href="#phase-project-transfer">Design Transfer &amp; Validation</a> includes the archiving of the <a href="#glossary-Software">software</a> as well as the creation of a <a href="#deliverable-master-software-image">Master Software Image</a>.</li>
+                    </ul>
+                </section>
+                
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363418745352">Project Specific Tailoring</h1>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-development-plan-process-tailoring" name="Process Tailoring">
+			<items>
+				<ul>
+					<li>Information on applicable tailoring criteria (e.g. <a href="#glossary-Software Safety Class">software safety class</a>, target market, embedded vs. stand-alone software, connected vs. unconnected devices).</li>
+					<li>Information on process adjustments, including rationale based on tailoring criteria.</li>
+					<li>Information on intentional process deviations, including rationale why these deviations are acceptable.</li>					
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+
+                <section data-type="sect2">
+                    <h2 id="idm45363420334056">Tailoring Criteria</h2>
+
+                    <p>The development <a href="#glossary-Process">process</a> is adjusted to meet the demands of the development project. The following criteria guide the adjustments:</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Criterion</th>
+                                <th>Characteristic</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Target Markets</td>
+                                <td><span class="template">EU, US, China</span></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#glossary-Software Safety Class">Software Safety Class</a></td>
+                                <td><span class="template">C</span></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#glossary-Level of Concern">Level of Concern</a></td>
+                                <td><span class="template">Major</span></td>
+                            </tr>
+                            <tr>
+                                <td>Embedded vs. Standalone Software</td>
+                                <td><span class="template">Embedded Software</span></td>
+                            </tr>
+                            <tr>
+                                <td>Connectivity</td>
+                                <td><span class="template">Device is not connected to any network</span></td>
+                            </tr>
+                        </tbody>
+                    </table>                    
+                </section>
+
+                <section data-type="sect2">
+                    <h2 id="idm45363409139672">Tailoring Decisions</h2>
+
+                    <p>Based on the criteria above, the following <a href="#glossary-Process">process</a> adjustments are done:</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Adjustment</th>
+                                <th>Justification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="template">No <a href="#glossary-Security">cybersecurity</a> <a href="#glossary-Activity">activities</a> are performed</span></td>
+                                <td><span class="template">The Ultra Dialysis Machine has no network connection, so no cybersecurity risks are possible.</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+            </section>
+
+        </section>
+
+        <section data-type="chapter">
+            <h1 id="idm45363419442376">Methods &amp; Tools</h1>
+
+            <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-development-plan-standards-and-methods" name="Development Standards and Methods">
+			<items>
+				<ul>
+					<li>Information on standards to be applied during software development (e.g. design guidelines, coding standards).</li>
+					<li>Information on <a href="#glossary-Method">methods</a> to be applied during software development (e.g. UML, continuous integration, static code analysis, unit testing)</li>					
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+
+            <p>The following sections contain more detailed information about how to conduct the <a href="#glossary-Activity">activities</a> of the software engineering <a href="#glossary-Process">processes</a>.</p>
+
+            <section data-type="sect1">
+                <h1 id="idm45363418859304">Common Software Defect Avoidance</h1>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-csda-common-causes" name="Common Software Causes">
+			<items>
+				<ul>
+					<li>Information on common software causes based on programming technologies.</li>
+				</ul>
+			</items>                     
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-csda-avoidance-strategy" name="Avoidance Strategy for Common Software Causes">
+			<items>
+				<p>For each identified common software cause:</p>
+				<ul>
+					<li><a href="#glossary-Strategy">Strategy</a> how to avoid the common software cause</li>
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-csda-verification-strategy" name="Verification Strategy for Avoidance of Common Software Causes">
+			<items>
+				<p>For each identified common software cause:</p>
+				<ul>
+					<li><a href="#glossary-Strategy">Strategy</a> used to verify that the avoidance strategy has been applied successfully</li>
+				</ul>
+			</items>                  
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+
+                <p>The following subsections describe the approach to avoid common <a href="#glossary-Software Defect">software defects</a> for each programming technology used in the project.</p>
+
+                <section data-type="sect2">
+                    <h2 id="idm45363420366600">C++ Programming</h2>
+
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <th width="30%">Common Cause</th>
+                                <th width="40%">Avoidance Strategy</th>
+                                <th width="30%">Verification Strategy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Division by zero</td>
+                                <td>Catch runtime exception</td>
+                                <td>Code Review</td>
+                            </tr><tr>
+                                <td>Uninitialized variable</td>
+                                <td>Initialize every variable at its declaration</td>
+                                <td>Static Code Analysis</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363416697368">Software Requirements Analysis</h1>
+
+                <!-- <blockquote cite=""/> -->
+                <p>TBD</p>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363408771288">Software Architectural Design</h1>
+
+                <table><tr><th>Guideline</th><td><a href="#reference-guideline-soup-usage">SOUP Usage</a></td></tr><tr><th>Methods</th><td><ul class="none"><li>SOUP Selection</li><li>SOUP Qualification</li><li>SOUP Integration</li><li>SOUP Monitoring</li></ul></td></tr></table>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363419432360">Software Detailed Design</h1>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-development-plan-secure-design-practices" name="Secure Design Best Practices">
+			<items>
+				<ul>
+					<li>Information on design best practices to be applied during <a href="#glossary-Software">software</a> development</li>
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+
+                <p>Software Detailed Design will make use of to the following:</p>
+
+                <table><tr><th>Guideline</th><td><a href="#reference-guideline-software-detailed-design">Software Detailed Design</a></td></tr><tr><th>Methods</th><td><ul class="none"><li>Model Driven Development</li><li>Test Driven Development</li><li>Code Centric Development</li></ul></td></tr></table>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363419655592">Software Unit Implementation</h1>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-csda-identify-technologies" name="Programming Technologies Used">
+			<items>
+				<ul>
+					<li>Information on programming technologies to be applied.</li>
+				</ul>
+			</items>             
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+
+                <p>The following sections contain information about the programming technologies being used in the project, and the <a href="#glossary-Coding Standard">coding standards</a> applied for each.</p>
+
+                <section data-type="sect2">
+                    <h2 id="idm45363408773944">C++ Programming</h2>
+
+                    <p>For software developed in C++, the following <a href="#glossary-Coding Standard">coding standards</a> will be applied:</p>
+
+                    <ul>
+                        <li><a href="#reference-cpp-2014">ISO/IEC 14882:2014</a> (<a href="#reference-cpp-2014">Programming languages - C++</a>)</li>
+                        <li><a href="#reference-misra-cpp">MISRA C++</a> (<a href="#reference-misra-cpp">Guidelines for the Use of the C++ Language in Critical Systems</a>)</li>
+                        <li><a href="#reference-autosar-cpp">AUTOSAR C++ 14 Guidelines</a> (<a href="#reference-autosar-cpp">Guidelines for the use of the C++14 language in critical and safety-related systems</a>)</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363420532088">Software Unit Verification</h1>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-development-plan-software-unit-verification-approach" name="Software Unit Verification Approach">
+			<items>
+				<ul>
+					<li>Information on <a href="#glossary-Strategy">strategies</a>, <a href="#glossary-Method">methods</a> and <a href="#glossary-Procedure">procedures</a> for verifying <a href="#glossary-Software Unit">software units</a></li>
+					<li>Information on acceptance criteria for <a href="#glossary-Software Unit">software units</a></li>
+					<li>Assignment of <a href="#glossary-Method">methods</a> to acceptance criteria to be verified</li>
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-unit-testing-define-coverage" name="Expected Unit Test Coverage">
+			<items>
+				<ul>
+					<li>Information on <a href="#glossary-Unit Test Coverage">unit test coverage</a> expected to be reached.</li>
+				</ul>
+			</items>                  
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-static-code-analysis-define-rules" name="Static Code Analysis Rules">
+			<items>
+				<ul>
+					<li>Information on rules for the <a href="#glossary-Static Code Analysis">static code analysis</a></li>
+				</ul>
+			</items>                  
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-static-model-analysis-define-rules" name="Static Model Analysis Rules">
+			<items>
+				<ul>
+					<li>Information on rules for the <a href="#glossary-Static Model Analysis">static model analysis</a></li>
+				</ul>
+			</items>                  
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-dynamic-code-analysis-define-rules" name="Dynamic Code Analysis Rules">
+			<items>
+				<ul>
+					<li>Information on rules for the <a href="#glossary-Dynamic Code Analysis">dynamic code analysis</a></li>
+				</ul>
+			</items>                  
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+
+                <p>Software Unit Verification will make use of to the following:</p>
+
+                <table><tr><th>Guideline</th><td><a href="#reference-guideline-software-unit-verification">Software Unit Verification</a></td></tr><tr><th>Methods</th><td><ul class="none"><li>Static Code Analysis</li><li>Dynamic Code Analysis</li><li>Code Review</li><li>Software Unit Testing</li></ul></td></tr></table>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363409365752">Software Integration</h1>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-integration-plan-software-integration-approach" name="Software Integration Plan">
+			<items>
+				<ul>
+					<li>Information on <a href="#glossary-Strategy">strategies</a>, <a href="#glossary-Method">methods</a> and <a href="#glossary-Procedure">procedures</a> for integrating <a href="#glossary-Software">software</a>.</li>
+					<li>Planning of integration of <a href="#glossary-Software Item">software items</a> (including <a href="#glossary-Software of Unknown Provenance">SOUP</a>) into <a href="#glossary-Software System">software systems</a>.</li>
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+
+                <p>Software Integration will make use of to the following:</p>
+
+                <table><tr><th>Guideline</th><td><a href="#reference-guideline-continuous-integration">Continuous Integration</a></td></tr><tr><th>Methods</th><td><ul class="none"><li>Build Automation</li><li>Containerization</li><li>Virtualization for Continuous Integration</li><li>Infrastructure as Code</li><li>Pipeline as Code</li><li>Artifact Management</li></ul></td></tr></table>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363408725400">Software Integration Testing</h1>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-test-plan-software-integration-test-planning" name="Software Integration Test Approach">
+			<items>
+				<ul>
+					<li>Information on <a href="#glossary-Strategy">strategies</a>, <a href="#glossary-Method">methods</a> and <a href="#glossary-Procedure">procedures</a> for software integration <a href="#glossary-Testing">testing</a>.</li>
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+			<p>Required by milestone: SW-MS2.1</p>
+		</content></blockquote>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363408760936">Software Design Verification</h1>
+
+                <p>Software Design Verification is done according to the Design Verification <a href="#glossary-Process">process</a> defined in the <a href="#reference-design-verification-life-cycle">Design Verification</a>.</p>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363408778360">Software Release</h1>
+
+                <!-- <blockquote cite=""/> -->
+                <p>TBD</p>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363419460472">Software Risk Management</h1>
+
+                <p>Software Risk Management will make use of to the following:</p>
+
+                <table><tr><th>Guideline</th><td><a href="#reference-guideline-software-risk-management">Software Risk Management</a></td></tr><tr><th>Methods</th><td><ul class="none"><li>Software Safety Classification</li><li>Common Software Defects Avoidance</li><li>Software Failure Mode and Effects Analysis</li><li>Software Fault Tree Analysis</li><li>Segregation of Software Items</li></ul></td></tr></table>          
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363419444696">Software Configuration Management</h1>
+
+                <p>Software Configuration Management will make use of to the following:</p>
+
+                <table><tr><th>Guideline</th><td><a href="#reference-guideline-software-configuration-management">Software Configuration Management</a></td></tr><tr><th>Methods</th><td><ul class="none"><li>Feature Branch</li><li>Release Branch</li><li>Production Branch</li><li>Pull Request</li><li>Trunk / Master Only Development Workflow</li></ul></td></tr><tr><th>Practices</th><td><ul class="none"><li><a href="#reference-practice-pull-requests-azure">Pull Requests with Azure</a></li></ul></td></tr></table>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363408866008">Software Problem Resolution</h1>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-problem-resolution-plan-software-problem-resolution-planning" name="Software Problem Resolution Approach">
+			<items>
+				<ul>
+					<li>Reference to the overall <a href="#reference-cqms-sop-000169">Pre-Production Defect Management</a>.</li>
+					<li>Information on <a href="#glossary-Software">software</a>-specific aspects to be considered</li>
+					<li>Information on handling issues that might occur during <a href="#glossary-Software">software</a> development but do not fall under <a href="#reference-cqms-sop-000169">Pre-Production Defect Management</a>.</li>
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+            </section>
+
+        </section>
+
+        <section data-type="chapter">
+            <h1 id="idm45363420424856">Software Development Environment</h1>
+
+            <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-development-plan-development-environment" name="Software Development Environment">
+			<items>
+				<ul>
+					<li>Information on <a href="#glossary-Tool">tools</a> to be used for software development.</li>
+					<li>Reference to or planning of <a href="#glossary-Tool">tool</a> <a href="#glossary-Validation">validation</a>.</li>
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+
+            <section data-type="sect1">
+                <h1 id="idm45363420563720">Software Development Tools</h1>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-static-code-analysis-select-tool" name="Selected Tools for Static Code Analysis">
+			<items>
+				<ul>
+					<li>Information on the <a href="#glossary-Tool">tools</a> to be used for <a href="#glossary-Static Code Analysis">static code analysis</a>.</li>
+				</ul>
+			</items>                  
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-static-model-analysis-select-tool" name="Selected Tools for Static Model Analysis">
+			<items>
+				<ul>
+					<li>Information on the <a href="#glossary-Tool">tools</a> to be used for <a href="#glossary-Static Model Analysis">static model analysis</a>.</li>
+				</ul>
+			</items>                  
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-dynamic-code-analysis-select-tool" name="Selected Tools for Dynamic Code Analysis">
+			<items>
+				<ul>
+					<li>Information on the <a href="#glossary-Tool">tools</a> to be used for <a href="#glossary-Dynamic Code Analysis">dynamic code analysis</a>.</li>
+				</ul>
+			</items>                  
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-model-driven-development-select-tool" name="Selected Tools for Implementation Model">
+			<items>
+				<ul>
+					<li>Information on the <a href="#glossary-Tool">tools</a> to be used for developing the implementation model.</li>
+				</ul>
+			</items>                  
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363419430120">Controls for the Software Development Environment</h1>
+
+                <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-development-plan-development-environment-controls" name="Software Development Environment Controls">
+			<items>
+				<ul>
+					<li>Information on controls for protecting the <a href="#glossary-Software Development Environment">software development environment</a> from unauthorized access, corruption and deletion.</li>
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+            </section>
+
+            <section data-type="sect1">
+                <h1 id="idm45363416071240">Tool Validation</h1>
+
+            </section>
+
+        </section>
+
+        <section data-type="chapter">
+            <h1 id="idm45363416069944">Software Documentation</h1>
+
+            <section data-type="sect1"><h1 id="idm45363419685560">Required by Milestone SW-MS2</h1><table id="deliverable-cbom" class="activity"><tr><td colspan="2"><div class="name">Cybersecurity Bill of Materials</div></td></tr><tr><td>
+            <p>A list that includes but is not limited to commercial, open source, and <a href="#glossary-Software of Unknown Provenance">off-the-shelf software</a> components that are or could become susceptible to <a href="#glossary-Vulnerability">vulnerabilities</a>.</p>
+        <p>Content required at milestone:</p><ul><li>Component List</li></ul></td><td><div class="tag">Document Instance/s</div><div class="template">Ultra Dialysis Machine Cybersecurity Bill of Materials</div><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-list-of-software-deliverables" class="activity"><tr><td colspan="2"><div class="name">List of Software Deliverables</div></td></tr><tr><td>
+            <p>Provides all <a href="#glossary-Deliverable">deliverables</a> that will be created during software engineering, together with the <a href="#glossary-Milestone">milestones</a> at which each <a href="#glossary-Deliverable">deliverable</a> is required.</p>
+        <p>Content required at milestone:</p><ul><li>List of Software Deliverables</li><li>Approval Matrix</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine List of Software Deliverables</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-medical-device-software-safety-classification" class="activity"><tr><td colspan="2"><div class="name">Medical Device Software Classification</div></td></tr><tr><td>
+			Provides the <a href="#glossary-Software Safety Class">software safety classes</a> for the <a href="#glossary-Software System">software systems</a> of the <a href="#glossary-Medical Device">medical device</a>. For US-marketed <a href="#glossary-Medical Device">medical devices</a>, the <a href="#glossary-Level of Concern">level of concern</a> is also provided.
+		<p>Content required at milestone:</p><ul><li>Software System Safety Classification</li><li>Software Item Safety Classification</li><li>Software System Level of Concern</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Medical Device Software Classification</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-soup-documentation" class="activity"><tr><td colspan="2"><div class="name">SOUP Documentation</div></td></tr><tr><td>
+			<p>Provides information about <a href="#glossary-Software of Unknown Provenance">SOUP</a> selection, qualification, integration, and monitoring.</p> 
+		<p>Content required at milestone:</p><ul><li>Basic Documentation - SOUP Identification</li><li>Basic Documentation - Computer System Specification</li><li>Basic Documentation - SOUP Requirements</li><li>Level of Concern / Software Safety Class of SOUP</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine SOUP Documentation</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-soup-selection" class="activity"><tr><td colspan="2"><div class="name">SOUP Selection Documentation</div></td></tr><tr><td>
+			<p>Collects the documentation created to select a <a href="#glossary-Software of Unknown Provenance">SOUP</a> item.</p>
+		<p>Content required at milestone:</p><ul><li>SOUP Selection Criteria</li><li>SOUP Evaluation</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine SOUP Selection Documentation</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-architecture-specification" class="activity"><tr><td colspan="2"><div class="name">Software Architecture Specification</div></td></tr><tr><td>
+            <p>Provides structural items of the <a href="#glossary-Software System">software system</a> and identifies their key responsibilities, their externally visible properties, and the relationship among them. This also includes relationships to hardware and to data flows such as networking.</p>
+        <p>Content required at milestone:</p><ul><li>Software System Context</li><li>Software Structure</li><li>Software Behavior</li><li>Security Concept</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Architecture Specification</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-coding-standards" class="activity"><tr><td colspan="2"><div class="name">Software Coding Standards</div></td></tr><tr><td>
+            <p>Provides standards for specific programming language regarding recommended programming style, practices, and methods for each aspect of a program written in that language.</p>
+		<p>Content required at milestone:</p><ul><li>Coding Standards</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Coding Standards</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-configuration-management-plan" class="activity"><tr><td colspan="2"><div class="name">Software Configuration Management Plan</div></td></tr><tr><td>
+            <p>Provides the plan for conducting the <a href="#glossary-Activity">activities</a> and <a href="#glossary-Task">tasks</a> of the <a href="#processgroup-software-configuration-management">Software Configuration Management</a> <a href="#glossary-Process">process</a>. Determines items to be controlled and when they are to be placed under configuration control.</p> 
+		<p>Content required at milestone:</p><ul><li>Software Configuration Management Process</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Configuration Management Plan</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-configuration-list-configuration-status-report" class="activity"><tr><td colspan="2"><div class="name">Software Configuration Status Report</div></td></tr><tr><td>
+            <p>Provides <a href="#glossary-Configuration Item">configuration items</a> of a particular <a href="#glossary-Software">software</a> configuration, including their versions.</p>
+        <p>Content required at milestone:</p><ul><li>Configuration Identification</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Configuration Status Report</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-development-plan" class="activity"><tr><td colspan="2"><div class="name">Software Development Plan</div></td></tr><tr><td>
+			<p>Provides overall plan for conducting a software development effort. Describes <a href="#glossary-Process">processes</a> to be followed and determines <a href="#glossary-Method">methods</a> and <a href="#glossary-Tool">tools</a> to be used. Serves to communicate <a href="#glossary-Procedure">procedures</a> and goals to members of the development team.</p>
+		<p>Content required at milestone:</p><ul><li>Software Engineering Life Cycle</li><li>Coordination With Product Development</li><li>Roles and Responsibilities</li><li>Traceability</li><li>Development Standards and Methods</li><li>Programming Technologies Used</li><li>Common Software Causes</li><li>Avoidance Strategy for Common Software Causes</li><li>Verification Strategy for Avoidance of Common Software Causes</li><li>Secure Design Best Practices</li><li>Software Unit Verification Approach</li><li>Software Problem Resolution Approach</li><li>Software Integration Plan</li><li>Software Integration Test Approach</li><li>Expected Unit Test Coverage</li><li>Software Development Environment</li><li>Software Development Environment Controls</li><li>Selected Tools for Static Code Analysis</li><li>Selected Tools for Static Model Analysis</li><li>Selected Tools for Dynamic Code Analysis</li><li>Selected Tools for Implementation Model</li><li>Release Plan</li><li>Static Code Analysis Rules</li><li>Static Model Analysis Rules</li><li>Dynamic Code Analysis Rules</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Development Plan</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-requirements-specification" class="activity"><tr><td colspan="2"><div class="name">Software Requirements Specification</div></td></tr><tr><td>
+            <p>Provides the requirements for the <a href="#glossary-Software">software</a>. This typically includes functional, performance, interface, and other requirements for the <a href="#glossary-Software">software</a>. In effect, it describes the observable behavior of the <a href="#glossary-Software System">software systems</a> as a black-box.</p>
+		<p>Content required at milestone:</p><ul><li>Software Requirements</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Requirements Specification</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-risk-management-plan" class="activity"><tr><td colspan="2"><div class="name">Software Risk Management Plan</div></td></tr><tr><td>
+            <p>Provides the plan for conducting the <a href="#glossary-Activity">activities</a> and <a href="#glossary-Task">tasks</a> of the <a href="#processgroup-software-risk-management">Software Risk Management</a> <a href="#glossary-Process">process</a>, including the management of <a href="#glossary-Risk">risks</a> relating to <a href="#glossary-Software of Unknown Provenance">SOUP</a>.</p> 
+		<p>Content required at milestone:</p><ul><li>Software Risk Management Process</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Risk Management Plan</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-security-risk-analysis" class="activity"><tr><td colspan="2"><div class="name">Software Security Risk Analysis</div></td></tr><tr><td>
+            <p>Analysis of the <a href="#glossary-Security">security</a> <a href="#glossary-Risk">risks</a> associated with the <a href="#glossary-Medical Device Software">medical device software</a>.</p>
+        <p>Content required at milestone:</p><ul><li>Software Security Risk Estimation</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Security Risk Analysis</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-design-requirement-traceability-matrix" class="activity"><tr><td colspan="2"><div class="name">Software Traceability Matrix</div></td></tr><tr><td>
+            <p>Provides <a href="#glossary-Software">software</a> <a href="#glossary-Traceability">traceability</a>.</p> 
+        <p>Content required at milestone:</p><ul><li>Traces Product Requirements To Software Requirements</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Traceability Matrix</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table></section><section data-type="sect1"><h1 id="idm45363409336824">Required by Milestone SW-MS2.1</h1><table id="deliverable-deviation-register" class="activity"><tr><td colspan="2"><div class="name">Deviation Register</div></td></tr><tr><td>
+            <p>Registers deviations from specified <a href="#glossary-Software Unit">software unit</a> acceptance criteria and provides justifications why these are acceptable.</p> 
+        <p>Content required at milestone:</p><ul><li>Deviations From Acceptance Criteria</li><li>Deviations from Static Code Analysis Rules</li><li>Deviations from Static Model Analysis Rules</li><li>Deviations from Dynamic Code Analysis Rules</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Deviation Register</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-soup-documentation" class="activity"><tr><td colspan="2"><div class="name">SOUP Documentation</div></td></tr><tr><td>
+			<p>Provides information about <a href="#glossary-Software of Unknown Provenance">SOUP</a> selection, qualification, integration, and monitoring.</p> 
+		<p>Content required at milestone:</p><ul><li>SOUP Prerequisites</li><li>Re-Qualification Decision</li><li>Selected SOUP Qualification Methods</li><li>Results of SOUP Verification</li><li>Evidence of Common Use Experience</li><li>Evidence of Prior Use Experience</li><li>Evaluation of SOUP Development Process</li><li>Evaluation of SOUP Test Suite</li><li>Results of SOUP Code Review</li><li>Decision to Use / Not Use the SOUP</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine SOUP Documentation</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-architecture-specification" class="activity"><tr><td colspan="2"><div class="name">Software Architecture Specification</div></td></tr><tr><td>
+            <p>Provides structural items of the <a href="#glossary-Software System">software system</a> and identifies their key responsibilities, their externally visible properties, and the relationship among them. This also includes relationships to hardware and to data flows such as networking.</p>
+        <p>Content required at milestone:</p><ul><li>Software Structure</li><li>Software Behavior</li><li>Software Unit Granularity</li><li>SOUP Items</li><li>Segregation Concept</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Architecture Specification</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-product-software-archive" class="activity"><tr><td colspan="2"><div class="name">Software Archive</div></td></tr><tr><td>
+            <p>Provides the archive of the final software release.</p>
+        <p>Content required at milestone:</p><ul><li>Released Software</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Archive</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-build-configuration" class="activity"><tr><td colspan="2"><div class="name">Software Build Configuration</div></td></tr><tr><td>
+            <p><a href="#glossary-Configuration Item">Configuration items</a> needed to configure the build system for building the <a href="#glossary-Software">software</a>.</p>
+        <p>Content required at milestone:</p><ul><li>Build Scripts</li><li>Integrated Static Code Analysis</li><li>Integrated Static Model Analysis</li><li>Integrated Dynamic Code Analysis</li><li>Integrated Code Generation</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Build Configuration</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-build-documentation" class="activity"><tr><td colspan="2"><div class="name">Software Build Report</div></td></tr><tr><td>
+            <p>Provides information on the <a href="#glossary-Procedure">procedure</a> and environment used to create a software build.</p>
+        <p>Content required at milestone:</p><ul><li>Build Report</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Build Report</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-configuration-management-plan" class="activity"><tr><td colspan="2"><div class="name">Software Configuration Management Plan</div></td></tr><tr><td>
+            <p>Provides the plan for conducting the <a href="#glossary-Activity">activities</a> and <a href="#glossary-Task">tasks</a> of the <a href="#processgroup-software-configuration-management">Software Configuration Management</a> <a href="#glossary-Process">process</a>. Determines items to be controlled and when they are to be placed under configuration control.</p> 
+		<p>Content required at milestone:</p><ul><li>Build Tools</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Configuration Management Plan</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-detailed-software-design-specification" class="activity"><tr><td colspan="2"><div class="name">Software Detailed Design Specification</div></td></tr><tr><td>
+            <p>Provides detailed descriptions of how the <a href="#glossary-Software">software</a> is implemented. Refines the <a href="#glossary-Software Item">software items</a> into <a href="#glossary-Software Unit">software units</a>. Specifies algorithms, data representations, and interfaces among different <a href="#glossary-Software Unit">software units</a>.</p>
+        <p>Content required at milestone:</p><ul><li>Software Unit Identification</li><li>Software Unit Design</li><li>Threat Description</li><li>Implementation Model</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Detailed Design Specification</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-development-plan" class="activity"><tr><td colspan="2"><div class="name">Software Development Plan</div></td></tr><tr><td>
+			<p>Provides overall plan for conducting a software development effort. Describes <a href="#glossary-Process">processes</a> to be followed and determines <a href="#glossary-Method">methods</a> and <a href="#glossary-Tool">tools</a> to be used. Serves to communicate <a href="#glossary-Procedure">procedures</a> and goals to members of the development team.</p>
+		<p>Content required at milestone:</p><ul><li>Software Integration Test Approach</li><li>Release Scope</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Development Plan</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-fmea" class="activity"><tr><td colspan="2"><div class="name">Software FMEA</div></td></tr><tr><td>
+            <p>Bottom-up analysis to identify <a href="#glossary-Hazardous Situation">hazardous situations</a> caused by <a href="#glossary-Software Failure">software failures</a>.</p>
+        <p>Content required at milestone:</p><ul><li>Scope of the Software FMEA</li><li>Software Items Analyzed in Software FMEA</li><li>Major Functionalities of Software Items</li><li>Potential Failures of Software Item</li><li>Prevention / Detection Controls</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software FMEA</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-fta" class="activity"><tr><td colspan="2"><div class="name">Software FTA</div></td></tr><tr><td>
+            <p>Top-down analysis identifying potential software causes for <a href="#glossary-Hazardous Situation">hazardous situations</a>.</p>
+        <p>Content required at milestone:</p><ul><li>Scope of the Software Fault Tree Analysis</li><li>Functional Decomposition</li><li>Evaluation of SOUP Anomalies</li><li>Potential Causes for Contributions</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software FTA</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-integration-build" class="activity"><tr><td colspan="2"><div class="name">Software Integration Build</div></td></tr><tr><td>
+            <p>Provides a software build of the integrated <a href="#glossary-Software">software</a> that incorporates a specified subset of the functionalities and capabilities of the final <a href="#glossary-Software">software</a>.</p>
+        <p>Content required at milestone:</p><ul><li>Integrated Software System</li><li>Build Log</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Integration Build</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-integration-test-protocol" class="activity"><tr><td colspan="2"><div class="name">Software Integration Test Protocols</div></td></tr><tr><td>
+            <p>Specifies test protocols for software integration tests.</p>
+        <p>Content required at milestone:</p><ul><li>Software Integration Test Protocols</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Integration Test Protocols</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-integration-test-record" class="activity"><tr><td colspan="2"><div class="name">Software Integration Test Record</div></td></tr><tr><td>
+            <p>Records the execution of <a href="#deliverable-software-integration-test-protocol">Software Integration Test Protocols</a>.</p>
+        <p>Content required at milestone:</p><ul><li>Software Integration Test Results</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Integration Test Record</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-release-candidate" class="activity"><tr><td colspan="2"><div class="name">Software Release Candidate</div></td></tr><tr><td>   
+            Provides an operational and installable version of a <a href="#deliverable-software-integration-build">Software Integration Build</a> intended to be used for <a href="#processgroup-design-verification">Design Verification</a>.
+        <p>Content required at milestone:</p><ul><li>Release Candidate</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Release Candidate</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-release-build" class="activity"><tr><td colspan="2"><div class="name">Software Release Candidate Build</div></td></tr><tr><td>   
+            Provides an build of the <a href="#glossary-Software">software</a> that can be used for <a href="#processgroup-design-verification">Design Verification</a>.
+        <p>Content required at milestone:</p><ul><li>Integrated Software</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Release Candidate Build</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-release-report" class="activity"><tr><td colspan="2"><div class="name">Software Release Report</div></td></tr><tr><td>
+            <p>Confirms the completion and correct execution of <a href="#glossary-Activity">activities</a> performed for software release (candidate or final), including <a href="#glossary-Verification">verification</a>.</p> 
+        <p>Content required at milestone:</p><ul><li>Software Release Checklist</li><li>Released Software Deliverables</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Release Report</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-requirements-specification" class="activity"><tr><td colspan="2"><div class="name">Software Requirements Specification</div></td></tr><tr><td>
+            <p>Provides the requirements for the <a href="#glossary-Software">software</a>. This typically includes functional, performance, interface, and other requirements for the <a href="#glossary-Software">software</a>. In effect, it describes the observable behavior of the <a href="#glossary-Software System">software systems</a> as a black-box.</p>
+		<p>Content required at milestone:</p><ul><li>Software Requirements</li><li>Risk Measures</li><li>Risk Measures for SOUP</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Requirements Specification</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-revision-level-history" class="activity"><tr><td colspan="2"><div class="name">Software Revision Level History</div></td></tr><tr><td>
+            <p>Registers all <a href="#glossary-Software">software</a> versions released during the course of development, including a brief description of changes.</p>
+        <p>Content required at milestone:</p><ul><li>Revision History</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Revision Level History</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-risk-analysis" class="activity"><tr><td colspan="2"><div class="name">Software Risk Analysis</div></td></tr><tr><td>
+            <p>Provides <a href="#glossary-Software Item">software items</a> and potential software causes that could contribute to <a href="#glossary-Hazardous Situation">hazardous situations</a> and determines appropriate controls to manage the <a href="#glossary-Risk">risks</a> and reduce the impact of <a href="#glossary-Hazardous Situation">hazardous situations</a>.</p>
+        <p>Content required at milestone:</p><ul><li>Contributing Software Items</li><li>Potential Causes</li><li>Risk Control Measures</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Risk Analysis</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-design-requirement-traceability-matrix" class="activity"><tr><td colspan="2"><div class="name">Software Traceability Matrix</div></td></tr><tr><td>
+            <p>Provides <a href="#glossary-Software">software</a> <a href="#glossary-Traceability">traceability</a>.</p> 
+        <p>Content required at milestone:</p><ul><li>Traces Product Requirements To Software Requirements</li><li>Traces Software Requirements To Software Architecture</li><li>Traces Software Requirements To Software Units</li><li>Traces For Risk Control Measures</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Traceability Matrix</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-source-code" class="activity"><tr><td colspan="2"><div class="name">Software Unit Implementation</div></td></tr><tr><td>
+            <p>Provides the implementation of the <a href="#glossary-Software Unit">software units</a>. Represents the starting point for composition of the executable software.</p> 
+        <p>Content required at milestone:</p><ul><li>Source Code</li><li>Detailed Design Information</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Unit Implementation</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-unit-test-script" class="activity"><tr><td colspan="2"><div class="name">Software Unit Test Scripts</div></td></tr><tr><td>
+            <p>Provides source code of automated software unit tests.</p>
+        <p>Content required at milestone:</p><ul><li>Software Unit Test Source Code</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Unit Test Scripts</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-unit-verification-result" class="activity"><tr><td colspan="2"><div class="name">Software Unit Verification Results</div></td></tr><tr><td>
+            <p>Provides the results of the <a href="#process-software-unit-verification">Software Unit Verification</a> to confirm acceptance criteria for <a href="#glossary-Software Unit">software units</a>.</p>
+        <p>Content required at milestone:</p><ul><li>Software Unit Verification Results</li><li>Code Review Findings</li><li>Static Analysis Results</li><li>Dynamic Analysis Results</li><li>Unit Test Results</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Unit Verification Results</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table></section><section data-type="sect1"><h1 id="idm45363419691576">Required by Milestone SW-MS3</h1><table id="deliverable-deviation-register" class="activity"><tr><td colspan="2"><div class="name">Deviation Register</div></td></tr><tr><td>
+            <p>Registers deviations from specified <a href="#glossary-Software Unit">software unit</a> acceptance criteria and provides justifications why these are acceptable.</p> 
+        <p>Content required at milestone:</p><ul><li>Deviations from Static Code Analysis Rules</li><li>Deviations from Static Model Analysis Rules</li><li>Deviations from Dynamic Code Analysis Rules</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Deviation Register</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-maintenance-feedback" class="activity"><tr><td colspan="2"><div class="name">Feedback on Released Software</div></td></tr><tr><td>
+			<p>Provides feedback received on released <a href="#glossary-Software">software</a>.</p>
+		<p>Content required at milestone:</p><ul><li>Feedback</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Feedback on Released Software</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-list-of-unresolved-product-anomalies" class="activity"><tr><td colspan="2"><div class="name">List of Residual Anomalies</div></td></tr><tr><td>
+            <p>Lists all known <a href="#glossary-Residual Anomaly">residual anomalies</a> that remain in the final software release, including a rationale why they do not lead to unacceptable <a href="#glossary-Risk">risk</a>.</p>
+        <p>Content required at milestone:</p><ul><li>Risk Evaluation</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine List of Residual Anomalies</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-master-software-image" class="activity"><tr><td colspan="2"><div class="name">Master Software Image</div></td></tr><tr><td>   
+            <p>Provides an operational and installable version of a <a href="#deliverable-software-integration-build">Software Integration Build</a> intended to be handed over to <a href="#phase-project-transfer">Design Transfer &amp; Validation</a>.</p>
+        <p>Content required at milestone:</p><ul><li>Software Image</li><li>Installation Procedure</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Master Software Image</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-soup-monitoring-record" class="activity"><tr><td colspan="2"><div class="name">SOUP Monitoring Record</div></td></tr><tr><td>
+			<p><a href="#glossary-Record">Record</a> of the monitoring of <a href="#glossary-Software of Unknown Provenance">SOUP</a> <a href="#glossary-Anomaly">anomalies</a>.</p>
+		<p>Content required at milestone:</p><ul><li>SOUP Anomalies</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine SOUP Monitoring Record</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-product-software-archive" class="activity"><tr><td colspan="2"><div class="name">Software Archive</div></td></tr><tr><td>
+            <p>Provides the archive of the final software release.</p>
+        <p>Content required at milestone:</p><ul><li>Released Software</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Archive</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-build-documentation" class="activity"><tr><td colspan="2"><div class="name">Software Build Report</div></td></tr><tr><td>
+            <p>Provides information on the <a href="#glossary-Procedure">procedure</a> and environment used to create a software build.</p>
+        <p>Content required at milestone:</p><ul><li>Build Report</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Build Report</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-configuration-list-configuration-status-report" class="activity"><tr><td colspan="2"><div class="name">Software Configuration Status Report</div></td></tr><tr><td>
+            <p>Provides <a href="#glossary-Configuration Item">configuration items</a> of a particular <a href="#glossary-Software">software</a> configuration, including their versions.</p>
+        <p>Content required at milestone:</p><ul><li>Status Report</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Configuration Status Report</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-maintenance-plan" class="activity"><tr><td colspan="2"><div class="name">Software Maintenance Plan</div></td></tr><tr><td>
+			<p>Provides the overall plan for conducting the <a href="#processgroup-software-maintenance">Software Maintenance</a> for a released software.</p> 
+		<p>Content required at milestone:</p><ul><li>Procedures for Monitoring Feedback</li><li>Software Maintenance Used Processes</li><li>SOUP Monitoring Intervals</li><li>SOUP Information Sources</li><li>Security Update Timeframes</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Maintenance Plan</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-release-report" class="activity"><tr><td colspan="2"><div class="name">Software Release Report</div></td></tr><tr><td>
+            <p>Confirms the completion and correct execution of <a href="#glossary-Activity">activities</a> performed for software release (candidate or final), including <a href="#glossary-Verification">verification</a>.</p> 
+        <p>Content required at milestone:</p><ul><li>Software Release Checklist</li><li>Released Software Deliverables</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Release Report</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table><table id="deliverable-software-revision-level-history" class="activity"><tr><td colspan="2"><div class="name">Software Revision Level History</div></td></tr><tr><td>
+            <p>Registers all <a href="#glossary-Software">software</a> versions released during the course of development, including a brief description of changes.</p>
+        <p>Content required at milestone:</p><ul><li>Revision History</li></ul></td><td><div class="tag">Document Instance/s</div><span class="template">Ultra Dialysis Machine Software Revision Level History</span><div class="tag">Author</div><span class="template">J. Doe</span><div class="tag">Reviewer</div><span class="template">J. Doe</span><div class="tag">Approver</div><span class="template">J. Doe</span><div class="tag">Action</div><table class="action"><tr><td width="50%">☑ Create</td><td width="50%">☐ Use Existing</td></tr><tr><td width="50%">☐ Update</td><td width="50%">☐ Not Needed</td></tr></table></td></tr></table></section>
+        </section>
+
+        <section data-type="chapter">
+            <h1 id="idm45363420050936">Traceability</h1>
+
+            <blockquote class="template"><p>This section adresses the following required contents:</p><content id="content-software-development-plan-traceability" name="Traceability">
+			<items>
+				<ul>
+					<li>Reference to the overall design requirements traceability approach</li>
+					<li>Information on the <a href="#glossary-Software">software</a>-specific <a href="#glossary-Traceability">traceability</a> approach (e.g. items to be traced, types of traceability).</li>
+					<li>Information on <a href="#glossary-Method">methods</a> for ensuring <a href="#glossary-Traceability">traceability</a> between requirements, <a href="#glossary-Testing">testing</a>/<a href="#glossary-Verification">verification</a> and <a href="#glossary-Risk Control Measure">risk control measures</a></li>
+				</ul>
+			</items>
+			<p>Required by milestone: SW-MS2</p>
+		</content></blockquote>
+        </section>
+
+    <section data-type="appendix"><h1 id="idm45363409300008">Referenced Documents</h1><section data-type="sect1"><h1 id="idm45363409299256">Standards and Guidances</h1><dl><dt id="reference-fda-glossary">FDA Glossary:1995</dt><dd>Glossary of Computer System Software Development Terminology</dd><dd class="version">Version: 08/1995</dd><dt id="reference-general-principles-software-validation">FDA GPSV:2002</dt><dd>General Principles of Software Validation</dd><dd class="version">Version: 01/2002</dd><dt id="reference-ots-software-in-medical-devices">FDA OTS:2019</dt><dd>Off-The-Shelf Software Use in Medical Devices</dd><dd class="version">Version: 09/2019</dd><dt id="reference-software-contents-in-submission">FDA CONT:2005</dt><dd>Guidance for the Content of Premarket Submissions for Software Contained in Medical Devices</dd><dd class="version">Version: 05/2005</dd><dt id="reference-iec-61508-4">IEC 61508-4:2010</dt><dd>Functional safety of electrical/electronic/programmable electronic safety-related systems - Part 4: Definitions and abbreviations</dd><dd class="version">Version: 2010</dd><dd class="version">Edition: 2.0</dd><dt id="reference-iec-62304">IEC 62304:2015</dt><dd>Medical device software - Software life cycle processes</dd><dd class="version">Version: 2006+AMD1:2015</dd><dd class="version">Edition: 1.1</dd><dt id="reference-iec-81001-5-1">IEC 81001-5-1:2020</dt><dd>Health software and health IT systems safety, effectiveness and security - Part 5: Security - Part 5-1: Security - Activities in the product life cycle</dd><dd class="version">Version: TBD</dd><dd class="version">Edition: 1</dd><dt id="reference-iec-tr-80002-1">IEC/TR 80002-1:2009</dt><dd>Medical device software - Part 1: Guidance on the application of ISO 14971 to medical device software</dd><dd class="version">Version: 2009</dd><dd class="version">Edition: 1</dd><dt id="reference-iso-iec-33001">ISO/IEC 33001:2015</dt><dd>Information technology - Process assessment - Concepts and terminology</dd><dd class="version">Version: 2015</dd><dd class="version">Edition: 1</dd><dt id="reference-aami-tir-45">AAMI TIR45:2018</dt><dd>Guidance on the use of AGILE practices in the development of medical device software</dd><dd class="version">Version: 2012/(R)2018</dd><dt id="reference-iso-9000">ISO 9000:2015</dt><dd>Quality management systems - Fundamentals and vocabulary</dd><dd class="version">Version: 2015</dd><dd class="version">Edition: 4</dd><dt id="reference-iso-13485">ISO 13485:2016</dt><dd>Medical devices - Quality management systems - Requirements for regulatory purposes</dd><dd class="version">Version: 2016</dd><dd class="version">Edition: 3</dd><dt id="reference-iso-14971">ISO 14971:2019</dt><dd>Medical devices - Application of risk management to medical devices</dd><dd class="version">Version: 2019</dd><dd class="version">Edition: 3</dd><dt id="reference-iso-iec-ieee-61012">IEEE 610.12:1990</dt><dd>Standard Glossary of Software Engineering Terminology</dd><dd class="version">Version: 1990</dd><dd class="version">Edition: 1</dd><dt id="reference-cpp-2014">ISO/IEC 14882:2014</dt><dd>Programming languages - C++</dd><dd class="version">Version: 2014</dd></dl></section><section data-type="sect1"><h1 id="idm45363420408600">Quality Management System</h1><dl><dt id="reference-role-definitions">PEC.MAQ/PEC.MID Role Definitions</dt><dd>Role definitions of PEC.MAQ and PEC.MID</dd><dd class="version">Version: 1.0 (to appear)</dd><dt id="reference-cqms-sop-000160">CQMS-SOP-000160</dt><dd>Design and Development Planning</dd><dd class="version">Version: 1.0</dd><dt id="reference-cqms-sop-000163">CQMS-SOP-000163</dt><dd>Process of Product Development</dd><dd class="version">Version: 1.0</dd><dt id="reference-cqms-sop-000164">CQMS-SOP-000164</dt><dd>Process of Design Change</dd><dd class="version">Version: 3</dd><dt id="reference-cqms-sop-000169">CQMS-SOP-000169</dt><dd>Pre-Production Defect Management</dd><dd class="version">Version: 1</dd><dt id="reference-cqms-sop-000174">CQMS-SOP-000174</dt><dd>Software Life Cycle Processes</dd><dd class="version">Version: 1.0 </dd><dt id="reference-cqms-sop-000189">CQMS-SOP-000189</dt><dd>Process of R&amp;D Risk Management</dd><dd class="version">Version: 1</dd></dl></section><section data-type="sect1"><h1 id="idm45363416110552">Guidelines and Best Practices</h1><dl><dt id="reference-misra-cpp">MISRA C++</dt><dd>Guidelines for the Use of the C++ Language in Critical Systems</dd><dd class="version">Version: 2008</dd><dt id="reference-autosar-cpp">AUTOSAR C++ 14 Guidelines</dt><dd>Guidelines for the use of the C++14 language in critical and safety-related systems</dd><dd class="version">Version: 2017</dd><dt id="reference-guideline-continuous-integration">Continuous Integration</dt><dd>Continuous Integration (Guideline)</dd><dd class="version">Version: 1.0 (draft)</dd><dt id="reference-design-verification-life-cycle">Design Verification</dt><dd>Design Verification (Life Cycle Model)</dd><dd class="version">Version: 1.0 (draft)</dd><dt id="reference-practice-pull-requests-azure">Pull Requests with Azure</dt><dd>Pull Requests with Azure (Practice)</dd><dd class="version">Version: 1.0 (draft)</dd><dt id="reference-guideline-software-configuration-management">Software Configuration Management</dt><dd>Software Configuration Management (Guideline)</dd><dd class="version">Version: 1.0 (draft)</dd><dt id="reference-guideline-software-detailed-design">Software Detailed Design</dt><dd>Software Detailed Design (Guideline)</dd><dd class="version">Version: 1.0 (draft)</dd><dt id="reference-selc-model">Software Engineering</dt><dd>Software Engineering (Life Cycle Model)</dd><dd class="version">Version: 1.1</dd><dt id="reference-guideline-software-risk-management">Software Risk Management</dt><dd>Software Risk Management (Guideline)</dd><dd class="version">Version: 1.1 (draft)</dd><dt id="reference-guideline-software-unit-verification">Software Unit Verification</dt><dd>Software Unit Verification (Guideline)</dd><dd class="version">Version: 1.0 (draft)</dd><dt id="reference-guideline-soup-usage">SOUP Usage</dt><dd>SOUP Usage (Guideline)</dd><dd class="version">Version: 1.1 (draft)</dd></dl></section></section><section data-type="appendix"><h1 id="idm45363416120088">Defined Terms</h1><dl data-type="glossary"><dt id="glossary-Activity">Activity</dt><dd>
+            A set of one or more interrelated or interacting <a href="#glossary-Task">tasks</a>.
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.1</div><dd>
+            Work that, when consistently performed, contributes to achieving a specific <a href="#glossary-Process">process</a> purpose and <a href="#glossary-Outcome">outcome</a>.
+        </dd><div class="reference"><a href="#reference-iso-iec-33001">ISO/IEC 33001:2015</a>, 3.3.2</div><dd>
+            An activity usually transforms some portion of <a href="#glossary-Process">process</a> inputs into desired outputs.
+        </dd><div class="reference">FMC interpretation</div><dt id="glossary-Anomaly">Anomaly</dt><dd>
+            Any condition that deviates from the expected based on requirements specifications, design documents, standards, etc. or from someone’s perceptions or experiences.
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.2</div><dt id="glossary-Availability">Availability</dt><dd>
+            Property of being accessible and usable upon demand by an authorized entity.
+        </dd><div class="reference"><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a>, 3.7</div><dt id="glossary-Coding Standard">Coding Standard</dt><dd>
+            A set of guidelines for a specific programming language that recommend programming style, practices, and methods for each aspect of a program written in that language.
+        </dd><dt id="glossary-Component Requirement">Component Requirement</dt><dd>
+            <a href="#glossary-Component Requirement">Component requirements</a> refer explicitly to a <a href="#glossary-Product">product</a>, these are derived from the <a href="#glossary-Product Requirement">product requirements</a> and show the splitting of the <a href="#glossary-Product">product</a> from a technical point of view, ideally split into hardware and software components.
+        </dd><dt id="glossary-Confidentiality">Confidentiality</dt><dd>
+            Property that information is not made available or disclosed to unauthorized individuals, entities, or <a href="#glossary-Process">processes</a>.
+        </dd><div class="reference"><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a>, 3.8</div><dt id="glossary-Configuration Item">Configuration Item</dt><dd>
+            Entity that can be uniquely identified at a given reference point.
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.5</div><div class="reference"><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a>, 3.9</div><dt id="glossary-Deliverable">Deliverable</dt><dd>
+            Required result or output (includes <a href="#glossary-Document">documentation</a>) of an <a href="#glossary-Activity">activity</a> or <a href="#glossary-Task">task</a>.
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.6</div><dt id="glossary-Document">Document</dt><dd>
+            Information and its supporting medium.
+        </dd><div class="reference"><a href="#reference-iso-9000">ISO 9000:2015</a>, 3.7.2</div><dt id="glossary-Dynamic Code Analysis">Dynamic Code Analysis</dt><dd>
+            A <a href="#glossary-Method">method</a> to check <a href="#glossary-Software">software</a> by executing it on a real or virtual processor and automatically analyzing the <a href="#glossary-Software">software</a>'s execution'.
+        </dd><dt id="glossary-Firmware">Firmware</dt><dd>
+            Permanently installed <a href="#glossary-Software">software</a> in a technical device that is required for its operation. It is installed by the manufacturer of the technical device and cannot be easily changed or exchanged by the user of the technical device.
+        </dd><div class="reference">FMC interpretation</div><dt id="glossary-Guideline">Guideline</dt><dd>
+            Provides broad advice in following a <a href="#glossary-Procedure">procedure</a> or <a href="#glossary-Process">process</a> in terms of <a href="#glossary-Strategy">strategies</a> and <a href="#glossary-Method">methods</a>.
+        </dd><dt id="glossary-Harm">Harm</dt><dd>
+           Injury or damage the health of people or damage to property or the environment.
+        </dd><div class="reference"><a href="#reference-iso-14971">ISO 14971:2019</a>, 3.3</div><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.8</div><dt id="glossary-Hazard">Hazard</dt><dd>
+            Potential source of <a href="#glossary-Harm">harm</a>.
+        </dd><div class="reference"><a href="#reference-iso-14971">ISO 14971:2019</a>, 3.4</div><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.9</div><dt id="glossary-Hazardous Situation">Hazardous Situation</dt><dd>
+            Circumstance in which people, property, or the environment are exposed to one or more <a href="#glossary-Hazard">hazards</a>.
+        </dd><div class="reference"><a href="#reference-iso-14971">ISO 14971:2019</a>, 3.5</div><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.35</div><dt id="glossary-Integrity">Integrity</dt><dd>
+            Property of accuracy and completeness.
+        </dd><div class="reference"><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a>, 3.17</div><dt id="glossary-Intended Use">Intended Use</dt><dd>
+            Use for which a <a href="#glossary-Product">product</a>, <a href="#glossary-Process">process</a> or service is intended according to the specifications, instructions and information provided by the <a href="#glossary-Manufacturer">manufacturer</a>.
+        </dd><div class="reference"><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a>, 3.19</div><dt id="glossary-Level of Concern">Level of Concern</dt><dd>
+            <dl>
+                <dt>Minor Level of Concern</dt>
+                <dd>We believe the Level of Concern is <em>minor</em> if failures or latent design flaws are unlikely to cause any injury to the patient or operator.</dd>
+
+                <dt>Moderate Level of Concern</dt>
+                <dd>We believe the Level of Concern is <em>moderate</em> if a failure or latent design flaw could directly result in minor injury to the patient or operator. The Level of Concern is also moderate if a failure or latent flaw could indirectly result in minor injury to the patient or operator through incorrect or delayed information or through the action of a care provider.</dd> 
+
+                <dt>Major Level of Concern</dt>
+                <dd>We believe the Level of Concern is <em>major</em> if a failure or latent flaw could directly result in death or serious injury to the patient or operator. The Level of Concern is also major if a failure or latent flaw could indirectly result in death or serious injury of the patient or operator through incorrect or delayed information or through the action of a care provider.</dd>
+            </dl>
+        </dd><div class="reference"><a href="#reference-software-contents-in-submission">FDA CONT:2005</a>, </div><dt id="glossary-Life Cycle">Life Cycle</dt><dd>
+            Series of all phases in the life of a <a href="#glossary-Product">product</a> or system, from the initial conception to final decommissioning and disposal.
+        </dd><div class="reference"><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a>, 3.20</div><dt id="glossary-Manufacturer">Manufacturer</dt><dd>
+            Natural or legal person responsible for construction <a href="#glossary-Activity">activities</a> in the <a href="#glossary-Life Cycle">life cycle</a> of <a href="#glossary-Medical Device Software">medical device software</a>.
+        </dd><div class="reference"><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a>, 3.22</div><dt id="glossary-Medical Device">Medical Device</dt><dd>
+            <p>Any instrument, apparatus, implement, machine, appliance, implant, in vitro reagent or calibrator, <a href="#glossary-Software">software</a>, material or other similar or related article, intended by the <a href="#glossary-Manufacturer">manufacturer</a> to be used, alone or in combination, for human beings for one or more of the specific purpose(s) of</p>
+
+            <ul>
+                <li>diagnosis, prevention, monitoring, treatment or alleviation of disease,</li>
+                <li>diagnosis, monitoring, treatment, alleviation of or compensation for an injury,</li>
+                <li>investigation, replacement, modification, or support of the anatomy or of a physiological process,</li>
+                <li>supporting or sustaining life,</li>
+                <li>control of conception,</li>
+                <li>disinfection of medical devices,</li>
+                <li>providing information for medical purposes by means of in vitro examination of specimens derived from the human body,</li>
+            </ul>
+
+            <p>and which does not achieve its primary intended action in or on the human body by pharmacological, immunological or metabolic means, but which may be assisted in its function by such means.</p>
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.11</div><div class="reference"><a href="#reference-iso-13485">ISO 13485:2016</a>, 3.7</div><dt id="glossary-Medical Device Software">Medical Device Software</dt><dd>
+            <a href="#glossary-Software System">Software system</a> that has been developed for the purpose of being incorporated into the <a href="#glossary-Medical Device">medical device</a> being developed or that is intended for use as a <a href="#glossary-Medical Device">medical device</a>.
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.12</div><dt id="glossary-Method">Method</dt><dd>
+            A particular way for accomplishing or approaching something, especially a systematic or established one.
+        </dd><dt id="glossary-Milestone">Milestone</dt><dd>
+            Point in time where the common goals of a <a href="#glossary-Phase">phase</a> have been achieved.
+        </dd><dt id="glossary-Model-Based Design">Model-Based Design</dt><dd>
+            Design approach based on designing models using elementary blocks and using these models to automatically generate the source code for embedded systems.
+        </dd><dt id="glossary-Outcome">Outcome</dt><dd>
+            An observable result of the successful achievement of the <a href="#glossary-Process">process</a> purpose.
+        </dd><div class="reference"><a href="#reference-iso-iec-33001">ISO/IEC 33001:2015</a>, 3.3.11</div><dt id="glossary-Phase">Phase</dt><dd>
+            A collection of <a href="#glossary-Activity">activities</a> within <a href="#glossary-Product">product</a> development that have common goals and end at a <a href="#glossary-Milestone">milestone</a>.
+        </dd><dt id="glossary-Procedure">Procedure</dt><dd>
+            A specified way to carry out an <a href="#glossary-Activity">activity</a> or a <a href="#glossary-Process">process</a>.
+        </dd><div class="reference"><a href="#reference-iso-9000">ISO 9000:2015</a>, 3.4.5</div><dd>
+            Consider a procedure as a high-level definition or a strategic method of control. Procedures may be shared with externals and rarely hold confidential data.
+        </dd><div class="reference">FMC interpretation</div><dt id="glossary-Process">Process</dt><dd>
+            A set of interrelated or interacting <a href="#glossary-Activity">activities</a> that transforms inputs into outputs.
+        </dd><div class="reference"><a href="#reference-iso-9000">ISO 9000:2015</a>, 3.4.1</div><dd>
+            A set of interrelated or interacting <a href="#glossary-Activity">activities</a> that produce an <a href="#glossary-Outcome">outcome</a>.
+        </dd><div class="reference">FMC interpretation</div><dt id="glossary-Product">Product</dt><dd>
+            Output of an organization that can be produced without any transaction taking place between the organization and the customer.
+        </dd><div class="reference"><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a>, 3.24</div><dd>
+            The <a href="#glossary-Product">product</a> is the actual <a href="#glossary-Medical Device">medical device</a> that contains the <a href="#glossary-Medical Device Software">medical device software</a>.
+        </dd><div class="reference">FMC interpretation</div><dt id="glossary-Product Requirement">Product Requirement</dt><dd>
+            <a href="#glossary-Product Requirement">Product requirements</a> are requirements related to an explicit <a href="#glossary-Product">product</a>, which describe the requirements under technical aspects.
+        </dd><dt id="glossary-Record">Record</dt><dd>
+            <a href="#glossary-Document">Document</a> stating results achieved or providing evidence of <a href="#glossary-Activity">activities</a> performed.
+        </dd><div class="reference"><a href="#reference-iso-9000">ISO 9000:2015</a>, 3.7.6</div><dd>
+            Evidence of performing a <a href="#glossary-Process">process</a> or <a href="#glossary-Activity">activity</a> or an output of a <a href="#glossary-Process">process</a>.
+
+            <p>Records are used to prove conformity to requirements or specifications and enable to review the effectiveness of an <a href="#glossary-Activity">activity</a> and appraise the results against criteria. Typically, <a href="#glossary-Template">templates</a> and forms are used to create <a href="#glossary-Record">records</a>, checklists, or other <a href="#glossary-Document">documents</a>.</p>
+        </dd><div class="reference">FMC interpretation</div><dt id="glossary-Release">Release</dt><dd>
+            Particular version of a <a href="#glossary-Configuration Item">configuration item</a> that is made available for a specific purpose.
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.37</div><dt id="glossary-Residual Anomaly">Residual Anomaly</dt><dd>
+            <a href="#glossary-Anomaly">Anomaly</a> still present in a released <a href="#glossary-Software">software</a>.
+        </dd><dt id="glossary-Risk">Risk</dt><dd>
+            Combination of the probability of occurrence of <a href="#glossary-Harm">harm</a> and the severity of that <a href="#glossary-Harm">harm</a>.
+        </dd><div class="reference"><a href="#reference-iso-14971">ISO 14971:2019</a>, 3.18</div><dt id="glossary-Risk Control Measure">Risk Control Measure</dt><dd>
+            Measures by which <a href="#glossary-Risk">risks</a> are reduced to, or maintained within, specified levels.
+        </dd><div class="reference"><a href="#reference-iso-14971">ISO 14971:2019</a>, 3.21</div><dd>
+            A <a href="#glossary-Risk Control Measure">risk control measure</a> is a measure defined in the device risk analysis.
+        </dd><div class="reference">FMC interpretation</div><dt id="glossary-Role">Role</dt><dd>
+            Set of defined responsibilities for performing <a href="#glossary-Activity">activities</a> usually assigned to individuals.
+        </dd><dt id="glossary-Security">Security</dt><dd>
+            A state where information and systems are protected from unauthorized <a href="#glossary-Activity">activities</a>, such as access, use, disclosure, disruption, modification, or destruction to a degree that the related <a href="#glossary-Risk">risks</a> to <a href="#glossary-Confidentiality">confidentiality</a>, <a href="#glossary-Integrity">integrity</a>, and <a href="#glossary-Availability">availability</a> are maintained at an acceptable level throughout the <a href="#glossary-Life Cycle">life cycle</a>.
+        </dd><div class="reference"><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a>, 3.30</div><dt id="glossary-Software">Software</dt><dd>
+            Programs, procedures, rules, and any associated documentation pertaining to the operation of a system.
+        </dd><div class="reference"><a href="#reference-fda-glossary">FDA Glossary:1995</a></div><dd>
+            Note that <a href="#glossary-Firmware">firmware</a> of an electronic component or programmable hardware (e.g. GAL, FPGA) is not treated as <a href="#glossary-Software">software</a>, if the electronic component or programmable hardware is sufficiently qualified.
+        </dd><div class="reference">FMC interpretation</div><dt id="glossary-Software Defect">Software Defect</dt><dd>
+            <p>Condition that may cause a reduction in, or loss of, the capability of a <a href="#glossary-Software Item">software item</a> to perform a required function.</p>
+            <p>(A software defect is an internal cause that may lead to an observable <a href="#glossary-Software Failure">software failure</a>.)</p>
+        </dd><div class="reference"><a href="#reference-iec-61508-4">IEC 61508-4:2010</a>, 3.6.1</div><dt id="glossary-Software Development Environment">Software Development Environment</dt><dd>
+            <p>Set of <a href="#glossary-Tool">tools</a> and other infrastructure required to develop (i.e. design, implement, build and test, etc.) the <a href="#glossary-Software">software</a>.</p>
+        </dd><div class="reference"><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a>, 3.33</div><dt id="glossary-Software Engineering Life Cycle">Software Engineering Life Cycle</dt><dd>
+            Conceptual structure spanning the full life cycle of the <a href="#glossary-Software">software</a> which:
+            <ul>
+                <li>identifies the <a href="#glossary-Process">process</a>, <a href="#glossary-Activity">activities</a> and <a href="#glossary-Task">tasks</a> involved in development of a software product</li>
+                <li>describes the sequence of and dependency between <a href="#glossary-Activity">activities</a> and <a href="#glossary-Task">tasks</a></li>
+                <li>identifies the milestones at which the completeness of specified <a href="#glossary-Deliverable">deliverables</a> is verified</li>
+            </ul>
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.24</div><div class="reference"><a href="#reference-aami-tir-45">AAMI TIR45:2018</a>, 3.21</div><dt id="glossary-Software Failure">Software Failure</dt><dd>
+            <p>Inability of a <a href="#glossary-Software Item">software item</a> to perform a required function.</p>
+            <p>(A software failure is an externally observable (mis-)behavior of a <a href="#glossary-Software Item">software item</a>, caused by a <a href="#glossary-Software Defect">software defect</a>.)</p>
+        </dd><div class="reference"><a href="#reference-iec-61508-4">IEC 61508-4:2010</a>, 3.6.4</div><dt id="glossary-Software Item">Software Item</dt><dd>
+            Any identifiable part of a computer program, i.e., source code, object code, control code, control data, or a collection of these items.
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.25</div><dt id="glossary-Software Safety Class">Software Safety Class (SSC)</dt><dd>
+             Designation (A, B, or C) assigned to each <a href="#glossary-Software System">software system</a> / <a href="#glossary-Software Item">software item</a> according to the possible <a href="#glossary-Harm">harm</a> on the patient, operator, or other people resulting from a hazardous situation to which the <a href="#glossary-Software System">software system</a> / <a href="#glossary-Software Item">software item</a> can contribute.
+        </dd><div class="reference"><a href="#reference-general-principles-software-validation">FDA GPSV:2002</a>, 4.3</div><dt id="glossary-Software System">Software System</dt><dd>
+            Integrated collection of <a href="#glossary-Software Item">software items</a> organized to accomplish a specific function or set of functions.
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.27</div><dd>
+            The integrated <a href="#glossary-Software">software</a> that is deployed on one processor.
+        </dd><div class="reference">FMC interpretation</div><dt id="glossary-Software Unit">Software Unit</dt><dd>
+            <a href="#glossary-Software Item">Software item</a> that is not subdivided into other <a href="#glossary-Software Item">software items</a>.
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.14</div><dd>
+            <ol>
+                <li>A separately testable element specified in the design of a computer software element</li>
+                <li>A logically separable part of a computer program.</li>
+            </ol>
+        </dd><div class="reference"><a href="#reference-fda-glossary">FDA Glossary:1995</a></div><dt id="glossary-Software of Unknown Provenance">Software of Unknown Provenance (SOUP)</dt><dd>
+            <a href="#glossary-Software Item">Software item</a> that is already developed and generally available and that has not been developed for the purpose of being incorporated into the <a href="#glossary-Medical Device">medical device</a> (also known as <q>off-the-shelf software</q>) or <a href="#glossary-Software Item">software item</a> previously developed for which adequate records of the development <a href="#glossary-Process">processes</a> are not available.
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.29</div><dd>
+            A generally available <a href="#glossary-Software Item">software item</a>, used by a <a href="#glossary-Medical Device">medical device</a> <a href="#glossary-Manufacturer">manufacturer</a> for which the <a href="#glossary-Manufacturer">manufacturer</a> cannot claim complete <a href="#glossary-Software">software</a> <a href="#glossary-Life Cycle">life cycle</a> control.
+        </dd><div class="reference"><a href="#reference-ots-software-in-medical-devices">FDA OTS:2019</a>, III</div><dt id="glossary-Static Code Analysis">Static Code Analysis</dt><dd>
+            A <a href="#glossary-Method">method</a> to check <a href="#glossary-Software">software</a> without actually executing it. In most cases the analysis is performed on the software source code, and in the other cases, some form of the object code.
+        </dd><dt id="glossary-Static Model Analysis">Static Model Analysis</dt><dd>
+            A <a href="#glossary-Method">method</a> to check an implementation model developed with <a href="#glossary-Model-Based Design">Model-Based Design</a> without actually executing it.
+        </dd><dt id="glossary-Strategy">Strategy</dt><dd>
+            A high level plan to achieve one or more objectives based on conscious decisions (e.g., selecting appropriate <a href="#glossary-Method">methods</a>).
+        </dd><dt id="glossary-Task">Task</dt><dd>
+            A single piece of work that needs to be done.
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.31</div><dt id="glossary-Template">Template</dt><dd>
+            A standardized, pre-formatted file serving as basis for creating a <a href="#glossary-Deliverable">deliverable</a> (e.g. document, report, default configuration).
+        </dd><dt id="glossary-Testing">Testing</dt><dd>
+            The process of operating a system or component under specified conditions, observing or recording the results and making an evaluation of some aspects of the system or component.
+        </dd><div class="reference"><a href="#reference-iso-iec-ieee-61012">IEEE 610.12:1990</a>, p. 76</div><dt id="glossary-Tool">Tool</dt><dd>
+            A computer program that supports the execution of <a href="#glossary-Activity">activities</a> and <a href="#glossary-Task">tasks</a>.
+        </dd><dt id="glossary-Traceability">Traceability</dt><dd>
+            Degree to which a relationship can be established between two or more products of the development.
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.31</div><dt id="glossary-Unit Test Coverage">Unit Test Coverage</dt><dd>
+            A software metric that measures how thoroughly a <a href="#glossary-Software Unit">software unit</a> has been exercised in <a href="#glossary-Unit Testing">unit testing</a>.
+        </dd><div class="reference">FMC interpretation</div><dt id="glossary-Unit Testing">Unit Testing</dt><dd>
+            <ol>
+                <li><a href="#glossary-Testing">Testing</a> of a module for typographic, syntactic, and logical errors, for correct implementation of its design, and for satisfaction of its requirements.</li>
+                <li><a href="#glossary-Testing">Testing</a> conducted to verify the implementation of the design for one software element; e.g., a unit or module; or a collection of software elements.</li>
+            </ol>
+        </dd><div class="reference"><a href="#reference-fda-glossary">FDA Glossary:1995</a></div><dd>
+            An (automated) test that tests a <a href="#glossary-Software Unit">software unit</a> in isolation against its detailed design.
+        </dd><div class="reference">FMC interpretation</div><dt id="glossary-Validation">Validation</dt><dd>
+            Confirmation, through the provision of objective evidence, that the requirements for a specific <a href="#glossary-Intended Use">intended use</a> or application have been fulfilled.
+        </dd><div class="reference"><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a>, 3.45</div><dt id="glossary-Verification">Verification</dt><dd>
+            Confirmation, through provision of objective evidence, that specified requirements have been fulfilled.
+
+            <div data-type="note">
+                <p>In design and development, verification concerns the <a href="#glossary-Process">process</a> of examining the result of a given <a href="#glossary-Activity">activity</a> to determine conformity with the stated requirements of that <a href="#glossary-Activity">activity</a>.</p>
+
+                <p>When the result of the given <a href="#glossary-Activity">activity</a> is a <a href="#glossary-Document">document</a>, then the verification is usually done in the form of a <a href="#glossary-Document">document</a> review.</p>
+            </div>
+        </dd><div class="reference"><a href="#reference-iec-62304">IEC 62304:2015</a>, 3.33</div><div class="reference"><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a>, 3.46</div><dt id="glossary-Vulnerability">Vulnerability</dt><dd>
+            Flaw or <a href="#glossary-Weakness">weakness</a> in a system’s design, implementation, or operation and management that could be exploited to violate the system’s <a href="#glossary-Security">security</a> policy.
+        </dd><div class="reference"><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a>, 3.47</div><dt id="glossary-Weakness">Weakness</dt><dd>
+            Kind of deficiency.
+        </dd><div class="reference"><a href="#reference-iec-81001-5-1">IEC 81001-5-1:2020</a>, 3.48</div></dl></section><section data-type="appendix"><h1 id="idm45363420014712">Version History</h1><table><thead><tr><th width="20%">Version</th><th width="60%">Description</th><th width="20%">Date</th></tr></thead><tbody><tr><td><span class="template">1.0 (draft)</span></td><td><span class="template">Initial Version.</span></td><td><span class="template">TBD</span></td></tr></tbody></table></section><section data-type="appendix"><h1 id="idm45363409386920">Approvals</h1><table><thead><tr><th width="20%">Role</th><th width="40%">Name</th><th width="40%">Signature</th><th width="20%">Date</th></tr></thead><tbody><tr><td><span class="template">Author</span></td><td><span class="template">J. Doe</span></td><td><span class="template">xxx</span></td><td><span class="template">2021-04-27</span></td></tr><tr><td><span class="template">Reviewer</span></td><td><span class="template">J. Doe</span></td><td><span class="template">xxx</span></td><td><span class="template">2021-04-27</span></td></tr><tr><td><span class="template">Approver</span></td><td><span class="template">J. Doe</span></td><td><span class="template">xxx</span></td><td><span class="template">2021-04-27</span></td></tr></tbody></table><div data-type="note"><p>Additional reviewer/approvers may be added as desired. Author is responsible for ensuring all required approvers have reviewed and approved this document.</p></div></section><section data-type="appendix"><h1 id="idm45363419268552">Template Version History (to be removed)</h1><table><thead><tr><th width="20%">Version</th><th width="60%">Description</th><th width="20%">Date</th></tr></thead><tbody><tr><td>1.0 (draft)</td><td>
+            <p>Initial version.</p>
+        </td><td>2021-04-27</td></tr></tbody></table></section></body></html>

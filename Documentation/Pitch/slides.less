@@ -1,0 +1,771 @@
+// macros
+
+@text-color:      #000000;
+@headline-color:  #C74D1F;
+@primary-color:   #C74D1F;
+@subtitle-color:  #777777;
+@secondary-color: #777777;
+@objective-color: #FFC000;
+@abc-color:       lightgreen;
+@bc-color:        #FFC000;
+@c-color:         #C74D1F;
+
+@sans-font: 			        Roboto, LiberationSans, sans-serif;
+@serif-font:              Palatino, serif;
+@heading-font:            Roboto, Cabin, sans-serif;
+@handwriting-font:        Kalam, serif;
+@mono-font:               "JetBrains Mono", monospace;
+
+
+// page layout for slides
+
+@page {
+    size: 32cm 24cm;
+    margin: 0.25cm 0.5cm 1cm 0.5cm;
+
+    @bottom-right {
+      content: counter(page) "/" counter(pages);
+      color: darkgray;
+      font-family: @sans-font;
+    }
+}
+  
+
+// page layout for sections
+
+@page section-page {
+    size: 32cm 24cm;
+    margin: 0;
+
+    @bottom-right {
+      content: "";
+    }
+}
+  
+
+// page layout for objectives
+
+@page objective-page {
+    size: 32cm 24cm;
+    margin: 0;
+
+    @bottom-right {
+      content: "";
+    }
+
+    background: url(image-objectives-background.png) no-repeat center center fixed; 
+    background-size: cover;
+}
+  
+
+// Body.
+
+body {
+  font-family: @sans-font;
+}
+
+
+// Links.
+
+a {
+  color: @text-color;
+  text-decoration: none;
+}
+
+
+// Headings.
+
+h3 {
+  font-family: @heading-font;
+  color: @headline-color;
+}
+
+// Presentations.
+
+section.presentation {
+
+  margin: 0;
+  
+  page: section-page;
+
+  h3 {
+    position: absolute;
+    top: 0.5cm;
+    left: 1.5cm;
+    width: 29cm;
+    font-size: 64pt;
+    bookmark-level: 1;
+  }
+
+  h3.subtitle {
+    position: absolute;
+    top: 4.5cm;
+    left: 1.6cm;
+    width: 29cm;
+    font-size: 32pt;
+    bookmark-level: none;
+    color: @subtitle-color;
+    font-weight: normal;
+  }
+
+  img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 15cm;
+  }
+
+  ul {
+    position: absolute;
+    top: 10cm;
+    left: 0.5cm;
+
+    li {
+      list-style-type: none;
+      font-size: 24pt;
+      margin-left: 0;
+
+      a {
+        color: @subtitle-color;
+      }
+    }
+  }
+
+  p.author {
+    position: absolute;
+    left: 1.6cm;
+    top: 21.5cm;
+    font-size: 24pt;
+    font-family: Kalam;
+    color: #90C13E;
+  }
+
+  page-break-after: always;
+}
+
+
+// Sections.
+
+section.section {
+
+  margin: 0;
+  
+  page: section-page;
+
+  h3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 31cm;
+    font-size: 48pt;
+    border-bottom: 2px solid @headline-color; 
+    margin: 0.25cm 0.5cm 1cm 0.5cm;
+    bookmark-level: 1;
+  }
+
+  img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32cm;
+  }
+
+  page-break-after: always;
+}
+
+
+// Table slides.
+
+section.table {
+
+  margin: 0;
+  
+  h3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 31cm;
+    font-size: 48pt;
+    border-bottom: 2px solid @headline-color; 
+    margin: 0;
+    bookmark-level: 2;
+  }
+
+  table {
+    position: absolute;
+    top: 4.5cm;
+    left: 0;
+    width: 31cm;
+    font-size: 24pt;
+    
+    border-collapse: collapse;
+
+    th {
+      background-color: @headline-color;
+      color: white;
+      font-weight: bold;
+    }
+
+    th, td {
+      padding-right: 1em;
+      padding-left: 1ex;
+      padding-top: 1ex;
+      padding-bottom: 1ex;
+      vertical-align: top;      
+      border: 2pt white solid;
+    }
+
+    tr:nth-child(2n) {
+      background-color: fadeout(@headline-color, 60%);
+    }
+    tr:nth-child(2n+1) {
+      background-color: fadeout(@headline-color, 80%);
+    }
+  }
+
+  page-break-after: always;
+}
+
+
+// Objectives slides.
+
+section.objectives {
+
+  margin: 0;
+
+  page: objective-page;
+  
+  font-family: @handwriting-font;
+  font-weight: 300;
+  line-height: 200%;
+  
+  h3 {
+    position: absolute;
+    top: 0;
+    width: 31cm;
+    text-align: center;
+    font-size: 48pt;
+    margin: 1ex 0 0 0;
+    bookmark-level: 2;
+    color: @objective-color;
+    font-family: @handwriting-font;
+  }
+
+  table {
+    position: absolute;
+    top: 4.5cm;
+    left: 0;
+    width: 31cm;
+    margin-left: 5mm;
+    font-size: 24pt;
+    color: white;    
+    border: none;
+
+    th, td {
+      padding-right: 1em;
+      padding-left: 1ex;
+      padding-top: 1ex;
+      padding-bottom: 1ex;
+      vertical-align: top;      
+    }
+
+    tr td:first-child {
+      width: 20%;
+    }
+  }
+
+  page-break-after: always;
+}
+
+
+// Activities slides.
+
+section.activities {
+
+  margin: 0;
+
+  h3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 31cm;
+    font-size: 48pt;
+    border-bottom: 2px solid @headline-color; 
+    margin: 0;
+    bookmark-level: 2;
+  }
+
+  table {
+    position: absolute;
+    top: 4.5cm;
+    left: 0.5cm;
+    width: 30cm;
+    margin-left: 0;
+    font-size: 22pt;  
+    border: none;
+    border-spacing: 4px;
+
+    th {
+      display: none;
+    }
+
+    td {
+      padding-right: 1ex;
+      padding-left: 1ex;
+      padding-top: 0.2ex;
+      padding-bottom: 0.2ex;
+      vertical-align: middle;  
+      border: 0;    
+    }
+
+    td.abc {
+      background-color: lighten(@abc-color, 15%);
+
+      + td {
+        background-color: @abc-color;
+      }
+    }
+
+    td.bc {
+      background-color: lighten(@bc-color, 15%);
+
+      + td {
+        background-color: @bc-color;
+      }
+    }
+
+    td.c {
+      background-color: lighten(@c-color, 15%);
+
+      + td {
+        background-color: @c-color;
+      }
+    }
+
+    tr td:first-child {
+      width: 95%;
+    }
+
+    tr td:last-child {
+      text-align: right;
+    }
+  }
+
+  page-break-after: always;
+}
+
+
+// Image slides.
+
+section.image {
+
+  margin: 0;
+  
+  h3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 31cm;
+    font-size: 48pt;
+    border-bottom: 2px solid @headline-color; 
+    margin: 0;
+    bookmark-level: 2;
+  }
+
+  img {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 30cm;
+    max-height: 20cm;
+    display: block;
+    width: auto;
+    height: auto;
+    margin: auto;
+  }
+
+  img.bordered
+  {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+  }
+
+  p {
+    position: absolute;
+    top: 21.5cm;
+    left: 1.5cm;
+    width: 29.5cm;
+    font-size: 12pt;
+    line-height: 125%;
+    text-align: right;
+    color: @subtitle-color;
+  }
+
+  page-break-after: always;
+}
+
+
+// Diagram slides.
+
+section.diagram {
+
+  margin: 0;
+  
+  h3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 31cm;
+    font-size: 48pt;
+    border-bottom: 2px solid @headline-color; 
+    margin: 0;
+    bookmark-level: 2;
+  }
+
+  div.diagram {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28cm;
+    height: 18cm;
+    display: block;
+    margin: auto;
+
+    div.ssc {
+      position: absolute;
+      font-size: 24pt;
+
+      p {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        white-space: nowrap;
+      }
+    }    
+    
+    div.sscmark {
+      position: absolute;
+      font-size: 96pt;
+      border-radius: 10px;
+
+      p {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        white-space: nowrap;
+      }
+    }
+
+    div.ssc.A {
+      background-color: lighten(@abc-color, 10%);
+    }
+
+    div.ssc.B {
+      background-color: lighten(@bc-color, 15%);
+    }
+
+    div.ssc.C {
+      background-color: lighten(@c-color, 15%);
+    }
+
+    div.sscmark.A {
+      background-color: @abc-color;
+    }
+
+    div.sscmark.B {
+      background-color: @bc-color;
+    }
+
+    div.sscmark.C {
+      background-color: @c-color;
+    }
+
+    div.block {
+      position: absolute;
+      font-size: 16pt;
+
+      p {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        white-space: nowrap;
+      }
+    }
+
+    div.block.small {
+      p {
+        font-size: 10pt;
+      }
+    }
+
+    div.process {
+      position: absolute;
+      font-size: 32pt;
+      background-color: lighten(@primary-color, 20%);       
+
+      img {
+        position: absolute;      
+        top: 50%;        
+        transform: translate(0, -50%);
+        left: -0.25cm;
+      }
+
+      p {
+        padding: 0 0 0 2.5em;
+        margin: 0;
+        position: absolute; 
+        top: 50%;        
+        transform: translate(0, -50%);
+      }
+    }
+
+    hr.separator {
+      position: absolute;
+      border: 1px dashed black;
+      margin: 0;
+    }
+
+    .secondary {
+      background-color: lighten(@secondary-color, 20%);      
+      border: 2px solid @secondary-color;  
+    }
+
+    .primary {
+      background-color: lighten(@primary-color, 20%);    
+      border: 2px solid @primary-color;  
+    }    
+  }
+
+  page-break-after: always;
+}
+
+
+// Text slides.
+
+section.slide {
+
+  margin: 0;
+
+   h3 {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 31cm;
+     font-size: 48pt;
+     border-bottom: 2px solid @headline-color; 
+     margin: 0;
+     bookmark-level: 2;
+   }
+
+   div.text {
+    position: absolute;
+    top: 4.5cm;
+    left: 1.5cm;
+    width: 28.0cm;
+    font-size: 24pt;
+    line-height: 125%;
+
+    pre {
+      font-size: 12pt;
+      line-height: 115%;
+      background-color: lighten(#F9F7D1, 5%);
+      padding: 1ex;
+    }
+   }
+
+   ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1.25;
+   
+    li {
+      padding-left: 1em;
+    }
+
+    ul {
+      font-size: 80%;
+      margin-bottom: 1ex;
+    }
+    
+  }
+   
+  li::marker {
+    content: "‣ ";
+    color: @headline-color;
+  }
+
+  dl {
+    dt {
+      font-size: larger;
+      font-weight: bold;
+    }
+    dd {
+      padding-bottom: 1em;
+    }
+  }
+
+  page-break-after: always;
+}
+
+
+// Contact Page.
+
+section.contact {
+
+  margin: 0;
+  
+  page: section-page;
+
+  h3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 31cm;
+    font-size: 48pt;
+    border-bottom: 2px solid @headline-color; 
+    margin: 0.25cm 0.5cm 1cm 0.5cm;
+    bookmark-level: 1;
+  }
+
+  div.text {
+    position: absolute;
+    top: 4.5cm;
+    left: 14cm;
+    width: 18cm;
+    font-size: 24pt;
+    line-height: 125%;   
+    z-index: 1; 
+    white-space: pre;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      line-height: 1.25;
+    
+      li {
+        padding-left: 1em;
+        padding-bottom: 1em;
+      }
+
+      ul {
+        font-size: 80%;
+        margin-bottom: 1ex;
+      }
+    } 
+
+    strong {
+      font-size: 110%;
+    }
+
+    p {
+      margin: 1ex;
+    }
+  }
+   
+  li::marker {
+    content: "‣ ";
+    color: @headline-color;
+  }
+
+  img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 20cm;
+    z-index: 0;
+  }
+
+  page-break-after: always;
+}
+
+
+// Summaries.
+
+section.summary {
+
+  margin: 0;
+  
+  page: section-page;
+
+  h3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 31cm;
+    font-size: 48pt;
+    border-bottom: 2px solid @headline-color; 
+    margin: 0.25cm 0.5cm 1cm 0.5cm;
+    bookmark-level: 2;
+  }
+
+  div.text {
+    position: absolute;
+    top: 4.5cm;
+    left: 8cm;
+    width: 22cm;
+    font-size: 24pt;
+    line-height: 125%;    
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      line-height: 1.25;
+    
+      li {
+        padding-left: 1em;
+        padding-bottom: 1em;
+      }
+
+      ul {
+        font-size: 80%;
+        margin-bottom: 1ex;
+      }
+    } 
+
+    strong {
+      font-size: 110%;
+    }
+  }
+   
+  li::marker {
+    content: "‣ ";
+    color: @headline-color;
+  }
+
+  img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 20cm;
+  }
+
+  page-break-after: always;
+}
+
+
+// // SVG-Bob images.
+// img.bob {
+//   left: 0;
+//   right: 32cm;
+//   width: 100%;
+//   margin: 0;
+//   padding: 0;
+// }

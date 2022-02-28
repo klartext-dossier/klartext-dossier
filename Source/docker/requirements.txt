@@ -1,0 +1,16 @@
+asciimathml==0.9.5.1
+behave==1.2.6  
+CairoSVG==2.5.2
+colour==0.1.5
+diff-pdf-visually==1.6.2
+lxml==4.6.3
+markdown-checklists==0.6.3
+Markdown==3.3.4
+MarkdownPP==1.5.1
+Pygments==2.8.1
+pylint==2.7.2
+python-docx==0.8.10
+python-markdown-comments==1.1.0
+pytidylib==0.3.2
+WeasyPrint==53.4
+xmlschema==1.5.3
