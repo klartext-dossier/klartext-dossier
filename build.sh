@@ -10,6 +10,7 @@ FAIL="False"
 
 cd $TOOLS/css
 lessc htmlbook.less htmlbook.css
+lessc htmlbook-syntax.less htmlbook-syntax.css
 
 cd $TOPDIR/Source
 python setup.py bdist_wheel
