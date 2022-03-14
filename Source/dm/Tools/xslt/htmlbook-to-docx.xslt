@@ -79,6 +79,12 @@
         </style>
     </xsl:template>
 
+    <xsl:template match="xhtml:q">
+        <run><xsl:text>“</xsl:text></run>
+        <xsl:apply-templates/>
+        <run><xsl:text>”</xsl:text></run>
+    </xsl:template>
+
     <xsl:template match="xhtml:code">
         <style class="code">
             <xsl:apply-templates/>
