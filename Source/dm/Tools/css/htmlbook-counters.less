@@ -193,6 +193,91 @@ html
             .hide-subsections();
 
             counter-increment: appendix-counter;    
+            counter-reset: sect1-counter;
+            
+            section[data-type="sect1"] 
+            {
+                counter-reset: sect2-counter;
+    
+                > h1, > header h1 
+                { 
+                    &:before
+                    {
+                        content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) @nb-space;
+                        counter-increment: sect1-counter;      
+                    }
+    
+                    bookmark-level: 2;
+                    bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) @nb-space content(text);
+                }
+              
+                section[data-type="sect2"] 
+                {
+                    counter-reset: sect3-counter;
+    
+                    > h2, > header h2 
+                    { 
+                        &:before
+                        {
+                            content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) @nb-space;
+                            counter-increment: sect2-counter;      
+                        }
+    
+                        bookmark-level: 3;
+                        bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) @nb-space content(text);
+                    }
+                  
+                    section[data-type="sect3"] 
+                    {
+                        counter-reset: sect4-counter;
+    
+                        > h3, > header h3 
+                        { 
+                            &:before 
+                            {
+                                content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) @nb-space;
+                                counter-increment: sect3-counter;   
+                            }
+                            
+                            bookmark-level: 4;
+                            bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) @nb-space content(text);
+                        }
+    
+                        section[data-type="sect4"] 
+                        {
+                            counter-reset: sect5-counter;
+    
+                            > h4, > header h4 
+                            { 
+                                &:before
+                                {
+                                    content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) @nb-space;
+                                    counter-increment: sect4-counter;      
+                                }
+                             
+                                bookmark-level: 5;
+                                bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) @nb-space content(text);
+                            }                      
+    
+                            section[data-type="sect5"] 
+                            {
+                                > h5, > header h5
+                                { 
+                                    &::before
+                                    {
+                                        content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "." counter(sect5-counter) @nb-space;
+                                        counter-increment: sect5-counter;      
+                                    }
+                                    
+                                    bookmark-level: 6;
+                                    bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "." counter(sect5-counter) @nb-space content(text);
+                                }
+                            }  // section[data-type="sect5"]
+                        } // section[data-type="sect4"]      
+                    } // section[data-type="sect3"] 
+                } // section[data-type="sect2"]       
+            } // section[data-type="sect1"]
+
         } // section[data-type="appendix"]
 
     } // body[data-type="book"]
