@@ -5,6 +5,7 @@ from os import path
 
 
 def before_scenario(context, feature):
+    logging.disable(logging.INFO)
     
     # determine tools directory
     if path.exists('/workspaces/dossier/Source/dm/Tools'):

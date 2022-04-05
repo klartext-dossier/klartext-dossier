@@ -1,11 +1,11 @@
 import tempfile
 import logging
 
-import sys
 from os import path
 
 
 def before_scenario(context, feature):
+    logging.disable(logging.INFO)
     context.tmp_xml_file = tempfile.TemporaryFile('wb+', suffix='.xml')
     
     # determine tools directory

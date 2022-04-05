@@ -5,6 +5,7 @@ from os import path
 
 
 def before_scenario(context, feature):
+    logging.disable(logging.INFO)
     context.tmp_tex_file = tempfile.TemporaryFile('w+', encoding='UTF-8', suffix='tex')
     context.tmp_docx_file = tempfile.TemporaryFile('w+b', suffix='docx')
     context.tmp_pdf_file = tempfile.TemporaryFile('w+b', suffix='pdf')
