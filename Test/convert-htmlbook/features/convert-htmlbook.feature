@@ -39,4 +39,4 @@ Examples: Input files
     | 500_styling__o.html            | 500_styling__o.pdf          |
     | 510_code_highlight__o.html     | 510_code_highlight__o.pdf   |
     | 991_alice__o.html              | 991_alice__o.pdf            |
-    | 992_complete__o.html           | 992_complete__o.pdf         |
+    # | 992_complete__o.html           | 992_complete__o.pdf         |
