@@ -1,7 +1,8 @@
+from distutils.command.build_scripts import first_line_re
 import hashlib, lxml.etree, re, logging
 
 
-# register LXML extensions
+# register LXML extensions - dossier
 
 ns = lxml.etree.FunctionNamespace('http://www.hoelzer-kluepfel.de/dossier')
 
@@ -83,3 +84,45 @@ ns['strip'] = ext_strip
 def ext_simplify(context, text):
     return MULT_SPACES.sub(' ', string(text))
 ns['simplify'] = ext_simplify
+
+
+# register LXML extensions - VCF
+
+ns = lxml.etree.FunctionNamespace('http://www.hoelzer-kluepfel.de/vcf')
+
+def ext_N(context, text):
+    name = string(text).strip()
+
+    prefix = ''
+    for p in ['Prof. Dr.', 'Prof.', 'Dr.']:
+        if name.startswith(p):
+            prefix = p
+            name = name.replace(p, '', 1).strip()
+
+    suffix = ''
+    for p in ['MD', 'MSc']:
+        if name.endswith(', ' + p):
+            suffix = p
+            name = name.replace(', ' + p, '', 1).strip()
+
+    first = ''
+    middle = ''
+    last = ''
+
+    parts = name.split()
+    if (1 == len(parts)):
+        last = parts[0]
+    elif (2 == len(parts)):
+        first = parts[0]
+        last = parts[1]
+    elif (2 < len(parts)):
+        first = parts[0]
+        middle = parts[1]
+        for i in range(2, len(parts)-1):
+            middle += ' ' + parts[i]
+        last = parts[len(parts)-1]
+
+    return prefix + ';' + first + ';' + middle + ';' + last + ';' + suffix
+
+
+ns['N'] = ext_N
