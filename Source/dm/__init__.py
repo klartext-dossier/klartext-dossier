@@ -122,7 +122,7 @@ def ext_N(context, text):
             middle += ' ' + parts[i]
         last = parts[len(parts)-1]
 
-    return prefix + ';' + first + ';' + middle + ';' + last + ';' + suffix
+    return last + ';' + first + ';' + middle + ';' + prefix + ';' + suffix
 
 
 ns['N'] = ext_N
