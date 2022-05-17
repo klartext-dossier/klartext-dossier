@@ -1,5 +1,4 @@
-from distutils.command.build_scripts import first_line_re
-import hashlib, lxml.etree, re, logging
+import hashlib, lxml.etree, re
 
 
 # register LXML extensions - dossier
@@ -135,7 +134,7 @@ def ext_ADR(context, text):
     city = ''
     region = ''
     code = ''
-    country = 'Germany'
+    country = ''
 
     parts = adr.split(',')
     if (1 == len(parts)):        
