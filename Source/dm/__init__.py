@@ -126,3 +126,34 @@ def ext_N(context, text):
 
 
 ns['N'] = ext_N
+
+
+def ext_ADR(context, text):
+    adr = string(text).strip()
+
+    street = ''
+    city = ''
+    region = ''
+    code = ''
+    country = 'Germany'
+
+    parts = adr.split(',')
+    if (1 == len(parts)):        
+        city = parts[0].strip()
+    elif (2 == len(parts)):
+        street = parts[0].strip()
+        city = parts[1].strip()
+    elif (3 == len(parts)):
+        street = parts[0].strip()
+        city = parts[1].strip()
+        country = parts[2].strip()
+
+    parts = city.split(maxsplit=1)
+    if (2 == len(parts)):
+        code = parts[0].strip()
+        city = parts[1].strip()
+
+    return ";;" + street + ";" + city + ";" + region + ";" + code + ";" + country
+
+
+ns['ADR'] = ext_ADR
