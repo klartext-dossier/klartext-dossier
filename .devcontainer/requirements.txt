@@ -7,6 +7,7 @@ lxml==4.6.3
 markdown-checklists==0.6.3
 Markdown==3.3.4
 MarkdownPP==1.5.1
+openpyxl==3.0.10
 Pygments==2.8.1
 pylint==2.7.2
 python-docx==0.8.10
