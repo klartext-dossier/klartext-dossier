@@ -1,5 +1,6 @@
 import markdown, python_markdown_comments
 import mdx.dossier.mdx_grid_tables
+import mdx.dossier.diagrams
 
 
 COMMON_EXTENSIONS = [
@@ -9,6 +10,7 @@ COMMON_EXTENSIONS = [
     'markdown.extensions.meta', 
     'markdown.extensions.sane_lists', 
     'markdown.extensions.tables', 
+    'customblocks',
     'mdx_asciimathml', 
     'mdx.dossier.admonition', 
     'mdx.dossier.checkbox', 
@@ -23,8 +25,16 @@ COMMON_EXTENSIONS = [
     python_markdown_comments.CommentsExtension()
 ]
 
+EXTENSION_CONFIGS = {
+    'customblocks': {
+        'generators': {
+            'mermaid': mdx.dossier.diagrams.mermaid_generator
+        }
+    }        
+}
 
-markdownInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.dossier.xhtml_document', 'mdx.dossier.docbook_structure'])
+
+markdownInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.dossier.xhtml_document', 'mdx.dossier.docbook_structure'], extension_configs=EXTENSION_CONFIGS)
 
 def processMarkdown(md):
 
@@ -36,7 +46,7 @@ def processMarkdown(md):
     return markdownInstance.reset().convert(md)
 
 
-markdownContentInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.dossier.xhtml_namespace'])
+markdownContentInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.dossier.xhtml_namespace'], extension_configs=EXTENSION_CONFIGS)
 
 def processMarkdownContent(md, plain=False):
     
