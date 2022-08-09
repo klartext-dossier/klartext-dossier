@@ -1,4 +1,4 @@
-FROM emhaka/pypeline
+FROM emhaka/pypeline:latest
 
 ARG DOSSIER_VERSION=0.1.0
 
