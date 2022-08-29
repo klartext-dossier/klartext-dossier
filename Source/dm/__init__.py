@@ -122,8 +122,6 @@ def ext_N(context, text):
         last = parts[len(parts)-1]
 
     return last + ';' + first + ';' + middle + ';' + prefix + ';' + suffix
-
-
 ns['N'] = ext_N
 
 
@@ -146,13 +144,21 @@ def ext_ADR(context, text):
         street = parts[0].strip()
         city = parts[1].strip()
         country = parts[2].strip()
+    elif (4 == len(parts)):
+         street = parts[0].strip()
+         city = parts[1].strip()
+         region = parts[2].strip()
+         country = parts[3].strip()
 
     parts = city.split(maxsplit=1)
     if (2 == len(parts)):
         code = parts[0].strip()
         city = parts[1].strip()
+    parts = region.split(maxsplit=1)
+    if (2 == len(parts) and 'USA' == country):
+        region = parts[0].strip()
+        code = parts[1].strip()
 
     return ";;" + street + ";" + city + ";" + region + ";" + code + ";" + country
-
 
 ns['ADR'] = ext_ADR

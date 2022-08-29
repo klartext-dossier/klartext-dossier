@@ -78,3 +78,4 @@ Documentation/Pitch/test.xml
 Test/convert-xpath/002_vcf__o.test.txt
 Test/convert-markdown/032_diagrams__i.html
 Test/convert-markdown/032_diagrams__i.pdf
+Test/convert-xpath/003_vcf__o.test.txt
