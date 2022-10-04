@@ -18,6 +18,7 @@ class TaskFactory:
         'load':               ( "LoadTask",              True,       None,       ['input'],                          ['name'] ),
         'markdown-include':   ( "MarkdownIncludeTask",   False,      False,      ['input', 'output'],                ['name'] ),
         'markdown-to-xhtml':  ( "MarkdownTask",          False,      False,      ['input', 'output'],                ['name'] ),
+        'pdf-to-png':         ( "PDFiumTask",            False,      False,      ['input', 'output'],                ['name', 'pattern', 'dpi', 'single'] ),
         'save':               ( "SaveTask",              None,       True,       ['output'],                         ['name'] ),
         'sequence':           ( "SequenceTask",          None,       None,       None,                               ['name'] ),      
         'xml-tidy':           ( "TidyXMLTask",           False,      False,      ['input', 'output', 'option'],      ['name'] ),

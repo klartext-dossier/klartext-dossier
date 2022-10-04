@@ -4,7 +4,7 @@ import logging
 import docx
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from docx.shared import Pt, RGBColor, Cm, Emu
+from docx.shared import RGBColor, Emu
 
 from colour import Color
 

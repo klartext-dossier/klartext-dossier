@@ -13,6 +13,7 @@ from .LoadTask import LoadTask
 from .MarkdownIncludeTask import MarkdownIncludeTask
 from .MarkdownTask import MarkdownTask
 from .PDFTask import PDFTask
+from .PDFiumTask import PDFiumTask
 from .SaveTask import SaveTask
 from .Task import Task
 from .TidyXMLTask import TidyXMLTask

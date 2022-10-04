@@ -9,6 +9,7 @@ markdown-customblocks==1.2.0
 Markdown==3.3.4
 MarkdownPP==1.5.1
 openpyxl==3.0.10
+pypdfium2==3.2.0
 Pygments==2.8.1
 pylint==2.7.2
 python-docx==0.8.10

@@ -1,5 +1,3 @@
-import logging
-
 from lxml import etree
 
 from dm.exceptions import TaskException
