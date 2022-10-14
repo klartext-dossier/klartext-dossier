@@ -14,6 +14,7 @@ from .MarkdownIncludeTask import MarkdownIncludeTask
 from .MarkdownTask import MarkdownTask
 from .PDFTask import PDFTask
 from .PDFiumTask import PDFiumTask
+from .PowerPointTask import PowerPointTask
 from .SaveTask import SaveTask
 from .Task import Task
 from .TidyXMLTask import TidyXMLTask

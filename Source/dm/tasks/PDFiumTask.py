@@ -56,7 +56,6 @@ class PDFiumTask(Task):
         self.dpi = int(self.getAttribute('dpi', default='300'))
         self.single = 'true' == self.getAttribute('single', default='false').lower()
 
-
         zip = self.tryConvertingToPNG()   
         self.content.setData(zip)
 

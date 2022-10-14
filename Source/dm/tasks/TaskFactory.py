@@ -19,6 +19,7 @@ class TaskFactory:
         'markdown-include':   ( "MarkdownIncludeTask",   False,      False,      ['input', 'output'],                ['name'] ),
         'markdown-to-xhtml':  ( "MarkdownTask",          False,      False,      ['input', 'output'],                ['name'] ),
         'pdf-to-png':         ( "PDFiumTask",            False,      False,      ['input', 'output'],                ['name', 'pattern', 'dpi', 'single'] ),
+        'pngs-to-pptx':       ( "PowerPointTask",        False,      False,      ['input', 'output'],                ['name'] ),
         'save':               ( "SaveTask",              None,       True,       ['output'],                         ['name'] ),
         'sequence':           ( "SequenceTask",          None,       None,       None,                               ['name'] ),      
         'xml-tidy':           ( "TidyXMLTask",           False,      False,      ['input', 'output', 'option'],      ['name'] ),
