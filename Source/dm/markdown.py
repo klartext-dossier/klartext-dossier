@@ -11,7 +11,6 @@ COMMON_EXTENSIONS = [
     'markdown.extensions.sane_lists', 
     'markdown.extensions.tables', 
     'customblocks',
-    'mdx_asciimathml', 
     'mdx.dossier.admonition', 
     'mdx.dossier.checkbox', 
     'mdx.dossier.glossary', 

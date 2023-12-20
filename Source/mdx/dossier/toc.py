@@ -15,9 +15,9 @@ License: [BSD](http://www.opensource.org/licenses/bsd-license.php)
 
 import re
 
+import xml.etree.ElementTree as etree
 from markdown import Extension
 from markdown.treeprocessors import Treeprocessor
-from markdown.util import etree
 
 
 SKIPPED_TAGS = ['pre', 'code', 'blockquote']

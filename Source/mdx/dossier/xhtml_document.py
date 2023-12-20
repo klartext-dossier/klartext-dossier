@@ -25,9 +25,9 @@ class XHTMLDocumentExtension(markdown.Extension):
     def __init__(self, **kwargs):
         pass
 
-    def extendMarkdown(self, md, md_globals):
+    def extendMarkdown(self, md):
         # Add XHTMLDocumentProcessor to postprocessors
-        md.postprocessors['xhtml_wrap'] = XHTMLDocumentProcessor(md)
+        md.postprocessors.register(XHTMLDocumentProcessor(md), 'xhtml_wrap', 400)
         self.md = md
 
 

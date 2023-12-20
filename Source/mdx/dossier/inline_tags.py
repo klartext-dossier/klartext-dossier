@@ -7,8 +7,8 @@ Copyright [Matthias Hölzer-Klüpfel](https://www.hoelzer-kluepfel.de/).
 
 import re
 
+import xml.etree.ElementTree as etree
 import markdown
-from markdown.util import etree
 
 
 class InlineTagsProcessor(markdown.inlinepatterns.InlineProcessor):

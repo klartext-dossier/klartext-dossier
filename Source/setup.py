@@ -6,7 +6,7 @@ setup(
 
     packages                = find_packages(),    
     package_data            = { "dm": [ "Tools/*/*" ] },
-    exclude_package_data    = { "dm": [ "Tools/css/*.less", "Tools/docx/*.dotm", "Tools/tex/*" ] },
+    exclude_package_data    = { "dm": [ "Tools/css/*.less", "Tools/docx/*.dotm" ] },
 
     author                  = "Matthias Hölzer-Klüpfel",
     author_email            = "matthias@hoelzer-kluepfel.de",

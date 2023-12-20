@@ -8,7 +8,6 @@ Copyright [Matthias Hölzer-Klüpfel](https://www.hoelzer-kluepfel.de/).
 import re
 
 import markdown
-from markdown.util import etree
 
 
 def reference(term):

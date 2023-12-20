@@ -6,8 +6,8 @@ from markdown.postprocessors import Postprocessor
 
 class CheckboxExtension(Extension):
 
-    def extendMarkdown(self, md, md_globals):
-        md.postprocessors.add('Checkbox', CheckboxPostprocessor(md), '>raw_html')
+    def extendMarkdown(self, md):
+        md.postprocessors.register(CheckboxPostprocessor(md), 'Checkbox', 100)
 
 
 class CheckboxPostprocessor(Postprocessor):

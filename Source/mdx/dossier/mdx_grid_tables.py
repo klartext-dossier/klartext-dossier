@@ -53,14 +53,11 @@ http://docutils.svn.sourceforge.net/viewvc/docutils/trunk/docutils/docutils/pars
 """
 
 import markdown
-from markdown.util import etree
-import re, string, pdb
+import re
 
 class GridTableExtension(markdown.Extension):
-    def extendMarkdown(self, md, md_globals):
-        md.parser.blockprocessors.add('grid-table',
-                                      GridTableProcessor(md.parser),
-                                      '<hashheader')
+    def extendMarkdown(self, md):
+        md.parser.blockprocessors.register(GridTableProcessor(md.parser), 'grid-table', 430)
 
 def makeExtension(configs={}):
     return GridTableExtension(configs=configs)

@@ -7,7 +7,6 @@ import re
 
 from markdown import Extension
 from markdown.treeprocessors import Treeprocessor
-from markdown.util import etree
 
 
 class NamespaceTreeprocessor(Treeprocessor):

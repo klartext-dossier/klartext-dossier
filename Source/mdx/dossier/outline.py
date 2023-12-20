@@ -136,7 +136,9 @@ See also
 '''
 
 import re
-from markdown.util import etree
+
+
+import xml.etree.ElementTree as etree
 from markdown import Extension
 from markdown.treeprocessors import Treeprocessor
 
@@ -233,7 +235,7 @@ class OutlineExtension(Extension):
     def __init__(self, *args, **kwargs):
         super(OutlineExtension, self).__init__(**kwargs)
 
-    def extendMarkdown(self, md, md_globals):
+    def extendMarkdown(self, md):
         ext = OutlineProcessor(md)
         md.treeprocessors.register(OutlineProcessor(md), 'outline', 1000)
 

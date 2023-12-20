@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.12
 
 # Or your actual UID, GID on Linux if not the default 1000
 ARG USERNAME=vscode
@@ -30,7 +30,7 @@ RUN apt-get update && apt-get install -y fonts-liberation fonts-crosextra-carlit
 RUN apt-get upgrade -y 
 
 # install additional fonts
-COPY fonts/**.zip .
+COPY fonts/*.zip .
 RUN unzip JetBrainsMono-1.0.0.zip
 RUN unzip open-sans.zip
 RUN unzip Kalam.zip
