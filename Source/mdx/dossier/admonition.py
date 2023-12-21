@@ -30,32 +30,12 @@ from markdown.blockprocessors import BlockProcessor
 
 HTMLBOOK_ADMONITIONS = ['note', 'warning', 'tip', 'caution', 'important', 'sidebar']
 
-class AdmonitionExtension(Extension):
-    """ Admonition extension for Python-Markdown. """
-
-    def __init__(self, **kwargs):
-        self.config = {}
-
-        super(AdmonitionExtension, self).__init__(**kwargs)
-
-    def extendMarkdown(self, md):
-        """ Add Admonition to Markdown instance. """
-        md.registerExtension(self)
-
-        processor = AdmonitionProcessor(md.parser, self.getConfigs())
-
-        md.parser.blockprocessors.register(processor, 'admonition', 105)
-
-
 class AdmonitionProcessor(BlockProcessor):
 
     CLASSNAME = 'admonition'
     CLASSNAME_TITLE = 'admonition-title'
     RE = re.compile(r'(?:^|\n)!!! ?([\w\-]+(?: +[\w\-]+)*)(?: +"(.*?)")? *(?:\n|$)')
     RE_SPACES = re.compile('  +')
-
-    def __init__(self, md, config):
-        super(AdmonitionProcessor, self).__init__(md)
 
     def test(self, parent, block):
         sibling = self.lastChild(parent)
@@ -115,5 +95,10 @@ class AdmonitionProcessor(BlockProcessor):
         return klass, title
 
 
-def makeExtension(**kwargs):  # pragma: no cover
+class AdmonitionExtension(Extension):
+    def extendMarkdown(self, md):
+        md.parser.blockprocessors.register(AdmonitionProcessor(md.parser), 'admonition', 105)
+
+
+def makeExtension(**kwargs):
     return AdmonitionExtension(**kwargs)

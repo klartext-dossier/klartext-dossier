@@ -4,12 +4,6 @@ from markdown.extensions import Extension
 from markdown.postprocessors import Postprocessor
 
 
-class CheckboxExtension(Extension):
-
-    def extendMarkdown(self, md):
-        md.postprocessors.register(CheckboxPostprocessor(md), 'Checkbox', 100)
-
-
 class CheckboxPostprocessor(Postprocessor):
 
     list_pattern = re.compile(r'<ul([^>]*)>\s*<li class')
@@ -32,5 +26,11 @@ class CheckboxPostprocessor(Postprocessor):
         return f'<li class="{cls}">'
 
 
-def makeExtension(**kwargs):  # pragma: no cover
+class CheckboxExtension(Extension):
+
+    def extendMarkdown(self, md):
+        md.postprocessors.register(CheckboxPostprocessor(md), 'Checkbox', 100)
+
+
+def makeExtension(**kwargs):
     return CheckboxExtension(**kwargs)

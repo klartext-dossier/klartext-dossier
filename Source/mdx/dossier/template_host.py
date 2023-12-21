@@ -12,20 +12,6 @@ import platform
 import markdown
 
 
-class TemplateHostExtension(markdown.extensions.Extension):
-
-    def __init__(self, **kwargs):
-        super(TemplateHostExtension, self).__init__(**kwargs)
-
-    def extendMarkdown(self, md):
-        self.md = md
-
-        TEMPLATE_RE = r'\{host:(\w+)\}'
-        templatePattern = TemplateInlineProcessor(TEMPLATE_RE, self.getConfigs())
-        templatePattern.md = md
-        md.inlinePatterns.register(templatePattern, 'template-host', 80)
-
-
 class TemplateInlineProcessor(markdown.inlinepatterns.InlineProcessor):
 
     def __init__(self, pattern, config):
@@ -53,5 +39,14 @@ class TemplateInlineProcessor(markdown.inlinepatterns.InlineProcessor):
         return a, m.start(0), m.end(0)
 
 
-def makeExtension(**kwargs):  # pragma: no cover
+class TemplateHostExtension(markdown.extensions.Extension):
+
+    def extendMarkdown(self, md):
+        TEMPLATE_RE = r'\{host:(\w+)\}'
+        templatePattern = TemplateInlineProcessor(TEMPLATE_RE, self.getConfigs())
+        templatePattern.md = md
+        md.inlinePatterns.register(templatePattern, 'template-host', 80)
+
+
+def makeExtension(**kwargs):
     return TemplateHostExtension(**kwargs)

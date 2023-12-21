@@ -35,7 +35,6 @@ class DocBookStructureTreeprocessor(Treeprocessor):
 class NamespaceExtension(Extension):
 
     def extendMarkdown(self, md):
-        md.registerExtension(self)
         md.treeprocessors.register(DocBookStructureTreeprocessor(md), 'DocBookStructure', 900)
 
 

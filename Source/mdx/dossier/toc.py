@@ -76,11 +76,9 @@ class TocTreeprocessor(Treeprocessor):
         self.replace_marker(doc)
 
 
-
 class TocExtension(Extension):
 
     def extendMarkdown(self, md):
-        md.registerExtension(self)
         md.treeprocessors.register(TocTreeprocessor(md), 'toc', 5000)
 
 

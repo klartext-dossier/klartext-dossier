@@ -54,15 +54,10 @@ http://docutils.svn.sourceforge.net/viewvc/docutils/trunk/docutils/docutils/pars
 
 import re
 
+import xml.etree.ElementTree as etree
+
 import markdown
 
-
-class GridTableExtension(markdown.Extension):
-    def extendMarkdown(self, md):
-        md.parser.blockprocessors.register(GridTableProcessor(md.parser), 'grid-table', 430)
-
-def makeExtension(configs={}):
-    return GridTableExtension(configs=configs)
 
 class GridTableCell(object):
     """
@@ -729,3 +724,13 @@ class GridTableProcessor(markdown.blockprocessors.BlockProcessor):
         for i in range(0, len(text)):
             text[i] = text[i][chars:]
         return text
+
+
+class GridTableExtension(markdown.Extension):
+
+    def extendMarkdown(self, md):
+        md.parser.blockprocessors.register(GridTableProcessor(md.parser), 'grid-table', 430)
+
+
+def makeExtension(**kwargs):
+    return GridTableExtension(**kwargs)

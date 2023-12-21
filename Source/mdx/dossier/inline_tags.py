@@ -55,14 +55,10 @@ class SymbolsProcessor(markdown.inlinepatterns.InlineProcessor):
         
         return t, m.start(0), m.end(0)
 
+
 class InlineTagsExtension(markdown.extensions.Extension):
 
-    def __init__(self, **kwargs):
-        super(InlineTagsExtension, self).__init__(**kwargs)
-
     def extendMarkdown(self, md):
-        self.md = md
-
         templatePattern = InlineTagsProcessor(r'/(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?/(?P<text>[^/]*)/')
         templatePattern.md = md
         md.inlinePatterns.register(templatePattern, 'inl', 80)
@@ -76,5 +72,5 @@ class InlineTagsExtension(markdown.extensions.Extension):
         md.inlinePatterns.register(templatePattern, 'sym', 82)
 
 
-def makeExtension(**kwargs):  # pragma: no cover
+def makeExtension(**kwargs):
     return InlineTagsExtension(**kwargs)
