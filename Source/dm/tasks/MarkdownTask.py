@@ -1,7 +1,7 @@
 from dm.exceptions import TaskException
 from dm.tasks.Task import Task
 
-import dm.markdown
+import dm.markdown_parser
 
 
 class MarkdownTask(Task):
@@ -13,7 +13,7 @@ class MarkdownTask(Task):
 
     def tryConvertingMarkdown(self):
         try:
-            return dm.markdown.processMarkdown(self.content.data.getvalue().decode(self.content.encoding))
+            return dm.markdown_parser.processMarkdown(self.content.data.getvalue().decode(self.content.encoding))
         except Exception as e:
             raise TaskException('{self.name} - cannot convert markdown to XHTML!', e)
 

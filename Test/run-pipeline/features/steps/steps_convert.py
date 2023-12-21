@@ -3,9 +3,9 @@ from behave import when, then # pylint: disable=no-name-in-module
 from lxml import etree
 
 import dmt.test
-import dm.run
+import dm.run_command
 from dm.tasks.SequenceTask import SequenceTask
-import dm.klartext
+import dm.klartext_parser
 import dm.context
 
 
@@ -14,7 +14,7 @@ def step_run(context, pipeline_file):
     try:
         with open(pipeline_file+'.dm', 'r', encoding='utf-8') as infile:
             ctx = dm.context.Context(tools_dir = context.tools_dir)
-            parser = dm.klartext.KlartextParser(infile, ctx)
+            parser = dm.klartext_parser.KlartextParser(infile, ctx)
             inp = parser.parse(convert_markdown=False)
             xml = etree.fromstring(inp)
             task = SequenceTask(xml, 'pipeline')

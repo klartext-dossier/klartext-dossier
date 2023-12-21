@@ -5,7 +5,7 @@ import markdown, python_markdown_comments
 from lxml import etree
 
 from dm.exceptions import TaskException
-from dm.klartext import KlartextParser
+from dm.klartext_parser import KlartextParser
 from dm.tasks.Task import Task
 
 

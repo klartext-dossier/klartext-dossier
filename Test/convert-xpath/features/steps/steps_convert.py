@@ -8,14 +8,14 @@ from lxml import etree
 
 import dmt.test
 import dm.tasks.SequenceTask
-import dm.klartext
+import dm.klartext_parser
 
 
 @when(u'running the pipeline {pipeline_file}.dm')
 def step_run(context, pipeline_file):
     try:
         with open(pipeline_file+'.dm', 'r', encoding='utf-8') as infile:            
-            parser = dm.klartext.KlartextParser(infile)
+            parser = dm.klartext_parser.KlartextParser(infile)
             inp = parser.parse(convert_markdown=False)
             xml = etree.fromstring(inp)
             task = dm.tasks.SequenceTask(xml, 'pipeline', context.tools_dir)

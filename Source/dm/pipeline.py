@@ -3,7 +3,7 @@ import logging, io
 from lxml import etree
 
 import dm.context
-import dm.klartext
+import dm.klartext_parser
 from dm.tasks.SequenceTask import SequenceTask
 
 
@@ -13,7 +13,7 @@ class Pipeline:
         self.pipeline = pipeline
 
     def tryParsingPipeline(self, context):
-        parser = dm.klartext.KlartextParser(self.pipeline, context)
+        parser = dm.klartext_parser.KlartextParser(self.pipeline, context)
         inp = parser.parse(convert_markdown=False)
         return etree.fromstring(inp)
 

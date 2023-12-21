@@ -1,7 +1,7 @@
 import logging, re, os
 
 from dm.utilities import tryLocatingFile
-import dm.markdown, dm.exceptions
+import dm.markdown_parser, dm.exceptions
 
 
 class KlartextParser:
@@ -238,7 +238,7 @@ class KlartextParser:
 
                     content = attribs.get('content')
                     if content:
-                        content = dm.markdown.processMarkdownContent(self.cleanText(content), plain=True)
+                        content = dm.markdown_parser.processMarkdownContent(self.cleanText(content), plain=True)
                     prefix = attribs.get('prefix')
                     namespace = attribs.get('namespace')
                     if prefix and namespace:
@@ -280,7 +280,7 @@ class KlartextParser:
                     i += 1
                     _, tag, text = tokens[i]
                 if convert_markdown:
-                    xml += dm.markdown.processMarkdownContent(self.cleanText(markdown)) + '\n'
+                    xml += dm.markdown_parser.processMarkdownContent(self.cleanText(markdown)) + '\n'
                 else:
                     xml += self.cleanText(markdown)
                 continue
