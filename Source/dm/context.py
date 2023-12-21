@@ -1,7 +1,4 @@
-import sys
-import os
-import logging
-import copy
+import sys, os, logging, copy
 
 
 class scope:

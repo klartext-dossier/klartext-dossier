@@ -7,8 +7,6 @@ Converts {meta:xyz} to the content of the 'xyz' meta data element.
 Original code Copyright [Matthias Hölzer-Klüpfel](https://www.hoelzer-kluepfel.de/).
 '''
 
-import re
-
 import markdown
 
 

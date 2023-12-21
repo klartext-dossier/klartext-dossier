@@ -1,6 +1,7 @@
 import logging
 
 from tidylib import tidy_document
+
 from dm.exceptions import TaskException
 from dm.tasks.Task import Task
 

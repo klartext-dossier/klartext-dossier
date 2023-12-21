@@ -1,5 +1,4 @@
-import logging
-import io
+import logging, io
 
 from lxml import etree
 

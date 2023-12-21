@@ -3,8 +3,6 @@ Adds the xhtml namespace declaration to the root element.
 
 """
 
-import re
-
 from markdown import Extension
 from markdown.treeprocessors import Treeprocessor
 

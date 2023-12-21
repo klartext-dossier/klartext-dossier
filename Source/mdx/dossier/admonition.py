@@ -23,6 +23,7 @@ from __future__ import unicode_literals
 import re
 
 import xml.etree.ElementTree as etree
+
 from markdown import Extension
 from markdown.blockprocessors import BlockProcessor
 

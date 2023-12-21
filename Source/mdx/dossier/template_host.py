@@ -7,7 +7,6 @@ Converts {host:xyz} to the host information 'xyz'.
 Original code Copyright [Matthias Hölzer-Klüpfel](https://www.hoelzer-kluepfel.de/).
 '''
 
-import re
 import platform
 
 import markdown

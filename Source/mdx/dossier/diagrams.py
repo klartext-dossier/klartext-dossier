@@ -1,5 +1,6 @@
 import tempfile, subprocess
 
+
 def mermaid_generator(ctx, width='auto', scale=5, background='transparent'):
 
     """ Mermaid generator.

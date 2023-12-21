@@ -2,6 +2,7 @@ import logging, os
 
 from weasyprint import HTML, CSS, default_url_fetcher
 from weasyprint.text.fonts import FontConfiguration
+
 from dm.exceptions import TaskException
 from dm.utilities import tryLocatingToolsFile
 from dm.tasks.Task import Task

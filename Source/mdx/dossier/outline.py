@@ -137,8 +137,8 @@ See also
 
 import re
 
-
 import xml.etree.ElementTree as etree
+
 from markdown import Extension
 from markdown.treeprocessors import Treeprocessor
 

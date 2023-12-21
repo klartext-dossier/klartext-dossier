@@ -1,5 +1,3 @@
-import logging
-
 from dm.tasks.Task import Task
 from dm.tasks.TaskFactory import TaskFactory
 

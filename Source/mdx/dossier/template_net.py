@@ -7,7 +7,6 @@ Converts {net:xyz} to the net information 'xyz'.
 Original code Copyright [Matthias Hölzer-Klüpfel](https://www.hoelzer-kluepfel.de/).
 '''
 
-import re
 import socket
 
 import markdown

@@ -1,8 +1,6 @@
-import argparse
-import logging
+import argparse, logging
 
 from dm.utilities import tryLocatingToolsFile
-
 import dm.pipeline
 
 

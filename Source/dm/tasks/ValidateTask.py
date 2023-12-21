@@ -1,7 +1,7 @@
-import logging
-import xmlschema
+import logging, xmlschema
 
 from lxml import etree
+
 from dm.exceptions import TaskException
 from dm.utilities import tryLocatingToolsFile
 from dm.tasks.Task import Task

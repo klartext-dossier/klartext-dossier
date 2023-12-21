@@ -4,6 +4,7 @@ Wrap document content before sections into preface.
 """
 
 import xml.etree.ElementTree as etree
+
 from markdown import Extension
 from markdown.treeprocessors import Treeprocessor
 

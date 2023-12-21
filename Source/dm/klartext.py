@@ -1,6 +1,4 @@
-import logging
-import re
-import os
+import logging, re, os
 
 from dm.utilities import tryLocatingFile
 import dm.markdown, dm.exceptions
