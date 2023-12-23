@@ -76,7 +76,7 @@ class IncludeTask(Task):
             basedir = os.path.dirname(include_file)
             if include_format in ['kt', '.kt', 'klartext']:
                 with context:
-                    context.set_base_dir(basedir)
+                    context.set_basedir(basedir)
                     xml = self.tryParsingKlartext(include, context)
                     root.append(etree.fromstring(xml, parser=etree.XMLParser()))            
             elif include_format in ['md', '.md', 'markdown']:

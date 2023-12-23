@@ -55,17 +55,17 @@ class KlartextParser:
 
     def include(self, filename, indent):
         try:
-            include_file = tryLocatingFile(filename, self.context.base_dir())
+            include_file = tryLocatingFile(filename, self.context.basedir())
             f = open(include_file, mode='r', encoding='utf-8')
             basedir = None
             if len(include_file) > 0:
                 basedir = os.path.dirname(include_file)
             self.context.enter()
             self.context.set_indent(indent)
-            self.context.set_base_dir(basedir)
+            self.context.set_basedir(basedir)
             self.context.set_infile(f)
             logging.info(f'Including klartext file "{include_file}"')
-            self.context.log()
+            logging.debug(self.context)
         except Exception as e:
             logging.error(f'Failed to include klartext file "{filename}"')
             raise
@@ -84,7 +84,7 @@ class KlartextParser:
                 f = self.context.infile()
                 f.close()
                 self.context.exit()
-                self.context.log()
+                logging.debug(self.context)
                 return self.readLine()
             else:
                 return ''

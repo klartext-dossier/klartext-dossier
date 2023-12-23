@@ -18,7 +18,7 @@ def step_run(context, pipeline_file):
             parser = dm.klartext_parser.KlartextParser(infile)
             inp = parser.parse(convert_markdown=False)
             xml = etree.fromstring(inp)
-            task = dm.tasks.SequenceTask(xml, 'pipeline', context.tools_dir)
+            task = dm.tasks.SequenceTask(xml, 'pipeline', context.toolsdir)
             task.run()
     except Exception as e:
         print(e)

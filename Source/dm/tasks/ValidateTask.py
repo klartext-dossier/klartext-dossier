@@ -31,7 +31,7 @@ class ValidateTask(Task):
         self.schemas = self.getElement('schema', multiple=True, required=True)
         self.load()
         for schema_filename in self.schemas:
-            schema_file = tryLocatingToolsFile(schema_filename, 'xsd', context.tools_dir())
+            schema_file = tryLocatingToolsFile(schema_filename, 'xsd', context.toolsdir())
             schema = self.tryLoadingSchema(schema_file)
             xml = self.content.getXML()
             self.tryValidatingXML(schema, xml)

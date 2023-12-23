@@ -13,7 +13,7 @@ import dm.context
 def step_run(context, pipeline_file):
     try:
         with open(pipeline_file+'.dm', 'r', encoding='utf-8') as infile:
-            ctx = dm.context.Context(tools_dir = context.tools_dir)
+            ctx = dm.context.Context(toolsdir = context.toolsdir)
             parser = dm.klartext_parser.KlartextParser(infile, ctx)
             inp = parser.parse(convert_markdown=False)
             xml = etree.fromstring(inp)

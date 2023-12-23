@@ -26,7 +26,7 @@ def cmd_run(args, context):
         context.set_flags(flags)
     
     try:        
-        pipeline_file = tryLocatingToolsFile(args.pipeline, 'pipeline', context.tools_dir())
+        pipeline_file = tryLocatingToolsFile(args.pipeline, 'pipeline', context.toolsdir())
         logging.info(f'Execute conversion pipeline "{pipeline_file}"')
         with open(pipeline_file, 'r', encoding="utf-8") as pipe:
             pipeline = dm.pipeline.Pipeline(pipe)

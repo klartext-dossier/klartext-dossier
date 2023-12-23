@@ -52,7 +52,7 @@ class DiagramTask(Task):
         matcher = cssselect2.Matcher()
 
         for css_filename in self.stylesheets:
-            css_file = tryLocatingToolsFile(css_filename, 'css', context.tools_dir())
+            css_file = tryLocatingToolsFile(css_filename, 'css', context.toolsdir())
             css = self.tryLoadingStylesheet(css_file)
 
             for rule in css:

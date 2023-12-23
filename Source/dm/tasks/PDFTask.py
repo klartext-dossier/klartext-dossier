@@ -20,7 +20,7 @@ class PDFTask(Task):
         if url.startswith('file:') and url.endswith('.css'):
             logging.info(f'{self.name} - looking up "{url}""')
             try:
-                css_file = tryLocatingToolsFile(os.path.basename(url), 'css', self.tools_dir)
+                css_file = tryLocatingToolsFile(os.path.basename(url), 'css', self.toolsdir)
                 return dict(filename=css_file, file_obj=open(css_file, 'rb'), mime_type='text/css', encoding='UTF-8')
             except:
                 pass
@@ -32,7 +32,7 @@ class PDFTask(Task):
         for i in range(len(self.stylesheets)):
             stylesheet = self.stylesheets[i]
             test = self.tests[i]
-            filename = tryLocatingToolsFile(stylesheet, 'css', context.tools_dir())
+            filename = tryLocatingToolsFile(stylesheet, 'css', context.toolsdir())
             if test:
                 if evaluate(test, context):
                     logging.info(f'{self.name} - applying stylesheet "{filename}" as {test} is True')
@@ -58,14 +58,14 @@ class PDFTask(Task):
             raise TaskException(f'{self.name} - cannot write PDF', e)
 
     def run(self, context):
-        self.tools_dir = None
+        self.toolsdir = None
         self.presentational_hints = 'true' == self.getAttribute('presentational-hints', default='true').lower()
         self.stylesheets = self.getElement('stylesheet', multiple=True, default=['htmlbook.css'])
         self.tests = self.getElement('stylesheet', multiple=True, attribute='test')
         self.base_url = self.getAttribute('base-url', default='.')
 
         self.load()
-        self.tools_dir = context.tools_dir() # to pass to the url_fetcher
+        self.toolsdir = context.toolsdir() # to pass to the url_fetcher
         (csss, font_config) = self.tryLoadingStylesheets(context)
         html = self.tryParsingXHTML()
         self.content.setData(self.tryWritingPDF(html, csss, font_config))

@@ -6,7 +6,7 @@ import dmt.test
 @when(u'converting the {kt_file} to XML')
 def step_convert_kt_xml(context, kt_file):
     with open(kt_file, 'rb') as infile:
-        context.tmp_xml_file = dmt.test.run_conversion_pipeline(infile, 'kt', 'xml', { 'template': None, 'pretty': False, 'tools_dir': context.tools_dir })
+        context.tmp_xml_file = dmt.test.run_conversion_pipeline(infile, 'kt', 'xml', { 'template': None, 'pretty': False, 'toolsdir': context.toolsdir })
 
 
 @then(u'the XML output is equal to {xml_file}')

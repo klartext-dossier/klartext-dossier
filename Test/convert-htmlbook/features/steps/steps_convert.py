@@ -9,13 +9,13 @@ import dmt.test
 @when(u'converting the {markdown_file} to html')
 def step_convert_md_html(context, markdown_file):
     with open(markdown_file, 'rb') as infile:
-        context.tmp_html_file = dmt.test.run_conversion_pipeline(infile, 'md', 'html', { 'template': None, 'pretty': False, 'tools_dir': context.tools_dir })
+        context.tmp_html_file = dmt.test.run_conversion_pipeline(infile, 'md', 'html', { 'template': None, 'pretty': False, 'toolsdir': context.toolsdir })
 
 
 @when(u'converting the {html_file} to PDF')
 def step_convert_html_pdf(context, html_file):
     with open(html_file, 'rb') as infile:
-        context.tmp_pdf_file = dmt.test.run_conversion_pipeline(infile, 'html', 'pdf', { 'template': None, 'pretty': False, 'tools_dir': context.tools_dir })
+        context.tmp_pdf_file = dmt.test.run_conversion_pipeline(infile, 'html', 'pdf', { 'template': None, 'pretty': False, 'toolsdir': context.toolsdir })
 
 
 @then(u'the html output is equal to {html_file}')

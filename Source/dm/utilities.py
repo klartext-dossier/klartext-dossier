@@ -34,7 +34,7 @@ def tryLocatingFile(filename, basedir=None):
     raise TaskException(f'Cannot locate file "{filename}"')
 
 
-def tryLocatingToolsFile(filename, tool_type, tools_dir):
+def tryLocatingToolsFile(filename, tool_type, toolsdir):
     
     logging.debug(f'Trying to locate {tool_type} tools file "{filename}"')
     
@@ -52,13 +52,13 @@ def tryLocatingToolsFile(filename, tool_type, tools_dir):
         return path
 
     # try to find the file in the tools directory, in the tools_type subdir
-    path = os.path.join(tools_dir, tool_type, filename)
+    path = os.path.join(toolsdir, tool_type, filename)
     if os.path.exists(path):
         logging.debug(f'Located in "{path}"')                
         return path
 
     # try to find the file in the tools directory
-    path = os.path.join(tools_dir, filename)
+    path = os.path.join(toolsdir, filename)
     if os.path.exists(path):
         logging.debug(f'Located in "{path}"')                
         return path

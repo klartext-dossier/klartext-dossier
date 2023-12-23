@@ -322,7 +322,7 @@ class Diagram:
 
     def includeStandardDefs(self, svg, context):
 
-        svg_file = tryLocatingToolsFile('diagram-defs.svg', 'svg', context.tools_dir())
+        svg_file = tryLocatingToolsFile('diagram-defs.svg', 'svg', context.toolsdir())
         logging.debug(f'diagram - including diagram definitions from "{svg_file}"')
         xml = etree.parse(svg_file, parser=etree.XMLParser())
 
