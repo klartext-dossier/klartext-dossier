@@ -16,7 +16,9 @@ class KlartextParser:
     IMPORT_RE = re.compile(r'^\s*!import\s+"(?P<namespace>[^"]+)"\s+as\s+(?P<prefix>\w+)\s*$')
     VERB_RE = re.compile(r'^\s*```')
 
+
     def __init__(self, infile, context):
+
         self.context = context
         self.context.set_infile(infile) # TODO: Do this at the caller?! Add another context?
         self.initial_contexts = len(self.context.scopes)
@@ -24,8 +26,10 @@ class KlartextParser:
         self.verbatim = False   
         self.verb_indent = 0
 
+
     @staticmethod
     def getIndent(line):
+
         if len(line.strip()) == 0:
             return 0
         d = len(line) - len(line.lstrip())
@@ -33,34 +37,44 @@ class KlartextParser:
             logging.warning(f'Incorrect indentation: {d}, |{line}|')            
         return d // KlartextParser.TAB_WIDTH
 
+
     @staticmethod
-    def getAttributes(rest):    
+    def getAttributes(rest):  
+
         result = {}
         if rest:
             for match in re.finditer(KlartextParser.ATTR_RE, rest):
                 result[match.group('name')] = match.group('value')
         return result
+    
 
     def tokenIs(self, tag, token):
+
         _, t, _ = token
         return tag == t
 
+
     def tokenIndent(self, token):
+
         i, _, _ = token
         return i
 
+
     def dump(self, token):
+
         i, t, a = token
         logging.debug(f'|{i:2} | {t:5} | {a}')
 
+
     def include(self, filename, indent):
+
         try:
             include_file = tryLocatingFile(filename, self.context.basedir())
             f = open(include_file, mode='r', encoding='utf-8')
             basedir = None
             if len(include_file) > 0:
                 basedir = os.path.dirname(include_file)
-            self.context.enter()
+            self.context.__enter__()
             self.context.set_indent(indent)
             self.context.set_basedir(basedir)
             self.context.set_infile(f)
@@ -70,7 +84,9 @@ class KlartextParser:
             logging.error(f'Failed to include klartext file "{filename}"')
             raise
 
+
     def readLine(self):
+
         infile = self.context.infile()
         indent = self.context.indent()
 
@@ -83,13 +99,14 @@ class KlartextParser:
             if len(self.context.scopes) > self.initial_contexts:
                 f = self.context.infile()
                 f.close()
-                self.context.exit()
+                self.context.__exit__()
                 logging.debug(self.context)
                 return self.readLine()
             else:
                 return ''
 
         return ' ' * KlartextParser.TAB_WIDTH * indent + line
+
 
     def nextToken(self):
 
@@ -196,6 +213,7 @@ class KlartextParser:
 
 
     def convertAttributes(self, attribs):
+
         result = ' '
         for key, value in attribs.items():
             result += f'{key}="{value}" '
@@ -203,12 +221,14 @@ class KlartextParser:
         
 
     def cleanText(self, text):     
+
         lines = text.splitlines()
         while 0 == len(lines[0].strip()):
             lines.remove(0)
         while 0 == len(lines[len(lines)-1]):
             lines.pop()        
         return '\n'.join(lines)
+
 
     def parse(self, convert_markdown=True):
 
@@ -238,7 +258,10 @@ class KlartextParser:
 
                     content = attribs.get('content')
                     if content:
-                        content = dm.markdown_parser.processMarkdownContent(self.cleanText(content), plain=True)
+                        if content.startswith('"') and content.endswith('"'):
+                            content = content[1:-1]
+                        else:
+                            content = dm.markdown_parser.processMarkdownContent(self.cleanText(content))
                     prefix = attribs.get('prefix')
                     namespace = attribs.get('namespace')
                     if prefix and namespace:

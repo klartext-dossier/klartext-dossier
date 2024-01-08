@@ -1,4 +1,4 @@
-import sys, os, logging, copy
+import sys, os, logging, copy, io
 
 
 class Scope:
@@ -13,9 +13,9 @@ class Scope:
         self.infile : str = infile
 
 
-    def log(self, level):
+    def __str__(self):
 
-        logging.debug(f'Sope[{level}] (basedir="{self.basedir}", file_name="{self.filename}", toolsdir="{self.toolsdir}, indent={self.indent}, namespaces={self.namespaces}", infile={self.infile})')
+        return f'Scope(basedir="{self.basedir}", file_name="{self.filename}", toolsdir="{self.toolsdir}, indent={self.indent}, namespaces={self.namespaces}", infile={self.infile})'
 
 
 class Context:
@@ -35,13 +35,17 @@ class Context:
         return self.scopes[-1]
 
 
-    def log(self):
+    def __str__(self):
+
+        s = io.StringIO()
 
         level = 0
         for scope in self.scopes:
-            scope.log(level)
+            s.write(f'{scope}|')
             level += 1
 
+        return s.getvalue()
+    
 
     def toolsdir(self):
 
@@ -109,24 +113,14 @@ class Context:
     def get_tempfile(self, name):
 
         return self.tempfiles[name]
-        
 
-    def enter(self):
+
+    def __enter__(self):
 
         s = copy.copy(self.scopes[-1])
         self.scopes.append(s)
 
 
-    def exit(self):
+    def __exit__(self, type=None, value=None, traceback=None):
 
         self.scopes.pop()
-
-
-    def __enter__(self):
-
-        self.enter()
-
-
-    def __exit__(self, type, value, traceback):
-
-        self.exit()

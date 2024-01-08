@@ -20,19 +20,23 @@ def add_subparser(parsers):
 def cmd_run(args, context):
 
     if args.set:
-        flags = []
-        for flag in args.set.split(','):
-            flags.append(flag.strip())
+        flags = [ flag.strip() for flag in args.set.split(',') ]
         context.set_flags(flags)
     
     try:        
+
         pipeline_file = tryLocatingToolsFile(args.pipeline, 'pipeline', context.toolsdir())
+
         logging.info(f'Execute conversion pipeline "{pipeline_file}"')
+
         with open(pipeline_file, 'r', encoding="utf-8") as pipe:
             pipeline = dm.pipeline.Pipeline(pipe)
             pipeline.run(args.input, args.input_encoding, args.output, args.output_encoding, context)
+            
         return 0
+
     except Exception as e:
+
         for arg in e.args:
             logging.error(arg)
         logging.error(f'Could not run pipeline "{args.pipeline}"')

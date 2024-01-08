@@ -1,21 +1,19 @@
-import os
-import argparse, difflib, logging, sys
+import os, difflib
 
 from diff_pdf_visually import pdfdiff
-
 
 import dm.context, dm.pipeline, dm.utilities
 
 
 def run_conversion_pipeline(input, input_format, output_format, options):
+
+    context = dm.context.Context(toolsdir=options['toolsdir'])
     pipeline_file = dm.utilities.tryLocatingToolsFile(f'{input_format}-to-{output_format}.dm', 'pipeline', options['toolsdir'])
     
-    basedir = None
     if len(pipeline_file) > 0:
-        basedir = os.path.dirname(pipeline_file)
-    
+        context.set_basedir(os.path.dirname(pipeline_file))
+
     with open(pipeline_file, 'r', encoding="utf-8") as pipe:
-        context = dm.context.Context(basedir=basedir, toolsdir=options['toolsdir'])
         with context:
             pipeline = dm.pipeline.Pipeline(pipe)
             task = pipeline.run(input, 'utf-8', None, None, context)

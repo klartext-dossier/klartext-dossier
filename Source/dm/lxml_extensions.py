@@ -5,6 +5,7 @@ MULT_SPACES = re.compile(r'\s+')
 
 
 def string(str_or_list):
+
     if isinstance(str_or_list, list):
         if len(str_or_list) == 1:
             return str_or_list[0]
@@ -12,16 +13,19 @@ def string(str_or_list):
 
 
 def ext_match_g(context, text, used_text):
+
     text = string(text).strip().lower()
     used_text = string(used_text).strip().lower()
     return text == used_text
 
 
 def ext_id(context, text):
+
     return '_' + MULT_SPACES.sub('_', string(text).strip())
 
 
 def node_id(node):
+
     index = node.getparent().index(node) if node.getparent() is not None else 0
     return f'id-{node.tag}[{index}]-'.encode('ascii')
 
@@ -39,14 +43,17 @@ def ext_unique_id(context):
 
 
 def ext_lowercase(context, text):
+
     return string(text).lower()
 
 
 def ext_uppercase(context, text):
+
     return string(text).upper()
 
 
 def ext_sentencecase(context, text):
+
     text = string(text)
     if len(text) <= 1:
         return text.upper()
@@ -54,22 +61,27 @@ def ext_sentencecase(context, text):
 
 
 def ext_lstrip(context, text):
+
     return string(text).lstrip()
 
 
 def ext_rstrip(context, text):
+
     return string(text).rstrip()
 
 
 def ext_strip(context, text):
+
     return string(text).strip()
 
 
 def ext_simplify(context, text):
+
     return MULT_SPACES.sub(' ', string(text))
 
 
 def register_dossier_extensions(namespace: str):
+
     ns = lxml.etree.FunctionNamespace(namespace)
 
     ns['match-g'] = ext_match_g
@@ -85,6 +97,7 @@ def register_dossier_extensions(namespace: str):
 
 
 def ext_N(context, text):
+
     name = string(text).strip()
 
     prefix = ''
@@ -120,6 +133,7 @@ def ext_N(context, text):
 
 
 def ext_ADR(context, text):
+
     adr = string(text).strip()
 
     street = ''
@@ -139,10 +153,10 @@ def ext_ADR(context, text):
         city = parts[1].strip()
         country = parts[2].strip()
     elif (4 == len(parts)):
-         street = parts[0].strip()
-         city = parts[1].strip()
-         region = parts[2].strip()
-         country = parts[3].strip()
+        street = parts[0].strip()
+        city = parts[1].strip()
+        region = parts[2].strip()
+        country = parts[3].strip()
 
     parts = city.split(maxsplit=1)
     if (2 == len(parts)):
@@ -156,8 +170,8 @@ def ext_ADR(context, text):
     return ";;" + street + ";" + city + ";" + region + ";" + code + ";" + country
 
 
-
 def register_vcf_extensions(namespace: str):
+
     ns = lxml.etree.FunctionNamespace(namespace)
 
     ns['N'] = ext_N

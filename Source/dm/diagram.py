@@ -11,11 +11,14 @@ class Diagram:
     SVG_NAMESPACE = '{http://www.w3.org/2000/svg}'
     XHTML_NAMESPACE = '{http://www.w3.org/1999/xhtml}'
 
+
     def __init__(self, xml):
+      
         self.xml = xml
 
 
     def toPixels(self, value, dpi):
+
         if value.endswith('cm'):
             return int(int(value[:-2])*dpi*100/254)
         else:
@@ -23,6 +26,7 @@ class Diagram:
 
 
     def relativeSize(self, value, base):
+
         value = value.strip()
         if value.endswith('%'):
             value = float(value[:-1]) * base / 100.0
@@ -30,11 +34,13 @@ class Diagram:
 
 
     def isTextStyle(self, key):
+
         # TODO: add complete list
         return key.startswith('text-') or key.startswith('font-') or ('dominant-baseline' == key)
 
     
     def isDrawStyle(self, key):
+
         # TODO: add complete list
         return key in ['stroke', 'fill', 'stroke-width', 'filter', 'stroke-dasharray', 'marker-end', 'marker-start', 'rx', 'ry']
 
@@ -69,7 +75,7 @@ class Diagram:
     def drawStyles(self, element):
 
         es = dict()
-
+        
         for entry in element.get('style', '').split(';'):
             if ':' in entry:
                 key, value = entry.split(':', maxsplit=1)
@@ -90,6 +96,7 @@ class Diagram:
 
 
     def joinStyles(self, styles):
+        
         style = ''
         for key, value in styles.items():
             style += f'{key}:{value};'
@@ -308,7 +315,6 @@ class Diagram:
             else:
                 logging.warn(f'diagram - ignoring invalid element "{tag}"')
                 continue
-
 
             # append svg elements
             svg.append(child)

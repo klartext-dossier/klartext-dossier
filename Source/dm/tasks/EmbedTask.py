@@ -4,7 +4,6 @@ from lxml import etree
 from cairosvg import svg2png
 
 from dm.exceptions import TaskException
-from dm.utilities import tryLocatingToolsFile
 from dm.tasks.Content import Content
 from dm.tasks.Task import Task
 from dm.diagram import Diagram
