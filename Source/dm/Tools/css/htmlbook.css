@@ -341,6 +341,7 @@ html body[data-type="book"] blockquote h5:before {
 }
 html body[data-type="book"] section[data-type="appendix"] {
   counter-increment: appendix-counter;
+  counter-reset: sect1-counter;
 }
 html body[data-type="book"] section[data-type="appendix"] > h1,
 html body[data-type="book"] section[data-type="appendix"] > header h1 {
@@ -365,6 +366,68 @@ html body[data-type="book"] section[data-type="appendix"] section h4:before,
 html body[data-type="book"] section[data-type="appendix"] section h5:before {
   content: "";
   counter-increment: none;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] {
+  counter-reset: sect2-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] > h1,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] > header h1 {
+  bookmark-level: 2;
+  bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] > h1:before,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] > header h1:before {
+  content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "\0000A0";
+  counter-increment: sect1-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] {
+  counter-reset: sect3-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] > h2,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] > header h2 {
+  bookmark-level: 3;
+  bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] > h2:before,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] > header h2:before {
+  content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "\0000A0";
+  counter-increment: sect2-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] {
+  counter-reset: sect4-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] > h3,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] > header h3 {
+  bookmark-level: 4;
+  bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] > h3:before,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] > header h3:before {
+  content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "\0000A0";
+  counter-increment: sect3-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] {
+  counter-reset: sect5-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] > h4,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] > header h4 {
+  bookmark-level: 5;
+  bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] > h4:before,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] > header h4:before {
+  content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "\0000A0";
+  counter-increment: sect4-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] section[data-type="sect5"] > h5,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] section[data-type="sect5"] > header h5 {
+  bookmark-level: 6;
+  bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "." counter(sect5-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] section[data-type="sect5"] > h5::before,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] section[data-type="sect5"] > header h5::before {
+  content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "." counter(sect5-counter) "\0000A0";
+  counter-increment: sect5-counter;
 }
 html body[data-type="book"] {
   color: #222222;
