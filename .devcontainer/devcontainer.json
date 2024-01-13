@@ -1,6 +1,5 @@
 {
 	"name": "python",
-	// "dockerFile": "Dockerfile",
 	"image": "emhaka/pypeline",
 	"context": ".",
 	
