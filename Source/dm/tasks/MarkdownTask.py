@@ -15,7 +15,7 @@ class MarkdownTask(Task):
         try:
             md = self.content.data.getvalue().decode(self.content.encoding)
             if len(md.strip()) == 0:    
-                return '<!-- -->'
+                md = '<!-- -->'
             return dm.markdown_parser.processMarkdown(md)
         except Exception as e:
             raise TaskException('{self.name} - cannot convert markdown to XHTML!', e)
