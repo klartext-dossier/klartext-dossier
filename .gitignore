@@ -82,3 +82,4 @@ Test/convert-xpath/003_vcf__o.test.txt
 Test/run-pipeline/page-1.png
 Test/run-pipeline/G01_pdf-to-png__o.zip
 Test/run-pipeline/~$G02_pdf-to-ppt__o.pptx
+Test/convert-markdown/032_diagrams__o.pdf
