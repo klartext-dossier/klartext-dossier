@@ -48,7 +48,6 @@ if __name__ == '__main__':
     configure_library_logging(logging.CRITICAL)
 
     initial_context = dm.context.Context(toolsdir=args.tools)
-    logging.info(f'{initial_context}')
 
     try:
         retval = args.func(args, initial_context)
