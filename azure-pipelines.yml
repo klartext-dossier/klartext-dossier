@@ -10,7 +10,6 @@ jobs:
   container: emhaka/pypeline:latest
   steps:
   - script: |
-      su vscode
       cd $(Build.SourcesDirectory)
       source build.sh
     displayName: 'Build and Test'
