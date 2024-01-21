@@ -18,7 +18,12 @@ def mermaid_generator(ctx, width='auto', scale=5, background='transparent'):
     mm.write(ctx.content)
     mm.seek(0)
 
-    config = tryLocatingToolsFile('puppeteer-config.json', 'json', os.path.join(os.path.dirname(sys.argv[0]), 'Tools'))
+    if os.path.exists('/workspaces/dossier/Source/dm/Tools'):
+        toolsdir = '/workspaces/dossier/Source/dm/Tools'
+    else:
+        toolsdir = os.path.join(os.path.dirname(sys.argv[0]), 'Tools')
+
+    config = tryLocatingToolsFile('puppeteer-config.json', 'json', toolsdir)
 
     subprocess.run(["mmdc", "-q", "-p", config, "-i", mm.name, "-o", png.name, '-s', str(scale), '-b', background])
 
