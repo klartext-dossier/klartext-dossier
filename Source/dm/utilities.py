@@ -76,4 +76,4 @@ def tryLocatingToolsFile(filename, tool_type, toolsdir):
         return path
 
     logging.error(f'Cannot locate file "{filename}"')
-    raise TaskException(f'Cannot locate file "{filename}"')
+    raise TaskException(f'Cannot locate file "{filename}", toolsdir="{toolsdir}"')
