@@ -21,7 +21,7 @@ def mermaid_generator(ctx, width='auto', scale=5, background='transparent'):
     if os.path.exists('/workspaces/dossier/Source/dm/Tools'):
         toolsdir = '/workspaces/dossier/Source/dm/Tools'
     else:
-        toolsdir = os.path.join(os.path.dirname(sys.argv[0]), 'Tools')
+        toolsdir = '/usr/local/lib/dm/Tools'
 
     config = tryLocatingToolsFile('puppeteer-config.json', 'json', toolsdir)
 
