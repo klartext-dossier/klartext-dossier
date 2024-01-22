@@ -1,6 +1,6 @@
-import tempfile, subprocess, os, sys
+import tempfile, subprocess
 
-from dm.utilities import tryLocatingToolsFile
+from dm.utilities import tryLocatingToolsFile, guessToolsDir
 
 
 def mermaid_generator(ctx, width='auto', scale=5, background='transparent'):
@@ -18,12 +18,7 @@ def mermaid_generator(ctx, width='auto', scale=5, background='transparent'):
     mm.write(ctx.content)
     mm.seek(0)
 
-    if os.path.exists('/workspaces/dossier/Source/dm/Tools'):
-        toolsdir = '/workspaces/dossier/Source/dm/Tools'
-    else:
-        toolsdir = '/usr/local/lib/dm/Tools'
-
-    config = tryLocatingToolsFile('puppeteer-config.json', 'json', toolsdir)
+    config = tryLocatingToolsFile('puppeteer-config.json', 'json', guessToolsDir())
 
     subprocess.run(["mmdc", "-q", "-p", config, "-i", mm.name, "-o", png.name, '-s', str(scale), '-b', background])
 

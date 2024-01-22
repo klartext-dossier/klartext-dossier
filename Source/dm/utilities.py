@@ -1,6 +1,20 @@
-import os, logging, pkg_resources
+import os, logging, pkg_resources, sys
 
 from dm.exceptions import TaskException
+
+
+def guessToolsDir():
+
+    # we are running inside the IDE
+    if os.path.exists('/workspaces/dossier/Source/dm/Tools'):
+        return '/workspaces/dossier/Source/dm/Tools'
+    
+    # we are running the tests
+    if 'behave' == sys.argv[0]:
+        return os.path.join(os.getcwd(), '..', '..', 'Source', 'dm', 'Tools')
+
+    # we are running the executable
+    return os.path.abspath(os.path.join(os.path.dirname(sys.argv[0]), 'Tools'))
 
 
 def tryLocatingFile(filename, basedir=None):
