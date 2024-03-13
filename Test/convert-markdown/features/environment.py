@@ -3,6 +3,7 @@ import logging
 
 from os import path
 
+from dm.utilities import guessToolsDir
 
 def before_scenario(context, feature):
     logging.disable(logging.INFO)
@@ -11,14 +12,13 @@ def before_scenario(context, feature):
     context.tmp_docx_file = tempfile.TemporaryFile('wb+', suffix='.docx')
     context.tmp_pdf_file = tempfile.TemporaryFile('wb+', suffix='.pdf')
     
-    # determine tools directory
-    if path.exists('/workspaces/dossier/Source/dm/Tools'):
-        context.tools_dir = '/workspaces/dossier/Source/dm/Tools'
-    elif path.exists('/workspaces/mono/dossier/Source/dm/Tools'):
-        context.tools_dir = '/workspaces/mono/dossier/Source/dm/Tools'
-    if 'tools.dir' in context.config.userdata:
-        context.tools_dir = context.config.userdata['tools.dir']
-    logging.debug(f'tools_dir: {context.tools_dir}')
+    context.toolsdir = guessToolsDir()
+
+    if 'toolsdir' in context.config.userdata:
+        context.toolsdir = context.config.userdata['toolsdir']
+    else:
+        context.toolsdir = 'foo/bar'
+    logging.debug(f'toolsdir: {context.toolsdir}')
     
 
 def after_scenario(context, feature):

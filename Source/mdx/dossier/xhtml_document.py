@@ -20,17 +20,6 @@ from string import Template
 import markdown
 
 
-class XHTMLDocumentExtension(markdown.Extension):
-
-    def __init__(self, **kwargs):
-        pass
-
-    def extendMarkdown(self, md):
-        # Add XHTMLDocumentProcessor to postprocessors
-        md.postprocessors.register(XHTMLDocumentProcessor(md), 'xhtml_wrap', 400)
-        self.md = md
-
-
 class XHTMLDocumentProcessor(markdown.postprocessors.Postprocessor):
 
     def run(self, text):
@@ -69,5 +58,11 @@ class XHTMLDocumentProcessor(markdown.postprocessors.Postprocessor):
         return doc.safe_substitute(templates)
 
 
-def makeExtension(**kwargs):  # pragma: no cover
+class XHTMLDocumentExtension(markdown.Extension):
+
+    def extendMarkdown(self, md):
+        md.postprocessors.register(XHTMLDocumentProcessor(md), 'xhtml_wrap', 400)
+
+
+def makeExtension(**kwargs):
     return XHTMLDocumentExtension(**kwargs)

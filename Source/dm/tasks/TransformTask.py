@@ -51,7 +51,7 @@ class TransformTask(Task):
         self.stylesheets = self.getElement('stylesheet', multiple=True, required=True)
         self.load()
         for xslt_filename in self.stylesheets:
-            xslt_file = tryLocatingToolsFile(xslt_filename, 'xslt', context.tools_dir())
+            xslt_file = tryLocatingToolsFile(xslt_filename, 'xslt', context.toolsdir())
             xslt = self.tryLoadingStylesheet(xslt_file)
             xml = self.tryParsingXMLContent()
             logging.info(f'{self.name} - applying transformation "{xslt_filename}"')

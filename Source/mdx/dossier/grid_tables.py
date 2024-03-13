@@ -52,15 +52,12 @@ http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#grid-tables
 http://docutils.svn.sourceforge.net/viewvc/docutils/trunk/docutils/docutils/parsers/rst/tableparser.py?revision=7320&content-type=text%2Fplain
 """
 
-import markdown
 import re
 
-class GridTableExtension(markdown.Extension):
-    def extendMarkdown(self, md):
-        md.parser.blockprocessors.register(GridTableProcessor(md.parser), 'grid-table', 430)
+import xml.etree.ElementTree as etree
 
-def makeExtension(configs={}):
-    return GridTableExtension(configs=configs)
+import markdown
+
 
 class GridTableCell(object):
     """
@@ -727,3 +724,13 @@ class GridTableProcessor(markdown.blockprocessors.BlockProcessor):
         for i in range(0, len(text)):
             text[i] = text[i][chars:]
         return text
+
+
+class GridTableExtension(markdown.Extension):
+
+    def extendMarkdown(self, md):
+        md.parser.blockprocessors.register(GridTableProcessor(md.parser), 'grid-table', 430)
+
+
+def makeExtension(**kwargs):
+    return GridTableExtension(**kwargs)

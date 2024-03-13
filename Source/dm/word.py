@@ -1,12 +1,11 @@
-import io
-import logging
+import io, logging
+from colour import Color
 
 import docx
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import RGBColor, Emu
 
-from colour import Color
 
 
 class WordWriter:

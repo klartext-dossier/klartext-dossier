@@ -1,6 +1,6 @@
 Feature: Test converting markdown
 
-Scenario Outline: Converting markdown
+Scenario Outline: Converting markdown to HTML and PDF
 
     When converting the <INPUT FILE> to html
     Then the html output is equal to <HTML FILE>
@@ -42,5 +42,19 @@ Examples: Input files
     | 027_bibliography__i.md       | 027_bibliography__o.html       | 027_bibliography__o.pdf       |
     | 028_full_structure__i.md     | 028_full_structure__o.html     | 028_full_structure__o.pdf     |
     | 029_glossary__i.md           | 029_glossary__o.html           | 029_glossary__o.pdf           |
+    | 030_sidebar__i.md            | 030_sidebar__o.html            | 030_sidebar__o.pdf            |
+    | 031_inline_tags__i.md        | 031_inline_tags__o.html        | 031_inline_tags__o.pdf        |
     | 990_example_text__i.md       | 990_example_text__o.html       | 990_example_text__o.pdf       |
     | 999_showcase__i.md           | 999_showcase__o.html           | 999_showcase__o.pdf           |
+
+
+Scenario Outline: Converting markdown to PDF
+
+    When converting the <INPUT FILE> to PDF
+    Then the PDF output is equal to <PDF FILE>
+
+Examples: Input files
+
+    | INPUT FILE         | PDF FILE            | 
+                                                                    
+    | 032_diagrams__i.md | 032_diagrams__o.pdf |

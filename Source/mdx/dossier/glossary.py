@@ -7,6 +7,8 @@ Copyright [Matthias Hölzer-Klüpfel](https://www.hoelzer-kluepfel.de/).
 
 import re
 
+import xml.etree.ElementTree as etree
+
 import markdown
 
 
@@ -36,16 +38,11 @@ class GlossaryInlineProcessor(markdown.inlinepatterns.InlineProcessor):
 
 class GlossaryExtension(markdown.extensions.Extension):
 
-    def __init__(self, **kwargs):
-        super(GlossaryExtension, self).__init__(**kwargs)
-
     def extendMarkdown(self, md):
-        self.md = md
-
         templatePattern = GlossaryInlineProcessor(r'\{g:(?P<term>[^:\}]+)(:(?P<reference>[^\}]+))?\}', self.getConfigs())
         templatePattern.md = md
         md.inlinePatterns.register(templatePattern, 'gls', 80)
 
 
-def makeExtension(**kwargs):  # pragma: no cover
+def makeExtension(**kwargs):
     return GlossaryExtension(**kwargs)

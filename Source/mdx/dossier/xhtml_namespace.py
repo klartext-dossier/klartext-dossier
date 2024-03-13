@@ -3,8 +3,6 @@ Adds the xhtml namespace declaration to the root element.
 
 """
 
-import re
-
 from markdown import Extension
 from markdown.treeprocessors import Treeprocessor
 
@@ -16,11 +14,9 @@ class NamespaceTreeprocessor(Treeprocessor):
             child.attrib['xmlns'] = 'http://www.w3.org/1999/xhtml'
 
 
-
 class NamespaceExtension(Extension):
 
     def extendMarkdown(self, md):
-        md.registerExtension(self)
         md.treeprocessors.register(NamespaceTreeprocessor(md), 'Namespace', 10000)
 
 

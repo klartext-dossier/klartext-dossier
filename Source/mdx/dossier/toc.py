@@ -16,6 +16,7 @@ License: [BSD](http://www.opensource.org/licenses/bsd-license.php)
 import re
 
 import xml.etree.ElementTree as etree
+
 from markdown import Extension
 from markdown.treeprocessors import Treeprocessor
 
@@ -75,11 +76,9 @@ class TocTreeprocessor(Treeprocessor):
         self.replace_marker(doc)
 
 
-
 class TocExtension(Extension):
 
     def extendMarkdown(self, md):
-        md.registerExtension(self)
         md.treeprocessors.register(TocTreeprocessor(md), 'toc', 5000)
 
 

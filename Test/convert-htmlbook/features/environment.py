@@ -1,7 +1,8 @@
-import tempfile
-import logging
+import tempfile, logging
 
 from os import path
+
+from dm.utilities import guessToolsDir
 
 
 def before_scenario(context, feature):
@@ -10,15 +11,11 @@ def before_scenario(context, feature):
     context.tmp_docx_file = tempfile.TemporaryFile('w+b', suffix='docx')
     context.tmp_pdf_file = tempfile.TemporaryFile('w+b', suffix='pdf')
     
-    # determine tools directory
-    if path.exists('/workspaces/dossier/Source/dm/Tools'):
-        context.tools_dir = '/workspaces/dossier/Source/dm/Tools'
-    elif path.exists('/workspaces/mono/dossier/Source/dm/Tools'):
-        context.tools_dir = '/workspaces/mono/dossier/Source/dm/Tools'
+    context.toolsdir = guessToolsDir()
 
-    if 'tools.dir' in context.config.userdata:
-        context.tools_dir = context.config.userdata['tools.dir']
-    logging.debug(f'tools_dir: {context.tools_dir}')
+    if 'toolsdir' in context.config.userdata:
+        context.toolsdir = context.config.userdata['toolsdir']
+    logging.debug(f'toolsdir: {context.toolsdir}')
 
 
 def after_scenario(context, feature):

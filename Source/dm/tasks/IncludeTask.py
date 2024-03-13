@@ -1,10 +1,11 @@
 import io, logging, os, glob, copy
+
 import markdown, python_markdown_comments
 
 from lxml import etree
 
 from dm.exceptions import TaskException
-from dm.klartext import KlartextParser
+from dm.klartext_parser import KlartextParser
 from dm.tasks.Task import Task
 
 
@@ -75,7 +76,7 @@ class IncludeTask(Task):
             basedir = os.path.dirname(include_file)
             if include_format in ['kt', '.kt', 'klartext']:
                 with context:
-                    context.set_base_dir(basedir)
+                    context.set_basedir(basedir)
                     xml = self.tryParsingKlartext(include, context)
                     root.append(etree.fromstring(xml, parser=etree.XMLParser()))            
             elif include_format in ['md', '.md', 'markdown']:

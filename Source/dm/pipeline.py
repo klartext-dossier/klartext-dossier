@@ -1,24 +1,28 @@
-import logging
-import io
+import logging, io
 
 from lxml import etree
 
 import dm.context
-import dm.klartext
+import dm.klartext_parser
 from dm.tasks.SequenceTask import SequenceTask
 
 
 class Pipeline:
 
     def __init__(self, pipeline):
+
         self.pipeline = pipeline
 
+
     def tryParsingPipeline(self, context):
-        parser = dm.klartext.KlartextParser(self.pipeline, context)
+
+        parser = dm.klartext_parser.KlartextParser(self.pipeline, context)
         inp = parser.parse(convert_markdown=False)
         return etree.fromstring(inp)
 
+
     def run(self, input, input_encoding, output, output_encoding, context):
+        
         with context:
             if self.pipeline.name:
                 context.set_filename(self.pipeline.name)

@@ -1,5 +1,5 @@
-import markdown, python_markdown_comments
-import mdx.dossier.mdx_grid_tables
+import markdown
+
 import mdx.dossier.diagrams
 
 
@@ -20,9 +20,10 @@ COMMON_EXTENSIONS = [
     'mdx.dossier.template_meta', 
     'mdx.dossier.template_net', 
     'mdx.dossier.toc', 
-    mdx.dossier.mdx_grid_tables.GridTableExtension(),
-    python_markdown_comments.CommentsExtension()
+    'mdx.dossier.grid_tables',
+    'python_markdown_comments'
 ]
+
 
 EXTENSION_CONFIGS = {
     'customblocks': {
@@ -37,22 +38,11 @@ markdownInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.dossier.
 
 def processMarkdown(md):
 
-    # convert empty input into a comment
-    if len(md.strip()) == 0:    
-        md = '<!-- -->'
-    
-    # convert markdown to xhtml
     return markdownInstance.reset().convert(md)
 
 
 markdownContentInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.dossier.xhtml_namespace'], extension_configs=EXTENSION_CONFIGS)
 
-def processMarkdownContent(md, plain=False):
+def processMarkdownContent(md):
     
-    # return quoted one-line content unmodified (with the quotes removed)
-    if plain:
-        if md.startswith('"') and md.endswith('"'):
-            return md[1:-1]
-
-    # convert markdown to xhtml
     return markdownContentInstance.reset().convert(md)

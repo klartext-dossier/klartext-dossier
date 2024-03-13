@@ -1,21 +1,18 @@
-import logging
-import io
-import sys
+import logging, io, sys
+
 from os import path
+
+from dm.utilities import guessToolsDir
 
 
 def before_scenario(context, feature):
     logging.disable(logging.INFO)
     
-    # determine tools directory
-    if path.exists('/workspaces/dossier/Source/dm/Tools'):
-        context.tools_dir = '/workspaces/dossier/Source/dm/Tools'
-    elif path.exists('/workspaces/mono/dossier/Source/dm/Tools'):
-        context.tools_dir = '/workspaces/mono/dossier/Source/dm/Tools'
-    if 'tools.dir' in context.config.userdata:
-        context.tools_dir = context.config.userdata['tools.dir']
-    logging.debug(f'tools_dir: {context.tools_dir}')
-    context.exception = None
+    context.toolsdir = guessToolsDir()
+
+    if 'toolsdir' in context.config.userdata:
+        context.toolsdir = context.config.userdata['toolsdir']
+    logging.debug(f'toolsdir: {context.toolsdir}')
 
     # capture stdout
     context.real_stdout = sys.stdout

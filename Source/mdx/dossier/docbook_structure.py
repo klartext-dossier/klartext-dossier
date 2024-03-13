@@ -4,6 +4,7 @@ Wrap document content before sections into preface.
 """
 
 import xml.etree.ElementTree as etree
+
 from markdown import Extension
 from markdown.treeprocessors import Treeprocessor
 
@@ -34,7 +35,6 @@ class DocBookStructureTreeprocessor(Treeprocessor):
 class NamespaceExtension(Extension):
 
     def extendMarkdown(self, md):
-        md.registerExtension(self)
         md.treeprocessors.register(DocBookStructureTreeprocessor(md), 'DocBookStructure', 900)
 
 

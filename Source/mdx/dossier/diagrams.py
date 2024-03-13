@@ -1,5 +1,8 @@
 import tempfile, subprocess
 
+from dm.utilities import tryLocatingToolsFile, guessToolsDir
+
+
 def mermaid_generator(ctx, width='auto', scale=5, background='transparent'):
 
     """ Mermaid generator.
@@ -15,6 +18,8 @@ def mermaid_generator(ctx, width='auto', scale=5, background='transparent'):
     mm.write(ctx.content)
     mm.seek(0)
 
-    mmdc = subprocess.run(["mmdc", "-q", "-i", mm.name, "-o", png.name, '-s', str(scale), '-b', background])
+    config = tryLocatingToolsFile('puppeteer-config.json', 'json', guessToolsDir())
+
+    subprocess.run(["mmdc", "-q", "-p", config, "-i", mm.name, "-o", png.name, '-s', str(scale), '-b', background])
 
     return f'<img style="width:{width}" src="{png.name}"/>'
