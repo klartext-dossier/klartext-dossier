@@ -3,16 +3,15 @@ import logging
 
 from os import path
 
+from dm.utilities import guessToolsDir
+
 
 def before_scenario(context, feature):
     logging.disable(logging.INFO)
     context.tmp_xml_file = tempfile.TemporaryFile('wb+', suffix='.xml')
     
-    # determine tools directory
-    if path.exists('/workspaces/dossier/Source/dm/Tools'):
-        context.toolsdir = '/workspaces/dossier/Source/dm/Tools'
-    elif path.exists('/workspaces/mono/dossier/Source/dm/Tools'):
-        context.toolsdir = '/workspaces/mono/dossier/Source/dm/Tools'
+    context.toolsdir = guessToolsDir()
+
     if 'tools.dir' in context.config.userdata:
         context.toolsdir = context.config.userdata['tools.dir']
     logging.debug(f'toolsdir: {context.toolsdir}')
