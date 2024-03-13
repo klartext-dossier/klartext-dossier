@@ -14,6 +14,7 @@ def guessToolsDir():
         for root, dirs, files in os.walk('/home/vsts/work/1/s'):
             if 'Tools' in dirs:
                 return os.join(root, 'Tools')
+        return 'FOOBAR'
                 
     # we are running the executable
     return os.path.join(os.path.abspath(sys.argv[0]), 'dm', 'Tools')
