@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e -v
+set -e -x
 
 TOPDIR=$PWD
 export PYTHONPATH=$TOPDIR/Source:$TOPDIR/Test
