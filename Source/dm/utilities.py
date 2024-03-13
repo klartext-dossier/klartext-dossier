@@ -11,7 +11,7 @@ def guessToolsDir():
     
     # we are running inside Azure
     if '/usr/local/bin/behave' == sys.argv[0]:
-        for root, dirs, files in os.walk('/home/vsts/work'):
+        for root, dirs, files in os.walk('/home/vsts/work/1/s/.git'):
             if 'Tools' in dirs:
                 return os.join(root, 'Tools')
                 
