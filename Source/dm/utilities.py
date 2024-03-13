@@ -5,10 +5,6 @@ from dm.exceptions import TaskException
 
 def guessToolsDir():
 
-    # we are running the installed executable
-    if os.path.exists('/usr/local/bin/dm/Tools'):
-        return '/usr/local/bin/dm/Tools'
-    
     # we are running inside the IDE
     if os.path.exists('/workspaces/dossier/Source/dm/Tools'):
         return '/workspaces/dossier/Source/dm/Tools'
