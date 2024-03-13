@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e 
+set -e -v
 
 TOPDIR=$PWD
 export PYTHONPATH=$TOPDIR/Source:$TOPDIR/Test
@@ -16,16 +16,16 @@ cd $TOPDIR/Source
 python setup.py bdist_wheel
 
 cd $TOPDIR/Test/convert-htmlbook
-behave -D toolsdir=$TOOLS --junit --junit-directory $TOPDIR/Test/test-reports --no-logcapture
+behave -D toolsdir=$TOOLS --junit --junit-directory $TOPDIR/Test/test-reports --no-logcapture --no-capture-stderr --no-capture
 
 cd $TOPDIR/Test/convert-klartext
-behave -D toolsdir=$TOOLS --junit --junit-directory $TOPDIR/Test/test-reports --no-logcapture
+behave -D toolsdir=$TOOLS --junit --junit-directory $TOPDIR/Test/test-reports --no-logcapture --no-capture-stderr --no-capture
 
 cd $TOPDIR/Test/convert-markdown
-behave -D toolsdir=$TOOLS --junit --junit-directory $TOPDIR/Test/test-reports --no-logcapture
+behave -D toolsdir=$TOOLS --junit --junit-directory $TOPDIR/Test/test-reports --no-logcapture --no-capture-stderr --no-capture
 
 cd $TOPDIR/Test/run-pipeline
-behave -D toolsdir=$TOOLS --junit --junit-directory $TOPDIR/Test/test-reports --no-logcapture
+behave -D toolsdir=$TOOLS --junit --junit-directory $TOPDIR/Test/test-reports --no-logcapture --no-capture-stderr --no-capture
 
 cp $TOPDIR/Source/dist/dossier-*-py3-none-any.whl $TOPDIR/Source/docker
 
