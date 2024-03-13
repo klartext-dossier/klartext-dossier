@@ -6,6 +6,9 @@ TOPDIR=$PWD
 export PYTHONPATH=$TOPDIR/Source:$TOPDIR/Test
 TOOLS=$TOPDIR/Source/dm/Tools
 
+echo "TOOLSDIR="
+echo $TOOLS
+
 FAIL="False"
 
 cd $TOOLS/css

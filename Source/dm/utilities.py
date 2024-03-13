@@ -9,12 +9,6 @@ def guessToolsDir():
     if os.path.exists('/workspaces/dossier/Source/dm/Tools'):
         return '/workspaces/dossier/Source/dm/Tools'
     
-    # we are running inside Azure
-    if sys.argv[0].endswith('behave'):
-        for root, dirs, files in os.walk('/home/vsts/work/1/s'):
-            if 'Tools' in dirs:
-                return os.join(root, 'Tools')
-                
     # we are running the executable
     return os.path.join(os.path.abspath(sys.argv[0]), 'dm', 'Tools')
 
