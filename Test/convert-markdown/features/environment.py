@@ -14,8 +14,8 @@ def before_scenario(context, feature):
     
     context.toolsdir = guessToolsDir()
 
-    if 'tools.dir' in context.config.userdata:
-        context.toolsdir = context.config.userdata['tools.dir']
+    if 'toolsdir' in context.config.userdata:
+        context.toolsdir = context.config.userdata['toolsdir']
     logging.debug(f'toolsdir: {context.toolsdir}')
     
 

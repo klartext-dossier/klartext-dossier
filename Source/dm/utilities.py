@@ -9,10 +9,6 @@ def guessToolsDir():
     if os.path.exists('/workspaces/dossier/Source/dm/Tools'):
         return '/workspaces/dossier/Source/dm/Tools'
     
-    # we are running the tests
-    if 'behave' == sys.argv[0]:
-        return os.path.join(os.getcwd(), '..', '..', 'Source', 'dm', 'Tools')
-
     # we are running the executable
     return os.path.join(os.path.abspath(sys.argv[0]), 'dm', 'Tools')
 

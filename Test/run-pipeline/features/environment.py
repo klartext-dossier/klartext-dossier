@@ -12,8 +12,8 @@ def before_scenario(context, feature):
         context.toolsdir = '/workspaces/dossier/Source/dm/Tools'
     elif path.exists('/workspaces/mono/dossier/Source/dm/Tools'):
         context.toolsdir = '/workspaces/mono/dossier/Source/dm/Tools'
-    if 'tools.dir' in context.config.userdata:
-        context.toolsdir = context.config.userdata['tools.dir']
+    if 'toolsdir' in context.config.userdata:
+        context.toolsdir = context.config.userdata['toolsdir']
     logging.debug(f'toolsdir: {context.toolsdir}')
     context.exception = None
 
