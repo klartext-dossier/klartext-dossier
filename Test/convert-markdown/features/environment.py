@@ -16,8 +16,6 @@ def before_scenario(context, feature):
 
     if 'toolsdir' in context.config.userdata:
         context.toolsdir = context.config.userdata['toolsdir']
-    else:
-        context.toolsdir = 'foo/bar'
     logging.debug(f'toolsdir: {context.toolsdir}')
     
 

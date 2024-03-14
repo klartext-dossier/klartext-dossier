@@ -14,7 +14,7 @@ def guessToolsDir():
         return '/__w/1/s/Source/dm/Tools'
 
     # we are running the executable
-    return os.path.join(os.path.abspath(sys.argv[0]), 'dm', 'Tools')
+    return os.path.join(os.path.dirname(sys.argv[0]), 'Tools')
 
 
 def tryLocatingFile(filename, basedir=None):
