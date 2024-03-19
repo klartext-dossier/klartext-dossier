@@ -18,29 +18,28 @@ class PDFiumTask(Task):
             tmp = tempfile.NamedTemporaryFile('w+b', suffix='.zip')
 
             with zipfile.ZipFile(tmp, 'w') as zipf:
-                pdf = pdfium.PdfDocument(self.content.data)
-                n_pages = len(pdf)
-                page_indices = [i for i in range(n_pages)]
-                renderer = pdf.render_to(
-                    pdfium.BitmapConv.pil_image,
-                    page_indices = page_indices,
-                    scale = self.dpi/72
-                )
 
                 logging.info(f'{self.name} - Converting PDF to PNG')
-                
-                for i, image in zip(page_indices, renderer):
-                    filename = self.pattern % str(i+1)
+
+                pdf = pdfium.PdfDocument(self.content.data)
+             
+                page_nr = 0
+                for page in pdf:
+                    filename = self.pattern % str(page_nr+1)
+
+                    image = page.render(scale = self.dpi/72).to_pil()
 
                     if self.single:
-                        logging.info(f'{self.name} - Saving PDF page {i} to "{filename}"')                   
+                        logging.info(f'{self.name} - Saving PDF page {page_nr} to "{filename}"')                   
                         with open(filename, 'w+b') as outfile:
-                            image.save(outfile)
+                            image.save(outfile, 'PNG')
                             zipf.write(filename, filename)
                     else:
                         with tempfile.NamedTemporaryFile('w+b', suffix='.png') as outfile:
-                            image.save(outfile)
+                            image.save(outfile, 'PNG')
                             zipf.write(outfile.name, filename)
+
+                    page_nr += 1
                     image.close()
 
             tmp.seek(0)

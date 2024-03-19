@@ -110,7 +110,6 @@ Scenario: Testing the 'load' task - 501 - Load a file
     When running the pipeline 501_load.dm
     Then the file 501_load__o.test.md is equal to 501_load__o.md
 
-
 # xhtml-to-pdf task -----------------------------
 
 Scenario: Testing the 'xhtml' task - 601 - Test generating PDF
@@ -210,3 +209,10 @@ Scenario: Testing the 'include' task - E02 - Include nested klartext files
 
     When running the pipeline E02_include.dm
     Then the file E02_include__o.test.xml is equal to E02_include__o.xml
+
+# pdf-to-png task ----------------------------------
+
+Scenario: Testing the 'pdf-to-ong' task - G01
+
+    When running the pipeline G01_pdf-to-png.dm
+    # Then the file G01_pdf-to-png__o.test.zip is equal to G01_pdf-to-png__o.zip

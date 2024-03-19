@@ -64,6 +64,13 @@ def step_compare_md(context, output_file, original_file):
             equal, diff = dmt.test.compare_bytes(output, original)
             assert equal, diff
 
+@then(u'the file {output_file}__o.test.zip is equal to {original_file}__o.zip')
+def step_compare_zip(context, output_file, original_file):
+    with open(output_file+'__o.test.zip', 'rb') as output:
+        with open(original_file+'__o.zip', 'rb') as original:
+            equal, diff = dmt.test.compare_bytes(output, original)
+            assert equal, diff
+
 @then(u'the file {output_file}__o.test.pdf is equal to {original_file}__o.pdf')
 def step_compare_pdf(context, output_file, original_file):   
     equal, diff = dmt.test.compare_pdf(output_file+'__o.test.pdf', original_file+'__o.pdf')

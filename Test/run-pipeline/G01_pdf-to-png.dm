@@ -13,4 +13,4 @@ pipeline: name="Test XHTML-to-PDF Task"
     pdf-to-png: single="true"
 
     save:
-        output: "G01_pdf-to-png__o.zip"
+        output: "G01_pdf-to-png__o.test.zip"
