@@ -1,5 +1,5 @@
 {
-	"name": "python",
+	"name": "Pypeline",
 	"image": "emhaka/pypeline",
 	"context": ".",
 	
