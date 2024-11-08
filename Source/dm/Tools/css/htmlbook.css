@@ -1402,9 +1402,6 @@ html body[data-type="book"] figure figcaption {
 html body[data-type="book"] ul > li {
   list-style-type: "‣ ";
 }
-html body[data-type="book"] ol > li {
-  list-style-type: decimal;
-}
 html body[data-type="book"] dl dt {
   font-family: Roboto, LiberationSans, sans-serif;
   font-weight: bold;

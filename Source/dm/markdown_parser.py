@@ -21,7 +21,8 @@ COMMON_EXTENSIONS = [
     'mdx.dossier.template_net', 
     'mdx.dossier.toc', 
     'mdx.dossier.grid_tables',
-    'python_markdown_comments'
+    'python_markdown_comments',
+    'pymdownx.fancylists'
 ]
 
 
