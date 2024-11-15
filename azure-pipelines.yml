@@ -5,45 +5,57 @@ pool:
   vmImage: 'ubuntu-latest'
 
 jobs:
+  - job: Image_pypeline
+    steps:
+    - task: Docker@2
+      displayName: Build and Push
+      inputs:
+        command: buildAndPush
+        containerRegistry: dockerhub-emhaka
+        buildContext: pypeline
+        repository: emhaka/pypeline
+        Dockerfile: pypeline/Dockerfile
+        tags: latest
 
-- job: Build_dossier
-  container: emhaka/pypeline:latest
-  steps:
-  - script: |
-      cd $(Build.SourcesDirectory)
-      source build.sh
-    displayName: 'Build and Test'
-  - task: PublishTestResults@2
-    inputs:
-      testResultsFormat: 'JUnit'
-      testResultsFiles: '**/test-reports/*.xml' 
-      failTaskOnFailedTests: true
-  - task: CopyFiles@2
-    inputs:
-      sourceFolder: '$(Build.SourcesDirectory)'
-      contents: '**/dist/*.whl'
-      TargetFolder: '$(Build.ArtifactStagingDirectory)'
-      flattenFolders: true
-  - task: PublishBuildArtifacts@1
-    inputs:
-      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      artifactName: 'wheels'
-      
-- job: Image_dossier  
-  dependsOn: Build_dossier
-  steps:
-  - task: DownloadBuildArtifacts@0
-    inputs:
-      buildType: 'current'
-      downloadType: 'single'
-      artifactName: 'wheels'
-      downloadPath: $(Build.SourcesDirectory)/Source/docker
-  - task: Docker@2
-    displayName: Build and Push
-    inputs:
-      command: buildAndPush
-      containerRegistry: dockerhub-emhaka
-      repository: emhaka/dossier
-      buildContext: Source/docker
-      Dockerfile: Source/docker/Dockerfile
-      tags: latest
+  - job: Build_dossier
+    dependsOn: Image_pypeline
+    container: emhaka/pypeline:latest
+    steps:
+    - script: |
+        cd $(Build.SourcesDirectory)
+        make
+      displayName: 'Build and Test'
+    - task: PublishTestResults@2
+      inputs:
+        testResultsFormat: 'JUnit'
+        testResultsFiles: '**/test-reports/*.xml' 
+        failTaskOnFailedTests: true
+    - task: CopyFiles@2
+      inputs:
+        sourceFolder: '$(Build.SourcesDirectory)'
+        contents: '**/dist/*'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+        flattenFolders: true
+    - task: PublishBuildArtifacts@1
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: 'wheels'
+        
+  - job: Image_dossier  
+    dependsOn: Build_dossier
+    steps:
+    - task: DownloadBuildArtifacts@0
+      inputs:
+        buildType: 'current'
+        downloadType: 'single'
+        artifactName: 'wheels'
+        downloadPath: $(Build.SourcesDirectory)/docker
+    - task: Docker@2
+      displayName: Build and Push
+      inputs:
+        command: buildAndPush
+        containerRegistry: dockerhub-emhaka
+        repository: emhaka/dossier
+        buildContext: docker
+        Dockerfile: docker/Dockerfile
+        tags: latest

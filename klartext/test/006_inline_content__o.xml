@@ -1,0 +1,19 @@
+<single>Some Content
+</single>
+<nocontent>
+    <tag>
+sada
+    </tag>
+</nocontent>
+<one id="ID">content 1
+    <two key="value" anotherkey="anothervalue" id="id">content 2
+        <three>content 3
+        </three>
+    </two>
+</one>
+<onemore id="ID">content 1
+    <twomore key="value" id="id">content 2
+        <threemore>content 3
+        </threemore>
+    </twomore>
+</onemore>

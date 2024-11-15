@@ -1,0 +1,6 @@
+<tag>
+    <link1 ref="REF">
+    </link1>
+    <link2 key="value" other_key="other value" more-key="a value" ref="REF">
+    </link2>
+</tag>

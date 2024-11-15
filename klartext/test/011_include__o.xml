@@ -1,0 +1,10 @@
+<root>
+Some text.
+    <tag>
+        <subtag>
+            <another>
+Some text.
+            </another>
+        </subtag>
+    </tag>
+</root>

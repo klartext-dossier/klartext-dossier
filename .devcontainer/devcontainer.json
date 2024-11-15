@@ -31,10 +31,10 @@
 	],
 
 	"containerEnv": {
-        "PYTHONPATH": "/workspaces/dossier/Source:/workspaces/dossier/Source/mdx/dossier:/workspaces/dossier/Test",
+        "PYTHONPATH": "/workspaces/dossier/mdx:/workspaces/dossier/klartext:/workspaces/dossier/dossier:/workspaces/dossier/Test"
 	},
 	
     "remoteEnv": {
-        "PYTHONPATH": "/workspaces/dossier/Source:/workspaces/dossier/Source/mdx/dossier:/workspaces/dossier/Test",
+        "PYTHONPATH": "/workspaces/dossier/mdx:/workspaces/dossier/klartext:/workspaces/dossier/dossier:/workspaces/dossier/Test"
     }
 }

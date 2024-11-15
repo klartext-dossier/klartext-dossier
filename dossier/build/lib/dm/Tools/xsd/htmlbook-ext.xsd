@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xsd:schema	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/1999/xhtml" targetNamespace="http://www.w3.org/1999/xhtml" xmlns:pd="http://www.hoelzer-kluepfel.de/dossier" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xsd:import namespace="http://www.hoelzer-kluepfel.de/dossier" schemaLocation="dossier-extensions.xsd"/>
+
+    <xsd:redefine schemaLocation="htmlbook.xsd">
+
+        <xsd:group name="inlineelements">
+            <xsd:choice>
+                <xsd:group ref="inlineelements"/>
+                <xsd:element ref="pd:g"/>
+                <xsd:element ref="pd:ref"/>
+            </xsd:choice>
+        </xsd:group>
+
+    </xsd:redefine>
+
+</xsd:schema>
