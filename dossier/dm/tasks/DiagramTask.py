@@ -3,7 +3,8 @@ import logging, os, pathlib
 import tinycss2
 import cssselect2
 
-from lxml import etree, ElementInclude
+from lxml import etree
+from lxml import ElementInclude # type: ignore[attr-defined]
 
 from dm.exceptions import TaskException
 from dm.utilities import tryLocatingToolsFile

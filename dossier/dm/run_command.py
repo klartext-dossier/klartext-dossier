@@ -1,10 +1,11 @@
 import argparse, logging
 
 from dm.utilities import tryLocatingToolsFile
+from dm.context import Context
 import dm.pipeline
 
 
-def add_subparser(parsers):
+def add_subparser(parsers) -> None:
 
     parser = parsers.add_parser('run', help='Execute conversion pipelines.')
     parser.add_argument('-p', '--pipeline', help='The pipeline file to run.', required=True)
@@ -17,7 +18,7 @@ def add_subparser(parsers):
     parser.set_defaults(command_name='run', func=cmd_run)
 
 
-def cmd_run(args, context):
+def cmd_run(args: argparse.Namespace, context: Context) -> int:
 
     if args.set:
         flags = [ flag.strip() for flag in args.set.split(',') ]

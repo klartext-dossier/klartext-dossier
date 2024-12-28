@@ -212,7 +212,7 @@ Scenario: Testing the 'include' task - E02 - Include nested klartext files
 
 # pdf-to-png task ----------------------------------
 
-Scenario: Testing the 'pdf-to-ong' task - G01
+Scenario: Testing the 'pdf-to-png' task - G01
 
     When running the pipeline G01_pdf-to-png.dm
     # Then the file G01_pdf-to-png__o.test.zip is equal to G01_pdf-to-png__o.zip

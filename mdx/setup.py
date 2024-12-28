@@ -14,7 +14,17 @@ setup(
     url                     = "http://www.hoelzer-kluepfel.de",
     keywords                = "documentation processing",
 
-    license                 = "Other/Proprietary License",
+    classifiers             = [ 
+                            	"License :: OSI Approved :: BSD License",
+                                "Development Status :: 3 - Alpha",
+                                "Environment :: Console",
+                                "Intended Audience :: Developers",
+                                "Programming Language :: Python :: 3",
+                                "Topic :: Documentation",
+                                "Topic :: Software Development :: Documentation",
+                                "Topic :: Text Processing :: Markup :: Markdown",
+                                "Typing :: Typed",
+                              ],
 
     # install_requires=["docutils>=0.3"],
 

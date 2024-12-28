@@ -3,7 +3,7 @@ import os, logging, pkg_resources, sys
 from dm.exceptions import TaskException
 
 
-def guessToolsDir():
+def guessToolsDir() -> str:
 
     # we are running inside the IDE
     if os.path.exists('/workspaces/dossier/dossier/dm/Tools'):
@@ -17,7 +17,7 @@ def guessToolsDir():
     return os.path.join(os.path.dirname(sys.argv[0]), 'Tools')
 
 
-def tryLocatingFile(filename, basedir=None):
+def tryLocatingFile(filename: str, basedir: str|None=None) -> str:
     
     logging.debug(f'Trying to locate "{filename}" with basedir="{basedir}"')
     
@@ -48,7 +48,7 @@ def tryLocatingFile(filename, basedir=None):
     raise TaskException(f'Cannot locate file "{filename}"')
 
 
-def tryLocatingToolsFile(filename, tool_type, toolsdir):
+def tryLocatingToolsFile(filename: str, tool_type: str, toolsdir: str) -> str:
     
     logging.debug(f'Trying to locate {tool_type} tools file "{filename}"')
     

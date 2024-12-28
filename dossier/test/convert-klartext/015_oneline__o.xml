@@ -1,5 +1,5 @@
 <test>
-    <tag><p xmlns="http://www.w3.org/1999/xhtml">This is a <g xmlns="http://www.hoelzer-kluepfel.de/dossier">glossary</g> entry, defined <g xmlns="http://www.hoelzer-kluepfel.de/dossier">somewhere</g> else.</p>
+    <tag><p xmlns="http://www.w3.org/1999/xhtml">This is a <a data-type="xref" data-xrefstyle="glossary" href="#glossary">glossary</a> entry, defined <a data-type="xref" data-xrefstyle="glossary" href="#somewhere">somewhere</a> else.</p>
     </tag>
     <tag>This is a {glossary} entry, defined {somewhere} else.
     </tag>

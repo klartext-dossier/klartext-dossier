@@ -20,11 +20,3 @@
 
 * '±' Plus minus sign
 * '°' Celsius
-
-## Card symbols
-
-* '♠' Spades
-* '♥' Hearts
-* '♦' Diamonds
-* '♣' Clubs
-* '⚠' Alert

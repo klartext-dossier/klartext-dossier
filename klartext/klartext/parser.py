@@ -1,23 +1,47 @@
-import logging, re, collections, os
+""" Module providing a parser for the klartext markup language.
+"""
 
-from klartext import ParseError
+import logging, re, collections, os, io
+from typing import Callable, Tuple
+import markdown
+
+from klartext import ParseError, Token
+
+
+# reused instance of the markdown parser
+markdownInstance = markdown.Markdown(extensions=['klartext.inline', 'klartext.glossary'])
 
 
 class Parser:
 
+    """ Parser for the klartext markup language.
+    """
+
     TAB_WIDTH = 4
 
-    ATTR_RE = re.compile(r'\s*(?P<name>[\w_\-]+)\s*=\s*"(?P<value>[^"]*)"\s*')
-    TAG_RE = re.compile(r'^\s*((?P<prefix>\w+)\:\:)?(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?:\s*(#(?P<id>[\w\-_\.]+)\s*)?(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
-    LINK_RE = re.compile(r'^\s*(?P<link>[\w\-_]+)>\s+(?P<ref>\S+)\s*(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
-    ID_RE = re.compile(r'\s+#(?P<id>[\w_]+)')
+    # Regular expressions used for parsing
+    ATTR_RE    = re.compile(r'\s*(?P<name>[\w_\-]+)\s*=\s*"(?P<value>[^"]*)"\s*')
+    TAG_RE     = re.compile(r'^\s*((?P<prefix>\w+)\:\:)?(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?:\s*(#(?P<id>[\w\-_\.]+)\s*)?(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
+    LINK_RE    = re.compile(r'^\s*(?P<link>[\w\-_]+)>\s+(?P<ref>\S+)\s*(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
+    ID_RE      = re.compile(r'\s+#(?P<id>[\w_]+)')
     INCLUDE_RE = re.compile(r'^\s*!include\s+"(?P<file>[^"]+)"\s*$')
-    IMPORT_RE = re.compile(r'^\s*!import\s+"(?P<namespace>[^"]+)"\s+as\s+(?P<prefix>\w+)\s*$')
-    VERB_RE = re.compile(r'^\s*```')
+    IMPORT_RE  = re.compile(r'^\s*!import\s+"(?P<namespace>[^"]+)"\s+as\s+(?P<prefix>\w+)\s*$')
+    VERB_RE    = re.compile(r'^\s*```')
 
 
     @staticmethod
-    def removeSurroundingBlankLines(text : str) -> str:     
+    def removeSurroundingBlankLines(text: str) -> str:
+        
+        """ Default conversion for text content.
+        
+            Removes leading and trailing blank lines from text content.
+
+            Args:
+                text: The text content
+
+            Returns:
+                The text content without leading and trailing blank lines
+        """        
         lines = collections.deque(text.splitlines())
         while (len(lines)>0) and (0 == len(lines[0].strip())):
             lines.popleft()
@@ -27,12 +51,28 @@ class Parser:
 
 
     @staticmethod
-    def indentSpaces(indent: int) -> str:
+    def convertMarkdown(text: str) -> str:
+        
+        """ Markdown conversion for text content.
+        
+            Converts the text content from Markdown to xhtml.
+
+            Args:
+                text: The text content
+
+            Returns:
+                The text content converted from Markdown to xhtml
+        """        
+        return markdownInstance.reset().convert(text)
+
+
+    @staticmethod
+    def _indentSpaces(indent: int) -> str:
         return ' ' * Parser.TAB_WIDTH * indent
     
 
     @staticmethod
-    def getAttributes(rest):  
+    def _getAttributes(rest: str) -> dict:  
         result = {}
         if rest:
             for match in re.finditer(Parser.ATTR_RE, rest):
@@ -41,19 +81,7 @@ class Parser:
     
 
     @staticmethod
-    def tokenIs(tag, token):
-        _, t, _ = token
-        return tag == t
-
-
-    @staticmethod
-    def tokenIndent(token):
-        i, _, _ = token
-        return i
-    
-
-    @staticmethod
-    def convertAttributes(attribs):
+    def _convertAttributes(attribs: dict) -> str:
         result = ' '
         for key, value in attribs.items():
             result += f'{key}="{value}" '
@@ -61,38 +89,49 @@ class Parser:
 
 
     @staticmethod
-    def convertBlankLinesToText(tokens):
-        # Convert required blank lines to text. Note that the range stops BEFORE the first element!
+    def _convertBlankLinesToText(tokens: list[Token]) -> list[Token]:
         for i in range(len(tokens)-1, 0, -1):
-            if Parser.tokenIs('EMPTY', tokens[i]):
-                if Parser.tokenIs('TEXT', tokens[i-1]):
-                    indent, _, _ = tokens[i-1]
-                    tokens[i] = (indent, 'TEXT', '')
+            if Token.EMPTY == tokens[i]:
+                if Token.TEXT == tokens[i-1]:
+                    indent = tokens[i-1].indent()
+                    tokens[i] = Token(indent, Token.TEXT, '')
                 else:
                     del tokens[i]
         return tokens
 
 
     @staticmethod
-    def replaceTabsWithSpaces(text):
+    def _replaceTabsWithSpaces(text: str) -> str:
         return text.rstrip().expandtabs(Parser.TAB_WIDTH)
 
 
     @staticmethod
-    def lookupIncludeFile(filename, basedir):
+    def lookupIncludeFile(filename: str, basedir: str) -> str:
+
+        """ Default lookup for include files.
+
+            Tries to locate the include file relative to the basedir.
+        
+            Args:
+                filename: Name of the include file to lookup
+                basedir:  Base directory for the lookup
+        """        
         if basedir:
             return os.path.join(basedir, filename)
         return filename
 
 
-    def __init__(self):
-        self.context = []
-        self.verbatim = False
-        self.namespaces = {}
-        self.lookup = None
+    def __init__(self) ->  None:
+
+        """ Creates a parser.
+        """
+        self.context: list[Tuple[io.TextIOBase, int, str]] = []
+        self.namespaces: dict[str, str] = {}
+        self.lookup: Callable[[str, str], str] | None = None
+        self.verbatim: bool = False
 
 
-    def getIndent(self, line: str) -> int:
+    def _getIndent(self, line: str) -> int:
         if 0 == len(line.strip()):
             return 0
         d = len(line) - len(line.lstrip())
@@ -101,7 +140,7 @@ class Parser:
         return d // Parser.TAB_WIDTH
 
 
-    def include(self, filename, indent):
+    def _include(self, filename: str, indent: int) -> None:
         try:
             _, _, basedir = self.context[-1]
             include_file_name = filename
@@ -115,7 +154,7 @@ class Parser:
             raise ParseError(f'Failed to include klartext file "{filename}"')  
         
 
-    def readLine(self):
+    def _readLine(self) -> str:
 
         infile, indent, _ = self.context[-1]
 
@@ -131,23 +170,23 @@ class Parser:
             if len(self.context) > 1:
                 include_file, _, _ = self.context.pop()
                 include_file.close()           
-                return self.readLine()
+                return self._readLine()
             else:
                 return ''
 
-        return Parser.indentSpaces(indent) + line
+        return Parser._indentSpaces(indent) + line
 
 
-    def nextToken(self):
-        current_line = self.readLine()
+    def _nextToken(self) -> Token:
+        current_line = self._readLine()
 
         if '' == current_line:
-            return (0, 'EOF', None) 
+            return Token(0, Token.EOF, None) 
         
-        current_line = Parser.replaceTabsWithSpaces(current_line)
+        current_line = Parser._replaceTabsWithSpaces(current_line)
 
         if len(current_line) == 0:
-            return (0, 'EMPTY', None)  
+            return Token(0, Token.EMPTY, None)  
 
         # verbatim environments         
         match_verb = self.VERB_RE.match(current_line)
@@ -155,14 +194,14 @@ class Parser:
             d = len(current_line) - len(current_line.lstrip())
             if not self.verbatim:
                 self.verbatim = True
-                self.verb_indent = self.getIndent(current_line)
+                self.verb_indent = self._getIndent(current_line)
             elif d == self.verb_indent*Parser.TAB_WIDTH:
                 self.verbatim = False
             else:
-                return (self.verb_indent, 'TEXT', current_line[self.verb_indent*Parser.TAB_WIDTH:])    
-            return (self.verb_indent, 'TEXT', current_line[d:])
+                return Token(self.verb_indent, Token.TEXT, current_line[self.verb_indent*Parser.TAB_WIDTH:])    
+            return Token(self.verb_indent, Token.TEXT, current_line[d:])
         if self.verbatim:
-            return (self.verb_indent, 'TEXT', current_line[self.verb_indent*self.TAB_WIDTH:])
+            return Token(self.verb_indent, Token.TEXT, current_line[self.verb_indent*self.TAB_WIDTH:])
 
         # import directive
         match_import = self.IMPORT_RE.match(current_line)
@@ -173,22 +212,22 @@ class Parser:
                 logging.warning(f'Namespace prefix "{prefix}" is already defined!')
             self.namespaces[prefix] = namespace
             logging.debug(f'Registered namespace "{namespace}" as prefix "{prefix}"')
-            return self.nextToken()
+            return self._nextToken()
 
         # get the current indent
-        indent = self.getIndent(current_line)        
+        indent = self._getIndent(current_line)        
         current_line = current_line.lstrip()
 
         # include directive
         match_include = self.INCLUDE_RE.match(current_line)
         if match_include:       
-            self.include(match_include.group('file'), indent)
-            return self.nextToken()
+            self._include(match_include.group('file'), indent)
+            return self._nextToken()
 
         # tag
         match_tag = self.TAG_RE.match(current_line)
         if match_tag:
-            a = Parser.getAttributes(match_tag.group('rest'))
+            a = Parser._getAttributes(match_tag.group('rest'))
             if match_tag.group('id'):
                 a['id'] = match_tag.group('id')
             if match_tag.group('class'):
@@ -203,39 +242,53 @@ class Parser:
                 prefix = None
                 namespace = None
                 
-            return (indent, 'TAG', { 'tag': match_tag.group('tag'), 'attribs': a, 'content': match_tag.group('content'), 'prefix': prefix, 'namespace': namespace } )
+            return Token(indent, Token.TAG, { Token.TAG: match_tag.group('tag'), 'attribs': a, 'content': match_tag.group('content'), 'prefix': prefix, 'namespace': namespace } )
             
         # link
         match_link = self.LINK_RE.match(current_line)
         if match_link:
-            attribs = Parser.getAttributes(match_link.group('rest'))
+            attribs = Parser._getAttributes(match_link.group('rest'))
             attribs['ref'] = match_link.group('ref')
-            return (indent, 'TAG', { 'tag': match_link.group('link'), 'attribs': attribs, 'content': match_link.group('content') } )
+            return Token(indent, Token.TAG, { Token.TAG: match_link.group('link'), 'attribs': attribs, 'content': match_link.group('content') } )
 
         # line of text
-        return (indent, 'TEXT', current_line)
+        return Token(indent, Token.TEXT, current_line)
 
 
-    def getTokens(self):
+    def _getTokens(self) -> list[Token]:
         tokens = []
         
-        token = self.nextToken()
+        token = self._nextToken()
         tokens.append(token)
-        while not Parser.tokenIs('EOF', token):           
-            token = self.nextToken()
+        while token != Token.EOF: 
+            token = self._nextToken()
             tokens.append(token)
 
         return tokens
 
 
-    def parse(self, infile, convert_text=removeSurroundingBlankLines, basedir=None, lookup=lookupIncludeFile):
+    def parse(self, infile: io.TextIOBase, convert_text: Callable[[str], str] = removeSurroundingBlankLines, basedir: str = "", lookup: Callable[[str, str], str] = lookupIncludeFile) -> bytes:
+
+        """ Parse a klartext file.
+
+            Parses a klartext file and returns an XML representation.
+
+            Args:
+                infile:       The text file to parse
+                convert_text: Callback function to convert the content of text nodes
+                basedir:      Directory used as base when looking up included files
+                lookup:       Callback function used to lookup include files
+
+            Returns:
+                UTF-8 enoded byte string containing the XML representation of the klartext file
+        """        
         self.context = [(infile, 0, basedir)]
-        self.verbatim = False
         self.namespaces = {}
         self.lookup = lookup
+        self.verbatim = False
 
-        tokens = self.getTokens()
-        tokens = Parser.convertBlankLinesToText(tokens)
+        tokens = self._getTokens()
+        tokens = Parser._convertBlankLinesToText(tokens)
 
         # convert the tags to XML
         level = 0
@@ -244,71 +297,70 @@ class Parser:
             found = False
             i = 0
             while i < len(tokens):
-                indent, tag, attribs = tokens[i]
-                if (level == indent) and ('TAG' == tag):
+                indent = tokens[i].indent()
+                attribs = tokens[i].content()
+
+                if (level == indent) and (Token.TAG == tokens[i]):
                     found = True
                     
-                    tagname = attribs.get('tag')
-                    a = Parser.convertAttributes(attribs.get('attribs'))
+                    tagname = attribs.get(Token.TAG)
+                    a = Parser._convertAttributes(attribs.get('attribs'))
 
                     content = attribs.get('content')
                     if content:
                         if content.startswith('"') and content.endswith('"'):
                             content = content[1:-1]
-                        elif convert_text:
+                        elif convert_text is not None:
                             content = convert_text(Parser.removeSurroundingBlankLines(content))
 
                     prefix = attribs.get('prefix')
                     namespace = attribs.get('namespace')
                     if prefix and namespace:
-                        tokens[i] = (indent, 'XML', Parser.indentSpaces(indent) + f'<{prefix}:{tagname} xmlns:{prefix}="{namespace}"{a}>{content}')
+                        tokens[i] = Token(indent, Token.XML, Parser._indentSpaces(indent) + f'<{prefix}:{tagname} xmlns:{prefix}="{namespace}"{a}>{content}')
                     else:
-                        tokens[i] = (indent, 'XML', Parser.indentSpaces(indent) + f'<{tagname}{a}>{content}')
+                        tokens[i] = Token(indent, Token.XML, Parser._indentSpaces(indent) + f'<{tagname}{a}>{content}')
                     for i in range(i+1, len(tokens)):
-                        indent, _, _ = tokens[i]
+                        indent = tokens[i].indent()
                         if indent <= level:
                             break
                     if prefix and namespace:
-                        tokens.insert(i, (level, 'XML', Parser.indentSpaces(level) + f'</{prefix}:{tagname}>'))
+                        tokens.insert(i, Token(level, Token.XML, Parser._indentSpaces(level) + f'</{prefix}:{tagname}>'))
                     else:
-                        tokens.insert(i, (level, 'XML', Parser.indentSpaces(level) + f'</{tagname}>'))
+                        tokens.insert(i, Token(level, Token.XML, Parser._indentSpaces(level) + f'</{tagname}>'))
                 i += 1
             level += 1
 
         # indent the text            
         for i in range(1, len(tokens)):
-            l_i, tag_i, text_i = tokens[i]
-            l_im, tag_im, _ = tokens[i-1]
-            if ('TEXT' == tag_i) and ('TEXT' == tag_im) and (l_i > l_im):
-                tokens[i] = (l_im, tag_i, Parser.indentSpaces(l_i - l_im) + text_i)
+            if (Token.TEXT == tokens[i]) and (Token.TEXT == tokens[i-1]) and (tokens[i].indent() > tokens[i-1].indent()):
+                tokens[i] = Token(tokens[i-1].indent(), tokens[i].type(), Parser._indentSpaces(tokens[i].indent() - tokens[i-1].indent()) + tokens[i].content())
 
         # log tokens
         for token in tokens:
-            i, t, a = token
-            logging.debug(f'|{i:2} | {t:5} | {a}')
+            logging.debug(f'|{token}')
 
         # create the output text
         xml = ''
         i = 0
         while i <= len(tokens):
-            indent, tag, text = tokens[i]
-            if 'XML' == tag:
+            text = tokens[i].content()
+            if Token.XML == tokens[i]:
                 xml += text + '\n'
-            elif 'TEXT' == tag:
+            elif Token.TEXT == tokens[i]:
                 text_content = ''
-                while 'TEXT' == tag:
+                while Token.TEXT == tokens[i]:
                     text_content += text +'\n'
                     i += 1
-                    _, tag, text = tokens[i]                
-                if convert_text:
+                    text = tokens[i].content()                
+                if convert_text is not None:
                     xml += convert_text(Parser.removeSurroundingBlankLines(text_content)) + '\n'
                 else:
                     xml += text_content
                 continue
-            elif 'EOF' == tag:
-                break
-            elif 'EMPTY' == tag:
+            elif Token.EMPTY == tokens[i]:
                 pass
+            elif Token.EOF == tokens[i]:
+                break
             else:
                 raise ParseError('Parse error', tokens[i])
             i += 1

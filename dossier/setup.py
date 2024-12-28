@@ -16,7 +16,9 @@ setup(
 
     license                 = "Other/Proprietary License",
     
-    scripts                 = ["bin/dm"],
+    entry_points            = {
+                                'console_scripts': [ 'dm = dm:run_dm', ]
+                              }
 
     # install_requires=["docutils>=0.3"],
 

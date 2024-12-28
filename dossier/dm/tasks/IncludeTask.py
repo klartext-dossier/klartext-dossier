@@ -49,7 +49,7 @@ class IncludeTask(Task):
         try:
             if len(md.strip()) == 0:
                 md = '<!-- -->'
-            return markdown.markdown(md, extensions=COMMON_EXTENSIONS+['mdx.xhtml_namespace'])
+            return markdown.markdown(md, extensions=COMMON_EXTENSIONS+['mdx.xhtml'])
         except Exception as e:
             raise TaskException('{self.name} - cannot convert markdown to XHTML!', e)
 

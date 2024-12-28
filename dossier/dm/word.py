@@ -1,11 +1,14 @@
 import io, logging
 from colour import Color
+from typing import Any
+
+from lxml import etree
 
 import docx
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import RGBColor, Emu
-
+from docx.document import Document as DocumentObject
 
 
 class WordWriter:
@@ -25,7 +28,7 @@ class WordWriter:
         self.color = None
 
 
-    def parse_content(self, child, parent):
+    def parse_content(self, child: etree._Element, parent: DocumentObject) -> None:
         if 'heading' == child.tag:
             self.parse_heading(child, parent)
         elif 'paragraph' == child.tag:
@@ -48,14 +51,19 @@ class WordWriter:
             self.parse_image(child, parent)
 
 
-    def parse_contents(self, tag, parent):
+    def parse_contents(self, tag: etree._Element, parent: DocumentObject) -> None:
         for child in tag.iterchildren():
             self.parse_content(child, parent)
 
 
-    def parse_image(self, tag, parent):
-        if not tag.get('src').endswith('.png'):
-            logging.warn(f'Ignoring {tag.get("src")} as the format is not known')
+    def parse_image(self, tag: etree._Element, parent: DocumentObject) -> None:
+        src = tag.get('src')
+        if src is None:
+            logging.warning(f'Ignoring image as no src is given')
+            return
+
+        if not str(src).endswith('.png'):
+            logging.warning(f'Ignoring {tag.get("src")} as the format is not known')
             return
 
         w = h = None
@@ -68,10 +76,10 @@ class WordWriter:
             page_height = self.document.sections[0].page_height - self.document.sections[0].top_margin - self.document.sections[0].bottom_margin
             h = (int(height[:-1]) / 100.0) * page_height
 
-        parent.add_picture(tag.get('src'), width=w, height=h)
+        parent.add_picture(str(tag.get('src')), width=w, height=h)
 
 
-    def parse_nav(self, tag, parent):
+    def parse_nav(self, tag: etree._Element, parent: DocumentObject) -> None:
         self.p = parent.add_paragraph()
 
         fldChar = OxmlElement('w:fldChar')  # creates a new element
@@ -96,11 +104,12 @@ class WordWriter:
         r_element.append(fldChar4)
 
 
-    def parse_heading(self, tag, parent):
-        parent.add_heading(tag.text, level=int(tag.get('level')))
+    def parse_heading(self, tag: etree._Element, parent: DocumentObject) -> None:
+        if (tag.text is not None) and (tag.get('level') is not None):
+            parent.add_heading(str(tag.text), level=int(str(tag.get('level'))))
 
 
-    def parse_style(self, tag, parent):
+    def parse_style(self, tag: etree._Element, parent: DocumentObject) -> None:
         bold = self.bold
         italic = self.italic
         underlined = self.underlined
@@ -129,8 +138,8 @@ class WordWriter:
         else:
             self.character_style = cl
 
-        if tag.get('color'):
-            self.color = RGBColor.from_string(tag.get('color')[1:])
+        if tag.get('color') is not None:
+            self.color = RGBColor.from_string(str(tag.get('color'))[1:])
 
         self.parse_contents(tag, parent)
 
@@ -145,7 +154,7 @@ class WordWriter:
         self.color = color
 
 
-    def parse_run(self, tag, parent):
+    def parse_run(self, tag: etree._Element, parent: DocumentObject) -> None:
         r = self.p.add_run(tag.text)
         r.bold = self.bold
         r.italic = self.italic
@@ -163,41 +172,41 @@ class WordWriter:
             r.style = tag.get('style')
 
 
-    def parse_paragraph(self, tag, parent):
+    def parse_paragraph(self, tag: etree._Element, parent: DocumentObject) -> None:
         self.p = parent.add_paragraph(style=tag.get('style'))
         self.parse_contents(tag, parent)
 
 
-    def parse_list(self, tag, parent):
+    def parse_list(self, tag: etree._Element, parent: DocumentObject) -> None:
         for child in tag.iterchildren():
             if 'item' == child.tag:
                 tag.attrib['style'] = "List Bullet"
                 self.parse_paragraph(tag, parent)                
 
 
-    def parse_break(self, tag, parent):
+    def parse_break(self, tag: etree._Element, parent: DocumentObject) -> None:
         if 'page' == tag.get('class'):
             parent.add_page_break()
             
 
-    def parse_table_paragraph(self, tag, parent, first_p):
+    def parse_table_paragraph(self, tag: etree._Element, parent: DocumentObject, first_p: bool) -> None:
         # there is a default paragraph in each cell, so do not add the first one
         if first_p:
             self.p = parent.paragraphs[0]
             if tag.get('style'):
-                self.p.style = tag.get('style')
+                self.p.style = str(tag.get('style'))
         else:
             self.p = parent.add_paragraph(style=tag.get('style'))
         self.parse_contents(tag, parent)
 
 
-    def add_small_paragraph(self, parent):
+    def add_small_paragraph(self, parent: DocumentObject) -> None:
         self.p = parent.add_paragraph()            
         self.p.paragraph_format.space_after = 0
         self.p.paragraph_format.space_before = 0
 
   
-    def set_cell_bg_color(self, cell, color_hex):
+    def set_cell_bg_color(self, cell: docx.table._Cell, color_hex: str) -> None:
         # https://stackoverflow.com/questions/26752856/python-docx-set-table-cell-background-and-text-color
         tblCell = cell._tc
         tblCellProperties = tblCell.get_or_add_tcPr()
@@ -206,7 +215,7 @@ class WordWriter:
         tblCellProperties.append(clShading)
 
 
-    def set_cell_margins(self, cell, **kwargs):
+    def set_cell_margins(self, cell: docx.table._Cell, **kwargs) -> None:
         # https://stackoverflow.com/questions/51060431/how-to-set-cell-margins-of-tables-in-ms-word-using-python-docx
         """
         cell:  actual cell instance you want to modify
@@ -237,7 +246,7 @@ class WordWriter:
         tcPr.append(tcMar)
         
 
-    def set_cell_border(self, cell, **kwargs):
+    def set_cell_border(self, cell: docx.table._Cell, **kwargs) -> None:
         # https://stackoverflow.com/questions/33069697/how-to-setup-cell-borders-with-python-docx
         """
         Set cell`s border
@@ -278,11 +287,11 @@ class WordWriter:
                         element.set(qn('w:{}'.format(key)), str(edge_data[key]))
 
 
-    def set_header_cell(self, cell):
+    def set_header_cell(self, cell: docx.table._Cell) -> None:
         self.set_cell_bg_color(cell, "7DC1FF")
 
 
-    def parse_box(self, tag, parent):
+    def parse_box(self, tag: etree._Element, parent: DocumentObject) -> None:
         table = parent.add_table(rows=1, cols=1)
         table.style = 'Normal Table'
         cell = table.cell(0,0)
@@ -306,7 +315,7 @@ class WordWriter:
         self.add_small_paragraph(parent)
 
 
-    def parse_table(self, tag, parent):
+    def parse_table(self, tag: etree._Element, parent: DocumentObject) -> None:
         rows = cols = 0
         for row in tag.iterchildren('tr'):
             rows += 1
@@ -349,13 +358,13 @@ class WordWriter:
         logging.debug(f"Table width: {Emu(full_width).cm} cm")
         
         # determine the cell widths
-        cell_widths = [None for i in range(len(table.columns))]
+        cell_widths: list[str] = ["" for i in range(len(table.columns))]
         for row in tag.iterchildren('tr'):
             c=0
             for col in row.iterchildren():
                 if col.tag in ['th', 'td']:
                     if col.get('width'):
-                        cell_widths[c] = col.get('width')
+                        cell_widths[c] = str(col.get('width'))
                 c += 1
         logging.debug(f"Cell widths: {cell_widths}")
 
@@ -374,18 +383,17 @@ class WordWriter:
         self.add_small_paragraph(parent)
 
 
-    def parse_document(self, tag):
+    def parse_document(self, tag: etree._Element) -> None:
         self.parse_contents(tag, self.document)
 
 
-    def convert(self, xml):        
+    def convert(self, xml: etree._ElementTree):        
         for s in self.document.styles:
             logging.debug(f'word style {s.type}: {s.name}')
             
         root = xml.getroot()
         if 'document' == root.tag:
             self.parse_document(root)
-
 
         target_stream = io.BytesIO()
         self.document.save(target_stream)

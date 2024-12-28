@@ -5,7 +5,7 @@ setup(
     version                 = "0.1.0",
 
     packages                = find_packages(),    
-    package_data            = { },
+    package_data            = { "klartext": ["py.typed"] },
     exclude_package_data    = { },
 
     author                  = "Matthias Hölzer-Klüpfel",
@@ -14,8 +14,18 @@ setup(
     url                     = "http://www.hoelzer-kluepfel.de",
     keywords                = "documentation processing",
 
-    license                 = "Other/Proprietary License",
-    
+    classifiers             = [ 
+                            	"License :: OSI Approved :: BSD License",
+                                "Development Status :: 3 - Alpha",
+                                "Environment :: Console",
+                                "Intended Audience :: Developers",
+                                "Programming Language :: Python :: 3",
+                                "Topic :: Documentation",
+                                "Topic :: Software Development :: Documentation",
+                                "Topic :: Text Processing :: Markup",
+                                "Typing :: Typed",
+                              ],
+
     # install_requires=["docutils>=0.3"],
 
     # project_urls={

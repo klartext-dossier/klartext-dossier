@@ -1,16 +1,17 @@
-import sys, os, logging, copy, io
+import os, copy, io
+from importlib.resources import files
 
 
 class Scope:
 
-    def __init__(self, indent : int =0, namespaces : dict = dict(), infile : str = ""):
+    def __init__(self, indent: int = 0, namespaces: dict[str, str] = dict(), infile: str = "") -> None:
 
-        self.basedir : str = ""
-        self.toolsdir : str = ""
-        self.filename : str = ""
-        self.indent = indent
-        self.namespaces = namespaces
-        self.infile : str = infile
+        self.basedir: str = ""
+        self.toolsdir: str = ""
+        self.filename: str = ""
+        self.indent: int = indent
+        self.namespaces: dict[str, str] = namespaces
+        self.infile: str = infile
 
 
     def __str__(self):
@@ -20,17 +21,17 @@ class Scope:
 
 class Context:
 
-    def __init__(self, basedir : str = os.getcwd(), toolsdir : str = os.path.join(os.path.dirname(sys.argv[0]), 'Tools'), indent : int = 0, namespaces : dict = dict(), infile : str = ""):
+    def __init__(self, basedir: str = os.getcwd(), toolsdir = files('dm').joinpath('Tools'), indent: int = 0, namespaces: dict[str, str] = dict(), infile: str = "") -> None:
 
-        self._flags = []
+        self._flags: list[str] = []
         self.scopes = [Scope(indent, namespaces, infile)]
-        self.tempfiles = {}
+        self.tempfiles: dict[str, str] = {}
 
         self.scope().basedir = os.path.abspath(basedir)
         self.scope().toolsdir = os.path.abspath(toolsdir)
 
 
-    def scope(self):
+    def scope(self) -> Scope:
 
         return self.scopes[-1]
 
@@ -47,22 +48,22 @@ class Context:
         return s.getvalue()
     
 
-    def toolsdir(self):
+    def toolsdir(self) -> str:
 
         return self.scope().toolsdir
 
 
-    def basedir(self):
+    def basedir(self) -> str:
 
         return self.scope().basedir
         
 
-    def set_basedir(self, dir):
+    def set_basedir(self, dir: str) -> None:
 
         self.scope().basedir = dir
 
 
-    def set_filename(self, filename):
+    def set_filename(self, filename: str) -> None:
 
         if not os.path.isabs(filename):
             filename = os.path.abspath(os.path.join(self.basedir(), filename))
@@ -70,47 +71,47 @@ class Context:
         self.scope().filename = os.path.basename(filename)
 
 
-    def indent(self):
+    def indent(self) -> int:
 
         return self.scope().indent
     
 
-    def set_indent(self, indent):
+    def set_indent(self, indent: int) -> None:
 
         self.scope().indent = indent
 
 
-    def namespaces(self):
+    def namespaces(self) -> dict[str, str]:
 
         return self.scope().namespaces
 
 
-    def infile(self):
+    def infile(self) -> str:
 
         return self.scope().infile
 
 
-    def set_infile(self, infile):
+    def set_infile(self, infile: str) -> None:
 
         self.scope().infile = infile
 
 
-    def flags(self):
+    def flags(self) -> list[str]:
 
         return self._flags
 
 
-    def set_flags(self, flags):
+    def set_flags(self, flags: list[str]) -> None:
 
         self._flags = flags
         
 
-    def add_tempfile(self, name, tempfile):
+    def add_tempfile(self, name: str, tempfile: str) -> None:
 
         self.tempfiles[name] = tempfile
 
 
-    def get_tempfile(self, name):
+    def get_tempfile(self, name: str) -> str:
 
         return self.tempfiles[name]
 

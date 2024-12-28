@@ -1,6 +1,6 @@
 import markdown
 
-import mdx.diagrams
+import mdx.mermaid
 
 
 COMMON_EXTENSIONS = [
@@ -11,40 +11,35 @@ COMMON_EXTENSIONS = [
     'markdown.extensions.sane_lists', 
     'markdown.extensions.tables', 
     'customblocks',
-    'mdx.glossary', 
-    'mdx.inline_tags',
-    'mdx.template_host', 
-    'mdx.template_meta', 
-    'mdx.template_net', 
-    'mdx.checkbox', 
-    'mdx.dossier.outline', 
-    'mdx.dossier.toc', 
-    'mdx.dossier.grid_tables',
-    'mdx.dossier.admonition', 
-    'python_markdown_comments',
     'pymdownx.fancylists',
-    'pymdownx.smartsymbols'
+    'python_markdown_comments',
+    'klartext.glossary', 
+    'klartext.inline', 
+    'mdx.checkbox', 
+    'mdx.outline', 
+    'mdx.toc', 
+    'mdx.admonition', 
 ]
 
 
 EXTENSION_CONFIGS = {
     'customblocks': {
         'generators': {
-            'mermaid': mdx.diagrams.mermaid_generator
+            'mermaid': mdx.mermaid.mermaid_generator
         }
     }        
 }
 
 
-markdownInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.dossier.xhtml_document', 'mdx.docbook_structure'], extension_configs=EXTENSION_CONFIGS)
+markdownInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.xhtml_document', 'mdx.htmlbook'], extension_configs=EXTENSION_CONFIGS)
 
-def processMarkdown(md):
+def processMarkdown(md: str) -> str:
 
     return markdownInstance.reset().convert(md)
 
 
-markdownContentInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.xhtml_namespace'], extension_configs=EXTENSION_CONFIGS)
+markdownContentInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.xhtml'], extension_configs=EXTENSION_CONFIGS)
 
-def processMarkdownContent(md):
+def processMarkdownContent(md: str) -> str:
     
     return markdownContentInstance.reset().convert(md)

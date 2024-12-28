@@ -15,17 +15,17 @@ class TestGetIndent(unittest.TestCase):
         self.parser = Parser()
 
     def test_empty(self):
-        self.assertEqual(0, self.parser.getIndent(''))
+        self.assertEqual(0, self.parser._getIndent(''))
 
     def test_two(self):
         with self.assertRaises(ParseError):
-            self.assertEqual(0, self.parser.getIndent('  a'))
+            self.assertEqual(0, self.parser._getIndent('  a'))
 
     def test_four(self):
-        self.assertEqual(1, self.parser.getIndent('    a'))
+        self.assertEqual(1, self.parser._getIndent('    a'))
 
     def test_eight(self):
-        self.assertEqual(2, self.parser.getIndent('        a'))
+        self.assertEqual(2, self.parser._getIndent('        a'))
 
 
 class TestRemoveSurroundingBlankLines(unittest.TestCase):
@@ -153,6 +153,25 @@ tag:
     !include "included.kt"
 """
         self.assertEqual(b'<tag>\n</tag>\nThis is included text.\n<tag>\nThis is included text.\n</tag>\n', self.runParser(KT))
+
+    def test_markdown_simple(self):
+        KT = """
+This is *markdown*.
+"""
+        self.assertEqual(b'<p>This is <em>markdown</em>.</p>\n', self.parser.parse(str_to_file(KT), convert_text=Parser.convertMarkdown))
+
+    def test_markdown_inline(self):
+        KT = """
+This is /em/markdown/.
+"""
+        self.assertEqual(b'<p>This is <em>markdown</em>.</p>\n', self.parser.parse(str_to_file(KT), convert_text=Parser.convertMarkdown))
+
+    def test_markdown_glossary(self):
+        KT = """
+This is {markdown}.
+"""
+        self.assertEqual(b'<p>This is <a data-type="xref" data-xrefstyle="glossary" href="#markdown">markdown</a>.</p>\n', self.parser.parse(str_to_file(KT), convert_text=Parser.convertMarkdown))
+
 
 if __name__ == '__main__':
     unittest.main()

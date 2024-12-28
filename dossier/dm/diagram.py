@@ -3,6 +3,7 @@ import logging
 from lxml import etree
 
 from dm.utilities import tryLocatingToolsFile
+from dm.context import Context
 
 
 class Diagram:
@@ -12,12 +13,12 @@ class Diagram:
     XHTML_NAMESPACE = '{http://www.w3.org/1999/xhtml}'
 
 
-    def __init__(self, xml):
+    def __init__(self, xml: etree._Element) -> None:
       
         self.xml = xml
 
 
-    def toPixels(self, value, dpi):
+    def toPixels(self, value: str, dpi: int) -> int:
 
         if value.endswith('cm'):
             return int(int(value[:-2])*dpi*100/254)
@@ -25,39 +26,41 @@ class Diagram:
             return int(value)
 
 
-    def relativeSize(self, value, base):
+    def relativeSize(self, value: str, base: int) -> int:
 
         value = value.strip()
         if value.endswith('%'):
-            value = float(value[:-1]) * base / 100.0
+            return round(float(value[:-1]) * base / 100.0)
         return int(value)
 
 
-    def isTextStyle(self, key):
+    def isTextStyle(self, key: str) -> bool:
 
         # TODO: add complete list
         return key.startswith('text-') or key.startswith('font-') or ('dominant-baseline' == key)
 
     
-    def isDrawStyle(self, key):
+    def isDrawStyle(self, key: str) -> bool:
 
         # TODO: add complete list
         return key in ['stroke', 'fill', 'stroke-width', 'filter', 'stroke-dasharray', 'marker-end', 'marker-start', 'rx', 'ry']
 
 
-    def textStyles(self, element):
+    def textStyles(self, element: etree._Element) -> dict[str, str]:
 
         ts = dict()
 
         for entry in element.get('style', '').split(';'):
             if ':' in entry:
                 key, value = entry.split(':', maxsplit=1)
-                key = key.strip()
-                value = value.strip()
                 if self.isTextStyle(key):
                     ts[key] = value
-                
-        for key, value in element.items():
+
+        _key: str | bytes
+        _value: str | bytes
+        for _key, _value in element.items():
+            key = str(_key).strip()
+            value = str(_value).strip()
             if self.isTextStyle(key):
                 ts[key] = value
                 del element.attrib[key]
@@ -72,7 +75,7 @@ class Diagram:
         return ts
 
 
-    def drawStyles(self, element):
+    def drawStyles(self, element: etree._Element) -> dict[str, str]:
 
         es = dict()
         
@@ -83,8 +86,12 @@ class Diagram:
                 value = value.strip()
                 if self.isDrawStyle(key):
                     es[key] = value
-                
-        for key, value in element.items():
+
+        _key: str | bytes                   
+        _value: str | bytes                   
+        for _key, _value in element.items():
+            key = str(_key)
+            value = str(_value)
             if self.isDrawStyle(key):
                 if key in ['marker-end', 'marker-start']:
                     if not value.startswith('url(#'):
@@ -95,7 +102,7 @@ class Diagram:
         return es
 
 
-    def joinStyles(self, styles):
+    def joinStyles(self, styles: dict[str, str]) -> str:
         
         style = ''
         for key, value in styles.items():
@@ -104,10 +111,15 @@ class Diagram:
         return style
 
 
-    def extractGeometry(self, element, child, width, height):
+    def extractGeometry(self, element: etree._Element, child: etree._Element, width: int, height: int) -> dict[str, int]:
 
         geo = dict()
-        for key, value in element.items():
+
+        _key: str | bytes                   
+        _value: str | bytes                   
+        for _key, _value in element.items():
+            key = str(_key)
+            value = str(_value)
             if key in ['width', 'left', 'right', 'center', 'x1', 'x2', 'x']:
                 geo[key] = self.relativeSize(value, width)
             elif key in ['height', 'top', 'bottom', 'middle', 'y1', 'y2', 'y', 'r']:
@@ -118,7 +130,7 @@ class Diagram:
         return geo
 
 
-    def checkRectGeometry(self, geo):
+    def checkRectGeometry(self, geo: dict[str, int]) -> dict[str, int]:
         
         if 'left' in geo:
             if 'width' in geo:
@@ -131,7 +143,7 @@ class Diagram:
                 geo['x'] = geo['right'] - geo['width']
         elif 'center' in geo:
             if 'width' in geo:
-                geo['x'] = geo['center'] - geo['width'] / 2
+                geo['x'] = geo['center'] - geo['width'] // 2
             
         if 'top' in geo:
             if 'height' in geo:
@@ -144,14 +156,14 @@ class Diagram:
                 geo['y'] = geo['bottom'] - geo['height']
         elif 'middle' in geo:
             if 'height' in geo:
-                geo['y'] = geo['middle'] - geo['height'] / 2
+                geo['y'] = geo['middle'] - geo['height'] // 2
         
         # TODO: check for invalid geometry
 
         return geo
         
 
-    def setRectGeometry(self, element, child, width, height, offset_x, offset_y):
+    def setRectGeometry(self, element: etree._Element, child: etree._Element, width: int, height: int, offset_x: int, offset_y: int) -> tuple[int, int, int, int]:
         
         geo = self.extractGeometry(element, child, width, height)
         geo = self.checkRectGeometry(geo)
@@ -169,7 +181,7 @@ class Diagram:
         return (x, y, w, h)
 
 
-    def checkLineGeometry(self, geo):
+    def checkLineGeometry(self, geo: dict[str, int]) -> dict[str, int]:
 
         if 'x1' in geo:
             if 'x2' not in geo:
@@ -190,7 +202,7 @@ class Diagram:
         return geo
 
 
-    def setLineGeometry(self, element, child, width, height, offset_x, offset_y):
+    def setLineGeometry(self, element: etree._Element, child: etree._Element, width: int, height: int, offset_x: int, offset_y: int) -> tuple[int, int, int, int]:
 
         geo = self.extractGeometry(element, child, width, height)
         geo = self.checkLineGeometry(geo)
@@ -208,7 +220,7 @@ class Diagram:
         return (x1, y1, x2, y2)
 
 
-    def checkCircleGeometry(self, geo):
+    def checkCircleGeometry(self, geo: dict[str, int]) -> dict[str, int]:
 
         if 'x' in geo:
             geo['cx'] = geo['x']
@@ -221,7 +233,7 @@ class Diagram:
         return geo
 
 
-    def setCircleGeometry(self, element, child, width, height, offset_x, offset_y):
+    def setCircleGeometry(self, element: etree._Element, child: etree._Element, width: int, height: int, offset_x: int, offset_y: int) -> tuple[int, int, int]:
 
         geo = self.extractGeometry(element, child, width, height)
         geo = self.checkCircleGeometry(geo)
@@ -237,7 +249,7 @@ class Diagram:
         return (cx, cy, r)
 
 
-    def checkTextGeometry(self, geo):
+    def checkTextGeometry(self, geo: dict[str, int]) -> dict[str, int]:
         
         if 'left' in geo:
             geo['x'] = geo['left']
@@ -258,7 +270,7 @@ class Diagram:
         return geo
 
 
-    def setTextGeometry(self, element, child, width, height, offset_x, offset_y):
+    def setTextGeometry(self, element: etree._Element, child: etree._Element, width: int, height: int, offset_x: int, offset_y: int) -> tuple[int, int]:
 
         geo = self.extractGeometry(element, child, width, height)
         geo = self.checkTextGeometry(geo)
@@ -272,7 +284,7 @@ class Diagram:
         return (x, y)
 
 
-    def appendChildren(self, svg, diagram, offset_x, offset_y, width, height):
+    def appendChildren(self, svg: etree._Element, diagram: etree._Element, offset_x: int, offset_y: int, width: int, height: int) -> None:
         for element in diagram.iterchildren(self.DIAGRAM_NAMESPACE+'*'):
             tag = element.tag.split(self.DIAGRAM_NAMESPACE)[-1]
 
@@ -326,7 +338,7 @@ class Diagram:
                 self.appendChildren(svg, element, child_x, child_y, child_w, child_h)
 
 
-    def includeStandardDefs(self, svg, context):
+    def includeStandardDefs(self, svg: etree._Element, context: Context) -> None:
 
         svg_file = tryLocatingToolsFile('diagram-defs.svg', 'svg', context.toolsdir())
         logging.debug(f'diagram - including diagram definitions from "{svg_file}"')
@@ -335,7 +347,7 @@ class Diagram:
         svg.append(xml.getroot())
 
 
-    def toSVG(self, context):
+    def toSVG(self, context: Context) -> etree._Element:
 
         for diagram in self.xml.iter(self.DIAGRAM_NAMESPACE+'diagram'):
 
@@ -353,6 +365,8 @@ class Diagram:
 
             self.appendChildren(svg, diagram, 0, 0, width, height)
 
-            diagram.getparent().replace(diagram, svg)
+            parent = diagram.getparent() 
+            if parent is not None:
+                parent.replace(diagram, svg)
 
         return self.xml

@@ -4,15 +4,15 @@ import hashlib, lxml.etree, re
 MULT_SPACES = re.compile(r'\s+')
 
 
-def string(str_or_list):
+def string(str_or_list: str | list[str]) -> str:
 
     if isinstance(str_or_list, list):
-        if len(str_or_list) == 1:
-            return str_or_list[0]
-    return str_or_list
+        return str_or_list[0]
+        
+    return str(str_or_list)
 
 
-def ext_match_g(context, text, used_text):
+def ext_match_g(context, text: str, used_text: str) -> bool:
 
     text = string(text).strip().lower()
     used_text = string(used_text).strip().lower()
