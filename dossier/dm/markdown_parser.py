@@ -1,4 +1,4 @@
-import markdown
+import markdown, logging
 
 import mdx.mermaid
 
@@ -16,7 +16,6 @@ COMMON_EXTENSIONS = [
     'klartext.glossary', 
     'klartext.inline', 
     'mdx.checkbox', 
-    'mdx.outline', 
     'mdx.toc', 
     'mdx.admonition', 
 ]
@@ -31,11 +30,11 @@ EXTENSION_CONFIGS = {
 }
 
 
-markdownInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.xhtml_document', 'mdx.htmlbook'], extension_configs=EXTENSION_CONFIGS)
+markdownFileInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.htmlbook'], extension_configs=EXTENSION_CONFIGS)
 
-def processMarkdown(md: str) -> str:
+def processMarkdownFile(md: str) -> str:
 
-    return markdownInstance.reset().convert(md)
+    return markdownFileInstance.reset().convert(md)
 
 
 markdownContentInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.xhtml'], extension_configs=EXTENSION_CONFIGS)

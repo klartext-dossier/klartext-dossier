@@ -1,4 +1,4 @@
-import argparse, logging, os.path
+import argparse, logging
 from importlib.resources import files
 
 import dm.context, dm.run_command
