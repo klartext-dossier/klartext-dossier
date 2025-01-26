@@ -216,3 +216,10 @@ Scenario: Testing the 'pdf-to-png' task - G01
 
     When running the pipeline G01_pdf-to-png.dm
     # Then the file G01_pdf-to-png__o.test.zip is equal to G01_pdf-to-png__o.zip
+
+# less stylesheet ----------------------------------
+
+Scenario: Testing .less styesheets - H01
+
+    When running the pipeline H01_less_stylesheet.dm
+    Then the file H01_less_stylesheet__o.test.pdf is equal to H01_less_stylesheet__o.pdf

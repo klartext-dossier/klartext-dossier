@@ -6,3 +6,5 @@ less: *.less
 
 install: less
 	cp *.css ../dossier/dm/Tools/css
+	mkdir -p ../dossier/dm/Tools/less
+	cp *.less ../dossier/dm/Tools/less

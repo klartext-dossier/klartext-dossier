@@ -65,3 +65,6 @@ class Token:
             return self._type == other
         return False
  
+
+    def __str__(self) -> str:
+        return f"{self._indent:2} {self._type:4} {self._content}"
