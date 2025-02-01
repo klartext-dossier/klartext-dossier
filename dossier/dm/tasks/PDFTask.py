@@ -43,7 +43,7 @@ class PDFTask(Task):
                     cmd.append(f"--modify-var={key}={value}")
         cmd.append(stylesheet)
         cmd.append(tmpfile.name)
-        logging.info(f"command: {cmd}")
+        logging.debug(f"command: {cmd}")
         subprocess.run(cmd)
         return tmpfile.name
     

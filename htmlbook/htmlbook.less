@@ -1,6 +1,36 @@
 @charset "UTF-8";
 
-@base-font-size:          12pt;
+// Variables - can be overriden by the user
+
+@page-size:                 A4;              // the size of a printed page
+@page-orientation:          portrait;        // the orientation of a printed page
+
+@font-size:                 12pt;            // the base size of all fonts
+
+@appendix-prefix:           "Appendix";      // the text preceeding an appendix number
+@part-prefix:               "Part";          // the text preceeding a part number
+
+@headline-color:          #990000;
+@text-color:              #222222;
+@link-color: 		      #C74D1F;
+@warning-color: 	      #F44336;
+@warning-background-color: 	lighten(@warning-color, 30%);
+@note-color:              #FFEB3B;
+@note-background-color:     lighten(@note-color, 30%);
+@caution-color: 	      #33FFBD;
+@caution-background-color: 	lighten(@caution-color, 30%);
+@important-color: 	      #DBFF33;
+@important-background-color:lighten(@important-color, 30%);
+@tip-color: 	  	      #75FF33;
+@tip-background-color: 	  	lighten(@tip-color, 30%);
+@example-background-color:#F0F0F0;
+@header-color:            #000000;
+@table-background-color:    lighten(@text-color, 80%);
+
+@sans-font: 		  	    Roboto, LiberationSans, sans-serif;
+@serif-font:               	Palatino, serif;
+@mono-font:                 JetBrainsMono, monospace;
+
 
 @import "htmlbook-counters.less";
 @import "htmlbook-colors.less";

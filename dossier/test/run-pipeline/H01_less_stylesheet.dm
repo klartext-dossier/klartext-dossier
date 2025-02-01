@@ -8,7 +8,7 @@ pipeline: name="Test less Stylesheet"
     markdown-to-xhtml:
 
     xhtml-to-pdf:
-        stylesheet: base-font-size="25pt" "htmlbook.less"
+        stylesheet: font-size="25pt" "htmlbook.less"
 
     save:
         output: "H01_less_stylesheet__o.test.pdf"

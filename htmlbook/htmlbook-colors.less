@@ -1,16 +1,5 @@
 @charset "UTF-8";
 
-@headline-color:        #990000;
-@text-color:            #222222;
-@link-color: 			#C74D1F;
-@warning-color: 	    #F44336;
-@note-color: 			#FFEB3B;
-@caution-color: 		#33FFBD;
-@important-color: 		#DBFF33;
-@tip-color: 			#75FF33;
-@example-background:    #F0F0F0;
-@header-color:          #000000;
-
 html 
 {
     body[data-type="book"] 
@@ -42,44 +31,44 @@ html
     
         div[data-type='note']
         {
-            background-color: lighten(@note-color, 30%);
+            background-color: @note-background-color;
             border-left: 6px solid @note-color;
         }
 
         div[data-type='caution']
         {
-            background-color: lighten(@caution-color, 30%);
+            background-color: @caution-background-color;
             border-left: 6px solid @caution-color;
         }
 
         div[data-type='important']
         {
-            background-color: lighten(@important-color, 30%);
+            background-color: @important-background-color;
             border-left: 6px solid @important-color;
         }
 
         div[data-type='tip']
         {
-            background-color: lighten(@tip-color, 30%);
+            background-color: @tip-background-color;
             border-left: 6px solid @tip-color;
         }
 
         div[data-type='warning']
         {
-            background-color: lighten(@warning-color, 30%);
+            background-color: @warning-background-color;
             border-left: 6px solid @warning-color;
         }
 
         div[data-type="equation"]
         {
-            background-color: @example-background;
+            background-color: @example-background-color;
             border: 1px solid #ddd;
             border-radius: 3px;
         }
       
         div[data-type="example"]
         {
-            background-color: @example-background;
+            background-color: @example-background-color;
             border: 1px solid #ddd;
             border-radius: 3px;
 
@@ -101,14 +90,14 @@ html
 
             thead, th
             {
-                background-color: lighten(@text-color, 80%);
+                background-color: @table-background-color;
             }
         }
 
         blockquote
         {
             border-left: 3px solid #000000;
-            background-color: @example-background;
+            background-color: @example-background-color;
         }
 
         a

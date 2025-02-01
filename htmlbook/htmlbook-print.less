@@ -4,12 +4,12 @@
 
     // page layout for 'normal' pages
     @page {
-      size: A4 portrait;
+      size: @page-size @page-orientation;
 
       @top-left {
         content: string(document-title, last);
         font-family: @sans-font;
-        font-size: @base-font-size;
+        font-size: @font-size;
         text-align: left;
         color: darkgray;
         font-weight: bold;
@@ -19,7 +19,7 @@
       @bottom-right {
         content: counter(page) "/" counter(pages);
         font-family: @sans-font;
-        font-size: @base-font-size;
+        font-size: @font-size;
         color: darkgray;
         font-weight: bold;
       }
@@ -27,7 +27,7 @@
 
     // page layout for blank pages
     @page blank-page {
-      size: A4 portrait;
+      size: @page-size @page-orientation;
 
       @top-left {
         content: normal;
@@ -41,7 +41,7 @@
     // page layout for frontmatter pages
     @page frontmatter-page 
     {
-      size: A4 portrait;
+      size: @page-size @page-orientation;
 
       @top-left {
         content: normal;
@@ -153,7 +153,7 @@
           li.chapter {
             font-weight: 700;
             padding-top: 1em;
-            font-size: @base-font-size;
+            font-size: @font-size;
 
             a:after 
             { 

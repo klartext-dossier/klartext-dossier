@@ -77,6 +77,7 @@ mdx/build
 mdx/dist
 mdx/mdx.egg-info
 build/test-reports/*
+dossier/test/run-pipeline/H01_less_stylesheet__o.test.pdf
 dossier/dm/Tools/less/htmlbook-colors.less
 dossier/dm/Tools/less/htmlbook-counters.less
 dossier/dm/Tools/less/htmlbook-layout.less
