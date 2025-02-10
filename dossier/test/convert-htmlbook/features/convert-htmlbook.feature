@@ -35,8 +35,6 @@ Examples: Input files
     | 490_itemized_lists__o.html     | 490_itemized_lists__o.pdf   |
     | 4A0_definition_lists__o.html   | 4A0_definition_lists__o.pdf |
     | 4B0_blockquotes__o.html        | 4B0_blockquotes__o.pdf      |
-    | 4C0_equations__o.html          | 4C0_equations__o.pdf        |
     | 500_styling__o.html            | 500_styling__o.pdf          |
     | 510_code_highlight__o.html     | 510_code_highlight__o.pdf   |
     | 991_alice__o.html              | 991_alice__o.pdf            |
-    # | 992_complete__o.html           | 992_complete__o.pdf         |

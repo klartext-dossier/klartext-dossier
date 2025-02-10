@@ -87,3 +87,4 @@ dossier/dm/Tools/less/htmlbook-syntax.less
 dossier/dm/Tools/less/htmlbook-typography.less
 dossier/dm/Tools/less/htmlbook.less
 dossier/test/run-pipeline/H01_less_stylesheet__o.test.pdf
+dossier/dm/Tools/xsd
