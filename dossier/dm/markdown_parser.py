@@ -33,6 +33,10 @@ EXTENSION_CONFIGS = {
 markdownFileInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.htmlbook'], extension_configs=EXTENSION_CONFIGS)
 
 def processMarkdownFile(md: str) -> str:
+    
+    # do not pass empty content, or the XML parser will fail
+    if len(md.strip()) == 0:    
+        md = '<!-- -->'
 
     return markdownFileInstance.reset().convert(md)
 

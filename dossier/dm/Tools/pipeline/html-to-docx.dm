@@ -4,7 +4,7 @@ pipeline:
 
     if: test="validate"
         xml-validate:
-            schema: "htmlbook-ext.xsd"
+            schema: "htmlbook.xsd"
 
     xml-transform:
         stylesheet: "htmlbook-to-docx.xslt"

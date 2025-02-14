@@ -7,7 +7,7 @@ from klartext import Parser
 
 from dm.exceptions import TaskException
 from dm.tasks.Task import Task
-from dm.markdown_parser import processMarkdownContent, COMMON_EXTENSIONS
+from dm.markdown_parser import processMarkdownContent, processMarkdownFile
 from dm.utilities import tryLocatingFile
 
 
@@ -47,9 +47,7 @@ class IncludeTask(Task):
 
     def tryParsingMarkdown(self, md):
         try:
-            if len(md.strip()) == 0:
-                md = '<!-- -->'
-            return markdown.markdown(md, extensions=COMMON_EXTENSIONS+['mdx.xhtml'])
+            return processMarkdownFile(md)
         except Exception as e:
             raise TaskException('{self.name} - cannot convert markdown to XHTML!', e)
 

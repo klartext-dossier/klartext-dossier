@@ -4,7 +4,7 @@ pipeline:
 
     if: test="validate"
         xml-validate:
-            schema: "htmlbook-ext.xsd"
+            schema: "htmlbook.xsd"
 
     code-highlight:
 
@@ -14,7 +14,7 @@ pipeline:
 
     if: test="validate"
         xml-validate:
-            schema: "htmlbook-ext.xsd"
+            schema: "htmlbook.xsd"
 
     xhtml-to-pdf:
         stylesheet: "htmlbook.css"

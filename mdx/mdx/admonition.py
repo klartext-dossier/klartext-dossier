@@ -75,8 +75,6 @@ class AdmonitionProcessor(BlockProcessor):
             if title:
                 p = etree.SubElement(div, 'h1')
                 p.text = title
-                if 'sidebar' == klass:
-                    p.tag = 'h5'
 
             if 'sidebar' == klass:
                 div.tag = 'aside'                                

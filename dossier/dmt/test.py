@@ -8,6 +8,7 @@ import dm.context, dm.pipeline, dm.utilities
 def run_conversion_pipeline(input, input_format, output_format, options):
 
     context = dm.context.Context(toolsdir=options['toolsdir'])
+    context.set_flags(['validate'])
     pipeline_file = dm.utilities.tryLocatingToolsFile(f'{input_format}-to-{output_format}.dm', 'pipeline', options['toolsdir'])
     
     if len(pipeline_file) > 0:

@@ -93,16 +93,24 @@ class HtmlBookOutline(Treeprocessor):
             else:
                 wrapper.append(child)
 
+        if len(wrapper) > 0:
+            preface = etree.Element('section')
+            preface.attrib["data-type"] = 'preface'
+            for child in wrapper:
+                preface.append(child)
+                node.remove(child)
+            if preface.find('h1') is None:
+                h1 = etree.Element('h1')
+                h1.text = ' '
+                preface.insert(0, h1)
+            node.insert(0, preface)
+
         if header is not None:
             node.remove(header)
             titlepage = etree.Element('section')
             titlepage.attrib["data-type"] = 'titlepage'
             titlepage.append(header)
-            for child in wrapper:
-                titlepage.append(child)
-                node.remove(child)
             node.insert(0, titlepage)
-        # TODO: Do we need to handle 'header is None'?
 
 
     def process_outline(self, node: etree.Element) -> None:
