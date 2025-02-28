@@ -30,14 +30,9 @@ RUN apt-get update && apt-get install -y fonts-liberation fonts-crosextra-carlit
 RUN apt-get upgrade -y 
 
 # install additional fonts
-COPY fonts/* .
-RUN unzip JetBrainsMono-1.0.0.zip
-RUN unzip open-sans.zip
-RUN unzip Kalam.zip
-RUN unzip -o open-sans-condensed.zip
+RUN apt-get install -y fonts-jetbrains-mono fonts-open-sans
+RUN wget -q https://github.com/google/fonts/blob/main/ofl/kalam/Kalam-Bold.ttf https://github.com/google/fonts/blob/main/ofl/kalam/Kalam-Light.ttf https://github.com/google/fonts/blob/main/ofl/kalam/Kalam-Regular.ttf
 RUN mv *.ttf /usr/share/fonts/
-# RUN mv *.otf /usr/share/fonts/
-RUN rm *.zip
 RUN fc-cache
 
 # Install packages
@@ -52,7 +47,3 @@ ENV PATH="/opt/npm/node_modules/.bin/:${PATH}"
 RUN npm install -g puppeteer @mermaid-js/mermaid-cli
 RUN chmod -R u+rwX,g+rX,o+rX /root
 ENV PUPPETEER_CACHE_DIR="/root/.cache/puppeteer"
-
-# install spaCy modeels
-RUN python -m spacy download en_core_web_sm
-RUN python -m spacy download de_core_news_sm
