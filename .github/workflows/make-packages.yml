@@ -1,4 +1,4 @@
-name: Makefile CI
+name: Make all packages
 
 on:
   push:
