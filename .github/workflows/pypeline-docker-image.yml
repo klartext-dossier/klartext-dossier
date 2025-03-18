@@ -10,7 +10,7 @@ jobs:
 
   publish:
   
-    name: Publish pypeline image
+    name: Publish Pypeline Image
     runs-on: ubuntu-latest
     
     permissions:
@@ -24,14 +24,15 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Log in to Docker Hub
+        if: github.event_name != 'pull_request'
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-
+          
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        uses: docker/metadata-action@v5
         with:
           images: emhaka/pypeline
 
@@ -41,8 +42,8 @@ jobs:
         with:
           context: pypeline
           file: pypeline/Dockerfile
-          push: true
-          tags: latest
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
 #      - name: Generate artifact attestation
