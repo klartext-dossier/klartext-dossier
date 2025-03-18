@@ -112,15 +112,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: packages
-          path: dossier
+          path: docker
           merge-multiple: True
 
+      - name: Dump
+        run: ls -l docker
+        
       - name: Build and push Docker image
         id: push
         uses: docker/build-push-action@v6
         with:
-          context: dossier
-          file: dossier/Dockerfile
+          context: docker
+          file: docker/Dockerfile
           push: True
           tags: klartext/dossier:latest
           labels: ${{ steps.meta.outputs.labels }}
