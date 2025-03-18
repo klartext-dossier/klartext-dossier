@@ -71,7 +71,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: packages
-        path: ./**/dist/*
+        path: ./*/dist/*
 
     - name: Publish test results
       uses: actions/upload-artifact@v4
