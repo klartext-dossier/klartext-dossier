@@ -111,7 +111,8 @@ jobs:
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
-          path: $GITHUB_WORKSPACE/dossier
+          name: packages
+          path: dossier
           merge-multiple: True
 
       - name: Build and push Docker image
