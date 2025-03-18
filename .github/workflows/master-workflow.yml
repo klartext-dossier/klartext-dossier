@@ -33,7 +33,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: emhaka/pypeline
+          images: klartext/pypeline
 
       - name: Build and push Docker image
         id: push
@@ -42,13 +42,13 @@ jobs:
           context: pypeline
           file: pypeline/Dockerfile
           push: True
-          tags: emhaka/pypeline:latest
+          tags: klartext/pypeline:latest
           labels: ${{ steps.meta.outputs.labels }}
 
 #      - name: Generate artifact attestation
 #        uses: actions/attest-build-provenance@v2
 #        with:
-#          subject-name: index.docker.io/emhaka/pypeline
+#          subject-name: index.docker.io/klartext/pypeline
 #          subject-digest: ${{ steps.push.outputs.digest }}
 #          push-to-registry: true
 
@@ -57,7 +57,7 @@ jobs:
     needs: pypeline
 
     runs-on: ubuntu-latest
-    container: emhaka/pypeline:latest
+    container: klartext/pypeline:latest
 
     steps:
     - uses: actions/checkout@v4
