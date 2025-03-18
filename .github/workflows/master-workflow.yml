@@ -56,6 +56,8 @@ jobs:
 
     needs: pypeline
 
+    name: Build Distribution Packages
+
     runs-on: ubuntu-latest
     container: klartext/pypeline:latest
 
