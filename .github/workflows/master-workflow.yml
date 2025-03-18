@@ -1,4 +1,4 @@
-name: Publish Pypeline Docker Image
+name: Build and Publish
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  publish:
+  pypeline:
   
     name: Publish Pypeline Image
     runs-on: ubuntu-latest
@@ -43,8 +43,8 @@ jobs:
         with:
           context: pypeline
           file: pypeline/Dockerfile
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          push: True
+          tags: latest
           labels: ${{ steps.meta.outputs.labels }}
 
 #      - name: Generate artifact attestation
@@ -53,3 +53,28 @@ jobs:
 #          subject-name: index.docker.io/emhaka/pypeline
 #          subject-digest: ${{ steps.push.outputs.digest }}
 #          push-to-registry: true
+
+  package:
+
+    needs: pypeline
+
+    runs-on: ubuntu-latest
+    container: emhaka/pypeline:latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Make packages
+      run: make
+
+    - name: Publish packages
+      uses: actions/upload-artifact@v4
+      with:
+        name: packages
+        path: ./**/dist/*
+
+    - name: Publish test results
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: ./**/test-reports/*.xml
