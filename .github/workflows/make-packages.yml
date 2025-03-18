@@ -10,7 +10,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    container: node:16-bullseye
+    container: emhaka/pypeline:latest
     
     steps:
     - uses: actions/checkout@v4
