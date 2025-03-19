@@ -8,10 +8,10 @@ on:
 
 jobs:
 
-  pypeline:
+  # pypeline:
 
-    name: Publish Pypeline Image
-    runs-on: ubuntu-latest
+  #   name: Publish Pypeline Image
+  #   runs-on: ubuntu-latest
     
     # permissions:
     #   packages: write
