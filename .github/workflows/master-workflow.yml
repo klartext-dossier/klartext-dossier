@@ -153,13 +153,14 @@ jobs:
 
     steps:
 
-    - name: Download all the dists
+    - name: Download
       uses: actions/download-artifact@v4
       with:
         name: packages
         path: dist/
     
-    - name: Publish distribution to PyPI
+    - name: Publish klartext distribution to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1      
       with:
         repository-url: https://test.pypi.org/legacy/
+        packages-dir: dist/klartext
