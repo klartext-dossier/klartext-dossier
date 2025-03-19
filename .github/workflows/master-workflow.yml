@@ -144,9 +144,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    # environment:
-    #   name: testpypi
-    #   url: https://test.pypi.org/project/klartext
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/project/klartext
 
     permissions:
       id-token: write  # IMPORTANT: mandatory for trusted publishing
