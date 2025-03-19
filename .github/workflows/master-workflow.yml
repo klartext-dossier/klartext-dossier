@@ -157,7 +157,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: packages
-        path: dist/
+        path: dist/klartext
     
     - name: Publish klartext distribution to TestPyPI
       uses: pypa/gh-action-pypi-publish@release/v1      
