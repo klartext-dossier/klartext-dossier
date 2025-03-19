@@ -88,3 +88,7 @@ dossier/dm/Tools/less/htmlbook-typography.less
 dossier/dm/Tools/less/htmlbook.less
 dossier/test/run-pipeline/H01_less_stylesheet__o.test.pdf
 dossier/dm/Tools/xsd
+mdx/dossier_mdx.egg-info/dependency_links.txt
+mdx/dossier_mdx.egg-info/PKG-INFO
+mdx/dossier_mdx.egg-info/SOURCES.txt
+mdx/dossier_mdx.egg-info/top_level.txt

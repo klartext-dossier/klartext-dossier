@@ -14,8 +14,19 @@ setup(
     url                     = "http://www.hoelzer-kluepfel.de",
     keywords                = "dossier documentation processing",
 
-    license                 = "Other/Proprietary License",
-    
+    classifiers             = [ 
+                            	"License :: OSI Approved :: BSD License",
+                                "Development Status :: 3 - Alpha",
+                                "Environment :: Console",
+                                "Intended Audience :: Developers",
+                                "Programming Language :: Python :: 3",
+                                "Topic :: Documentation",
+                                "Topic :: Software Development :: Documentation",
+                                "Topic :: Text Processing :: Markup :: Markdown",
+                                "Typing :: Typed",
+                              ],
+
+
     entry_points            = {
                                 'console_scripts': [ 'dm = dm:run_dm', ]
                               }
