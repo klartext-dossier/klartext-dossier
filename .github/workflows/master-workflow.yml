@@ -166,5 +166,5 @@ jobs:
       uses: pypa/gh-action-pypi-publish@release/v1      
       with:
         repository-url: https://test.pypi.org/legacy/
-        packages-dir: dist/klartext
+        packages-dir: dist/klartext/dist
         verbose: true
