@@ -159,6 +159,9 @@ jobs:
         name: packages
         path: dist/klartext
     
+    - name: Dump
+      run: ls -lR dist
+
     - name: Publish klartext distribution to TestPyPI
       uses: pypa/gh-action-pypi-publish@release/v1      
       with:
