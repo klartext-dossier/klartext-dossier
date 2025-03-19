@@ -157,7 +157,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: packages
-        path: dist/klartext
+        path: dist
     
     - name: Dump
       run: ls -lR dist
