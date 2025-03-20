@@ -26,30 +26,31 @@ jobs:
       id-token: write
       
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v4
 
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: klartext/pypeline
+    - name: Check out the repo
+      uses: actions/checkout@v4
 
-      - name: Build and push Docker image
-        id: push
-        uses: docker/build-push-action@v6
-        with:
-          context: pypeline
-          file: pypeline/Dockerfile
-          push: True
-          tags: klartext/pypeline:latest
-          labels: ${{ steps.meta.outputs.labels }}
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        
+    - name: Extract metadata (tags, labels) for Docker
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: klartext/pypeline
+
+    - name: Build and push Docker image
+      id: push
+      uses: docker/build-push-action@v6
+      with:
+        context: pypeline
+        file: pypeline/Dockerfile
+        push: True
+        tags: klartext/pypeline:latest
+        labels: ${{ steps.meta.outputs.labels }}
 
 #      - name: Generate artifact attestation
 #        uses: actions/attest-build-provenance@v2
@@ -68,6 +69,7 @@ jobs:
     container: klartext/pypeline:latest
 
     steps:
+
     - uses: actions/checkout@v4
     
     - name: Make packages
@@ -100,40 +102,41 @@ jobs:
       id-token: write
       
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v4
 
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: klartext/dossier
+    - name: Check out the repo
+      uses: actions/checkout@v4
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: packages
-          path: docker
-          merge-multiple: True
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        
+    - name: Extract metadata (tags, labels) for Docker
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: klartext/dossier
 
-      - name: Dump
-        run: ls -lR docker
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: packages
+        path: docker
+        merge-multiple: True
 
-      - name: Build and push Docker image
-        id: push
-        uses: docker/build-push-action@v6
-        with:
-          context: docker
-          file: docker/Dockerfile
-          push: True
-          tags: klartext/dossier:latest
-          labels: ${{ steps.meta.outputs.labels }}
+    - name: Dump
+      run: ls -lR docker
+
+    - name: Build and push Docker image
+      id: push
+      uses: docker/build-push-action@v6
+      with:
+        context: docker
+        file: docker/Dockerfile
+        push: True
+        tags: klartext/dossier:latest
+        labels: ${{ steps.meta.outputs.labels }}
 
 #      - name: Generate artifact attestation
 #        uses: actions/attest-build-provenance@v2
@@ -194,6 +197,8 @@ jobs:
 
   deploy:
 
+    if: False
+    
     name: Publish Website to Github Pages
 
     environment:
@@ -205,20 +210,20 @@ jobs:
 
     steps:
 
-      - name: Checkout
-        uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
 
-      - name: Build the website
-        run: make website
-  
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'docs'
+    - name: Build the website
+      run: make website
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: 'docs'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
