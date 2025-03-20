@@ -4,8 +4,6 @@ on:
   push:
     branches: ["master"]
 
-  workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
@@ -20,6 +18,8 @@ concurrency:
 jobs:
 
   deploy:
+
+    name: Publish Website to Github Pages
 
     environment:
       name: github-pages
