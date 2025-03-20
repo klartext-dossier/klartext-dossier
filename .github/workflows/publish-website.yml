@@ -2,7 +2,7 @@ name: Deploy Website to Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
 
   workflow_dispatch:
 
@@ -39,11 +39,11 @@ jobs:
       - name: Build the website
         run: make website
  
-    #   - name: Upload artifact
-    #     uses: actions/upload-pages-artifact@v3
-    #     with:
-    #       path: 'docs'
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs'
 
-    #   - name: Deploy to GitHub Pages
-    #     id: deployment
-    #     uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
