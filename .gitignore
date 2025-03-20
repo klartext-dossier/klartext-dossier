@@ -92,3 +92,9 @@ mdx/dossier_mdx.egg-info/dependency_links.txt
 mdx/dossier_mdx.egg-info/PKG-INFO
 mdx/dossier_mdx.egg-info/SOURCES.txt
 mdx/dossier_mdx.egg-info/top_level.txt
+klartext/site
+mdx/site
+dossier/site
+docs/klartext
+docs/mdx
+docs/dossier
