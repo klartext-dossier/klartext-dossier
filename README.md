@@ -6,7 +6,7 @@ The toolset consists of a number of elements:
 
 - *klartext* is a markup language that combines the power of XML and Markdown in a Pythonic way. This repository contains a parser library for that language.
 
-- [HTMLBook](https://oreillymedia.github.io/HTMLBook/) is a specified subset of XHTML used for typesetting books. This repository contains an extensible less/css stylesheet for [HTMLBook](https://oreillymedia.github.io/HTMLBook).
+- *htmlbook* is a specified subset of XHTML used for typesetting books. This repository contains an extensible less/css stylesheet for [HTMLBook](https://oreillymedia.github.io/HTMLBook).
 
 - *dossier-mdx* provides a number of [Python Markdown](https://python-markdown.github.io) extensions for converting Markdown into [HTMLBook](https://oreillymedia.github.io/HTMLBook/) compliant XHTML.
 
