@@ -19,8 +19,9 @@ plugins:
         options:
           show_root_heading: true
           show_source: false
-
+    
 markdown_extensions:
+- admonition
 - def_list
 - attr_list
 - md_in_html
@@ -31,13 +32,14 @@ markdown_extensions:
 - pymdownx.inlinehilite
 - pymdownx.snippets
 - pymdownx.superfences
+- pymdownx.tabbed:
+    alternate_style: true
 
 nav:
   - Overview: index.md
   - klartext:
     - Overview: klartext/index.md
     - Quickstart: klartext/quickstart.md
-    - Tutorial: klartext/tutorial.md
     - Manual: klartext/manual.md
     - API Reference: klartext/reference.md
   - htmlbook-css:
