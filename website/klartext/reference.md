@@ -1,4 +1,4 @@
-# Reference
+# API Reference
 
 ::: klartext.token
 ::: klartext.exceptions

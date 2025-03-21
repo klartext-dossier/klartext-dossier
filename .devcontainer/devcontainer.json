@@ -1,6 +1,6 @@
 {
 	"name": "Pypeline",
-	"image": "emhaka/pypeline",
+	"image": "klartext/pypeline",
 	"context": ".",
 	
 	"runArgs": [
@@ -20,13 +20,16 @@
 
 	"extensions": [
 		"ms-python.python",
-		"alexkrechik.cucumberautocomplete",		
+		"alexkrechik.cucumberautocomplete",
 		"shd101wyy.markdown-preview-enhanced",
 		"davidanson.vscode-markdownlint",
 		"rogalmic.vscode-xml-complete",
 		"ms-vscode.azure-account",
 		"ms-azure-devops.azure-pipelines",
-		"geeebe.duplicate"
+		"geeebe.duplicate",
+		"brunnerh.insert-unicode",
+		"github.vscode-github-actions",
+		"ms-vscode.makefile-tools"
 	],
 
 	"containerEnv": {

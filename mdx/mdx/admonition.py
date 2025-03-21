@@ -7,7 +7,7 @@
     Admonition extension for Python-Markdown
     ========================================
 
-    Adds rST-style HTMLBOOK_ADMONITIONS. Inspired by [rST][] feature with the same name.
+    Adds rST-style HTMLBOOK_ADMONITIONS. Inspired by [rST]() feature with the same name.
 
     [rST]: http://docutils.sourceforge.net/docs/ref/rst/directives.html#specific-HTMLBOOK_ADMONITIONS  # noqa
 

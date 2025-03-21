@@ -1,4 +1,4 @@
-FROM emhaka/pypeline:latest
+FROM klartext/pypeline:latest
 
 ARG KLARTEXT_VERSION=0.1.0
 ARG MDX_VERSION=0.1.0
