@@ -198,10 +198,59 @@ You can suppress the markdown conversion by using quotes:
     <article>This is the _content_ of the **article**.</article>
     ```
 
-
-
 ## Inline tags
+
+Within the Markdown content, inline tags can be added with an abbreviated syntax:
+
+=== "klartext input"
+    ``` klartext
+    article: This is an /q/inline tag/.
+    ```
+
+=== "XML output"
+    ``` xml
+    <article>
+        <p xmlns="http://www.w3.org/1999/xhtml">This is an <q>inline tag</q>.</p>
+    </article>
+    ```
 
 ## Glossary entries
 
+There is a special shortcut syntax for terms defined in a glossary:
+
+=== "klartext input"
+    ``` klartext
+    article: This is a {glossary} entry.
+    ```
+
+=== "XML output"
+    ``` xml
+    <article>
+        <p xmlns="http://www.w3.org/1999/xhtml">This is a <a data-type="xref" data-xrefstyle="glossary" href="#glossary">glossary</a> entry.</p>
+    </article>
+    ```
+
 ## Namespaces
+
+It is possible to define namespaces for tags used in klartext:
+
+=== "klartext input"
+    ``` klartext
+    !import "http://www.klartext-dossier.org/example" as ex
+
+    ex::tag:
+
+        ex::subtag:
+
+        subtag: This is the content.
+    ```
+
+=== "XML output"
+    ``` xml
+    <ex:tag xmlns:ex="http://www.klartext-dossier.org/example">
+        <ex:subtag xmlns:ex="http://www.klartext-dossier.org/example"></ex:subtag>
+        <subtag>
+            <p xmlns="http://www.w3.org/1999/xhtml">This is the content.</p>
+        </subtag>
+    </ex:tag>
+    ```

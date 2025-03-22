@@ -1,0 +1,6 @@
+<ex:tag xmlns:ex="http://www.klartext-dossier.org/example">
+    <ex:subtag xmlns:ex="http://www.klartext-dossier.org/example"></ex:subtag>
+    <subtag>
+        <p xmlns="http://www.w3.org/1999/xhtml">This is the content.</p>
+    </subtag>
+</ex:tag>
