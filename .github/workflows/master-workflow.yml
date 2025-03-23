@@ -42,6 +42,9 @@ jobs:
       with:
         images: klartext/pypeline
 
+    - name: Build klartext-pygments plugin
+      run: make -C klartext_pygments
+      
     - name: Build and push Docker image
       id: push
       uses: docker/build-push-action@v6
