@@ -18,8 +18,7 @@ jobs:
     name: Publish Pypeline Image
     
     runs-on: ubuntu-latest
-    container: klartext/pypeline
-    
+
     permissions:
       packages: write
       contents: read
@@ -42,9 +41,6 @@ jobs:
       uses: docker/metadata-action@v5
       with:
         images: klartext/pypeline
-
-    - name: Build klartext-pygments plugin
-      run: make -C klartext_pygments
 
     - name: Build and push Docker image
       id: push
@@ -205,12 +201,14 @@ jobs:
     
     name: Publish Website to Github Pages
 
+    needs: dossier
+    
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
-    container: klartext/pypeline:latest
+    container: klartext/dossier:latest
 
     steps:
 
