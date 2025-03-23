@@ -20,79 +20,7 @@
 		}
 	],
 	"repository": {
-		"directives": {
-			"patterns": [{
-				"name": "entity.name",				
-				"match": "^\\s*(!(include|import))\\s+(\"[^\"]+\")(\\s+(as)\\s+(\\w+))?.*$",
-				"captures": {
-					"1": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.name.function.macro.kt"
-						}]
-					},
-					"3": {
-						"patterns": [{
-							"name": "string.quoted.double.kt",
-							"begin": "\"",
-							"end": "\""	
-						}]
-					},
-					"5": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.name.function.macro.kt"
-						}]
-					},
-					"6": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.name.namespace.kt"
-						}]
-					}
-				}
-			}]
-		},
-		"string": {
-			"patterns": [{
-				"name": "string.quoted.double.kt",
-				"begin": "\"",
-				"end": "\""		
-			}]
-		},
 
-		"links": {
-			"patterns": [{
-				"name": "entity.other.attribute-name.kt",
-				"match": "^\\s*(\\w+)(>)(\\s[^\\s=]+\\s)?(.*)",
-				"captures": {
-					"1": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.name.tag.kt"
-						}]
-					},
-					"2": {
-						"patterns": [{
-							"match": ".*",
-							"name": "meta.tag.kt"
-						}]
-					},
-					"3": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.name.type.kt"
-						}]
-					},
-					"4": {
-						"patterns": [{
-							"match": ".*",
-							"include": "#string"
-						}]
-					}
-				}
-			}]
-		},
 		"markdown": {
 			"name": "text.kt",
 			"match": ".*",
