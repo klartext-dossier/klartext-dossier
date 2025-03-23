@@ -254,3 +254,19 @@ It is possible to define namespaces for tags used in klartext:
         </subtag>
     </ex:tag>
     ```
+
+## Includes
+
+Klartext files allow to include other klartext files:
+
+=== "klartext input"
+    ``` klartext
+    !include "file_to_include.kt"
+    ```
+
+=== "XML output"
+    ``` xml
+    <article>
+        <p xmlns="http://www.w3.org/1999/xhtml">This is the content of the included file.</p>
+    </article>
+    ```
