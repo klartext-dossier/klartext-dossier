@@ -36,6 +36,7 @@ RUN mv *.ttf /usr/share/fonts/
 RUN fc-cache
 
 # Install packages
+RUN pip install --upgrade pip
 ADD requirements.txt /
 RUN pip install -r /requirements.txt
 RUN rm /requirements.txt
@@ -47,3 +48,8 @@ ENV PATH="/opt/npm/node_modules/.bin/:${PATH}"
 RUN npm install -g puppeteer @mermaid-js/mermaid-cli
 RUN chmod -R u+rwX,g+rX,o+rX /root
 ENV PUPPETEER_CACHE_DIR="/root/.cache/puppeteer"
+
+# Install klartext_pygments
+ADD klartext_pygments/dist/*.whl /
+RUN pip klartext_pygments-$KLARTEXT_PYGMENTS_VERSION-py2.py3-none-any.whl
+RUN rm /*.whl

@@ -26,6 +26,7 @@ markdown_extensions:
 - attr_list
 - md_in_html
 - pymdownx.highlight:
+    use_pygments: true
     anchor_linenums: true
     line_spans: __span
     pygments_lang_class: true
