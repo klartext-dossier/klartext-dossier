@@ -1,6 +1,6 @@
 {
 	"name": "Pypeline",
-	"image": "emhaka/pypeline",
+	"image": "klartexthatch/pypeline",
 	"context": ".",
 	
 	"runArgs": [
