@@ -9,6 +9,9 @@ org::nocontent:
 
 org::link> ID key="value"
 
+// This is a comment
+    // And this too
+    
 one: #ID content 1
     two: #id key="value" anotherkey="anothervalue" content 2
         three: content 3

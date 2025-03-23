@@ -24,6 +24,9 @@ class KtLexer(RegexLexer):
             # links
             (r'^([ \t]*)(\w+::)?([\w\-]+)(>)([ \t]*)([\w\-\.]+)([ \t]*)(?:([\w\-]+[ \t]*)(=)([ \t]*)(\"[^\"]*\")([ \t]*))*(.*)$', bygroups(Whitespace, Name.Namespace, Name.Tag, Operator, Whitespace, String.Symbol, Whitespace, Name.Attribute, Operator, Whitespace, String, Whitespace, Other)),
 
+            # comments
+            (r'^[ \t]*//.*$', Comment),
+
             # content
             (r'.*\n', Other)
         ]
