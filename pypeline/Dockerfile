@@ -47,8 +47,3 @@ ENV PATH="/opt/npm/node_modules/.bin/:${PATH}"
 RUN npm install -g puppeteer @mermaid-js/mermaid-cli
 RUN chmod -R u+rwX,g+rX,o+rX /root
 ENV PUPPETEER_CACHE_DIR="/root/.cache/puppeteer"
-
-# Install the klartext_pygments plugin
-ADD klartext_pygments/dist/klartext_pygments-0.1.0-py2.py3-none-any.whl
-RUN pip install klartext_pygments-0.1.0-py2.py3-none-any.whl
-RUN rm /*.whl
