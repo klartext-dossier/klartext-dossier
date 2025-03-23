@@ -42,11 +42,11 @@ nav:
     - Quickstart: klartext/quickstart.md
     - Manual: klartext/manual.md
     - API Reference: klartext/reference.md
-  - htmlbook-css:
-    - Overview: htmlbook/index.md
   - htmlbook-mdx:
     - Overview: mdx/index.md
     - API Reference: mdx/reference.md
+  - htmlbook-css:
+    - Overview: htmlbook/index.md
   - dm:
     - Overview: dm/index.md
     # - API Reference: dm/reference.md
