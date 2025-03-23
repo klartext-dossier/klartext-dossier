@@ -167,8 +167,8 @@ Tags can have content. The content is expressed in the form of Markdown:
 === "XML output"
     ``` xml
     <article>
-        <p xmlns="http://www.w3.org/1999/xhtml">This is the <em>content</em> of the <strong>article</strong>.</p>
-        <p xmlns="http://www.w3.org/1999/xhtml">This is the second paragraph.</p>
+        <p>This is the <em>content</em> of the <strong>article</strong>.</p>
+        <p>This is the second paragraph.</p>
     </article>
     ```
 
@@ -182,7 +182,7 @@ Usually, content is in separate, indented paragraphs below the tag. In simple ca
 === "XML output"
     ``` xml
     <article>
-        <p xmlns="http://www.w3.org/1999/xhtml">This is the <em>content</em> of the <strong>article</strong>.</p>
+        <p>This is the <em>content</em> of the <strong>article</strong>.</p>
     </article>
     ```
 
@@ -210,7 +210,7 @@ Within the Markdown content, inline tags can be added with an abbreviated syntax
 === "XML output"
     ``` xml
     <article>
-        <p xmlns="http://www.w3.org/1999/xhtml">This is an <q>inline tag</q>.</p>
+        <p>This is an <q>inline tag</q>.</p>
     </article>
     ```
 
@@ -226,7 +226,7 @@ There is a special shortcut syntax for terms defined in a glossary:
 === "XML output"
     ``` xml
     <article>
-        <p xmlns="http://www.w3.org/1999/xhtml">This is a <a data-type="xref" data-xrefstyle="glossary" href="#glossary">glossary</a> entry.</p>
+        <p>This is a <a data-type="xref" data-xrefstyle="glossary" href="#glossary">glossary</a> entry.</p>
     </article>
     ```
 
@@ -250,7 +250,7 @@ It is possible to define namespaces for tags used in klartext:
     <ex:tag xmlns:ex="http://www.klartext-dossier.org/example">
         <ex:subtag xmlns:ex="http://www.klartext-dossier.org/example"></ex:subtag>
         <subtag>
-            <p xmlns="http://www.w3.org/1999/xhtml">This is the content.</p>
+            <p>This is the content.</p>
         </subtag>
     </ex:tag>
     ```
@@ -267,6 +267,6 @@ Klartext files allow to include other klartext files:
 === "XML output"
     ``` xml
     <article>
-        <p xmlns="http://www.w3.org/1999/xhtml">This is the content of the included file.</p>
+        <p>This is the content of the included file.</p>
     </article>
     ```

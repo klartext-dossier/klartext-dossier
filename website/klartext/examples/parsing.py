@@ -1,3 +1,6 @@
+import io, klartext
+
+input = io.StringIO("""
 process: #SD.2 name="Software Development Planning"
 
     purpose:
@@ -8,3 +11,11 @@ process: #SD.2 name="Software Development Planning"
         Systematic software development planning ensures that risks caused 
         by software are reduced and quality characteristics for the medical 
         device software are met.
+""")
+
+parser = klartext.Parser()
+
+xml = parser.parse(input, convert_text=klartext.Parser.convertMarkdown)
+
+print(xml.decode('UTF-8'))
+
