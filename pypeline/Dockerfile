@@ -52,5 +52,5 @@ ENV PUPPETEER_CACHE_DIR="/root/.cache/puppeteer"
 # Install klartext_pygments
 ARG KLARTEXT_PYGMENTS_VERSION=0.1.0
 ADD klartext_pygments-$KLARTEXT_PYGMENTS_VERSION-py2.py3-none-any.whl /
-RUN pip klartext_pygments-$KLARTEXT_PYGMENTS_VERSION-py2.py3-none-any.whl
+RUN pip install klartext_pygments-$KLARTEXT_PYGMENTS_VERSION-py2.py3-none-any.whl
 RUN rm /*.whl
