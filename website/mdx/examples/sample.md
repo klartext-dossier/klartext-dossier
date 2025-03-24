@@ -1,7 +1,3 @@
----
-author:   Matthias Hölzer-Klüpfel
----
-
 # Dossier Markdown Showcase
 
 [TOC]

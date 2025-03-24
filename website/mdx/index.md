@@ -18,7 +18,7 @@ xhtml
 :   Adds the [xhtml namespace](http://www.w3.org/1999/xhtml) to the top level elements.
 
 mermaid
-:   Allows to include [Mermaid diagrams](https://mermaid.js.org) in markdown.
+:   mermaid generator for the customblocks extension for Markdown.
 
 !!! note
-    The mermaid extensions is not related to HTMLBook](https://oreillymedia.github.io/HTMLBook/), but included here for conveniance. The extension may find a different home in the future.
+    The mermaid generator is not related to HTMLBook](https://oreillymedia.github.io/HTMLBook/), but included here for conveniance. The extension may find a different home in the future.

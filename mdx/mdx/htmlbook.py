@@ -2,35 +2,44 @@
 
     This code is largely based on the original mdx_outline extension found at: https://github.com/aleray/mdx_outline
 
-    Below is part of the original module comment:
-
-    Outline extension for Python-Markdown
-    =====================================
-
-    Wraps the document logical sections (as implied by h1-h6 headings).
-
-    By default, the wrapper element is a section tag having a class attribute
-    "sectionN", where N is the header level being wrapped. Also, the header
-    attributes get moved to the wrapper.
-
     Copyright
-    ---------
-
     - 2011, 2012 [The active archives contributors](http://activearchives.org/)
     - 2011, 2012 [Michael Murtaugh](http://automatist.org/)
     - 2011, 2012, 2017 [Alexandre Leray](http://stdin.fr/)
 
-    All rights reserved.
-
     This software is released under the modified BSD License.
-    See LICENSE.md for details.
+''' 
 
-    Further credits
-    ---------------
+# This code is largely based on the original mdx_outline extension found at: https://github.com/aleray/mdx_outline
 
-    This is a rewrite of the
-    [mdx_addsection extension](http://git.constantvzw.org/?p=aa.core.git;a=blob;f=aacore/mdx_addsections.py;h=969e520a42b0018a2c4b74889fecc83a7dd7704a;hb=HEAD)
-'''
+# Below is part of the original module comment:
+
+# Outline extension for Python-Markdown
+# =====================================
+
+# Wraps the document logical sections (as implied by h1-h6 headings).
+
+# By default, the wrapper element is a section tag having a class attribute
+# "sectionN", where N is the header level being wrapped. Also, the header
+# attributes get moved to the wrapper.
+
+# Copyright
+# ---------
+
+# - 2011, 2012 [The active archives contributors](http://activearchives.org/)
+# - 2011, 2012 [Michael Murtaugh](http://automatist.org/)
+# - 2011, 2012, 2017 [Alexandre Leray](http://stdin.fr/)
+
+# All rights reserved.
+
+# This software is released under the modified BSD License.
+# See LICENSE.md for details.
+
+# Further credits
+# ---------------
+
+# This is a rewrite of the
+# [mdx_addsection extension](http://git.constantvzw.org/?p=aa.core.git;a=blob;f=aacore/mdx_addsections.py;h=969e520a42b0018a2c4b74889fecc83a7dd7704a;hb=HEAD)
 
 import re, string
 

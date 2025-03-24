@@ -2,21 +2,26 @@
 
     This code is largely based on the original toc extension provided with Python Markdown.
 
-    Below is the original module comment:
-
-    Table of Contents Extension for Python-Markdown
-    ===============================================
-
-    See <https://Python-Markdown.github.io/extensions/toc>
-    for documentation.
-
     Oringinal code Copyright 2008 [Jack Miller](http://codezen.org)
 
     All changes Copyright 2008-2014 The Python Markdown Project
 
     License: [BSD](http://www.opensource.org/licenses/bsd-license.php)
+""" 
 
-"""
+# Below is the original module comment:
+
+# Table of Contents Extension for Python-Markdown
+# ===============================================
+
+# See <https://Python-Markdown.github.io/extensions/toc>
+# for documentation.
+
+# Oringinal code Copyright 2008 [Jack Miller](http://codezen.org)
+
+# All changes Copyright 2008-2014 The Python Markdown Project
+
+# License: [BSD](http://www.opensource.org/licenses/bsd-license.php)
 
 import re
 
@@ -35,8 +40,6 @@ class TocTreeprocessor(Treeprocessor):
     
     def iterparent(self, node: etree.Element):
 
-        ''' Iterator wrapper to get allowed parent and child all at once. '''
-
         for child in node:
             if not HEADER_TAGS.match(child.tag) and child.tag not in SKIPPED_TAGS:
                 yield node, child
@@ -45,8 +48,6 @@ class TocTreeprocessor(Treeprocessor):
 
 
     def replace_marker(self, root: etree.Element) -> None:
-
-        ''' Replace marker. '''
 
         nav = etree.Element('nav')
         nav.attrib["data-type"] = 'toc'
