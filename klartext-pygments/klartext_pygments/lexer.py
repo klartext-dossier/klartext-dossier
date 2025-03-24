@@ -9,11 +9,7 @@ __all__ = [ 'KlartextLexer' ]
 
 class KtLexer(RegexLexer):
 
-    name      = "Klartext Markup Language"
-    aliases   = ["klartext", "kt"]
-    filenames = ["*.kt"]
-    mimetypes = ["text/x-klartext"]
-    flags     = re.MULTILINE
+    flags = re.MULTILINE
 
     tokens = {
         'root': [           
@@ -36,5 +32,11 @@ class KtLexer(RegexLexer):
 
 
 class KlartextLexer(DelegatingLexer):
+
+    name      = "Klartext Markup Language"
+    aliases   = ["klartext", "kt"]
+    filenames = ["*.kt"]
+    mimetypes = ["text/x-klartext"]
+
     def __init__(self, **options):
         super().__init__(MarkdownLexer, KtLexer, **options)
