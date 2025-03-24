@@ -5,6 +5,8 @@ from pygments.lexer import RegexLexer, DelegatingLexer, bygroups
 from pygments.token import *
 from pygments.lexers.markup import MarkdownLexer
 
+__all__ = [ 'KlartextLexer' ]
+
 class KtLexer(RegexLexer):
 
     name      = "Klartext Markup Language"

@@ -9,14 +9,11 @@ dependencies = ["pygments"]
 #readme = "README.md"
 requires-python = ">= 3.8"
 
-#[project.entry-points."pygments.lexers"]
-#klartext_pygments = "klartext-pygments:KlartextLexer"
+[project.entry-points."pygments.lexers"]
+entry = "klartext_pygments.lexer:KlartextLexer"
 
 [tool.hatch.envs.default.scripts]
 test = "pygmentize -l klartext test.kt"
-
-[tool.hatch.build.targets.wheel]
-packages = ["klartext-pygments"]
 
 [bdist_wheel]
 universal = 0  # Make the generated wheels have "py3" tag
