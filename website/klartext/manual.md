@@ -1,10 +1,10 @@
 # User Manual
 
-This klartext user manual explains the concepts making up the klartext markup language. The examples are always show in the form of the klartext input, and in the XML content that is created by parsing the klartext file.
+This `klartext` user manual explains the concepts making up the `klartext` markup language. The examples are always show in the form of the `klartext` input, and in the XML content that is created by parsing the `klartext` file.
 
 ## Tags
 
-Tags are the basic building blocks of the klartext markup language. A tag is annotated by its name, followed by a colon:
+Tags are the basic building blocks of the `klartext` markup language. A tag is annotated by its name, followed by a colon:
 
 === "klartext input"
     ``` klartext
@@ -73,7 +73,7 @@ The scope of a tag is defined by the intendation level. A tag ends when another 
     ```
 
 !!! note
-    To be valid, a klartext file must have exactly one top-level tag with no indentation. In the examples here, this is the `article` tag.
+    To be valid, a `klartext` file must have exactly one top-level tag with no indentation. In the examples here, this is the `article` tag.
 
 ## Attributes
 
@@ -232,7 +232,7 @@ There is a special shortcut syntax for terms defined in a glossary:
 
 ## Namespaces
 
-It is possible to define namespaces for tags used in klartext:
+It is possible to define namespaces for tags used in `klartext`:
 
 === "klartext input"
     ``` klartext
@@ -257,7 +257,7 @@ It is possible to define namespaces for tags used in klartext:
 
 ## Includes
 
-Klartext files allow to include other klartext files:
+`klartext` files allow to include other `klartext` files:
 
 === "klartext input"
     ``` klartext

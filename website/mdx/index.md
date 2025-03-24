@@ -1,6 +1,6 @@
-# htmlbook-mdx
+# `htmlbook-mdx`
 
-htmlbook-mdx is a number of extensions for [Python Markdown](https://python-markdown.github.io) that allow to convert markdown sources into [HTMLBook](https://oreillymedia.github.io/HTMLBook/) compliant xhtml:
+`htmlbook-mdx` is a number of extensions for [Python Markdown](https://python-markdown.github.io) that allow to convert markdown sources into [HTMLBook](https://oreillymedia.github.io/HTMLBook/) compliant xhtml:
 
 admonition
 :   Creates [HTMLBook](https://oreillymedia.github.io/HTMLBook/) compliant admonitions, e.g., notes or warnings.

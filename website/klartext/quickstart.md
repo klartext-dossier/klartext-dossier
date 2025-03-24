@@ -1,8 +1,8 @@
 # Quickstart
 
-## A simple klartext document
+## A simple `klartext` document
 
-Klartext documents are plain text files. The following example shows a very simple klartext document:
+`klartext` documents are plain text files. The following example shows a very simple `klartext` document:
 
 ``` klartext linenums="1" title="Simple klartext document"
 process: #SD.2 name="Software Development Planning"
@@ -18,9 +18,9 @@ process: #SD.2 name="Software Development Planning"
 ```
 
 !!! note
-    It is recommended to use the UTF-8 encoding for klartext files.
+    It is recommended to use the UTF-8 encoding for `klartext` files.
 
-Semantically, this klartext file is equivalent to the following XML structure:
+Semantically, this `klartext` file is equivalent to the following XML structure:
 
 ``` xml linenums="1" title="Equivalent XML file"
 <process name="Software Development Planning" id="SD.2">
@@ -42,9 +42,9 @@ Semantically, this klartext file is equivalent to the following XML structure:
 </process>
 ```
 
-## Parsing klartext files
+## Parsing `klartext` files
 
-The klartext library provides a parser that can be used to convert klartext source files to their XML representation.
+The `klartext` library provides a parser that can be used to convert `klartext` source files to their XML representation.
 
 The following python code is a simple example that shows how to perform the conversion:
 

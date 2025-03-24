@@ -6,10 +6,6 @@ The following example demonstrates how a markdown source is converted to HTMLBoo
 
 === "markdown input"
     ``` markdown
-    ---
-    author:   Matthias Hölzer-Klüpfel
-    ---
-
     # Dossier Markdown Showcase
 
     [TOC]
@@ -40,9 +36,7 @@ The following example demonstrates how a markdown source is converted to HTMLBoo
     <html xmlns="http://www.w3.org/1999/xhtml">
 
         <head>
-            <title> </title>
-            <meta name="author" content="Matthias H&#xF6;lzer-Kl&#xFC;pfel" />
-
+            <title>Dossier Markdown Showcase</title>
             <link rel="stylesheet" type="text/css" href="htmlbook.css" />
         </head>
 

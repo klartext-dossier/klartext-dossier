@@ -1,17 +1,12 @@
-# Welcome to MkDocs
+# `htmlbook-css`
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+`htmlbook-css` is an extensible [less](https://lesscss.org)/css stylesheet for [HTMLBook](https://oreillymedia.github.io/HTMLBook). It aims for providing:
 
-## Commands
+- styling for all [HTMLBook](https://oreillymedia.github.io/HTMLBook/) elements
+- styling for both web (@media screen) and print (@media print)
+- default options for page settings, fonts, colours, etc.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+The stylesheet is maintained as a set of [less](https://lesscss.org) files. For convenience, the package also contains a compiled css file.
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+!!! note
+    Changing options consistently requires using the [less](https://lesscss.org) variant of the stylesheet.

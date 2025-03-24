@@ -1,8 +1,8 @@
-# klartext
+# `klartext`
 
-## What is klartext?
+## What is `klartext`?
 
-Klartext is a **markup language** for **semi-structured** text in a **pythonic** way.
+`klartext` is a **markup language** for **semi-structured** text in a **pythonic** way.
 
 ## What is a markup language?
 
@@ -26,7 +26,6 @@ maintainability
 
 scalability
 :   make it work with large amounts of text
-
 
 ## What is pythonic?
 
