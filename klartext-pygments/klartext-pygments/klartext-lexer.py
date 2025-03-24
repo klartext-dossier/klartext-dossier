@@ -1,7 +1,7 @@
 """An example plugin lexer for Pygments."""
 
 import re
-from pygments.lexer import RegexLexer, DelegatingLexer, bygroups, using
+from pygments.lexer import RegexLexer, DelegatingLexer, bygroups
 from pygments.token import *
 from pygments.lexers.markup import MarkdownLexer
 
