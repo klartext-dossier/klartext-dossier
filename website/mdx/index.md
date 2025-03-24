@@ -1,17 +1,24 @@
-# Welcome to MkDocs
+# htmlbook-mdx
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+htmlbook-mdx is a number of extensions for [Python Markdown](https://python-markdown.github.io) that allow to convert markdown sources into [HTMLBook](https://oreillymedia.github.io/HTMLBook/) compliant xhtml:
 
-## Commands
+admonition
+:   Creates [HTMLBook](https://oreillymedia.github.io/HTMLBook/) compliant admonitions, e.g., notes or warnings.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+checkbox
+:   Creates [HTMLBook](https://oreillymedia.github.io/HTMLBook/) compliant checkboxes.
 
-## Project layout
+htmlbook
+:   Creates a [HTMLBook](https://oreillymedia.github.io/HTMLBook/) compliant document structure.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+toc
+:   Creates a [HTMLBook](https://oreillymedia.github.io/HTMLBook/) compliant table of contents.
+
+xhtml
+:   Adds the [xhtml namespace](http://www.w3.org/1999/xhtml) to the top level elements.
+
+mermaid
+:   Allows to include [Mermaid diagrams](https://mermaid.js.org) in markdown.
+
+!!! note
+    The mermaid extensions is not related to HTMLBook](https://oreillymedia.github.io/HTMLBook/), but included here for conveniance. The extension may find a different home in the future.

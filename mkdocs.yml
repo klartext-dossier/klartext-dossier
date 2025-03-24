@@ -45,6 +45,7 @@ nav:
     - API Reference: klartext/reference.md
   - htmlbook-mdx:
     - Overview: mdx/index.md
+    - Quickstart: mdx/quickstart.md
     - API Reference: mdx/reference.md
   - htmlbook-css:
     - Overview: htmlbook/index.md
