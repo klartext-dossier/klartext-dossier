@@ -1,3 +1,6 @@
+""" Module providing exceptions.
+""" 
+
 class TaskException(Exception):
 
     """ Task exception.
