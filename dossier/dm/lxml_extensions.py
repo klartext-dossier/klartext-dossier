@@ -15,7 +15,7 @@ def string(str_or_list: str | list[str]) -> str:
     return str(str_or_list)
 
 
-def ext_match_g(context: lxml.extensions._BaseContext, text: str, used_text: str) -> bool:
+def ext_match_g(context: object, text: str, used_text: str) -> bool:
 
     """ Compares two texts case-insensitive.
     
@@ -33,7 +33,7 @@ def ext_match_g(context: lxml.extensions._BaseContext, text: str, used_text: str
     return text == used_text
 
 
-def ext_id(context: lxml.extensions._BaseContext, text: str | list[str]) -> str:
+def ext_id(context: object, text: str | list[str]) -> str:
 
     """ Generates a textual id.
     
@@ -54,7 +54,7 @@ def node_id(node) -> str:
     return f'id-{node.tag}[{index}]-'.encode('ascii')
 
 
-def ext_unique_id(context: lxml.extensions._BaseContext) -> str:
+def ext_unique_id(context: object) -> str:
 
     """ Calculates a unique id for the current node.
     
@@ -75,7 +75,7 @@ def ext_unique_id(context: lxml.extensions._BaseContext) -> str:
     return md.hexdigest()
 
 
-def ext_lowercase(context: lxml.extensions._BaseContext, text: str | list[str]) -> str:
+def ext_lowercase(context: object, text: str | list[str]) -> str:
 
     """ Converts a text to lowercase.
     
@@ -90,7 +90,7 @@ def ext_lowercase(context: lxml.extensions._BaseContext, text: str | list[str]) 
     return string(text).lower()
 
 
-def ext_uppercase(context: lxml.extensions._BaseContext, text: str | list[str]) -> str:
+def ext_uppercase(context: object, text: str | list[str]) -> str:
 
     """ Converts a text to uppercase.
     
@@ -105,7 +105,7 @@ def ext_uppercase(context: lxml.extensions._BaseContext, text: str | list[str]) 
     return string(text).upper()
 
 
-def ext_sentencecase(context: lxml.extensions._BaseContext, text: str | list[str]) -> str:
+def ext_sentencecase(context: object, text: str | list[str]) -> str:
 
     """ Capitalize a text.
     
@@ -123,7 +123,7 @@ def ext_sentencecase(context: lxml.extensions._BaseContext, text: str | list[str
     return text[:1].upper() + text[1:].lower()
 
 
-def ext_lstrip(context: lxml.extensions._BaseContext, text: str | list[str]) -> str:
+def ext_lstrip(context: object, text: str | list[str]) -> str:
 
     """ Removes leading whitespace.
     
@@ -138,7 +138,7 @@ def ext_lstrip(context: lxml.extensions._BaseContext, text: str | list[str]) -> 
     return string(text).lstrip()
 
 
-def ext_rstrip(context: lxml.extensions._BaseContext, text: str | list[str]) -> str:
+def ext_rstrip(context: object, text: str | list[str]) -> str:
 
     """ Removes trailing whitespace.
     
@@ -153,7 +153,7 @@ def ext_rstrip(context: lxml.extensions._BaseContext, text: str | list[str]) -> 
     return string(text).rstrip()
 
 
-def ext_strip(context: lxml.extensions._BaseContext, text: str | list[str]) -> str:
+def ext_strip(context: object, text: str | list[str]) -> str:
 
     """ Removes leading and trailing whitespace.
     
@@ -168,7 +168,7 @@ def ext_strip(context: lxml.extensions._BaseContext, text: str | list[str]) -> s
     return string(text).strip()
 
 
-def ext_simplify(context: lxml.extensions._BaseContext, text: str | list[str]) -> str:
+def ext_simplify(context: object, text: str | list[str]) -> str:
 
     """ Simplifies whitespace.
     
@@ -218,7 +218,7 @@ def register_dossier_extensions(namespace: str) -> None:
     ns['simplify'] = ext_simplify
 
 
-def ext_N(context: lxml.extensions._BaseContext, text: str | list[str]) -> str:
+def ext_N(context: object, text: str | list[str]) -> str:
 
     name = string(text).strip()
 
@@ -254,7 +254,7 @@ def ext_N(context: lxml.extensions._BaseContext, text: str | list[str]) -> str:
     return last + ';' + first + ';' + middle + ';' + prefix + ';' + suffix
 
 
-def ext_ADR(context: lxml.extensions._BaseContext, text: str | list[str]) -> str:
+def ext_ADR(context: object, text: str | list[str]) -> str:
 
     adr = string(text).strip()
 

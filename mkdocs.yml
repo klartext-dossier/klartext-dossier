@@ -53,4 +53,6 @@ nav:
     - Quickstart: htmlbook/quickstart.md
   - dm:
     - Overview: dm/index.md
+    - Quickstart: dm/quickstart.md
+    - Manual: dm/manual.md
     - API Reference: dm/reference.md
