@@ -10,7 +10,8 @@ dependencies = ["pygments"]
 requires-python = ">= 3.8"
 
 [project.entry-points."pygments.lexers"]
-entry = "klartext_pygments.lexer:KlartextLexer"
+entry = "klartext_pygments.lexer:KtLexer"
+# entry = "klartext_pygments.lexer:KlartextLexer"
 
 [tool.hatch.envs.default.scripts]
 test = "pygmentize -l klartext test.kt"

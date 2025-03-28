@@ -13,11 +13,11 @@ org::link> ID key="value"
     // And this too
     
 one: #ID content 1
-    two: #id key="value" anotherkey="anothervalue" content 2
+    two: #id key="value" another-key="anothervalue" content 2
         three: content 3
 
-onemore: #ID _content 1_
-    twomore: #id key="value" content 2
+one-more: #ID _content 1_
+    twomore: #id key="value" "content 2"
         threemore: content 3
     
 tag:
