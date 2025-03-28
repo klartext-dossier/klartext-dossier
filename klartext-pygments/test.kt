@@ -13,7 +13,7 @@ org::link> ID key="value"
     // And this too
     
 one: #ID content 1
-    two: #id key="value" another-key="anothervalue" content 2
+    two: #id another-key="anothervalue" content 2
         three: content 3
 
 one-more: #ID _content 1_
