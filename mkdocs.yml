@@ -54,5 +54,10 @@ nav:
   - dm:
     - Overview: dm/index.md
     - Quickstart: dm/quickstart.md
-    - Manual: dm/manual.md
+    - Manual: 
+      - Overview: dm/manual.md
+      - File task: dm/task-file.md
+      - Include task: dm/task-include.md
+      - Load task: dm/task-load.md
+      - Markdown-include task: dm/task-markdown-include.md
     - API Reference: dm/reference.md
