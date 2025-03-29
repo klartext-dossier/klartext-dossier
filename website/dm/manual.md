@@ -40,6 +40,12 @@ The `file` task allows to create an input document from within a pipeline.
 | ------------ | ------------ | -------------------------------------- |
 | output       | [0..1]       | The name of the output file. Optional. |
 
+Each `output` element can have the following attributes:
+
+| Attribute name | Default value               | Description                      |
+| -------------- | --------------------------- | -------------------------------- |
+| encoding       | utf-8                       | The encoding of the output file. |
+
 #### Task behaviour
 
 The text content of the `file` task (with the leading indentation removed) is used as input and passed to the next task.
@@ -70,28 +76,132 @@ The `include` task allows to combine several input files into an interal XML str
 
 #### Task elements
 
-| Element name | Multiplicity | Description                        |
-| ------------ | ------------ | ---------------------------------- |
-| input        | [1..n]       | The root tag of the XML structure. |
+| Element name | Multiplicity | Description                            |
+| ------------ | ------------ | -------------------------------------- |
+| input        | [1..n]       | The file name/pattern to include.      |
+| output       | [0..1]       | The name of the output file. Optional. |
+
+Note that you can use Unix-style file name globbing to include several files with one pattern.
+
+Each `input` element can have the following attributes:
+
+| Attribute name | Default value               | Description                                                           |
+| -------------- | --------------------------- | --------------------------------------------------------------------- |
+| tag            | content                     | The name of the tag under which included markdow content will be put. |
+| format         | _extension of the filename_ | The format of the include file. One of ['kt', 'md'].                  |
+| encoding       | utf-8                       | The encoding of the input file.                                       |
+
+Each `output` element can have the following attributes:
+
+| Attribute name | Default value               | Description                      |
+| -------------- | --------------------------- | -------------------------------- |
+| encoding       | utf-8                       | The encoding of the output file. |
 
 #### Task behaviour
 
-The text content of the `file` task (with the leading indentation removed) is used as input and passed to the next task.
+The specified include files will be read, parsed, and combined to one XML structure.
 
 #### Example
 
 ``` klartext
 pipeline:
 
-    file:
-        This is some content.
+    include: root="top"
+        input: tag="sub" "document.md"
+        input: "**/*.kt"
+```
 
-        That will be passed on to the next task.
+will result in an XML structure like
+
+``` xml
+<top>
+    <sub>
+        <!-- content of docment.md, converted into xhtml -->
+    </sub>
+    <!-- content of the matching .kt files, converted into xhtml -->
+</top>
 ```
 
 ### `load` task
 
+The `load` task will load a single input file.
+
+#### Task attributes
+
+| Attribute name | Default value | Description                            |
+| -------------- | ------------- | -------------------------------------- |
+| name           | include       | The name of the task used for logging. |
+
+#### Task elements
+
+| Element name | Multiplicity | Description                            |
+| ------------ | ------------ | -------------------------------------- |
+| input        | [1..n]       | The file name/pattern to include.      |
+
+Each `input` element can have the following attributes:
+
+| Attribute name | Default value               | Description                     |
+| -------------- | --------------------------- | ------------------------------- |
+| encoding       | utf-8                       | The encoding of the input file. |
+
+#### Task behaviour
+
+The specified file will be read in and passed on to the next task.
+
+#### Example
+
+``` klartext
+pipeline:
+
+    load:
+        input: "filename.ext"
+```
+
+This will load the `filename.ext` without any kind of processing.
+
 ### `markdown-include` task
+
+The `markdown-include` task processes a markdown include file (`.mdpp`).
+
+#### Task attributes
+
+| Attribute name | Default value | Description                            |
+| -------------- | ------------- | -------------------------------------- |
+| name           | include       | The name of the task used for logging. |
+
+#### Task elements
+
+| Element name | Multiplicity | Description                            |
+| ------------ | ------------ | -------------------------------------- |
+| input        | [1..n]       | The file name/pattern to include.      |
+| output       | [0..1]       | The name of the output file. Optional. |
+
+Each `input` element can have the following attributes:
+
+| Attribute name | Default value               | Description                     |
+| -------------- | --------------------------- | ------------------------------- |
+| encoding       | utf-8                       | The encoding of the input file. |
+
+Each `output` element can have the following attributes:
+
+| Attribute name | Default value               | Description                      |
+| -------------- | --------------------------- | -------------------------------- |
+| encoding       | utf-8                       | The encoding of the output file. |
+
+#### Task behaviour
+
+The specified markdown include file will be process and the resulting file passed to the next task.
+
+#### Example
+
+``` klartext
+pipeline:
+
+    markdown-include:
+        input: "document.mdpp"
+```
+
+will read and process the `document.mdpp` file.
 
 ## Conversion Tasks
 
