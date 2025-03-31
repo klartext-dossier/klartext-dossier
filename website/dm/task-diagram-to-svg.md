@@ -1,19 +1,20 @@
-# `markdown-include` task
+# `diagram-to-svg` task
 
-The `markdown-include` task processes a markdown include file (`.mdpp`).
+The `diagram-to-svg` task transforms a diagram to an SVG element.
 
 ## Task attributes
 
-| Attribute name | Default value    | Description                            |
-| -------------- | ---------------- | -------------------------------------- |
-| name           | markdown-include | The name of the task used for logging. |
+| Attribute name | Default value  | Description                            |
+| -------------- | -------------- | -------------------------------------- |
+| name           | diagram-to-svg | The name of the task used for logging. |
 
 ## Task elements
 
 | Element name | Multiplicity | Description                            |
 | ------------ | ------------ | -------------------------------------- |
-| input        | [1..n]       | The file name/pattern to include.      |
+| input        | [1..1]       | The name of the input.                 |
 | output       | [0..1]       | The name of the output file. Optional. |
+| stylesheet   | [0..n]       | Additional stylesheets.                |
 
 Each `input` element can have the following attributes:
 
@@ -29,15 +30,16 @@ Each `output` element can have the following attributes:
 
 ## Task behaviour
 
-The specified markdown include file will be process and the resulting file passed to the next task.
+The task replaces diagrams in the `http://www.hoelzer-kluepfel.de/diagram` namespace with a SVG rendering.
+
+!!! note "WIP"
+    This is work in progress:
+
+    - the namespace needs to be changed to klartext-dossier.org
+    - the diagram language needs to be documented
+    - diagramming functions need to be added
+    - etc.
 
 ## Example
 
-``` klartext
-pipeline:
-
-    markdown-include:
-        input: "document.mdpp"
-```
-
-will read and process the `document.mdpp` file.
+n/a

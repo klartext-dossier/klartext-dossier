@@ -78,8 +78,8 @@ class DiagramTask(Task):
                 if matches:
                     styles = {}
                     for match in matches:
-                        specificity, order, pseudo, payload = match
-                        selector_string, content_string = payload
+                        _, _, _, payload = match
+                        _, content_string = payload
                         for property in content_string.split(';'):
                             pos = property.find(':')
                             if pos > 0:

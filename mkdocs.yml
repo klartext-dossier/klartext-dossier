@@ -56,8 +56,15 @@ nav:
     - Quickstart: dm/quickstart.md
     - Manual: 
       - Overview: dm/manual.md
-      - File task: dm/task-file.md
-      - Include task: dm/task-include.md
-      - Load task: dm/task-load.md
-      - Markdown-include task: dm/task-markdown-include.md
+      - file task: dm/task-file.md
+      - include task: dm/task-include.md
+      - load task: dm/task-load.md
+      - markdown-include task: dm/task-markdown-include.md
+      - code-highlight task: dm/task-code-highlight.md
+      - copy task: dm/task-copy.md
+      - diagram-to-svg task: dm/task-diagram-to-svg.md
+      - embed-svg task: dm/task-embed-svg.md
+      - klartext-to-xml task: dm/task-klartext-to-xml.md
+      - markdown-to-xhtml task: dm/task-markdown-to-xhtml.md
+      - pdf-to-png task: dm/task-pdf-to-png.md
     - API Reference: dm/reference.md

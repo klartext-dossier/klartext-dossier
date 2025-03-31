@@ -6,7 +6,7 @@ The `load` task will load a single input file.
 
 | Attribute name | Default value | Description                            |
 | -------------- | ------------- | -------------------------------------- |
-| name           | include       | The name of the task used for logging. |
+| name           | load          | The name of the task used for logging. |
 
 ## Task elements
 
