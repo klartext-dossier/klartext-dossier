@@ -38,7 +38,7 @@ pipeline:
 
     copy:
         input: encoding="utf8" "document.md"
-        output: encoding="utf16le" "copy.md
+        output: encoding="utf16le" "copy.md"
 ```
 
 will copy the file `document.md` to the file `copy.md` while converting the file format from UTF-8 to UTF-16 LE.
