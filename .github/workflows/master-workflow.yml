@@ -216,8 +216,6 @@ jobs:
 
   deploy:
 
-    if: False
-    
     name: Publish Website to Github Pages
 
     needs: pypeline
