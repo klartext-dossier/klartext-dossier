@@ -214,10 +214,28 @@ jobs:
         skip-existing: true                
 
 
+  website:
+
+    name: Build Website
+
+    runs-on: ubuntu-latest
+    container: klartext/pypeline:latest
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Build the website
+      run: make website
+
+
   deploy:
 
     name: Publish Website to Github Pages
 
+    needs: website
+    
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -230,12 +248,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup Pages
-      uses: actions/configure-pages@v5
-
     - name: Build the website
       run: make website
 
+    - name: Setup Pages  
+      uses: actions/configure-pages@v5
+  
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
