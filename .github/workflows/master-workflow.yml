@@ -218,14 +218,12 @@ jobs:
 
     name: Publish Website to Github Pages
 
-    needs: pypeline
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
-    container: klartext/dossier:latest
+    container: klartext/pypeline:latest
 
     steps:
 
