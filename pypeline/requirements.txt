@@ -12,7 +12,7 @@ Markdown==3.7
 MarkdownPP==1.5.1
 mkdocs-material==9.5.44
 mkdocs==1.6.1
-mkdocstrings[python]==0.27.0
+mkdocstrings[python]==0.29.0
 mypy==1.13.0
 openpyxl==3.1.5
 Pygments==2.18.0

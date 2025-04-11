@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>A document</title>
+    <link href="htmlbook.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body data-type="book">
+    <section data-type="titlepage">
+      <h1>A document</h1>
+    </section>
+    <section data-type="chapter">
+      <h1>Introduction</h1>
+      <p>This is a 
+      <strong>markdown</strong>document.</p>
+    </section>
+  </body>
+</html>

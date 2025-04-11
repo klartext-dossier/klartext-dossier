@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "klartext-pygments"
+version = "0.1.0"
+dependencies = ["pygments"]
+#readme = "README.md"
+requires-python = ">= 3.8"
+
+[project.entry-points."pygments.lexers"]
+entry = "klartext_pygments.lexer:KlartextLexer"
+
+[tool.hatch.envs.default.scripts]
+test = "pygmentize -l klartext test.kt"
+
+[bdist_wheel]
+universal = 0  # Make the generated wheels have "py3" tag

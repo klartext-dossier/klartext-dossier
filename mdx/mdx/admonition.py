@@ -2,24 +2,30 @@
 
     This code is largely based on the original admonition extension provided with Python Markdown.
 
-    Below is the original module comment:
-
-    Admonition extension for Python-Markdown
-    ========================================
-
-    Adds rST-style HTMLBOOK_ADMONITIONS. Inspired by [rST][] feature with the same name.
-
-    [rST]: http://docutils.sourceforge.net/docs/ref/rst/directives.html#specific-HTMLBOOK_ADMONITIONS  # noqa
-
-    See <https://Python-Markdown.github.io/extensions/admonition>
-    for documentation.
-
     Original code Copyright [Tiago Serafim](http://www.tiagoserafim.com/).
 
-    All changes Copyright The Python Markdown Project
-
-    License: [BSD](http://www.opensource.org/licenses/bsd-license.php)
+    License: [BSD](http://www.opensource.org/licenses/bsd-license.php)     
 """
+
+# This code is largely based on the original admonition extension provided with Python Markdown.
+
+# Below is the original module comment:
+
+# Admonition extension for Python-Markdown
+# ========================================
+
+# Adds rST-style HTMLBOOK_ADMONITIONS. Inspired by [rST]() feature with the same name.
+
+# [rST]: http://docutils.sourceforge.net/docs/ref/rst/directives.html#specific-HTMLBOOK_ADMONITIONS  # noqa
+
+# See <https://Python-Markdown.github.io/extensions/admonition>
+# for documentation.
+
+# Original code Copyright [Tiago Serafim](http://www.tiagoserafim.com/).
+
+# All changes Copyright The Python Markdown Project
+
+# License: [BSD](http://www.opensource.org/licenses/bsd-license.php)
 
 from __future__ import absolute_import
 from __future__ import unicode_literals

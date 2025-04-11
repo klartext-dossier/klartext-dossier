@@ -1,3 +1,6 @@
+""" Module providing xpath extensions.
+"""
+
 import hashlib, lxml.etree, re
 
 
@@ -12,25 +15,55 @@ def string(str_or_list: str | list[str]) -> str:
     return str(str_or_list)
 
 
-def ext_match_g(context, text: str, used_text: str) -> bool:
+def ext_match_g(context: object, text: str, used_text: str) -> bool:
+
+    """ Compares two texts case-insensitive.
+    
+        Args:
+            context:   the xpath context
+            text:      first string
+            used_text: seconde string
+
+        Returns:
+            true, if the strings are equal when compared case-insensitive, otherwise false
+    """
 
     text = string(text).strip().lower()
     used_text = string(used_text).strip().lower()
     return text == used_text
 
 
-def ext_id(context, text):
+def ext_id(context: object, text: str | list[str]) -> str:
+
+    """ Generates a textual id.
+    
+        Args:
+            context:   the xpath context
+            text:      a text string
+
+        Returns:
+            the text, with whitespaces converted to '_', and prefixed by '_'
+    """
 
     return '_' + MULT_SPACES.sub('_', string(text).strip())
 
 
-def node_id(node):
+def node_id(node) -> str:
 
     index = node.getparent().index(node) if node.getparent() is not None else 0
     return f'id-{node.tag}[{index}]-'.encode('ascii')
 
 
-def ext_unique_id(context):
+def ext_unique_id(context: object) -> str:
+
+    """ Calculates a unique id for the current node.
+    
+        Args:
+            context: the xpath context (containing the current node)
+
+        Returns:
+            an ID for the current node, unique within the XML document
+    """
 
     md = hashlib.md5()
 
@@ -42,45 +75,134 @@ def ext_unique_id(context):
     return md.hexdigest()
 
 
-def ext_lowercase(context, text):
+def ext_lowercase(context: object, text: str | list[str]) -> str:
+
+    """ Converts a text to lowercase.
+    
+        Args:
+            context: the xpath context (containing the current node)
+            text:    a text string
+
+        Returns:
+            the text converted to lowercase
+    """
 
     return string(text).lower()
 
 
-def ext_uppercase(context, text):
+def ext_uppercase(context: object, text: str | list[str]) -> str:
 
+    """ Converts a text to uppercase.
+    
+        Args:
+            context: the xpath context (containing the current node)
+            text:    a text string
+
+        Returns:
+            the text converted to uppercase
+    """
+    
     return string(text).upper()
 
 
-def ext_sentencecase(context, text):
+def ext_sentencecase(context: object, text: str | list[str]) -> str:
 
+    """ Capitalize a text.
+    
+        Args:
+            context: the xpath context (containing the current node)
+            text:    a text string
+
+        Returns:
+            the text with the first character uppercase, all other lowercase
+    """
+    
     text = string(text)
     if len(text) <= 1:
         return text.upper()
     return text[:1].upper() + text[1:].lower()
 
 
-def ext_lstrip(context, text):
+def ext_lstrip(context: object, text: str | list[str]) -> str:
 
+    """ Removes leading whitespace.
+    
+        Args:
+            context: the xpath context
+            text:    a text string
+
+        Returns:
+            the text without leading whitespace
+    """
+    
     return string(text).lstrip()
 
 
-def ext_rstrip(context, text):
+def ext_rstrip(context: object, text: str | list[str]) -> str:
 
+    """ Removes trailing whitespace.
+    
+        Args:
+            context: the xpath context
+            text:    a text string
+
+        Returns:
+            the text without trailing whitespace
+    """
+    
     return string(text).rstrip()
 
 
-def ext_strip(context, text):
+def ext_strip(context: object, text: str | list[str]) -> str:
 
+    """ Removes leading and trailing whitespace.
+    
+        Args:
+            context: the xpath context
+            text:    a text string
+
+        Returns:
+            the text without leading and trailing whitespace
+    """
+    
     return string(text).strip()
 
 
-def ext_simplify(context, text):
+def ext_simplify(context: object, text: str | list[str]) -> str:
+
+    """ Simplifies whitespace.
+    
+        Args:
+            context: the xpath context (containing the current node)
+            text:    a text string
+
+        Returns:
+            the text with multiple consecutive whitespace converted to a single space
+    """
 
     return MULT_SPACES.sub(' ', string(text))
 
 
-def register_dossier_extensions(namespace: str):
+def register_dossier_extensions(namespace: str) -> None:
+
+    """ Registers the lxml extensions.
+
+        Registers the extensions
+
+        - id
+        - lower-case
+        - lstrip
+        - match-g
+        - rstrip
+        - sentence-case
+        - simplify
+        - strip
+        - unique-id
+        - upper-case
+
+        Args:
+            namespace: the namespace to register the extentions under.
+    """
 
     ns = lxml.etree.FunctionNamespace(namespace)
 
@@ -96,7 +218,7 @@ def register_dossier_extensions(namespace: str):
     ns['simplify'] = ext_simplify
 
 
-def ext_N(context, text):
+def ext_N(context: object, text: str | list[str]) -> str:
 
     name = string(text).strip()
 
@@ -132,7 +254,7 @@ def ext_N(context, text):
     return last + ';' + first + ';' + middle + ';' + prefix + ';' + suffix
 
 
-def ext_ADR(context, text):
+def ext_ADR(context: object, text: str | list[str]) -> str:
 
     adr = string(text).strip()
 
@@ -170,7 +292,7 @@ def ext_ADR(context, text):
     return ";;" + street + ";" + city + ";" + region + ";" + code + ";" + country
 
 
-def register_vcf_extensions(namespace: str):
+def register_vcf_extensions(namespace: str) -> None:
 
     ns = lxml.etree.FunctionNamespace(namespace)
 

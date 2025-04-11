@@ -1,0 +1,1442 @@
+@charset "UTF-8";
+.hide-headers h1,
+.hide-headers h2,
+.hide-headers h3,
+.hide-headers h4,
+.hide-headers h5 {
+  bookmark-level: none;
+}
+.hide-headers h1:before,
+.hide-headers h2:before,
+.hide-headers h3:before,
+.hide-headers h4:before,
+.hide-headers h5:before {
+  content: "";
+  counter-increment: none;
+}
+.hide-subsections section h1,
+.hide-subsections section h2,
+.hide-subsections section h3,
+.hide-subsections section h4,
+.hide-subsections section h5 {
+  bookmark-level: none;
+}
+.hide-subsections section h1:before,
+.hide-subsections section h2:before,
+.hide-subsections section h3:before,
+.hide-subsections section h4:before,
+.hide-subsections section h5:before {
+  content: "";
+  counter-increment: none;
+}
+html body[data-type="book"] {
+  counter-reset: part-counter;
+  counter-reset: chapter-counter;
+  counter-reset: appendix-counter;
+}
+html body[data-type="book"] div[data-type="part"] {
+  counter-increment: part-counter;
+}
+html body[data-type="book"] div[data-type="part"] > h1,
+html body[data-type="book"] div[data-type="part"] > header h1 {
+  bookmark-level: 1;
+  bookmark-label: "Part" "\0000A0" counter(part-counter, upper-roman) ":" "\0000A0" content(text);
+}
+html body[data-type="book"] div[data-type="part"] > h1:before,
+html body[data-type="book"] div[data-type="part"] > header h1:before {
+  content: "Part" "\0000A0" counter(part-counter, upper-roman) ":" "\0000A0";
+}
+html body[data-type="book"] section[data-type="chapter"] {
+  counter-reset: sect1-counter;
+  counter-increment: chapter-counter;
+}
+html body[data-type="book"] section[data-type="chapter"] > h1,
+html body[data-type="book"] section[data-type="chapter"] > header h1 {
+  bookmark-level: 1;
+  bookmark-label: counter(chapter-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="chapter"] > h1:before,
+html body[data-type="book"] section[data-type="chapter"] > header h1:before {
+  content: counter(chapter-counter) "\0000A0";
+}
+html body[data-type="book"] section[data-type="sect1"] {
+  counter-reset: sect2-counter;
+}
+html body[data-type="book"] section[data-type="sect1"] > h1,
+html body[data-type="book"] section[data-type="sect1"] > header h1 {
+  bookmark-level: 2;
+  bookmark-label: counter(chapter-counter) "." counter(sect1-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="sect1"] > h1:before,
+html body[data-type="book"] section[data-type="sect1"] > header h1:before {
+  content: counter(chapter-counter) "." counter(sect1-counter) "\0000A0";
+  counter-increment: sect1-counter;
+}
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] {
+  counter-reset: sect3-counter;
+}
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] > h2,
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] > header h2 {
+  bookmark-level: 3;
+  bookmark-label: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] > h2:before,
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] > header h2:before {
+  content: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) "\0000A0";
+  counter-increment: sect2-counter;
+}
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] {
+  counter-reset: sect4-counter;
+}
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] > h3,
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] > header h3 {
+  bookmark-level: 4;
+  bookmark-label: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] > h3:before,
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] > header h3:before {
+  content: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "\0000A0";
+  counter-increment: sect3-counter;
+}
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] {
+  counter-reset: sect5-counter;
+}
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] > h4,
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] > header h4 {
+  bookmark-level: 5;
+  bookmark-label: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] > h4:before,
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] > header h4:before {
+  content: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "\0000A0";
+  counter-increment: sect4-counter;
+}
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] section[data-type="sect5"] > h5,
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] section[data-type="sect5"] > header h5 {
+  bookmark-level: 6;
+  bookmark-label: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "." counter(sect5-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] section[data-type="sect5"] > h5::before,
+html body[data-type="book"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] section[data-type="sect5"] > header h5::before {
+  content: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "." counter(sect5-counter) "\0000A0";
+  counter-increment: sect5-counter;
+}
+html body[data-type="book"] section[data-type="bibliography"] > h1,
+html body[data-type="book"] section[data-type="glossary"] > h1,
+html body[data-type="book"] section[data-type="bibliography"] > header h1,
+html body[data-type="book"] section[data-type="glossary"] > header h1 {
+  bookmark-level: 1;
+  bookmark-label: content(text);
+}
+html body[data-type="book"] section[data-type="bibliography"] section h1,
+html body[data-type="book"] section[data-type="glossary"] section h1,
+html body[data-type="book"] section[data-type="bibliography"] section h2,
+html body[data-type="book"] section[data-type="glossary"] section h2,
+html body[data-type="book"] section[data-type="bibliography"] section h3,
+html body[data-type="book"] section[data-type="glossary"] section h3,
+html body[data-type="book"] section[data-type="bibliography"] section h4,
+html body[data-type="book"] section[data-type="glossary"] section h4,
+html body[data-type="book"] section[data-type="bibliography"] section h5,
+html body[data-type="book"] section[data-type="glossary"] section h5 {
+  bookmark-level: none;
+}
+html body[data-type="book"] section[data-type="bibliography"] section h1:before,
+html body[data-type="book"] section[data-type="glossary"] section h1:before,
+html body[data-type="book"] section[data-type="bibliography"] section h2:before,
+html body[data-type="book"] section[data-type="glossary"] section h2:before,
+html body[data-type="book"] section[data-type="bibliography"] section h3:before,
+html body[data-type="book"] section[data-type="glossary"] section h3:before,
+html body[data-type="book"] section[data-type="bibliography"] section h4:before,
+html body[data-type="book"] section[data-type="glossary"] section h4:before,
+html body[data-type="book"] section[data-type="bibliography"] section h5:before,
+html body[data-type="book"] section[data-type="glossary"] section h5:before {
+  content: "";
+  counter-increment: none;
+}
+html body[data-type="book"] section[data-type="foreword"] > h1,
+html body[data-type="book"] section[data-type="preface"] > h1,
+html body[data-type="book"] section[data-type="introduction"] > h1,
+html body[data-type="book"] section[data-type="dedication"] > h1,
+html body[data-type="book"] section[data-type="titlepage"] > h1,
+html body[data-type="book"] section[data-type="halftitlepage"] > h1,
+html body[data-type="book"] section[data-type="copyright-page"] > h1,
+html body[data-type="book"] section[data-type="dedication"] > h1,
+html body[data-type="book"] section[data-type="colophon"] > h1,
+html body[data-type="book"] section[data-type="acknowledgments"] > h1,
+html body[data-type="book"] section[data-type="afterword"] > h1,
+html body[data-type="book"] section[data-type="conclusion"] > h1,
+html body[data-type="book"] section[data-type="foreword"] > header h1,
+html body[data-type="book"] section[data-type="preface"] > header h1,
+html body[data-type="book"] section[data-type="introduction"] > header h1,
+html body[data-type="book"] section[data-type="dedication"] > header h1,
+html body[data-type="book"] section[data-type="titlepage"] > header h1,
+html body[data-type="book"] section[data-type="halftitlepage"] > header h1,
+html body[data-type="book"] section[data-type="copyright-page"] > header h1,
+html body[data-type="book"] section[data-type="dedication"] > header h1,
+html body[data-type="book"] section[data-type="colophon"] > header h1,
+html body[data-type="book"] section[data-type="acknowledgments"] > header h1,
+html body[data-type="book"] section[data-type="afterword"] > header h1,
+html body[data-type="book"] section[data-type="conclusion"] > header h1 {
+  bookmark-level: none;
+}
+html body[data-type="book"] section[data-type="foreword"] section h1,
+html body[data-type="book"] section[data-type="preface"] section h1,
+html body[data-type="book"] section[data-type="introduction"] section h1,
+html body[data-type="book"] section[data-type="dedication"] section h1,
+html body[data-type="book"] section[data-type="titlepage"] section h1,
+html body[data-type="book"] section[data-type="halftitlepage"] section h1,
+html body[data-type="book"] section[data-type="copyright-page"] section h1,
+html body[data-type="book"] section[data-type="dedication"] section h1,
+html body[data-type="book"] section[data-type="colophon"] section h1,
+html body[data-type="book"] section[data-type="acknowledgments"] section h1,
+html body[data-type="book"] section[data-type="afterword"] section h1,
+html body[data-type="book"] section[data-type="conclusion"] section h1,
+html body[data-type="book"] section[data-type="foreword"] section h2,
+html body[data-type="book"] section[data-type="preface"] section h2,
+html body[data-type="book"] section[data-type="introduction"] section h2,
+html body[data-type="book"] section[data-type="dedication"] section h2,
+html body[data-type="book"] section[data-type="titlepage"] section h2,
+html body[data-type="book"] section[data-type="halftitlepage"] section h2,
+html body[data-type="book"] section[data-type="copyright-page"] section h2,
+html body[data-type="book"] section[data-type="dedication"] section h2,
+html body[data-type="book"] section[data-type="colophon"] section h2,
+html body[data-type="book"] section[data-type="acknowledgments"] section h2,
+html body[data-type="book"] section[data-type="afterword"] section h2,
+html body[data-type="book"] section[data-type="conclusion"] section h2,
+html body[data-type="book"] section[data-type="foreword"] section h3,
+html body[data-type="book"] section[data-type="preface"] section h3,
+html body[data-type="book"] section[data-type="introduction"] section h3,
+html body[data-type="book"] section[data-type="dedication"] section h3,
+html body[data-type="book"] section[data-type="titlepage"] section h3,
+html body[data-type="book"] section[data-type="halftitlepage"] section h3,
+html body[data-type="book"] section[data-type="copyright-page"] section h3,
+html body[data-type="book"] section[data-type="dedication"] section h3,
+html body[data-type="book"] section[data-type="colophon"] section h3,
+html body[data-type="book"] section[data-type="acknowledgments"] section h3,
+html body[data-type="book"] section[data-type="afterword"] section h3,
+html body[data-type="book"] section[data-type="conclusion"] section h3,
+html body[data-type="book"] section[data-type="foreword"] section h4,
+html body[data-type="book"] section[data-type="preface"] section h4,
+html body[data-type="book"] section[data-type="introduction"] section h4,
+html body[data-type="book"] section[data-type="dedication"] section h4,
+html body[data-type="book"] section[data-type="titlepage"] section h4,
+html body[data-type="book"] section[data-type="halftitlepage"] section h4,
+html body[data-type="book"] section[data-type="copyright-page"] section h4,
+html body[data-type="book"] section[data-type="dedication"] section h4,
+html body[data-type="book"] section[data-type="colophon"] section h4,
+html body[data-type="book"] section[data-type="acknowledgments"] section h4,
+html body[data-type="book"] section[data-type="afterword"] section h4,
+html body[data-type="book"] section[data-type="conclusion"] section h4,
+html body[data-type="book"] section[data-type="foreword"] section h5,
+html body[data-type="book"] section[data-type="preface"] section h5,
+html body[data-type="book"] section[data-type="introduction"] section h5,
+html body[data-type="book"] section[data-type="dedication"] section h5,
+html body[data-type="book"] section[data-type="titlepage"] section h5,
+html body[data-type="book"] section[data-type="halftitlepage"] section h5,
+html body[data-type="book"] section[data-type="copyright-page"] section h5,
+html body[data-type="book"] section[data-type="dedication"] section h5,
+html body[data-type="book"] section[data-type="colophon"] section h5,
+html body[data-type="book"] section[data-type="acknowledgments"] section h5,
+html body[data-type="book"] section[data-type="afterword"] section h5,
+html body[data-type="book"] section[data-type="conclusion"] section h5 {
+  bookmark-level: none;
+}
+html body[data-type="book"] section[data-type="foreword"] section h1:before,
+html body[data-type="book"] section[data-type="preface"] section h1:before,
+html body[data-type="book"] section[data-type="introduction"] section h1:before,
+html body[data-type="book"] section[data-type="dedication"] section h1:before,
+html body[data-type="book"] section[data-type="titlepage"] section h1:before,
+html body[data-type="book"] section[data-type="halftitlepage"] section h1:before,
+html body[data-type="book"] section[data-type="copyright-page"] section h1:before,
+html body[data-type="book"] section[data-type="dedication"] section h1:before,
+html body[data-type="book"] section[data-type="colophon"] section h1:before,
+html body[data-type="book"] section[data-type="acknowledgments"] section h1:before,
+html body[data-type="book"] section[data-type="afterword"] section h1:before,
+html body[data-type="book"] section[data-type="conclusion"] section h1:before,
+html body[data-type="book"] section[data-type="foreword"] section h2:before,
+html body[data-type="book"] section[data-type="preface"] section h2:before,
+html body[data-type="book"] section[data-type="introduction"] section h2:before,
+html body[data-type="book"] section[data-type="dedication"] section h2:before,
+html body[data-type="book"] section[data-type="titlepage"] section h2:before,
+html body[data-type="book"] section[data-type="halftitlepage"] section h2:before,
+html body[data-type="book"] section[data-type="copyright-page"] section h2:before,
+html body[data-type="book"] section[data-type="dedication"] section h2:before,
+html body[data-type="book"] section[data-type="colophon"] section h2:before,
+html body[data-type="book"] section[data-type="acknowledgments"] section h2:before,
+html body[data-type="book"] section[data-type="afterword"] section h2:before,
+html body[data-type="book"] section[data-type="conclusion"] section h2:before,
+html body[data-type="book"] section[data-type="foreword"] section h3:before,
+html body[data-type="book"] section[data-type="preface"] section h3:before,
+html body[data-type="book"] section[data-type="introduction"] section h3:before,
+html body[data-type="book"] section[data-type="dedication"] section h3:before,
+html body[data-type="book"] section[data-type="titlepage"] section h3:before,
+html body[data-type="book"] section[data-type="halftitlepage"] section h3:before,
+html body[data-type="book"] section[data-type="copyright-page"] section h3:before,
+html body[data-type="book"] section[data-type="dedication"] section h3:before,
+html body[data-type="book"] section[data-type="colophon"] section h3:before,
+html body[data-type="book"] section[data-type="acknowledgments"] section h3:before,
+html body[data-type="book"] section[data-type="afterword"] section h3:before,
+html body[data-type="book"] section[data-type="conclusion"] section h3:before,
+html body[data-type="book"] section[data-type="foreword"] section h4:before,
+html body[data-type="book"] section[data-type="preface"] section h4:before,
+html body[data-type="book"] section[data-type="introduction"] section h4:before,
+html body[data-type="book"] section[data-type="dedication"] section h4:before,
+html body[data-type="book"] section[data-type="titlepage"] section h4:before,
+html body[data-type="book"] section[data-type="halftitlepage"] section h4:before,
+html body[data-type="book"] section[data-type="copyright-page"] section h4:before,
+html body[data-type="book"] section[data-type="dedication"] section h4:before,
+html body[data-type="book"] section[data-type="colophon"] section h4:before,
+html body[data-type="book"] section[data-type="acknowledgments"] section h4:before,
+html body[data-type="book"] section[data-type="afterword"] section h4:before,
+html body[data-type="book"] section[data-type="conclusion"] section h4:before,
+html body[data-type="book"] section[data-type="foreword"] section h5:before,
+html body[data-type="book"] section[data-type="preface"] section h5:before,
+html body[data-type="book"] section[data-type="introduction"] section h5:before,
+html body[data-type="book"] section[data-type="dedication"] section h5:before,
+html body[data-type="book"] section[data-type="titlepage"] section h5:before,
+html body[data-type="book"] section[data-type="halftitlepage"] section h5:before,
+html body[data-type="book"] section[data-type="copyright-page"] section h5:before,
+html body[data-type="book"] section[data-type="dedication"] section h5:before,
+html body[data-type="book"] section[data-type="colophon"] section h5:before,
+html body[data-type="book"] section[data-type="acknowledgments"] section h5:before,
+html body[data-type="book"] section[data-type="afterword"] section h5:before,
+html body[data-type="book"] section[data-type="conclusion"] section h5:before {
+  content: "";
+  counter-increment: none;
+}
+html body[data-type="book"] aside h1,
+html body[data-type="book"] div h1,
+html body[data-type="book"] blockquote h1,
+html body[data-type="book"] aside h2,
+html body[data-type="book"] div h2,
+html body[data-type="book"] blockquote h2,
+html body[data-type="book"] aside h3,
+html body[data-type="book"] div h3,
+html body[data-type="book"] blockquote h3,
+html body[data-type="book"] aside h4,
+html body[data-type="book"] div h4,
+html body[data-type="book"] blockquote h4,
+html body[data-type="book"] aside h5,
+html body[data-type="book"] div h5,
+html body[data-type="book"] blockquote h5 {
+  bookmark-level: none;
+}
+html body[data-type="book"] aside h1:before,
+html body[data-type="book"] div h1:before,
+html body[data-type="book"] blockquote h1:before,
+html body[data-type="book"] aside h2:before,
+html body[data-type="book"] div h2:before,
+html body[data-type="book"] blockquote h2:before,
+html body[data-type="book"] aside h3:before,
+html body[data-type="book"] div h3:before,
+html body[data-type="book"] blockquote h3:before,
+html body[data-type="book"] aside h4:before,
+html body[data-type="book"] div h4:before,
+html body[data-type="book"] blockquote h4:before,
+html body[data-type="book"] aside h5:before,
+html body[data-type="book"] div h5:before,
+html body[data-type="book"] blockquote h5:before {
+  content: "";
+  counter-increment: none;
+}
+html body[data-type="book"] section[data-type="appendix"] {
+  counter-increment: appendix-counter;
+  counter-reset: sect1-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] > h1,
+html body[data-type="book"] section[data-type="appendix"] > header h1 {
+  bookmark-level: 1;
+  bookmark-label: "Appendix" "\0000A0" counter(appendix-counter, upper-latin) ":" "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="appendix"] > h1:before,
+html body[data-type="book"] section[data-type="appendix"] > header h1:before {
+  content: "Appendix" "\0000A0" counter(appendix-counter, upper-latin) ":" "\0000A0";
+}
+html body[data-type="book"] section[data-type="appendix"] section h1,
+html body[data-type="book"] section[data-type="appendix"] section h2,
+html body[data-type="book"] section[data-type="appendix"] section h3,
+html body[data-type="book"] section[data-type="appendix"] section h4,
+html body[data-type="book"] section[data-type="appendix"] section h5 {
+  bookmark-level: none;
+}
+html body[data-type="book"] section[data-type="appendix"] section h1:before,
+html body[data-type="book"] section[data-type="appendix"] section h2:before,
+html body[data-type="book"] section[data-type="appendix"] section h3:before,
+html body[data-type="book"] section[data-type="appendix"] section h4:before,
+html body[data-type="book"] section[data-type="appendix"] section h5:before {
+  content: "";
+  counter-increment: none;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] {
+  counter-reset: sect2-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] > h1,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] > header h1 {
+  bookmark-level: 2;
+  bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] > h1:before,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] > header h1:before {
+  content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "\0000A0";
+  counter-increment: sect1-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] {
+  counter-reset: sect3-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] > h2,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] > header h2 {
+  bookmark-level: 3;
+  bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] > h2:before,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] > header h2:before {
+  content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "\0000A0";
+  counter-increment: sect2-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] {
+  counter-reset: sect4-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] > h3,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] > header h3 {
+  bookmark-level: 4;
+  bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] > h3:before,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] > header h3:before {
+  content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "\0000A0";
+  counter-increment: sect3-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] {
+  counter-reset: sect5-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] > h4,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] > header h4 {
+  bookmark-level: 5;
+  bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] > h4:before,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] > header h4:before {
+  content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "\0000A0";
+  counter-increment: sect4-counter;
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] section[data-type="sect5"] > h5,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] section[data-type="sect5"] > header h5 {
+  bookmark-level: 6;
+  bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "." counter(sect5-counter) "\0000A0" content(text);
+}
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] section[data-type="sect5"] > h5::before,
+html body[data-type="book"] section[data-type="appendix"] section[data-type="sect1"] section[data-type="sect2"] section[data-type="sect3"] section[data-type="sect4"] section[data-type="sect5"] > header h5::before {
+  content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "." counter(sect5-counter) "\0000A0";
+  counter-increment: sect5-counter;
+}
+html body[data-type="book"] {
+  color: #222222;
+}
+html body[data-type="book"] h1,
+html body[data-type="book"] h2,
+html body[data-type="book"] h3,
+html body[data-type="book"] h4,
+html body[data-type="book"] h5,
+html body[data-type="book"] h6 {
+  color: #990000;
+}
+html body[data-type="book"] aside[data-type="sidebar"] {
+  border: thin silver solid;
+}
+html body[data-type="book"] aside[data-type="sidebar"] h1,
+html body[data-type="book"] aside[data-type="sidebar"] h2,
+html body[data-type="book"] aside[data-type="sidebar"] h3,
+html body[data-type="book"] aside[data-type="sidebar"] h4,
+html body[data-type="book"] aside[data-type="sidebar"] h5,
+html body[data-type="book"] aside[data-type="sidebar"] h6 {
+  color: #222222;
+}
+html body[data-type="book"] div[data-type='note'] h1,
+html body[data-type="book"] div[data-type='warning'] h1,
+html body[data-type="book"] div[data-type='tip'] h1,
+html body[data-type="book"] div[data-type='caution'] h1,
+html body[data-type="book"] div[data-type='important'] h1,
+html body[data-type="book"] div[data-type='note'] h2,
+html body[data-type="book"] div[data-type='warning'] h2,
+html body[data-type="book"] div[data-type='tip'] h2,
+html body[data-type="book"] div[data-type='caution'] h2,
+html body[data-type="book"] div[data-type='important'] h2,
+html body[data-type="book"] div[data-type='note'] h3,
+html body[data-type="book"] div[data-type='warning'] h3,
+html body[data-type="book"] div[data-type='tip'] h3,
+html body[data-type="book"] div[data-type='caution'] h3,
+html body[data-type="book"] div[data-type='important'] h3,
+html body[data-type="book"] div[data-type='note'] h4,
+html body[data-type="book"] div[data-type='warning'] h4,
+html body[data-type="book"] div[data-type='tip'] h4,
+html body[data-type="book"] div[data-type='caution'] h4,
+html body[data-type="book"] div[data-type='important'] h4,
+html body[data-type="book"] div[data-type='note'] h5,
+html body[data-type="book"] div[data-type='warning'] h5,
+html body[data-type="book"] div[data-type='tip'] h5,
+html body[data-type="book"] div[data-type='caution'] h5,
+html body[data-type="book"] div[data-type='important'] h5,
+html body[data-type="book"] div[data-type='note'] h6,
+html body[data-type="book"] div[data-type='warning'] h6,
+html body[data-type="book"] div[data-type='tip'] h6,
+html body[data-type="book"] div[data-type='caution'] h6,
+html body[data-type="book"] div[data-type='important'] h6 {
+  color: #222222;
+}
+html body[data-type="book"] div[data-type='note'] {
+  background-color: #fffbd4;
+  border-left: 6px solid #FFEB3B;
+}
+html body[data-type="book"] div[data-type='caution'] {
+  background-color: #ccffef;
+  border-left: 6px solid #33FFBD;
+}
+html body[data-type="book"] div[data-type='important'] {
+  background-color: #f6ffcc;
+  border-left: 6px solid #DBFF33;
+}
+html body[data-type="book"] div[data-type='tip'] {
+  background-color: #dcffcc;
+  border-left: 6px solid #75FF33;
+}
+html body[data-type="book"] div[data-type='warning'] {
+  background-color: #fccbc7;
+  border-left: 6px solid #F44336;
+}
+html body[data-type="book"] div[data-type="equation"] {
+  background-color: #F0F0F0;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+html body[data-type="book"] div[data-type="example"] {
+  background-color: #F0F0F0;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+html body[data-type="book"] div[data-type="example"] h1,
+html body[data-type="book"] div[data-type="example"] h2,
+html body[data-type="book"] div[data-type="example"] h3,
+html body[data-type="book"] div[data-type="example"] h4,
+html body[data-type="book"] div[data-type="example"] h5,
+html body[data-type="book"] div[data-type="example"] h6 {
+  color: #222222;
+}
+html body[data-type="book"] table {
+  border: 1px solid #222222;
+  border-collapse: collapse;
+}
+html body[data-type="book"] table th,
+html body[data-type="book"] table td {
+  border: 1px solid black;
+}
+html body[data-type="book"] table thead,
+html body[data-type="book"] table th {
+  background-color: #eeeeee;
+}
+html body[data-type="book"] blockquote {
+  border-left: 3px solid #000000;
+  background-color: #F0F0F0;
+}
+html body[data-type="book"] a {
+  color: #C74D1F;
+}
+.captioned-element {
+  margin: 12pt 0 6pt 0;
+}
+.captioned-element caption {
+  margin: 0 0 3pt 6pt;
+}
+.nested-headers h1,
+.nested-headers h2,
+.nested-headers h3,
+.nested-headers h4,
+.nested-headers h5,
+.nested-headers h6 {
+  margin: 0 0 4.8pt 0;
+}
+html body[data-type="book"] {
+  line-height: 130%;
+}
+html body[data-type="book"] p {
+  padding: 0;
+  margin: 6pt 0 0 0;
+}
+html body[data-type="book"] p:first-of-type {
+  margin-top: 0;
+}
+html body[data-type="book"] section[data-type="chapter"] > h1,
+html body[data-type="book"] nav[data-type="toc"] > h1,
+html body[data-type="book"] section[data-type="introduction"] > h1,
+html body[data-type="book"] section[data-type="appendix"] > h1,
+html body[data-type="book"] section[data-type="bibliography"] > h1,
+html body[data-type="book"] section[data-type="glossary"] > h1,
+html body[data-type="book"] section[data-type="colophon"] > h1,
+html body[data-type="book"] section[data-type="acknowledgments"] > h1,
+html body[data-type="book"] section[data-type="afterword"] > h1,
+html body[data-type="book"] section[data-type="conclusion"] > h1,
+html body[data-type="book"] section[data-type="chapter"] > header h1,
+html body[data-type="book"] nav[data-type="toc"] > header h1,
+html body[data-type="book"] section[data-type="introduction"] > header h1,
+html body[data-type="book"] section[data-type="appendix"] > header h1,
+html body[data-type="book"] section[data-type="bibliography"] > header h1,
+html body[data-type="book"] section[data-type="glossary"] > header h1,
+html body[data-type="book"] section[data-type="colophon"] > header h1,
+html body[data-type="book"] section[data-type="acknowledgments"] > header h1,
+html body[data-type="book"] section[data-type="afterword"] > header h1,
+html body[data-type="book"] section[data-type="conclusion"] > header h1 {
+  margin: 21.6pt 0 6pt 0;
+}
+html body[data-type="book"] h1 {
+  margin: 21.6pt 0 6pt 0;
+}
+html body[data-type="book"] h2 {
+  margin: 16.8pt 0 6pt 0;
+}
+html body[data-type="book"] h3 {
+  margin: 15.6pt 0 6pt 0;
+}
+html body[data-type="book"] h4 {
+  margin: 14.4pt 0 6pt 0;
+}
+html body[data-type="book"] h5 {
+  margin: 13.2pt 0 6pt 0;
+}
+html body[data-type="book"] h6 {
+  margin: 12pt 0 6pt 0;
+}
+html body[data-type="book"] aside[data-type="sidebar"] {
+  display: block;
+  float: right;
+  width: 30%;
+  margin: 6pt;
+  padding: 6pt;
+}
+html body[data-type="book"] aside[data-type="sidebar"] h1,
+html body[data-type="book"] aside[data-type="sidebar"] h2,
+html body[data-type="book"] aside[data-type="sidebar"] h3,
+html body[data-type="book"] aside[data-type="sidebar"] h4,
+html body[data-type="book"] aside[data-type="sidebar"] h5,
+html body[data-type="book"] aside[data-type="sidebar"] h6 {
+  margin: 0 0 4.8pt 0;
+}
+html body[data-type="book"] div[data-type='note'],
+html body[data-type="book"] div[data-type='warning'],
+html body[data-type="book"] div[data-type='tip'],
+html body[data-type="book"] div[data-type='caution'],
+html body[data-type="book"] div[data-type='important'] {
+  padding: 6pt;
+  margin-bottom: 0;
+  margin-top: 6pt;
+  margin-left: -6px;
+}
+html body[data-type="book"] div[data-type='note'] h1,
+html body[data-type="book"] div[data-type='warning'] h1,
+html body[data-type="book"] div[data-type='tip'] h1,
+html body[data-type="book"] div[data-type='caution'] h1,
+html body[data-type="book"] div[data-type='important'] h1,
+html body[data-type="book"] div[data-type='note'] h2,
+html body[data-type="book"] div[data-type='warning'] h2,
+html body[data-type="book"] div[data-type='tip'] h2,
+html body[data-type="book"] div[data-type='caution'] h2,
+html body[data-type="book"] div[data-type='important'] h2,
+html body[data-type="book"] div[data-type='note'] h3,
+html body[data-type="book"] div[data-type='warning'] h3,
+html body[data-type="book"] div[data-type='tip'] h3,
+html body[data-type="book"] div[data-type='caution'] h3,
+html body[data-type="book"] div[data-type='important'] h3,
+html body[data-type="book"] div[data-type='note'] h4,
+html body[data-type="book"] div[data-type='warning'] h4,
+html body[data-type="book"] div[data-type='tip'] h4,
+html body[data-type="book"] div[data-type='caution'] h4,
+html body[data-type="book"] div[data-type='important'] h4,
+html body[data-type="book"] div[data-type='note'] h5,
+html body[data-type="book"] div[data-type='warning'] h5,
+html body[data-type="book"] div[data-type='tip'] h5,
+html body[data-type="book"] div[data-type='caution'] h5,
+html body[data-type="book"] div[data-type='important'] h5,
+html body[data-type="book"] div[data-type='note'] h6,
+html body[data-type="book"] div[data-type='warning'] h6,
+html body[data-type="book"] div[data-type='tip'] h6,
+html body[data-type="book"] div[data-type='caution'] h6,
+html body[data-type="book"] div[data-type='important'] h6 {
+  margin: 0 0 4.8pt 0;
+}
+html body[data-type="book"] div[data-type="equation"] {
+  padding: 6pt;
+  margin-top: 6pt;
+}
+html body[data-type="book"] div[data-type="equation"] h1,
+html body[data-type="book"] div[data-type="equation"] h2,
+html body[data-type="book"] div[data-type="equation"] h3,
+html body[data-type="book"] div[data-type="equation"] h4,
+html body[data-type="book"] div[data-type="equation"] h5,
+html body[data-type="book"] div[data-type="equation"] h6 {
+  margin: 0 0 4.8pt 0;
+}
+html body[data-type="book"] div[data-type="example"] {
+  margin-top: 6pt;
+  padding: 6pt;
+}
+html body[data-type="book"] div[data-type="example"] h1,
+html body[data-type="book"] div[data-type="example"] h2,
+html body[data-type="book"] div[data-type="example"] h3,
+html body[data-type="book"] div[data-type="example"] h4,
+html body[data-type="book"] div[data-type="example"] h5,
+html body[data-type="book"] div[data-type="example"] h6 {
+  margin: 0 0 4.8pt 0;
+}
+html body[data-type="book"] div[data-type="example"] pre {
+  padding: 0;
+  border: 0;
+  margin-bottom: 0;
+}
+html body[data-type="book"] table {
+  margin: 12pt 0 6pt 0;
+}
+html body[data-type="book"] table caption {
+  margin: 0 0 3pt 6pt;
+}
+html body[data-type="book"] table th,
+html body[data-type="book"] table td {
+  padding: 6pt;
+}
+html body[data-type="book"] table thead,
+html body[data-type="book"] table th {
+  width: 11em;
+}
+html body[data-type="book"] figure {
+  margin: 12pt 0 6pt 0;
+}
+html body[data-type="book"] figure caption {
+  margin: 0 0 3pt 6pt;
+}
+html body[data-type="book"] figure img {
+  height: 5cm;
+}
+html body[data-type="book"] img {
+  width: 100%;
+}
+html body[data-type="book"] ol {
+  padding-left: 9pt;
+  margin-left: 6pt;
+}
+html body[data-type="book"] ul {
+  padding-left: 6pt;
+  margin-left: 6pt;
+}
+html body[data-type="book"] li {
+  margin-top: 3pt;
+}
+html body[data-type="book"] li > * {
+  margin-top: 3pt;
+  margin-bottom: 3pt;
+}
+html body[data-type="book"] dl {
+  padding: 6pt 0 0 0;
+}
+html body[data-type="book"] dl dt {
+  padding-bottom: 6pt;
+}
+html body[data-type="book"] dl dd {
+  margin-left: 18pt;
+  padding: 0 0 6pt 0;
+}
+html body[data-type="book"] blockquote {
+  padding: 6pt;
+  margin: 6pt 0 0 -3px;
+}
+html body[data-type="book"] blockquote :first-child {
+  margin-top: 0;
+}
+html body[data-type="book"] blockquote :last-child {
+  margin-bottom: 0;
+}
+html body[data-type="book"] ul.checklist {
+  margin: 0;
+  padding: 0;
+}
+html body[data-type="book"] ul.checklist li {
+  padding-right: 8px;
+}
+html body[data-type="book"] div,
+html body[data-type="book"] dl,
+html body[data-type="book"] hr {
+  margin: 0;
+}
+html body[data-type="book"] section[data-type="titlepage"] header {
+  margin-bottom: 3em;
+}
+html body[data-type="book"] section[data-type="titlepage"] h1 {
+  margin-top: 18pt;
+}
+html body[data-type="book"] section[data-type="titlepage"] p[data-type="subtitle"] {
+  margin-top: 18pt;
+}
+html body[data-type="book"] section[data-type="titlepage"] p[data-type="author"] {
+  margin-top: 18pt;
+}
+html body[data-type="book"] section[data-type="halftitlepage"] header {
+  margin-bottom: 3em;
+}
+html body[data-type="book"] section[data-type="halftitlepage"] h1 {
+  margin-top: 18pt;
+}
+html body[data-type="book"] section[data-type="halftitlepage"] p[data-type="subtitle"],
+html body[data-type="book"] section[data-type="halftitlepage"] p[data-type="author"] {
+  display: none;
+}
+@media print {
+  @page {
+    size: A4 portrait;
+    @top-left {
+      content: string(document-title, last);
+      font-family: Roboto, LiberationSans, sans-serif;
+      font-size: 12pt;
+      text-align: left;
+      color: darkgray;
+      font-weight: bold;
+      margin: 6pt 0 6pt 0;
+    }
+    @bottom-right {
+      content: counter(page) "/" counter(pages);
+      font-family: Roboto, LiberationSans, sans-serif;
+      font-size: 12pt;
+      color: darkgray;
+      font-weight: bold;
+    }
+  }
+  @page blank-page {
+    size: A4 portrait;
+    @top-left {
+      content: normal;
+    }
+    @bottom-right {
+      content: normal;
+    }
+  }
+  @page frontmatter-page {
+    size: A4 portrait;
+    @top-left {
+      content: normal;
+    }
+  }
+  html body[data-type="book"] {
+    margin: 0;
+    padding: 0;
+  }
+  html body[data-type="book"] section[data-type="appendix"],
+  html body[data-type="book"] section[data-type="bibliography"],
+  html body[data-type="book"] section[data-type="glossary"],
+  html body[data-type="book"] section[data-type="colophon"],
+  html body[data-type="book"] section[data-type="acknowledgments"],
+  html body[data-type="book"] section[data-type="afterword"],
+  html body[data-type="book"] section[data-type="conclusion"],
+  html body[data-type="book"] div[data-type="part"] {
+    page-break-after: always;
+    page-break-before: always;
+  }
+  html body[data-type="book"] section[data-type="foreword"],
+  html body[data-type="book"] section[data-type="preface"] {
+    page-break-after: always;
+    page: frontmatter-page;
+  }
+  html body[data-type="book"] section[data-type="introduction"] {
+    page-break-after: always;
+  }
+  html body[data-type="book"] section[data-type="titlepage"] {
+    page: blank-page;
+    page-break-after: always;
+    border: 0;
+    margin-top: 5cm;
+  }
+  html body[data-type="book"] section[data-type="halftitlepage"] {
+    page-break-after: always;
+    page: blank-page;
+    margin-top: 5cm;
+  }
+  html body[data-type="book"] section[data-type="copyright-page"],
+  html body[data-type="book"] section[data-type="dedication"] {
+    page-break-after: always;
+    page: blank-page;
+  }
+  html body[data-type="book"] div[data-type="part"] > section[data-type="chapter"] {
+    page-break-before: always;
+  }
+  html body[data-type="book"] nav[data-type="toc"] {
+    page-break-after: always;
+    page: frontmatter-page;
+  }
+  html body[data-type="book"] nav[data-type="toc"] h1 {
+    margin-bottom: 2em;
+  }
+  html body[data-type="book"] nav[data-type="toc"] ol {
+    padding-left: 0;
+    margin-left: 0;
+  }
+  html body[data-type="book"] nav[data-type="toc"] ol li {
+    list-style-type: none;
+    width: 15.3cm;
+  }
+  html body[data-type="book"] nav[data-type="toc"] ol li a {
+    color: #222222;
+    position: relative;
+    left: 4em;
+  }
+  html body[data-type="book"] nav[data-type="toc"] ol li.part {
+    padding-bottom: 2em;
+    font-size: 140%;
+    font-weight: bold;
+  }
+  html body[data-type="book"] nav[data-type="toc"] ol li.part li.chapter {
+    padding-top: 1em;
+  }
+  html body[data-type="book"] nav[data-type="toc"] ol li.part a:after {
+    content: "";
+  }
+  html body[data-type="book"] nav[data-type="toc"] ol li.part a:before {
+    position: absolute;
+    left: -3.8em;
+    content: "Part " attr(data-nr);
+  }
+  html body[data-type="book"] nav[data-type="toc"] ol li.chapter {
+    font-weight: 700;
+    padding-top: 1em;
+    font-size: 12pt;
+  }
+  html body[data-type="book"] nav[data-type="toc"] ol li.chapter a:after {
+    content: leader(dotted) target-counter(attr(href url), page, decimal);
+  }
+  html body[data-type="book"] nav[data-type="toc"] ol li.chapter a:before {
+    position: absolute;
+    left: -3.8em;
+    width: 3em;
+    content: attr(data-nr);
+  }
+  html body[data-type="book"] nav[data-type="toc"] ol li.chapter:first-of-type {
+    padding-top: 0;
+  }
+  html body[data-type="book"] nav[data-type="toc"] ol li.sect1 {
+    font-weight: 400;
+  }
+  html body[data-type="book"] nav[data-type="toc"] ol li.sect2 {
+    font-weight: 300;
+  }
+  body[data-type="book"] > h1,
+  body[data-type="book"] > header > h1,
+  section[data-type="titlepage"] h1,
+  head > title {
+    string-set: document-title content();
+  }
+}
+@media screen {
+  html body[data-type="book"] {
+    margin: 1em 2em 1em 2em;
+    padding: 2em 4em 2em 4em;
+    box-shadow: black 0px 5.55px 18.5px 0px;
+  }
+  html body[data-type="book"] section[data-type="titlepage"] {
+    border-top: 4px solid #990000;
+  }
+  html body[data-type="book"] aside[data-type="sidebar"] {
+    width: 20%;
+    box-shadow: black 0px 5.55px 18.5px 0px;
+    margin: 0 20px 20px 20px;
+  }
+  html body[data-type="book"] section[data-type="copyright-page"] {
+    padding-top: 1em;
+  }
+  html body[data-type="book"] section[data-type="copyright-page"] p {
+    text-align: center;
+  }
+}
+code.highlight {
+  font-style: normal;
+  font-family: JetBrainsMono, monospace;
+  /* Name.Attribute */
+  /* Name.Builtin */
+  /* Name.Class */
+  /* Name.Constant */
+  /* Name.Entity */
+  /* Name.Exception */
+  /* Name.Function */
+  /* Name.Namespace */
+  /* Name.Tag */
+  /* Name.Variable */
+  /* Name.Variable.Class */
+  /* Name.Variable.Global */
+  /* Name.Variable.Instance */
+  /* Name.Variable.Magic */
+  /* Error */
+  /* Keyword */
+  /* Operator */
+  /* Generic.Deleted */
+  /* Generic.Emph */
+  /* Generic.Error */
+  /* Generic.Heading */
+  /* Generic.Inserted */
+  /* Generic.Output */
+  /* Generic.Prompt */
+  /* Generic.Strong */
+  /* Generic.Subheading */
+  /* Generic.Traceback */
+  /* Keyword.Constant */
+  /* Keyword.Declaration */
+  /* Keyword.Namespace */
+  /* Keyword.Pseudo */
+  /* Keyword.Reserved */
+  /* Keyword.Type */
+  /* Literal.Number */
+  /* Literal.String */
+  /* Operator.Word */
+  /* Text.Whitespace */
+  /* Literal.Number.Bin */
+  /* Literal.Number.Float */
+  /* Literal.Number.Hex */
+  /* Literal.Number.Integer */
+  /* Literal.Number.Oct */
+  /* Literal.String.Affix */
+  /* Literal.String.Backtick */
+  /* Literal.String.Char */
+  /* Literal.String.Delimiter */
+  /* Literal.String.Doc */
+  /* Literal.String.Double */
+  /* Literal.String.Escape */
+  /* Literal.String.Heredoc */
+  /* Literal.String.Interpol */
+  /* Literal.String.Other */
+  /* Literal.String.Regex */
+  /* Literal.String.Single */
+  /* Literal.String.Symbol */
+  /* Name.Builtin.Pseudo */
+  /* Name.Function.Magic */
+  /* Literal.Number.Integer.Long */
+}
+code.highlight .c,
+code.highlight .ch,
+code.highlight .cm,
+code.highlight .cp,
+code.highlight .cpf,
+code.highlight .c1,
+code.highlight .cs {
+  color: #383838;
+  font-style: italic;
+}
+code.highlight .cpf {
+  font-style: normal;
+}
+code.highlight .cp,
+code.highlight .cs {
+  font-weight: bold;
+  font-style: normal;
+}
+code.highlight .n {
+  font-style: normal;
+  color: darkblue;
+}
+code.highlight .na {
+  color: #008080;
+}
+code.highlight .nb {
+  color: #999999;
+}
+code.highlight .nc {
+  color: #445588;
+  font-weight: bold;
+}
+code.highlight .no {
+  color: #008080;
+}
+code.highlight .ni {
+  color: #800080;
+}
+code.highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+code.highlight .nf {
+  color: #990000;
+  font-weight: bold;
+}
+code.highlight .nn {
+  color: #555555;
+}
+code.highlight .nt {
+  color: #000080;
+}
+code.highlight .nv {
+  color: #008080;
+}
+code.highlight .vc {
+  color: #008080;
+}
+code.highlight .vg {
+  color: #008080;
+}
+code.highlight .vi {
+  color: #008080;
+}
+code.highlight .vm {
+  color: #008080;
+}
+code.highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+code.highlight .k {
+  font-weight: bold;
+}
+code.highlight .o {
+  font-weight: bold;
+}
+code.highlight .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+code.highlight .ge {
+  font-style: italic;
+}
+code.highlight .gr {
+  color: #aa0000;
+}
+code.highlight .gh {
+  color: #999999;
+}
+code.highlight .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+code.highlight .go {
+  color: #888888;
+}
+code.highlight .gp {
+  color: #555555;
+}
+code.highlight .gs {
+  font-weight: bold;
+}
+code.highlight .gu {
+  color: #aaaaaa;
+}
+code.highlight .gt {
+  color: #aa0000;
+}
+code.highlight .kc {
+  font-weight: bold;
+}
+code.highlight .kd {
+  font-weight: bold;
+}
+code.highlight .kn {
+  font-weight: bold;
+}
+code.highlight .kp {
+  font-weight: bold;
+}
+code.highlight .kr {
+  font-weight: bold;
+}
+code.highlight .kt {
+  color: #445588;
+  font-weight: bold;
+}
+code.highlight .m {
+  color: #009999;
+}
+code.highlight .s {
+  color: #bb8844;
+}
+code.highlight .ow {
+  font-weight: bold;
+}
+code.highlight .w {
+  color: #bbbbbb;
+}
+code.highlight .mb {
+  color: #009999;
+}
+code.highlight .mf {
+  color: #009999;
+}
+code.highlight .mh {
+  color: #009999;
+}
+code.highlight .mi {
+  color: #009999;
+}
+code.highlight .mo {
+  color: #009999;
+}
+code.highlight .sa {
+  color: #bb8844;
+}
+code.highlight .sb {
+  color: #bb8844;
+}
+code.highlight .sc {
+  color: #bb8844;
+}
+code.highlight .dl {
+  color: #bb8844;
+}
+code.highlight .sd {
+  color: #bb8844;
+}
+code.highlight .s2 {
+  color: #bb8844;
+}
+code.highlight .se {
+  color: #bb8844;
+}
+code.highlight .sh {
+  color: #bb8844;
+}
+code.highlight .si {
+  color: #bb8844;
+}
+code.highlight .sx {
+  color: #bb8844;
+}
+code.highlight .sr {
+  color: #808000;
+}
+code.highlight .s1 {
+  color: #bb8844;
+}
+code.highlight .ss {
+  color: #bb8844;
+}
+code.highlight .bp {
+  color: #999999;
+}
+code.highlight .fm {
+  color: #990000;
+  font-weight: bold;
+}
+code.highlight .il {
+  color: #009999;
+}
+html body[data-type="book"] {
+  font-family: Roboto, LiberationSans, sans-serif;
+  font-size: 12pt;
+  font-weight: 300;
+  hyphens: auto;
+}
+html body[data-type="book"] p {
+  text-align: justify;
+}
+html body[data-type="book"] em {
+  font-style: italic;
+}
+html body[data-type="book"] strong {
+  font-weight: bold;
+}
+html body[data-type="book"] code {
+  font-family: JetBrainsMono, monospace;
+  margin: 0;
+}
+html body[data-type="book"] span.underline {
+  text-decoration: underline;
+}
+html body[data-type="book"] span.overline {
+  text-decoration: overline;
+}
+html body[data-type="book"] span.line-through {
+  text-decoration: line-through;
+}
+html body[data-type="book"] sup {
+  vertical-align: super;
+  font-size: 70%;
+}
+html body[data-type="book"] sub {
+  vertical-align: sub;
+  font-size: 70%;
+}
+html body[data-type="book"] div[data-type="part"] > h1,
+html body[data-type="book"] div[data-type="part"] > header h1 {
+  font-weight: bold;
+  font-size: 200%;
+}
+html body[data-type="book"] section[data-type="chapter"] > h1,
+html body[data-type="book"] nav[data-type="toc"] > h1,
+html body[data-type="book"] section[data-type="introduction"] > h1,
+html body[data-type="book"] section[data-type="appendix"] > h1,
+html body[data-type="book"] section[data-type="bibliography"] > h1,
+html body[data-type="book"] section[data-type="glossary"] > h1,
+html body[data-type="book"] section[data-type="colophon"] > h1,
+html body[data-type="book"] section[data-type="acknowledgments"] > h1,
+html body[data-type="book"] section[data-type="afterword"] > h1,
+html body[data-type="book"] section[data-type="conclusion"] > h1,
+html body[data-type="book"] section[data-type="chapter"] > header h1,
+html body[data-type="book"] nav[data-type="toc"] > header h1,
+html body[data-type="book"] section[data-type="introduction"] > header h1,
+html body[data-type="book"] section[data-type="appendix"] > header h1,
+html body[data-type="book"] section[data-type="bibliography"] > header h1,
+html body[data-type="book"] section[data-type="glossary"] > header h1,
+html body[data-type="book"] section[data-type="colophon"] > header h1,
+html body[data-type="book"] section[data-type="acknowledgments"] > header h1,
+html body[data-type="book"] section[data-type="afterword"] > header h1,
+html body[data-type="book"] section[data-type="conclusion"] > header h1 {
+  font-weight: bold;
+  line-height: 130%;
+  font-size: 180%;
+}
+html body[data-type="book"] h1 {
+  font-size: 160%;
+  line-height: 130%;
+  font-weight: bold;
+}
+html body[data-type="book"] h2 {
+  font-size: 140%;
+  font-weight: bold;
+}
+html body[data-type="book"] h3 {
+  font-size: 130%;
+  font-weight: bold;
+}
+html body[data-type="book"] h4 {
+  font-size: 120%;
+}
+html body[data-type="book"] h5 {
+  font-size: 110%;
+}
+html body[data-type="book"] h6 {
+  font-size: 100%;
+}
+html body[data-type="book"] dfn,
+html body[data-type="book"] dt {
+  font-style: normal;
+  font-weight: bold;
+}
+html body[data-type="book"] header p[data-type="author"] {
+  font-style: italic;
+}
+html body[data-type="book"] section[data-type="dedication"] {
+  font-style: italic;
+}
+html body[data-type="book"] aside[data-type="sidebar"],
+html body[data-type="book"] div[data-type='note'],
+html body[data-type="book"] div[data-type='warning'],
+html body[data-type="book"] div[data-type='tip'],
+html body[data-type="book"] div[data-type='caution'],
+html body[data-type="book"] div[data-type='important'] {
+  text-indent: 0;
+}
+html body[data-type="book"] aside[data-type="sidebar"] h1,
+html body[data-type="book"] div[data-type='note'] h1,
+html body[data-type="book"] div[data-type='warning'] h1,
+html body[data-type="book"] div[data-type='tip'] h1,
+html body[data-type="book"] div[data-type='caution'] h1,
+html body[data-type="book"] div[data-type='important'] h1,
+html body[data-type="book"] aside[data-type="sidebar"] h2,
+html body[data-type="book"] div[data-type='note'] h2,
+html body[data-type="book"] div[data-type='warning'] h2,
+html body[data-type="book"] div[data-type='tip'] h2,
+html body[data-type="book"] div[data-type='caution'] h2,
+html body[data-type="book"] div[data-type='important'] h2,
+html body[data-type="book"] aside[data-type="sidebar"] h3,
+html body[data-type="book"] div[data-type='note'] h3,
+html body[data-type="book"] div[data-type='warning'] h3,
+html body[data-type="book"] div[data-type='tip'] h3,
+html body[data-type="book"] div[data-type='caution'] h3,
+html body[data-type="book"] div[data-type='important'] h3,
+html body[data-type="book"] aside[data-type="sidebar"] h4,
+html body[data-type="book"] div[data-type='note'] h4,
+html body[data-type="book"] div[data-type='warning'] h4,
+html body[data-type="book"] div[data-type='tip'] h4,
+html body[data-type="book"] div[data-type='caution'] h4,
+html body[data-type="book"] div[data-type='important'] h4,
+html body[data-type="book"] aside[data-type="sidebar"] h5,
+html body[data-type="book"] div[data-type='note'] h5,
+html body[data-type="book"] div[data-type='warning'] h5,
+html body[data-type="book"] div[data-type='tip'] h5,
+html body[data-type="book"] div[data-type='caution'] h5,
+html body[data-type="book"] div[data-type='important'] h5,
+html body[data-type="book"] aside[data-type="sidebar"] h6,
+html body[data-type="book"] div[data-type='note'] h6,
+html body[data-type="book"] div[data-type='warning'] h6,
+html body[data-type="book"] div[data-type='tip'] h6,
+html body[data-type="book"] div[data-type='caution'] h6,
+html body[data-type="book"] div[data-type='important'] h6 {
+  font-size: 110%;
+}
+html body[data-type="book"] aside[data-type="sidebar"] {
+  font-size: smaller;
+}
+html body[data-type="book"] div[data-type="equation"] {
+  font-family: Palatino, serif;
+}
+html body[data-type="book"] div[data-type="equation"] h1,
+html body[data-type="book"] div[data-type="equation"] h2,
+html body[data-type="book"] div[data-type="equation"] h3,
+html body[data-type="book"] div[data-type="equation"] h4,
+html body[data-type="book"] div[data-type="equation"] h5,
+html body[data-type="book"] div[data-type="equation"] h6 {
+  font-family: Roboto, LiberationSans, sans-serif;
+}
+html body[data-type="book"] pre {
+  font-family: JetBrainsMono, monospace;
+  font-size: smaller;
+}
+html body[data-type="book"] table {
+  line-height: 1.2;
+}
+html body[data-type="book"] table caption {
+  font-size: smaller;
+  font-weight: bold;
+}
+html body[data-type="book"] table th,
+html body[data-type="book"] table td {
+  font-size: 80%;
+}
+html body[data-type="book"] table thead,
+html body[data-type="book"] table th {
+  font-weight: bold;
+}
+html body[data-type="book"] table tbody tr td {
+  vertical-align: top;
+}
+html body[data-type="book"] figure figcaption {
+  font-size: smaller;
+  font-weight: bold;
+}
+html body[data-type="book"] ul > li {
+  list-style-type: "‣ ";
+}
+html body[data-type="book"] dl dt {
+  font-family: Roboto, LiberationSans, sans-serif;
+  font-weight: bold;
+}
+html body[data-type="book"] blockquote p[data-type="attribution"] {
+  font-style: italic;
+  font-size: 80%;
+  text-align: right;
+}
+html body[data-type="book"] ul.checklist > li {
+  list-style-type: none;
+}
+html body[data-type="book"] ul.checklist > li.checked:before {
+  content: "☑";
+}
+html body[data-type="book"] ul.checklist > li.unchecked:before {
+  content: "☐";
+}
+html body[data-type="book"] a {
+  text-decoration: none;
+}
+html body[data-type="book"] section[data-type="titlepage"] h1 {
+  text-align: center;
+}
+html body[data-type="book"] section[data-type="titlepage"] p[data-type="subtitle"] {
+  text-align: center;
+  font-size: 160%;
+}
+html body[data-type="book"] section[data-type="titlepage"] p[data-type="author"] {
+  text-align: center;
+  font-style: italic;
+  font-size: 140%;
+}
+html body[data-type="book"] section[data-type="halftitlepage"] h1 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 200%;
+}

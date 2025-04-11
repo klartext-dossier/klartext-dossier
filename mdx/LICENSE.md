@@ -1,6 +1,6 @@
 # BSD 3-Clause License
 
-© 2024 Matthias Hölzer-Klüpfel
+© 2025 Matthias Hölzer-Klüpfel
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 

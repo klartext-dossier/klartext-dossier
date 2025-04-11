@@ -1,0 +1,78 @@
+# Quickstart
+
+## A simple example
+
+The following example demonstrates how a markdown source is converted to HTMLBook](https://oreillymedia.github.io/HTMLBook/) compliant xhtml:
+
+=== "markdown input"
+    ``` markdown
+    # Dossier Markdown Showcase
+
+    [TOC]
+
+    ## About Dossier Markdown
+
+    The “Dossier” documentation system uses a variant of the widely used “Markdown” markup language.
+
+    The markup language is specified in the [CommonMark Specification][CommonMarkSpec].
+
+    ### Checklists
+
+    Checklists can be added like this:
+
+    * [ ] do something
+    * [ ] save the world
+    * [x] read a book
+    * [ ] do something else
+
+    <!--- References --->
+
+    [CommonMarkSpec]: https://spec.commonmark.org/current
+    ```
+
+=== "xhtml output"
+    ``` html
+    <?xml version="1.0"?>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+
+        <head>
+            <title>Dossier Markdown Showcase</title>
+            <link rel="stylesheet" type="text/css" href="htmlbook.css" />
+        </head>
+
+        <body data-type="book">
+            <section data-type="titlepage">
+                <h1 id="_72a2f6ca0d570cdf665f52a1b3a11ae8">Dossier Markdown Showcase</h1>
+            </section>
+            <nav xmlns:xhtml="http://www.w3.org/1999/xhtml" data-type="toc">
+                <h1 id="_94bac49c74980710e6f9c4f196ccf78a">Table of Contents</h1>
+                <ol>
+                    <li class="chapter"><a data-nr="1" href="#_05b8d5d66d0522ebfdb466e990cdb76e">About Dossier Markdown</a>
+                        <ol>
+                            <li class="sect1"><a data-nr="1.1" href="#_71703b6efbd08262e815bc42a1f93087">Checklists</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </nav>
+            <section data-type="chapter">
+                <h1 id="_05b8d5d66d0522ebfdb466e990cdb76e">About Dossier Markdown</h1>
+                <p>The “Dossier” documentation system uses a variant of the widely used “Markdown” markup language.</p>
+                <p>The markup language is specified in the <a href="https://spec.commonmark.org/current">CommonMark
+                        Specification</a>.</p>
+                <section data-type="sect1">
+                    <h1 id="_71703b6efbd08262e815bc42a1f93087">Checklists</h1>
+                    <p>Checklists can be added like this:</p>
+                    <ul class="checklist">
+                        <li class="unchecked"> do something</li>
+                        <li class="unchecked"> save the world</li>
+                        <li class="checked"> read a book</li>
+                        <li class="unchecked"> do something else</li>
+                    </ul>
+                </section>
+            </section>
+        </body>
+
+    </html>
+    ```
+
+The output, rendered with the [htmlbook-css](../htmlbook/index.md) stylesheet, will look like [this](sample.html). And converting it to PDF results in [this](sample.pdf).
