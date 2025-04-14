@@ -11,7 +11,7 @@ setup(
     author                  = "Matthias Hölzer-Klüpfel",
     author_email            = "matthias@hoelzer-kluepfel.de",
     description             = "The dossier document processing system",
-    url                     = "http://www.hoelzer-kluepfel.de",
+    url                     = "https://klartext-dossier.github.io/klartext-dossier",
     keywords                = "dossier documentation processing",
 
     classifiers             = [ 
