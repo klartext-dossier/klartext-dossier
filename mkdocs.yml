@@ -20,6 +20,7 @@ plugins:
         options:
           show_root_heading: true
           show_source: false
+        paths: [dossier, klartext, mdx]
     
 markdown_extensions:
 - admonition
