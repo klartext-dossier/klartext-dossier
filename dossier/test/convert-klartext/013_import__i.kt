@@ -1,5 +1,5 @@
-!import "http://www.hoelzer-kluepfel.de/dossier" as dm
-!import "http://www.hoelzer-kluepfel.de/dossier" as dm
+!import "http://klartext-dossier.org/dossier" as dm
+!import "http://klartext-dossier.org/dossier" as dm
 
 dm::tag:
 

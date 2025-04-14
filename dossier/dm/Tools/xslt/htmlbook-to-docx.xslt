@@ -1,4 +1,4 @@
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dm="http://www.hoelzer-kluepfel.de/dossier" exclude-result-prefixes="xhtml dm">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dm="http://klartext-dossier.org/dossier" exclude-result-prefixes="xhtml dm">
 
     <xsl:output method="xml" indent="yes"/>
 
