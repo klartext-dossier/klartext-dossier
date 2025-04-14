@@ -8,7 +8,7 @@ from dm.context import Context
 
 class Diagram:
 
-    DIAGRAM_NAMESPACE = '{http://www.hoelzer-kluepfel.de/diagram}'
+    DIAGRAM_NAMESPACE = '{http://klartext-dossier.org/diagram}'
     SVG_NAMESPACE = '{http://www.w3.org/2000/svg}'
     XHTML_NAMESPACE = '{http://www.w3.org/1999/xhtml}'
 

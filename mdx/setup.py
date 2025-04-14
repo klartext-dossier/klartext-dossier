@@ -11,7 +11,7 @@ setup(
     author                  = "Matthias Hölzer-Klüpfel",
     author_email            = "matthias@hoelzer-kluepfel.de",
     description             = "Markdown externions",
-    url                     = "http://www.hoelzer-kluepfel.de",
+    url                     = "https://www.klartext-dossier.org/klartext-dossier",
     keywords                = "documentation processing",
 
     classifiers             = [ 

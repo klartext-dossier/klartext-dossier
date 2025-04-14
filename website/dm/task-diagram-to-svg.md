@@ -28,7 +28,7 @@ Each `output` element can have the following attributes:
 
 ## Task behaviour
 
-The task replaces diagrams in the `http://www.hoelzer-kluepfel.de/diagram` namespace with a SVG rendering.
+The task replaces diagrams in the `http://klartext-dossier.org/diagram` namespace with a SVG rendering.
 
 !!! note "WIP"
     This is work in progress:
