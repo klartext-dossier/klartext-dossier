@@ -1,0 +1,35 @@
+name: Publish website to Github Pages
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  
+  publish:
+      runs-on: ubuntu-latest
+      container: klartext/pypeline:latest
+  
+      steps:
+  
+      - name: Checkout
+        uses: actions/checkout@v4
+  
+      - name: Build the website
+        run: make website
+  
+      - name: Setup Pages  
+        uses: actions/configure-pages@v5
+    
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs'
+  
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
