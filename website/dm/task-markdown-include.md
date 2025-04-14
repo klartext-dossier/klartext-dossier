@@ -4,9 +4,7 @@ The `markdown-include` task processes a markdown include file (`.mdpp`).
 
 ## Task attributes
 
-| Attribute name | Default value    | Description                            |
-| -------------- | ---------------- | -------------------------------------- |
-| name           | markdown-include | The name of the task used for logging. |
+None.
 
 ## Task elements
 

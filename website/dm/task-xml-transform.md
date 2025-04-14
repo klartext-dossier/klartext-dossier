@@ -4,9 +4,7 @@ The `xml-transform` task converts an xhtml file to PDF with a less/css styleshee
 
 ## Task attributes
 
-| Attribute name       | Default value    | Description                             |
-| -------------------- | ---------------- | --------------------------------------- |
-| name                 | xml-transform    | The name of the task used for logging.  |
+None.
 
 ## Task elements
 

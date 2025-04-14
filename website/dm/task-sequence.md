@@ -4,9 +4,7 @@ The `sequence` task executes all child tasks in sequence.
 
 ## Task attributes
 
-| Attribute name | Default value | Description                            |
-| -------------- | ------------- | -------------------------------------- |
-| name           | sequence      | The name of the task used for logging. |
+None.
 
 ## Task elements
 

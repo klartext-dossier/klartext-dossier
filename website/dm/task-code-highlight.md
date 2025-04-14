@@ -7,9 +7,7 @@ The `code-highlight` task adds syntex highlighting to `<code>` tags.
 
 ## Task attributes
 
-| Attribute name | Default value | Description                            |
-| -------------- | ------------- | -------------------------------------- |
-| name           | file          | The name of the task used for logging. |
+None.
 
 ## Task elements
 

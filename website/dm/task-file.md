@@ -7,9 +7,7 @@ The `file` task allows to create an input document from within a pipeline.
 
 ## Task attributes
 
-| Attribute name | Default value | Description                            |
-| -------------- | ------------- | -------------------------------------- |
-| name           | file          | The name of the task used for logging. |
+None.
 
 ## Task elements
 

@@ -6,7 +6,6 @@ The `include` task allows to combine several input files into an interal XML str
 
 | Attribute name | Default value | Description                            |
 | -------------- | ------------- | -------------------------------------- |
-| name           | include       | The name of the task used for logging. |
 | root           | root          | The root tag of the XML structure.     |
 
 ## Task elements

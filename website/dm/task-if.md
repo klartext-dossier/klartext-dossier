@@ -4,14 +4,13 @@ The `include` task executes all child tasks when a condition flag is set.
 
 ## Task attributes
 
-| Attribute name | Default value | Description                            |
-| -------------- | ------------- | -------------------------------------- |
-| name           | if            | The name of the task used for logging. |
-| root           | test          | The condition to evaluate.             |
+| Attribute name | Default value | Description                          |
+| -------------- | ------------- | ------------------------------------ |
+| test           | _none_        | The condition to evaluate. Required. |
 
 ## Task elements
 
-None.
+Tasks to run conditionally.
 
 ## Task behaviour
 

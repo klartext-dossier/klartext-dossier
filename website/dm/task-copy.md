@@ -4,9 +4,7 @@ The `copy` task allows copying the content of a file, potentially performing an 
 
 ## Task attributes
 
-| Attribute name | Default value | Description                            |
-| -------------- | ------------- | -------------------------------------- |
-| name           | copy          | The name of the task used for logging. |
+None.
 
 ## Task elements
 

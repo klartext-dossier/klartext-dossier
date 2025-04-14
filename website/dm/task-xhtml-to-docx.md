@@ -4,10 +4,9 @@ The `xhtml-to-docx` task converts an xhtml file to docx.
 
 ## Task attributes
 
-| Attribute name       | Default value    | Description                             |
-| -------------------- | ---------------- | --------------------------------------- |
-| name                 | xhtml-to-docx    | The name of the task used for logging.  |
-| base-url             | .                | The base used to resolve relative URLs. |
+| Attribute name | Default value | Description                             |
+| -------------- | ------------- | --------------------------------------- |
+| base-url       | .             | The base used to resolve relative URLs. |
 
 ## Task elements
 

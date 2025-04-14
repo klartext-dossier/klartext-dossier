@@ -6,7 +6,6 @@ The `xhtml-to-pdf` task converts an xhtml file to PDF with a less/css stylesheet
 
 | Attribute name       | Default value    | Description                             |
 | -------------------- | ---------------- | --------------------------------------- |
-| name                 | xhtml-to-pdf     | The name of the task used for logging.  |
 | presentational-hints | true             | Follow HTML presentational hints.       |
 | base-url             | .                | The base used to resolve relative URLs. |
 

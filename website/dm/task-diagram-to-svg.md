@@ -4,9 +4,7 @@ The `diagram-to-svg` task transforms a diagram to an SVG element.
 
 ## Task attributes
 
-| Attribute name | Default value  | Description                            |
-| -------------- | -------------- | -------------------------------------- |
-| name           | diagram-to-svg | The name of the task used for logging. |
+None.
 
 ## Task elements
 

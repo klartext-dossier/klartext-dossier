@@ -4,9 +4,7 @@ The `xml-tidy` task pretty-prints an XML-file.
 
 ## Task attributes
 
-| Attribute name       | Default value    | Description                             |
-| -------------------- | ---------------- | --------------------------------------- |
-| name                 | xml-tidy         | The name of the task used for logging.  |
+None.
 
 ## Task elements
 

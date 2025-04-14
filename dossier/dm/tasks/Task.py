@@ -20,7 +20,7 @@ class Task:
 
     def __init__(self, element, name):
         self.element = element
-        self.name = element.get('name', name)
+        self.name = name
 
         self.input = File()
         self.content = Content()
