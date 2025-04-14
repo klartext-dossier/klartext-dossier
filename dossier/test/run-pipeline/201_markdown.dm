@@ -1,4 +1,4 @@
-pipeline: name="Test Markdown Task"
+pipeline:
 
     // Simple conversion from markdown to xhtml
     

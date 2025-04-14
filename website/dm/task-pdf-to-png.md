@@ -6,7 +6,6 @@ The `pdf-to-png` task converts a PDF file to a set of images.
 
 | Attribute name | Default value | Description                                       |
 | -------------- | ------------- | ------------------------------------------------- |
-| name           | pdf-to-png    | The name of the task used for logging.            |
 | pattern        | page-%s.png   | The pattern to name the images.                   |
 | dpi            | 300           | The resolution of the images.                     |
 | single         | false         | Create one image per page, instead of a zip-file. |

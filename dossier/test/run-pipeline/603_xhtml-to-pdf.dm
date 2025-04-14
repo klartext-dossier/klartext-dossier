@@ -1,4 +1,4 @@
-pipeline: name="Test XHTML-to-PDF Task"
+pipeline:
 
     // Test converting an incorrect XHTML file to PDF => no exception, as parser is tolerant...
     

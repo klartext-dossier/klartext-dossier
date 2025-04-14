@@ -4,9 +4,7 @@ The `pngs-to-pptx` task converts a set of images to a pptx file.
 
 ## Task attributes
 
-| Attribute name | Default value  | Description                            |
-| -------------- | -------------- | -------------------------------------- |
-| name           | pngs-to-pptx   | The name of the task used for logging. |
+None.
 
 ## Task elements
 

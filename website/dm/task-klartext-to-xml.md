@@ -4,9 +4,7 @@ The `klartext-to-xml` task converts klartext input to XML.
 
 ## Task attributes
 
-| Attribute name | Default value   | Description                            |
-| -------------- | --------------- | -------------------------------------- |
-| name           | klartext-to-xml | The name of the task used for logging. |
+None.
 
 ## Task elements
 

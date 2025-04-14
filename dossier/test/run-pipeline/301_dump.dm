@@ -1,8 +1,8 @@
-pipeline: name="Test Dump Task"
+pipeline:
 
     // Dump simple content.
 
-    file: name="Create Input File"
+    file:
         This is a test.
     
     dump:    

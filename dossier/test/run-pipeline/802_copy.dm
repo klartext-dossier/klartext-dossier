@@ -1,4 +1,4 @@
-pipeline: name="Test Copy Task"
+pipeline:
 
     // Copy a file to another, changing the encoding
 

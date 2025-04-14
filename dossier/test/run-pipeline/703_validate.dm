@@ -1,4 +1,4 @@
-pipeline: name="Test validate Task"
+pipeline:
 
     // Test validating XML against an non-existant schema file
     

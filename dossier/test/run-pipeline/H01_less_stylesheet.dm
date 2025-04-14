@@ -1,4 +1,4 @@
-pipeline: name="Test less Stylesheet"
+pipeline:
 
     // Test generating PNG
     

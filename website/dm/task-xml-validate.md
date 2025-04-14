@@ -4,9 +4,7 @@ The `xml-validate` task validates an XML-file.
 
 ## Task attributes
 
-| Attribute name       | Default value    | Description                             |
-| -------------------- | ---------------- | --------------------------------------- |
-| name                 | xml-validate     | The name of the task used for logging.  |
+None.
 
 ## Task elements
 

@@ -1,5 +1,5 @@
-pipeline: name="Test File Task"
+pipeline:
 
     // Create a file, but do not provide content => TaskException
     
-    file: name="Create Input File"
+    file:

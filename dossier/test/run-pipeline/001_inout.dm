@@ -1,4 +1,4 @@
-pipeline: name="Test File Task"
+pipeline:
 
     // Convert the input markdown file to PDF
 

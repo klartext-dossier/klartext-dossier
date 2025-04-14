@@ -4,9 +4,7 @@ The `dump` task allows displaying the content of a document.
 
 ## Task attributes
 
-| Attribute name | Default value | Description                            |
-| -------------- | ------------- | -------------------------------------- |
-| name           | dump          | The name of the task used for logging. |
+None.
 
 ## Task elements
 

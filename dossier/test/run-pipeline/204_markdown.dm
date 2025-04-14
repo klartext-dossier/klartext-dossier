@@ -1,4 +1,4 @@
-pipeline: name="Test Markdown Task"
+pipeline:
 
     // Conversion from a u16 encoded markdown file to an xhtml file
     

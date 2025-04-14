@@ -1,4 +1,4 @@
-pipeline: name="Convert htmlbook to docx"
+pipeline:
 
     xml-transform:
         input: "002_complete__i.html"

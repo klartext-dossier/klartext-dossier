@@ -1,4 +1,4 @@
-pipeline: name="Test tidy-xml Task"
+pipeline:
 
     // Pretty-print XML file
 

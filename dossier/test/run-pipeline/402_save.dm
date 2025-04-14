@@ -1,8 +1,8 @@
-pipeline: name="Test Save Task"
+pipeline:
 
     // Create a simple markdown content and save it with other encoding
 
-    file: name="Create Input File"
+    file:
         Das ist ein *Test*.
     
     save:

@@ -1,4 +1,4 @@
-pipeline: name="Test PNG-to-PPT Task"
+pipeline:
 
     // Test generating PPT
 

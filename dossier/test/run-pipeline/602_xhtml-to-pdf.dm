@@ -1,4 +1,4 @@
-pipeline: name="Test XHTML-to-PDF Task"
+pipeline:
 
     // Test converting an XHTML file directly to PDF
     

@@ -4,9 +4,7 @@ The `save` task allows saving the output document to a file.
 
 ## Task attributes
 
-| Attribute name | Default value | Description                            |
-| -------------- | ------------- | -------------------------------------- |
-| name           | save          | The name of the task used for logging. |
+None.
 
 ## Task elements
 

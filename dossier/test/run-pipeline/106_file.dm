@@ -1,8 +1,8 @@
-pipeline: name="Test File Task"
+pipeline:
 
     // Provide two output files => TaskException
     
-    file: name="Create Input File"
+    file:
         output: 
             106_file__o.test.md
         output: 

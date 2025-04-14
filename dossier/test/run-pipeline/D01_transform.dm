@@ -1,4 +1,4 @@
-pipeline: name="Test xml-transform Task"
+pipeline:
 
     // Transform XML using stylesheets
 

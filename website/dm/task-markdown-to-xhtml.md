@@ -4,9 +4,7 @@ The `markdown-to-xhtml` task Converts markdown input to an xhtml according to th
 
 ## Task attributes
 
-| Attribute name | Default value    | Description                            |
-| -------------- | ---------------- | -------------------------------------- |
-| name           | markdown-to-xhtml| The name of the task used for logging. |
+None.
 
 ## Task elements
 

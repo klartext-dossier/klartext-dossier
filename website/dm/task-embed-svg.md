@@ -4,9 +4,7 @@ The `embed-svg` task an element to an embedded PNG image.
 
 ## Task attributes
 
-| Attribute name | Default value | Description                            |
-| -------------- | ------------- | -------------------------------------- |
-| name           | copy          | The name of the task used for logging. |
+None.
 
 ## Task elements
 
