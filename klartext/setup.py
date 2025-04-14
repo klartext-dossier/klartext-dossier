@@ -11,7 +11,7 @@ setup(
     author                  = "Matthias Hölzer-Klüpfel",
     author_email            = "matthias@hoelzer-kluepfel.de",
     description             = "The klartext parser",
-    url                     = "https://klartext-dossier.github.io/klartext-dossier",
+    url                     = "https://www.klartext-dossier.org/klartext-dossier",
     keywords                = "documentation processing",
 
     classifiers             = [ 
