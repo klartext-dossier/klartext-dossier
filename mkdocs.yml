@@ -8,12 +8,27 @@ exclude_docs: examples/
 
 theme:
   name: "material"
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/eye-outline
+        name: Switch to dark mode
+      primary: red
+      accent: orange
+    - scheme: slate
+      toggle:
+        icon: material/eye
+        name: Switch to light mode
+      primary: red
+      accent: orange
   features:
     - content.code.annotate
     - content.code.copy    
-
+    - navigation.tabs
+    
 plugins:
 - search
+- privacy
 - mkdocstrings:
     handlers:
       python:
@@ -22,6 +37,26 @@ plugins:
           show_source: false
         paths: [dossier, klartext, mdx]
     
+extra:
+  generator: false
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.  
+    actions:
+      - accept
+      - manage       
+    cookies:
+      analytics:
+        name: Google Analytics
+        checked: false
+
+copyright: >
+  Copyright &copy; 2025 Matthias Hölzer-Klüpfel - <a href="#__consent">Change cookie settings</a> - Made with <a href="https://squidfunk.github.io/mkdocs-material/">Material</a> for <a href="https://www.mkdocs.org/">MkDocs</a>
+
 markdown_extensions:
 - admonition
 - def_list
