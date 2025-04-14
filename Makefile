@@ -1,4 +1,4 @@
-.PHONY: subdirs
+.PHONY: subdirs website
 
 subdirs:
 	$(MAKE) -C klartext 
