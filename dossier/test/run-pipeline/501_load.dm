@@ -1,4 +1,4 @@
-pipeline: name="Test Load Task"
+pipeline:
 
     // Load a file
 

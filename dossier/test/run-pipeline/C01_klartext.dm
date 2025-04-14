@@ -1,4 +1,4 @@
-pipeline: name="Test klartext Task"
+pipeline:
 
     // Simple conversion from klartext to xml
     

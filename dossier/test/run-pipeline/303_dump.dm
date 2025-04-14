@@ -1,4 +1,4 @@
-pipeline: name="Test Dump Task"
+pipeline:
 
     // Dump file content
 

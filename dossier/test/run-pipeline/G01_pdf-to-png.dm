@@ -1,4 +1,4 @@
-pipeline: name="Test XHTML-to-PDF Task"
+pipeline:
 
     // Test generating PNG
     

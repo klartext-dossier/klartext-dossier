@@ -1,8 +1,8 @@
-pipeline: name="Test File Task"
+pipeline:
 
     // Create content with unicode characters and save it to a UTF-16 encoded file
     
-    file: name="Create Input File" 
+    file:
         This is a file using unicode: ♥ ♠ ♣ ♦
 
     save:

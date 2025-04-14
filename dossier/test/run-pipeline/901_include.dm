@@ -1,4 +1,4 @@
-pipeline: name="Test Markdown Include Task"
+pipeline:
 
     // Include Markdown Files
 

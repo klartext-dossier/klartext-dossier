@@ -1,4 +1,4 @@
-pipeline: name="Test klartext-include Task"
+pipeline:
 
     // Include multiple klartext files
 

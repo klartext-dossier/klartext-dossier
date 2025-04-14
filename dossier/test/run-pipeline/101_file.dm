@@ -1,8 +1,8 @@
-pipeline: name="Test File Task"
+pipeline:
 
     // Create a simple markdown content and pass it on to the next task.
 
-    file: name="Create Input File"
+    file:
         Das ist ein *Test*.
     
     save:

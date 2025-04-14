@@ -1,7 +1,7 @@
-pipeline: name="Test File Task"
+pipeline:
 
     // Load an input file
     
-    file: name="Create Input File"
+    file:
         input: encoding="u16"
             107_file__i.md
