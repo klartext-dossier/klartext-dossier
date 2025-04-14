@@ -8,12 +8,21 @@ on:
 
   workflow_dispatch:
 
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+concurrency:
+    group: "pages"
+    cancel-in-progress: false
+  
 jobs:
   
   publish:
       runs-on: ubuntu-latest
       container: klartext/pypeline:latest
-  
+
+      environment:
+        name: github-pages
+        url: ${{ steps.deployment.outputs.page_url }}
+    
       steps:
   
       - name: Checkout

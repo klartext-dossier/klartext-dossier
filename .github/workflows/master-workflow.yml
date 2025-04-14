@@ -6,11 +6,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
 
   pypeline:
@@ -212,3 +207,55 @@ jobs:
         packages-dir: dist/dossier/dist
         verbose: true
         skip-existing: true                
+
+
+  website:
+
+    name: Build Website to Github Pages
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    container: klartext/pypeline:latest
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Build the website
+      run: make website
+
+
+  deploy:
+
+    name: Publish Website to Github Pages
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    container: klartext/pypeline:latest
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Build the website
+      run: make website
+
+    - name: Setup Pages  
+      uses: actions/configure-pages@v5
+  
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: 'docs'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
