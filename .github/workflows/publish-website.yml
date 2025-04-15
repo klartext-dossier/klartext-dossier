@@ -31,8 +31,7 @@ jobs:
           fetch-depth: 0
   
       - name: Build the website
-        run: git config --global --add safe.directory /__w/klartext-dossier/klartext-dossier
-        run: mkdocs build
+        run: git config --global --add safe.directory /__w/klartext-dossier/klartext-dossier && mkdocs build
   
       - name: Setup Pages  
         uses: actions/configure-pages@v5
