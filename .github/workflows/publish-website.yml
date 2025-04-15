@@ -3,6 +3,8 @@ name: Publish Website to Github Pages
 on:
   push:
     branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
   workflow_dispatch:
 
@@ -29,6 +31,7 @@ jobs:
           fetch-depth: 0
   
       - name: Build the website
+        run: git config --global --add safe.directory /__w/klartext-dossier/klartext-dossier
         run: mkdocs build
   
       - name: Setup Pages  
