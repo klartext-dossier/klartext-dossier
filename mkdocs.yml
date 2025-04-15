@@ -34,7 +34,7 @@ plugins:
 - privacy
 - git-revision-date-localized:
     enable_creation_date: true
-    type: iso_date
+    type: timeago
     fallback_to_build_date: true
 - git-authors
 - mkdocstrings:
