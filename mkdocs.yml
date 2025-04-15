@@ -36,9 +36,7 @@ plugins:
     enable_creation_date: true
     type: iso_date
     fallback_to_build_date: true
-- git-committers:
-    repository: klartext-dossier/klartext-dossier
-    branch: master
+- git-authors
 - mkdocstrings:
     handlers:
       python:
