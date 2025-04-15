@@ -74,7 +74,12 @@ markdown_extensions:
     alternate_style: true
 
 nav:
-  - Overview: index.md
+  - Home: 
+    - Overview: index.md
+    - klartext: klartext/index.md
+    - htmlbook-mdx: mdx/index.md
+    - htmlbook-css: htmlbook/index.md
+    - dm: dm/index.md
   - klartext:
     - Overview: klartext/index.md
     - Quickstart: klartext/quickstart.md
