@@ -10,6 +10,9 @@ lxml==5.3.0
 markdown-customblocks==1.4.1
 Markdown==3.7
 MarkdownPP==1.5.1
+mkdocs-git-authors-plugin==0.9.4
+mkdocs-git-committers-plugin-2==2.5.0 
+mkdocs-git-revision-date-localized-plugin==1.4.5
 mkdocs-material==9.5.44
 mkdocs==1.6.1
 mkdocstrings[python]==0.29.0

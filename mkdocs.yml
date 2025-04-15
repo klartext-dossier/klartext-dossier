@@ -1,8 +1,11 @@
 site_name: klartext/dossier
 
 repo_url: https://github.com/klartext-dossier/klartext-dossier
+repo_name: klartext-dossier
+
 docs_dir: website
 site_dir: docs
+
 use_directory_urls: false
 exclude_docs: examples/
 
@@ -29,6 +32,11 @@ theme:
 plugins:
 - search
 - privacy
+- git-revision-date-localized:
+    enable_creation_date: true
+    type: timeago
+    fallback_to_build_date: true
+- git-authors
 - mkdocstrings:
     handlers:
       python:
@@ -74,7 +82,12 @@ markdown_extensions:
     alternate_style: true
 
 nav:
-  - Overview: index.md
+  - Home: 
+    - Overview: index.md
+    - klartext: klartext/index.md
+    - htmlbook-mdx: mdx/index.md
+    - htmlbook-css: htmlbook/index.md
+    - dm: dm/index.md
   - klartext:
     - Overview: klartext/index.md
     - Quickstart: klartext/quickstart.md
