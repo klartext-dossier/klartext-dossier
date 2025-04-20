@@ -1,8 +1,15 @@
+""" Module providing the task factory.
+"""
+
 import logging, importlib
+from lxml import etree
 
 
 class TaskFactory:
 
+    """ The factory class that allows to create Tasks.
+    """
+    
     TASKS = {
 
         # Name,                 Class,                   Input,      Output,     Children,                           Attributes
@@ -32,7 +39,21 @@ class TaskFactory:
     module = importlib.import_module('dm.tasks')
 
 
-    def createTask(element, name):
+    @staticmethod
+    def createTask(element : etree._Element, name : str) -> object:
+
+        """ Creates a task.
+
+            Args:
+                element: The xml element defining the task.
+                name:    The name of the task to create.
+
+            Returns:
+                The initialized task.
+
+            Raises:
+                TaskException: if the task could not be created.
+        """
 
         logging.debug(f'Creating task "{name}"')
 
@@ -47,10 +68,10 @@ class TaskFactory:
             task.checkAllowedAttributes(element, allowed_attributes)
 
         if input_required is not None:
-            task.getInputDocument(required=input_required)
+            task.checkInputDocument(required=input_required)
 
         if output_required is not None:
-            task.getOutputDocument(required=output_required)
+            task.checkOutputDocument(required=output_required)
 
         return task
 

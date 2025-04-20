@@ -26,7 +26,7 @@ class ValidateTask(Task):
             raise
 
     def run(self, context):
-        self.schemas = self.getElement('schema', multiple=True, required=True)
+        self.schemas = self.getMultipleElements('schema', required=True)
         self.load()
         for schema_filename in self.schemas:
             schema_file = tryLocatingToolsFile(schema_filename, 'xsd', context.toolsdir())

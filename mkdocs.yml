@@ -43,6 +43,7 @@ plugins:
         options:
           show_root_heading: true
           show_source: false
+          heading_level: 3
         paths: [dossier, klartext, mdx]
     
 extra:
@@ -126,4 +127,14 @@ nav:
       - xml-tidy task: dm/task-xml-tidy.md
       - xml-transform task: dm/task-xml-transform.md
       - xml-validate task: dm/task-xml-validate.md
-    - API Reference: dm/reference.md
+    - API Reference:
+      - Context: dm/api-context.md
+      - Exceptions: dm/api-exceptions.md
+      - LXML Extensions: dm/api-lxml-extensions.md
+      - Main: dm/api-main.md   
+      - Markdown Parser: dm/api-markdown-parser.md
+      - Pipeline: dm/api-pipeline.md    
+      - Run Command: dm/api-run-command.md    
+      - Utilities: dm/api-utilities.md   
+      - Task: dm/api-task.md   
+      - Task Factory: dm/api-task-factory.md   

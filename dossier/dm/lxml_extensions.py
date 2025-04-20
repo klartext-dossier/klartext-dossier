@@ -48,7 +48,7 @@ def ext_id(context: object, text: str | list[str]) -> str:
     return '_' + MULT_SPACES.sub('_', string(text).strip())
 
 
-def node_id(node) -> str:
+def node_id(node) -> bytes:
 
     index = node.getparent().index(node) if node.getparent() is not None else 0
     return f'id-{node.tag}[{index}]-'.encode('ascii')
