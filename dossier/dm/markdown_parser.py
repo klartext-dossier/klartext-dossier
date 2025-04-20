@@ -1,3 +1,6 @@
+""" Module providing the markdown parser.
+"""
+
 import markdown, logging
 
 import mdx.mermaid
@@ -34,6 +37,17 @@ markdownFileInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.html
 
 def processMarkdownFile(md: str) -> str:
     
+    """ Converts a markdown file.
+
+        Parses a markdown file with the extensions necessary to create HTMLBook compliant xhtml.
+
+        Args:
+            md: The markdown input.
+
+        Returns:
+            The markdown file converted to xhtml.
+    """
+
     # do not pass empty content, or the XML parser will fail
     if len(md.strip()) == 0:    
         md = '<!-- -->'
@@ -44,5 +58,16 @@ def processMarkdownFile(md: str) -> str:
 markdownContentInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.xhtml'], extension_configs=EXTENSION_CONFIGS)
 
 def processMarkdownContent(md: str) -> str:
-    
+
+    """ Converts markdown content.
+
+        Parses markdown content with the extensions necessary to create a segment of HTMLBook compliant xhtml. 
+
+        Args:
+            md: The markdown input.
+
+        Returns:
+            The markdown content converted to xhtml.
+    """
+
     return markdownContentInstance.reset().convert(md)

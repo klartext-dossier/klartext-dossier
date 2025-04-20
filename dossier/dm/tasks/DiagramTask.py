@@ -102,7 +102,7 @@ class DiagramTask(Task):
 
     def run(self, context):
         self.stylesheets = ['diagram.css']
-        self.stylesheets.extend(self.getElement('stylesheet', multiple=True, required=False))
+        self.stylesheets.extend(self.getMultipleElements('stylesheet', required=False))
         self.load()
 
         matcher = self.tryParsingStylesheets(context)

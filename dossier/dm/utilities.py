@@ -1,9 +1,18 @@
+""" Module providing useful functions used in several places.
+"""
+
 import os, logging, pkg_resources, sys
 
 from dm.exceptions import TaskException
 
 
 def guessToolsDir() -> str:
+
+    """ Tries to locate the directory of the tools files.
+
+        Returns:
+            The path to the tools directory.
+    """
 
     # we are running inside the IDE
     if os.path.exists('/workspaces/dossier/dossier/dm/Tools'):
@@ -19,6 +28,25 @@ def guessToolsDir() -> str:
 
 def tryLocatingFile(filename: str, basedir: str|None=None) -> str:
     
+    """ Tries to locate a file.
+
+        The functions will try to locate a file by:
+
+        1. Checking if the file with an absolute path exists
+        2. Checking if the file relative to the basedir exists
+        3. Checking if the file exists in the current directory
+
+        Args:
+            filename: The name of the file to locate
+            basedir:  The base directory to lookup files. Optional.
+
+        Returns:
+            The absolute filename, if the file has been found.
+
+        Raises:
+            TaskException: if the file has not been found. 
+    """
+
     logging.debug(f'Trying to locate "{filename}" with basedir="{basedir}"')
     
     # if the file is absolute, try it
@@ -50,6 +78,28 @@ def tryLocatingFile(filename: str, basedir: str|None=None) -> str:
 
 def tryLocatingToolsFile(filename: str, tool_type: str, toolsdir: str) -> str:
     
+    """ Tries to locate a tools file.
+
+        The functions will try to locate a tools file by:
+
+        1. Checking if the tools file with an absolute path exists
+        2. Checking if the tools file exists in the current directory
+        3. Checking if the tools file exists in the tools directory
+        4. Checking if the tools file is part of the python package
+        5. 
+
+        Args:
+            filename:  The name of the file to locate
+            tool_type: The type of the tool, e.g., `css` for css files
+            toolsdir:  The tools directory
+
+        Returns:
+            The absolute filename, if the file has been found.
+
+        Raises:
+            TaskException: if the file has not been found. 
+    """
+
     logging.debug(f'Trying to locate {tool_type} tools file "{filename}"')
     
     # if the file is absolute, try it

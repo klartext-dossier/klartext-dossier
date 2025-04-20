@@ -27,7 +27,7 @@ class DocxTask(Task):
 
     def run(self, context):
         self.base_url = self.getAttribute('base-url', default='.')
-        self.template = self.getElement('template', multiple=False, required=False)
+        self.template = self.getElement('template', required=False)
         self.load()
         html = self.tryParsingXHTML()
         self.content.setData(self.tryWritingDocx(html))

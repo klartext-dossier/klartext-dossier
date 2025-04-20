@@ -49,7 +49,7 @@ class TransformTask(Task):
             raise TaskException(f'{self.name} - cannot parse input file', e)   
 
     def run(self, context):
-        self.stylesheets = self.getElement('stylesheet', multiple=True, required=True)
+        self.stylesheets = self.getMultipleElements('stylesheet', required=True)
         self.load()
         for xslt_filename in self.stylesheets:
             xslt_file = tryLocatingToolsFile(xslt_filename, 'xslt', context.toolsdir())

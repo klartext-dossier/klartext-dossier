@@ -1,4 +1,4 @@
-""" Module providing the contest of a pipeline execution.
+""" Module providing the context of a pipeline execution.
 """
 
 import os, copy, io

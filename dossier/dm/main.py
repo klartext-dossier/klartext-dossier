@@ -1,3 +1,6 @@
+""" Module providing the main command line application.
+"""
+
 import argparse, logging
 from importlib.resources import files
 
@@ -11,6 +14,12 @@ RETVAL_ERROR    : int = -2  # The tool encountered an error.
 
 def configure_app_logging(log_level: str) -> None:
 
+    """ Configure logging for the application.
+
+        Args:
+            log_level: The logging level.
+    """
+
     level = getattr(logging, log_level.upper(), None)
     if not isinstance(level, int):
         level = logging.ERROR
@@ -20,11 +29,22 @@ def configure_app_logging(log_level: str) -> None:
 
 def configure_library_logging(log_level: int) -> None:
 
+    """ Configure logging for libraries used in the application.
+
+        Args:
+            log_level: The logging level.
+    """
     for key in logging.Logger.manager.loggerDict:
         logging.getLogger(key).setLevel(log_level)
 
 
 def create_cmd_parser() -> argparse.ArgumentParser:
+
+    """ Create the command line parser.
+
+        Returns:
+            The command line parser for the application.
+    """
 
     parser = argparse.ArgumentParser(prog='dm', description='Dossier Management tool.')
     parser.add_argument('--log', choices=['debug', 'info', 'warn', 'error'], help='Log level.', default='error')
@@ -38,6 +58,11 @@ def create_cmd_parser() -> argparse.ArgumentParser:
 
 
 def run_dm() -> None:
+
+    """ The main entry point.
+
+        Parses the command line arguments and executes the requested commands.
+    """
 
     parser = create_cmd_parser()
     args = parser.parse_args()

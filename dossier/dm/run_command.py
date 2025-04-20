@@ -1,3 +1,6 @@
+""" Module providing the `run` command.
+"""
+
 import argparse, logging
 
 from dm.utilities import tryLocatingToolsFile
@@ -5,7 +8,13 @@ from dm.context import Context
 import dm.pipeline
 
 
-def add_subparser(parsers) -> None:
+def add_subparser(parsers : argparse._SubParsersAction) -> None:
+
+    """ Add the command line options for the run command.
+
+        Args:
+            parsers: The main argument parser.
+    """
 
     parser = parsers.add_parser('run', help='Execute conversion pipelines.')
     parser.add_argument('-p', '--pipeline', help='The pipeline file to run.', required=True)
@@ -18,7 +27,17 @@ def add_subparser(parsers) -> None:
     parser.set_defaults(command_name='run', func=cmd_run)
 
 
-def cmd_run(args: argparse.Namespace, context: Context) -> int:
+def cmd_run(args: argparse.Namespace, context: Context) -> None:
+
+    """ Executes the run command.
+
+        Args:
+            args:    The command line parameters.
+            context: The execution context.
+        
+        Raises:
+            Exception: when the command did not run successfully.
+    """
 
     if args.set:
         flags = [ flag.strip() for flag in args.set.split(',') ]
@@ -34,7 +53,6 @@ def cmd_run(args: argparse.Namespace, context: Context) -> int:
             pipeline = dm.pipeline.Pipeline(pipe)
             pipeline.run(args.input, args.input_encoding, args.output, args.output_encoding, context)
             
-        return 0
 
     except Exception as e:
 

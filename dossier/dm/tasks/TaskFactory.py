@@ -47,10 +47,10 @@ class TaskFactory:
             task.checkAllowedAttributes(element, allowed_attributes)
 
         if input_required is not None:
-            task.getInputDocument(required=input_required)
+            task.checkInputDocument(required=input_required)
 
         if output_required is not None:
-            task.getOutputDocument(required=output_required)
+            task.checkOutputDocument(required=output_required)
 
         return task
 
