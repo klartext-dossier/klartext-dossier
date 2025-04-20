@@ -137,3 +137,4 @@ nav:
       - Run Command: dm/api-run-command.md    
       - Utilities: dm/api-utilities.md   
       - Task: dm/api-task.md   
+      - Task Factory: dm/api-task-factory.md   

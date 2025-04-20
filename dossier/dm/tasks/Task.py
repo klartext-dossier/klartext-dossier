@@ -100,13 +100,13 @@ class Task:
             raise TaskException(f'{self.name} - "{name}" can only be defined once')
 
 
-    def getElement(self, name: str, required: bool = False) -> str | None: 
+    def getElement(self, name : str, required: bool = False) -> str | None: 
 
         """ Get a task subelement.
 
             Args:
-                attribute: The name of the subelement to retrieve.
-                required:  Indicates that the subelement is required.
+                name:     The name of the subelement to retrieve.
+                required: Indicates that the subelement is required.
 
             Returns:
                 The value of the subelement, if avaiable. Otherwise, None will be returned.
@@ -131,8 +131,8 @@ class Task:
         """ Get a task's subelements.
 
             Args:
-                attribute: The name of the subelements to retrieve.
-                required:  Indicates that the subelement is required.
+                name:     The name of the subelements to retrieve.
+                required: Indicates that the subelement is required.
 
             Returns:
                 A list of the values of the subelements. Can be an empty list if no subelements are available.
@@ -153,7 +153,7 @@ class Task:
         return value
 
 
-    def checkInputDocument(self, required=False):
+    def checkInputDocument(self, required : bool = False):
 
         """ Checks a task's input document.
 
@@ -174,7 +174,7 @@ class Task:
             logging.debug(f'{self.name} - "input" set to "{self.input.filename}", encoding="{self.input.encoding}"')
 
 
-    def checkOutputDocument(self, required=False):
+    def checkOutputDocument(self, required : bool = False):
 
         """ Checks a task's output document.
 
@@ -188,7 +188,7 @@ class Task:
         self.checkNumberOfElements('output', multiple=False, required=required)
 
         child = self.element.find('output')
-        if child is not None:
+        if child is not None and child.text:
             self.checkAllowedAttributes(child, ['encoding'])
             self.output.filename = child.text.strip()
             self.output.encoding = child.get('encoding', None)
