@@ -5,6 +5,6 @@ less: *.less
 	lessc htmlbook-syntax.less htmlbook-syntax.css
 
 install: less
-	cp *.css ../../dossier/dm/Tools/css
-	mkdir -p ../../dossier/dm/Tools/less
-	cp *.less ../../dossier/dm/Tools/less
+	cp *.css ../../dm/dm/Tools/css
+	mkdir -p ../../dm/dm/Tools/less
+	cp *.less ../../dm/dm/Tools/less
