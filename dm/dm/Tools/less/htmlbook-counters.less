@@ -1,0 +1,283 @@
+@charset "UTF-8";
+
+@nb-space: "\0000A0";
+
+.hide-headers 
+{
+    h1, h2, h3, h4, h5 
+    {
+        &:before
+        {
+            content: "";
+            counter-increment: none;
+        }
+                    
+        bookmark-level: none;
+    }
+}
+
+.hide-subsections
+{
+    section 
+    {
+        .hide-headers();
+    }
+}
+
+html 
+{
+    body[data-type="book"] 
+    {
+        counter-reset: part-counter;
+        counter-reset: chapter-counter;
+        counter-reset: appendix-counter;
+
+        div[data-type="part"] 
+        {
+            counter-increment: part-counter;     
+        
+            > h1, > header h1 
+            { 
+                &:before
+                {
+                    content: @part-prefix @nb-space counter(part-counter, upper-roman) ":" @nb-space;
+                }
+
+                bookmark-level: 1;
+                bookmark-label: @part-prefix @nb-space counter(part-counter, upper-roman) ":" @nb-space content(text);
+            }
+        }
+        
+        section[data-type="chapter"] 
+        {       
+            counter-reset: sect1-counter;
+
+            > h1, > header h1 
+            { 
+                &:before
+                {
+                    content: counter(chapter-counter) @nb-space;
+                }
+
+                bookmark-level: 1;
+                bookmark-label: counter(chapter-counter) @nb-space content(text);
+            }
+
+            counter-increment: chapter-counter;    
+        }
+
+        section[data-type="sect1"] 
+        {
+            counter-reset: sect2-counter;
+
+            > h1, > header h1 
+            { 
+                &:before
+                {
+                    content: counter(chapter-counter) "." counter(sect1-counter) @nb-space;
+                    counter-increment: sect1-counter;      
+                }
+
+                bookmark-level: 2;
+                bookmark-label: counter(chapter-counter) "." counter(sect1-counter) @nb-space content(text);
+            }
+          
+            section[data-type="sect2"] 
+            {
+                counter-reset: sect3-counter;
+
+                > h2, > header h2 
+                { 
+                    &:before
+                    {
+                        content: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) @nb-space;
+                        counter-increment: sect2-counter;      
+                    }
+
+                    bookmark-level: 3;
+                    bookmark-label: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) @nb-space content(text);
+                }
+              
+                section[data-type="sect3"] 
+                {
+                    counter-reset: sect4-counter;
+
+                    > h3, > header h3 
+                    { 
+                        &:before 
+                        {
+                            content: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) @nb-space;
+                            counter-increment: sect3-counter;   
+                        }
+                        
+                        bookmark-level: 4;
+                        bookmark-label: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) @nb-space content(text);
+                    }
+
+                    section[data-type="sect4"] 
+                    {
+                        counter-reset: sect5-counter;
+
+                        > h4, > header h4 
+                        { 
+                            &:before
+                            {
+                                content: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) @nb-space;
+                                counter-increment: sect4-counter;      
+                            }
+                         
+                            bookmark-level: 5;
+                            bookmark-label: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) @nb-space content(text);
+                        }                      
+
+                        section[data-type="sect5"] 
+                        {
+                            > h5, > header h5
+                            { 
+                                &::before
+                                {
+                                    content: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "." counter(sect5-counter) @nb-space;
+                                    counter-increment: sect5-counter;      
+                                }
+                                
+                                bookmark-level: 6;
+                                bookmark-label: counter(chapter-counter) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "." counter(sect5-counter) @nb-space content(text);
+                            }
+                        }  // section[data-type="sect5"]
+                    } // section[data-type="sect4"]      
+                } // section[data-type="sect3"] 
+            } // section[data-type="sect2"]       
+        } // section[data-type="sect1"]
+
+        section[data-type="bibliography"], section[data-type="glossary"] 
+        {
+            > h1, > header h1 
+            {             
+                bookmark-level: 1;
+                bookmark-label: content(text);
+            }
+
+            .hide-subsections();
+        }
+    
+        section[data-type="foreword"], section[data-type="preface"], section[data-type="introduction"], section[data-type="dedication"], section[data-type="titlepage"], section[data-type="halftitlepage"], section[data-type="copyright-page"], section[data-type="dedication"], section[data-type="colophon"], section[data-type="acknowledgments"], section[data-type="afterword"], section[data-type="conclusion"]
+        {
+            > h1, > header h1 
+            {             
+                bookmark-level: none;
+            }
+
+            .hide-subsections();
+        }
+    
+        aside, div, blockquote
+        {
+            .hide-headers();
+        }
+
+        section[data-type="appendix"] 
+        {           
+            > h1, > header h1 
+            { 
+                &:before 
+                {
+                    content: @appendix-prefix @nb-space counter(appendix-counter, upper-latin) ":" @nb-space;            
+                }
+
+                bookmark-level: 1;
+                bookmark-label: @appendix-prefix @nb-space counter(appendix-counter, upper-latin) ":" @nb-space content(text);
+            }
+
+            .hide-subsections();
+
+            counter-increment: appendix-counter;    
+            counter-reset: sect1-counter;
+            
+            section[data-type="sect1"] 
+            {
+                counter-reset: sect2-counter;
+    
+                > h1, > header h1 
+                { 
+                    &:before
+                    {
+                        content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) @nb-space;
+                        counter-increment: sect1-counter;      
+                    }
+    
+                    bookmark-level: 2;
+                    bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) @nb-space content(text);
+                }
+              
+                section[data-type="sect2"] 
+                {
+                    counter-reset: sect3-counter;
+    
+                    > h2, > header h2 
+                    { 
+                        &:before
+                        {
+                            content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) @nb-space;
+                            counter-increment: sect2-counter;      
+                        }
+    
+                        bookmark-level: 3;
+                        bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) @nb-space content(text);
+                    }
+                  
+                    section[data-type="sect3"] 
+                    {
+                        counter-reset: sect4-counter;
+    
+                        > h3, > header h3 
+                        { 
+                            &:before 
+                            {
+                                content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) @nb-space;
+                                counter-increment: sect3-counter;   
+                            }
+                            
+                            bookmark-level: 4;
+                            bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) @nb-space content(text);
+                        }
+    
+                        section[data-type="sect4"] 
+                        {
+                            counter-reset: sect5-counter;
+    
+                            > h4, > header h4 
+                            { 
+                                &:before
+                                {
+                                    content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) @nb-space;
+                                    counter-increment: sect4-counter;      
+                                }
+                             
+                                bookmark-level: 5;
+                                bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) @nb-space content(text);
+                            }                      
+    
+                            section[data-type="sect5"] 
+                            {
+                                > h5, > header h5
+                                { 
+                                    &::before
+                                    {
+                                        content: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "." counter(sect5-counter) @nb-space;
+                                        counter-increment: sect5-counter;      
+                                    }
+                                    
+                                    bookmark-level: 6;
+                                    bookmark-label: counter(appendix-counter, upper-latin) "." counter(sect1-counter) "." counter(sect2-counter) "." counter(sect3-counter) "." counter(sect4-counter) "." counter(sect5-counter) @nb-space content(text);
+                                }
+                            }  // section[data-type="sect5"]
+                        } // section[data-type="sect4"]      
+                    } // section[data-type="sect3"] 
+                } // section[data-type="sect2"]       
+            } // section[data-type="sect1"]
+
+        } // section[data-type="appendix"]
+
+    } // body[data-type="book"]
+
+} // html

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name                    = "dossier",
+    name                    = "dm",
     version                 = "0.1.0",
 
     packages                = find_packages(),    
@@ -10,7 +10,7 @@ setup(
 
     author                  = "Matthias Hölzer-Klüpfel",
     author_email            = "matthias@hoelzer-kluepfel.de",
-    description             = "The dossier document processing system",
+    description             = "The dossier management system",
     url                     = "https://www.klartext-dossier.org/klartext-dossier",
     keywords                = "dossier documentation processing",
 

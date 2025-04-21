@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+html 
+{
+    body[data-type="book"] 
+    {
+        color: @text-color;
+
+        h1, h2, h3, h4, h5, h6 
+        {
+            color: @headline-color;
+        }
+
+        aside[data-type="sidebar"]
+        {
+            border: thin silver solid;
+
+            h1, h2, h3, h4, h5, h6
+            {      
+                color: @text-color;
+            }
+        }
+
+        div[data-type='note'], div[data-type='warning'], div[data-type='tip'], div[data-type='caution'], div[data-type='important']
+        {
+            h1, h2, h3, h4, h5, h6
+            {      
+                color: @text-color;
+            }
+        }
+    
+        div[data-type='note']
+        {
+            background-color: @note-background-color;
+            border-left: 6px solid @note-color;
+        }
+
+        div[data-type='caution']
+        {
+            background-color: @caution-background-color;
+            border-left: 6px solid @caution-color;
+        }
+
+        div[data-type='important']
+        {
+            background-color: @important-background-color;
+            border-left: 6px solid @important-color;
+        }
+
+        div[data-type='tip']
+        {
+            background-color: @tip-background-color;
+            border-left: 6px solid @tip-color;
+        }
+
+        div[data-type='warning']
+        {
+            background-color: @warning-background-color;
+            border-left: 6px solid @warning-color;
+        }
+
+        div[data-type="equation"]
+        {
+            background-color: @example-background-color;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+      
+        div[data-type="example"]
+        {
+            background-color: @example-background-color;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+
+            h1, h2, h3, h4, h5, h6
+            {      
+                color: @text-color;
+            }
+        }
+
+        table
+        {
+            border: 1px solid @text-color;
+            border-collapse: collapse;
+            
+            th, td
+            {
+                border: 1px solid black;
+            }
+
+            thead, th
+            {
+                background-color: @table-background-color;
+            }
+        }
+
+        blockquote
+        {
+            border-left: 3px solid #000000;
+            background-color: @example-background-color;
+        }
+
+        a
+        {
+            color: @link-color;
+        }
+
+    } // body[data-type="book"]
+
+} // html

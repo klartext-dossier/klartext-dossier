@@ -1,0 +1,301 @@
+<testsuite name="convert-htmlbook.Test converting htmlbook" tests="30" errors="0" failures="0" skipped="0" time="32.980855" timestamp="2024-12-02T16:42:30.280549" hostname="a396d9674dca"><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.1 Input files" status="passed" time="0.552944"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.1 Input files
+    When converting the 000_empty_file__o.html to PDF ... passed in 0.447s
+    Then the PDF output is equal to 000_empty_file__o.pdf ... passed in 0.106s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.2 Input files" status="passed" time="0.625026"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.2 Input files
+    When converting the 310_book__o.html to PDF ... passed in 0.559s
+    Then the PDF output is equal to 310_book__o.pdf ... passed in 0.066s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.3 Input files" status="passed" time="0.699368"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.3 Input files
+    When converting the 311_book__o.html to PDF ... passed in 0.625s
+    Then the PDF output is equal to 311_book__o.pdf ... passed in 0.075s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.4 Input files" status="passed" time="0.767723"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.4 Input files
+    When converting the 320_chapter__o.html to PDF ... passed in 0.676s
+    Then the PDF output is equal to 320_chapter__o.pdf ... passed in 0.091s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.5 Input files" status="passed" time="0.948192"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.5 Input files
+    When converting the 321_chapter__o.html to PDF ... passed in 0.861s
+    Then the PDF output is equal to 321_chapter__o.pdf ... passed in 0.087s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.6 Input files" status="passed" time="0.961739"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.6 Input files
+    When converting the 330_appendix__o.html to PDF ... passed in 0.809s
+    Then the PDF output is equal to 330_appendix__o.pdf ... passed in 0.152s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.7 Input files" status="passed" time="0.75141"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.7 Input files
+    When converting the 340_bibliography__o.html to PDF ... passed in 0.676s
+    Then the PDF output is equal to 340_bibliography__o.pdf ... passed in 0.075s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.8 Input files" status="passed" time="0.907127"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.8 Input files
+    When converting the 350_glossary__o.html to PDF ... passed in 0.839s
+    Then the PDF output is equal to 350_glossary__o.pdf ... passed in 0.068s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.9 Input files" status="passed" time="0.914078"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.9 Input files
+    When converting the 360_preface__o.html to PDF ... passed in 0.709s
+    Then the PDF output is equal to 360_preface__o.pdf ... passed in 0.205s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.10 Input files" status="passed" time="1.042485"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.10 Input files
+    When converting the 370_frontmatter__o.html to PDF ... passed in 0.752s
+    Then the PDF output is equal to 370_frontmatter__o.pdf ... passed in 0.290s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.11 Input files" status="passed" time="0.928824"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.11 Input files
+    When converting the 380_backmatter__o.html to PDF ... passed in 0.701s
+    Then the PDF output is equal to 380_backmatter__o.pdf ... passed in 0.228s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.12 Input files" status="passed" time="1.021027"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.12 Input files
+    When converting the 390_part__o.html to PDF ... passed in 0.739s
+    Then the PDF output is equal to 390_part__o.pdf ... passed in 0.282s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.13 Input files" status="passed" time="0.833761"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.13 Input files
+    When converting the 3A0_nav__o.html to PDF ... passed in 0.719s
+    Then the PDF output is equal to 3A0_nav__o.pdf ... passed in 0.115s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.14 Input files" status="passed" time="0.739396"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.14 Input files
+    When converting the 3B0_index__o.html to PDF ... passed in 0.666s
+    Then the PDF output is equal to 3B0_index__o.pdf ... passed in 0.073s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.15 Input files" status="passed" time="0.813483"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.15 Input files
+    When converting the 3C0_section__o.html to PDF ... passed in 0.732s
+    Then the PDF output is equal to 3C0_section__o.pdf ... passed in 0.081s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.16 Input files" status="passed" time="0.888655"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.16 Input files
+    When converting the 410_paragraph__o.html to PDF ... passed in 0.811s
+    Then the PDF output is equal to 410_paragraph__o.pdf ... passed in 0.078s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.17 Input files" status="passed" time="0.786595"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.17 Input files
+    When converting the 420_sidebar__o.html to PDF ... passed in 0.691s
+    Then the PDF output is equal to 420_sidebar__o.pdf ... passed in 0.096s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.18 Input files" status="passed" time="0.757923"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.18 Input files
+    When converting the 430_admonition__o.html to PDF ... passed in 0.663s
+    Then the PDF output is equal to 430_admonition__o.pdf ... passed in 0.095s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.19 Input files" status="passed" time="0.761045"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.19 Input files
+    When converting the 440_table__o.html to PDF ... passed in 0.690s
+    Then the PDF output is equal to 440_table__o.pdf ... passed in 0.071s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.20 Input files" status="passed" time="0.685104"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.20 Input files
+    When converting the 450_figures__o.html to PDF ... passed in 0.593s
+    Then the PDF output is equal to 450_figures__o.pdf ... passed in 0.092s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.21 Input files" status="passed" time="0.724654"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.21 Input files
+    When converting the 460_examples__o.html to PDF ... passed in 0.656s
+    Then the PDF output is equal to 460_examples__o.pdf ... passed in 0.068s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.22 Input files" status="passed" time="0.723567"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.22 Input files
+    When converting the 470_code_listings__o.html to PDF ... passed in 0.654s
+    Then the PDF output is equal to 470_code_listings__o.pdf ... passed in 0.069s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.23 Input files" status="passed" time="0.713104"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.23 Input files
+    When converting the 480_ordered_lists__o.html to PDF ... passed in 0.639s
+    Then the PDF output is equal to 480_ordered_lists__o.pdf ... passed in 0.074s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.24 Input files" status="passed" time="0.742148"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.24 Input files
+    When converting the 490_itemized_lists__o.html to PDF ... passed in 0.665s
+    Then the PDF output is equal to 490_itemized_lists__o.pdf ... passed in 0.077s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.25 Input files" status="passed" time="0.76817"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.25 Input files
+    When converting the 4A0_definition_lists__o.html to PDF ... passed in 0.695s
+    Then the PDF output is equal to 4A0_definition_lists__o.pdf ... passed in 0.073s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.26 Input files" status="passed" time="0.787651"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.26 Input files
+    When converting the 4B0_blockquotes__o.html to PDF ... passed in 0.708s
+    Then the PDF output is equal to 4B0_blockquotes__o.pdf ... passed in 0.080s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.27 Input files" status="passed" time="0.751407"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.27 Input files
+    When converting the 4C0_equations__o.html to PDF ... passed in 0.680s
+    Then the PDF output is equal to 4C0_equations__o.pdf ... passed in 0.071s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.28 Input files" status="passed" time="1.018383"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.28 Input files
+    When converting the 500_styling__o.html to PDF ... passed in 0.929s
+    Then the PDF output is equal to 500_styling__o.pdf ... passed in 0.090s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.29 Input files" status="passed" time="0.766768"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.29 Input files
+    When converting the 510_code_highlight__o.html to PDF ... passed in 0.688s
+    Then the PDF output is equal to 510_code_highlight__o.pdf ... passed in 0.079s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-htmlbook.Test converting htmlbook" name="Converting htmlbook -- @1.30 Input files" status="passed" time="9.599097"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting htmlbook -- @1.30 Input files
+    When converting the 991_alice__o.html to PDF ... passed in 3.932s
+    Then the PDF output is equal to 991_alice__o.pdf ... passed in 5.667s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

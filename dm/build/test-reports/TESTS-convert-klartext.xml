@@ -1,0 +1,171 @@
+<testsuite name="convert-klartext.Test converting klartext" tests="17" errors="0" failures="0" skipped="0" time="0.183098" timestamp="2024-12-02T16:43:12.210611" hostname="a396d9674dca"><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.1 Input files" status="passed" time="0.011467"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.1 Input files
+    When converting the 000_empty_file__i.kt to XML ... passed in 0.010s
+    Then the XML output is equal to 000_empty_file__o.xml ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.2 Input files" status="passed" time="0.011147"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.2 Input files
+    When converting the 001_simple_text__i.kt to XML ... passed in 0.010s
+    Then the XML output is equal to 001_simple_text__o.xml ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.3 Input files" status="passed" time="0.010135"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.3 Input files
+    When converting the 002_simple_tag__i.kt to XML ... passed in 0.009s
+    Then the XML output is equal to 002_simple_tag__o.xml ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.4 Input files" status="passed" time="0.011591"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.4 Input files
+    When converting the 003_nested_tags__i.kt to XML ... passed in 0.010s
+    Then the XML output is equal to 003_nested_tags__o.xml ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.5 Input files" status="passed" time="0.010013"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.5 Input files
+    When converting the 004_attributes__i.kt to XML ... passed in 0.008s
+    Then the XML output is equal to 004_attributes__o.xml ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.6 Input files" status="passed" time="0.010435"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.6 Input files
+    When converting the 005_links__i.kt to XML ... passed in 0.009s
+    Then the XML output is equal to 005_links__o.xml ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.7 Input files" status="passed" time="0.011887"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.7 Input files
+    When converting the 006_inline_content__i.kt to XML ... passed in 0.010s
+    Then the XML output is equal to 006_inline_content__o.xml ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.8 Input files" status="passed" time="0.010073"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.8 Input files
+    When converting the 007_empty_tag__i.kt to XML ... passed in 0.008s
+    Then the XML output is equal to 007_empty_tag__o.xml ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.9 Input files" status="passed" time="0.009802"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.9 Input files
+    When converting the 008_inlinetags__i.kt to XML ... passed in 0.008s
+    Then the XML output is equal to 008_inlinetags__o.xml ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.10 Input files" status="passed" time="0.01142"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.10 Input files
+    When converting the 009_verbatim__i.kt to XML ... passed in 0.010s
+    Then the XML output is equal to 009_verbatim__o.xml ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.11 Input files" status="passed" time="0.00966"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.11 Input files
+    When converting the 010_nested_links__i.kt to XML ... passed in 0.008s
+    Then the XML output is equal to 010_nested_links__o.xml ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.12 Input files" status="passed" time="0.009282"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.12 Input files
+    When converting the 011_include__i.kt to XML ... passed in 0.008s
+    Then the XML output is equal to 011_include__o.xml ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.13 Input files" status="passed" time="0.011544"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.13 Input files
+    When converting the 012_classes__i.kt to XML ... passed in 0.010s
+    Then the XML output is equal to 012_classes__o.xml ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.14 Input files" status="passed" time="0.010145"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.14 Input files
+    When converting the 013_import__i.kt to XML ... passed in 0.009s
+    Then the XML output is equal to 013_import__o.xml ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.15 Input files" status="passed" time="0.011106"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.15 Input files
+    When converting the 014_glossary__i.kt to XML ... passed in 0.010s
+    Then the XML output is equal to 014_glossary__o.xml ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.16 Input files" status="passed" time="0.010381"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.16 Input files
+    When converting the 015_oneline__i.kt to XML ... passed in 0.009s
+    Then the XML output is equal to 015_oneline__o.xml ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="convert-klartext.Test converting klartext" name="Converting klartext -- @1.17 Input files" status="passed" time="0.01301"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Converting klartext -- @1.17 Input files
+    When converting the 990_example__i.kt to XML ... passed in 0.011s
+    Then the XML output is equal to 990_example__o.xml ... passed in 0.002s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

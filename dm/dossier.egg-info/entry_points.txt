@@ -1,0 +1,2 @@
+[console_scripts]
+dm = dm:run_dm

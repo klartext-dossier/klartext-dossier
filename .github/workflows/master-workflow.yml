@@ -200,10 +200,10 @@ jobs:
         verbose: true
         skip-existing: true
 
-    - name: Publish dossier distribution to TestPyPI
+    - name: Publish dm distribution to TestPyPI
       uses: pypa/gh-action-pypi-publish@release/v1      
       with:
         repository-url: https://test.pypi.org/legacy/
-        packages-dir: dist/dossier/dist
+        packages-dir: dist/dm/dist
         verbose: true
         skip-existing: true                

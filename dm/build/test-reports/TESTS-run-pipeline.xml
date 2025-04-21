@@ -1,0 +1,372 @@
+<testsuite name="run-pipeline.Tests running pipelines" tests="36" errors="0" failures="0" skipped="0" time="2.864959" timestamp="2024-12-02T16:43:17.883776" hostname="a396d9674dca"><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'file' task - 101 - Create a simple markdown content and pass it on to the next task." status="passed" time="0.0132"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'file' task - 101 - Create a simple markdown content and pass it on to the next task.
+    When running the pipeline 101_file.dm ... passed in 0.008s
+    Then the file 101_file__o.test.md is equal to 101_file__o.md ... passed in 0.005s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'file' task - 103 - Create content with unicode characters and save it to a UTF-16 encoded file" status="passed" time="0.028327"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'file' task - 103 - Create content with unicode characters and save it to a UTF-16 encoded file
+    When running the pipeline 103_file.dm ... passed in 0.015s
+    Then the file 103_file__o.test.md is equal to 103_file__o.md ... passed in 0.013s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'file' task - 104 - Create markdown content and directly save it to a file" status="passed" time="0.008428"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'file' task - 104 - Create markdown content and directly save it to a file
+    When running the pipeline 104_file.dm ... passed in 0.005s
+    Then the file 104_file__o.test.md is equal to 104_file__o.md ... passed in 0.003s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'file' task - 105 - Create a file, but do not provide content =&gt; TaskException" status="passed" time="0.00318"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'file' task - 105 - Create a file, but do not provide content => TaskException
+    When running the pipeline 105_file.dm ... passed in 0.003s
+    Then error code -2 is returned ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'file' task - 106 - Provide two output files =&gt; TaskException" status="passed" time="0.003289"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'file' task - 106 - Provide two output files => TaskException
+    When running the pipeline 106_file.dm ... passed in 0.003s
+    Then error code -2 is returned ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'file' task - 107 - Provide an input file =&gt; TaskException" status="passed" time="0.003541"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'file' task - 107 - Provide an input file => TaskException
+    When running the pipeline 107_file.dm ... passed in 0.003s
+    Then error code -2 is returned ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'file' task - 108 - Provide incorrect child element =&gt; TaskException" status="passed" time="0.003465"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'file' task - 108 - Provide incorrect child element => TaskException
+    When running the pipeline 108_file.dm ... passed in 0.003s
+    Then error code -2 is returned ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'file' task - 109 - Provide incorrect child attribute =&gt; TaskException" status="passed" time="0.003924"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'file' task - 109 - Provide incorrect child attribute => TaskException
+    When running the pipeline 109_file.dm ... passed in 0.004s
+    Then error code -2 is returned ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'markdown-to-xhtml' task - 201 - Simple conversion from markdown to xhtml" status="passed" time="0.020625"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'markdown-to-xhtml' task - 201 - Simple conversion from markdown to xhtml
+    When running the pipeline 201_markdown.dm ... passed in 0.007s
+    Then the file 201_markdown__o.test.xhtml is equal to 201_markdown__o.xhtml ... passed in 0.014s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'markdown-to-xhtml' task - 202 - Conversion from a markdown file to xhtml" status="passed" time="0.019805"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'markdown-to-xhtml' task - 202 - Conversion from a markdown file to xhtml
+    When running the pipeline 202_markdown.dm ... passed in 0.007s
+    Then the file 202_markdown__o.test.xhtml is equal to 202_markdown__o.xhtml ... passed in 0.012s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'markdown-to-xhtml' task - 203 - Conversion from a markdown file to an xhtml file" status="passed" time="0.017509"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'markdown-to-xhtml' task - 203 - Conversion from a markdown file to an xhtml file
+    When running the pipeline 203_markdown.dm ... passed in 0.010s
+    Then the file 203_markdown__o.test.xhtml is equal to 203_markdown__o.xhtml ... passed in 0.004s
+    Then the file 203b_markdown__o.test.xhtml is equal to 203_markdown__o.xhtml ... passed in 0.004s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'markdown-to-xhtml' task - 204 - Conversion from a u16 encoded markdown file to an xhtml file" status="passed" time="0.018854"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'markdown-to-xhtml' task - 204 - Conversion from a u16 encoded markdown file to an xhtml file
+    When running the pipeline 204_markdown.dm ... passed in 0.008s
+    Then the file 204_markdown__o.test.xhtml is equal to 204_markdown__o.xhtml ... passed in 0.011s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'markdown-to-xhtml' task - 205 - Conversion from a markdown file to an u16 encoded xhtml file" status="passed" time="0.022133"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'markdown-to-xhtml' task - 205 - Conversion from a markdown file to an u16 encoded xhtml file
+    When running the pipeline 205_markdown.dm ... passed in 0.008s
+    Then the file 205_markdown__o.test.xhtml is equal to 205_markdown__o.xhtml ... passed in 0.014s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'dump' taks - 301 - Dump simple content" status="passed" time="0.003376"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'dump' taks - 301 - Dump simple content
+    When running the pipeline 301_dump.dm ... passed in 0.003s
+    Then it displays "This is a test." ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+Captured stdout:
+This is a test.
+
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'dump' taks - 302 - Dump unicode content" status="passed" time="0.001708"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'dump' taks - 302 - Dump unicode content
+    When running the pipeline 302_dump.dm ... passed in 0.002s
+    Then it displays "This is a file using unicode: ♥ ♠ ♣ ♦" ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'dump' taks - 303 - Dump file content" status="passed" time="0.004688"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'dump' taks - 303 - Dump file content
+    When running the pipeline 303_dump.dm ... passed in 0.005s
+    Then it displays "This is a file using unicode: ♥ ♠ ♣ ♦" ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+Captured stdout:
+This is a file using unicode: ♥ ♠ ♣ ♦
+
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'save' task - 401 - Create a simple markdown content and save it" status="passed" time="0.009321"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'save' task - 401 - Create a simple markdown content and save it
+    When running the pipeline 401_save.dm ... passed in 0.006s
+    Then the file 401_save__o.test.md is equal to 401_save__o.md ... passed in 0.003s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'save' task - 402 - Create a simple markdown content and save it with other encoding" status="passed" time="0.019642"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'save' task - 402 - Create a simple markdown content and save it with other encoding
+    When running the pipeline 402_save.dm ... passed in 0.006s
+    Then the file 402_save__o.test.md is equal to 402_save__o.md ... passed in 0.014s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'load' task - 501 - Load a file" status="passed" time="0.016397"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'load' task - 501 - Load a file
+    When running the pipeline 501_load.dm ... passed in 0.008s
+    Then the file 501_load__o.test.md is equal to 501_load__o.md ... passed in 0.009s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'xhtml' task - 601 - Test generating PDF" status="passed" time="0.817181"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'xhtml' task - 601 - Test generating PDF
+    When running the pipeline 601_xhtml-to-pdf.dm ... passed in 0.734s
+    Then the file 601_xhtml-to-pdf__o.test.pdf is equal to 601_xhtml-to-pdf__o.pdf ... passed in 0.083s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'xhtml' task - 602 - Test converting an XHTML file directly to PDF" status="passed" time="0.230345"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'xhtml' task - 602 - Test converting an XHTML file directly to PDF
+    When running the pipeline 602_xhtml-to-pdf.dm ... passed in 0.162s
+    Then the file 602_xhtml-to-pdf__o.test.pdf is equal to 602_xhtml-to-pdf__o.pdf ... passed in 0.068s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'xhtml' task - 603 - Test converting an incorrect XHTML file to PDF =&gt; no exception, as parser is tolerant..." status="passed" time="0.131473"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'xhtml' task - 603 - Test converting an incorrect XHTML file to PDF => no exception, as parser is tolerant...
+    When running the pipeline 603_xhtml-to-pdf.dm ... passed in 0.064s
+    Then no exception is thrown ... passed in 0.000s
+    Then the file 603_xhtml-to-pdf__o.test.pdf is equal to 603_xhtml-to-pdf__o.pdf ... passed in 0.067s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'xhtml' task - 604 - Test generating PDF with a non-existent stylesheet =&gt; TaskException" status="passed" time="0.016129"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'xhtml' task - 604 - Test generating PDF with a non-existent stylesheet => TaskException
+    When running the pipeline 604_xhtml-to-pdf.dm ... passed in 0.016s
+    Then error code -2 is returned ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'xhtml' task - 605 - Test generating PDF with an implicit stylesheet" status="passed" time="0.144643"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'xhtml' task - 605 - Test generating PDF with an implicit stylesheet
+    When running the pipeline 605_xhtml-to-pdf.dm ... passed in 0.072s
+    Then the file 605_xhtml-to-pdf__o.test.pdf is equal to 605_xhtml-to-pdf__o.pdf ... passed in 0.072s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'xml-validate' task - 701 - Test validating correct XML against schema file" status="passed" time="0.190485"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'xml-validate' task - 701 - Test validating correct XML against schema file
+    When running the pipeline 701_validate.dm ... passed in 0.190s
+    Then no exception is thrown ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'xml-validate' task - 701 - Test validating incorrect XML against schema file" status="passed" time="0.014849"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'xml-validate' task - 701 - Test validating incorrect XML against schema file
+    When running the pipeline 702_validate.dm ... passed in 0.015s
+    Then error code -2 is returned ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'xml-validate' task - 703 - Test validating XML against an non-existant schema file" status="passed" time="0.008486"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'xml-validate' task - 703 - Test validating XML against an non-existant schema file
+    When running the pipeline 703_validate.dm ... passed in 0.008s
+    Then error code -2 is returned ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'xml-validate' task - 704 - Test validating XML against an incorrect schema file" status="passed" time="0.009147"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'xml-validate' task - 704 - Test validating XML against an incorrect schema file
+    When running the pipeline 704_validate.dm ... passed in 0.009s
+    Then error code -2 is returned ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'xml-validate' task - 705 - Test validating an incorrect XML file" status="passed" time="0.008214"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'xml-validate' task - 705 - Test validating an incorrect XML file
+    When running the pipeline 705_validate.dm ... passed in 0.008s
+    Then error code -2 is returned ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'copy' task - 801 - Copy a file to another" status="passed" time="0.014162"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'copy' task - 801 - Copy a file to another
+    When running the pipeline 801_copy.dm ... passed in 0.008s
+    Then the file 801_copy__o.test.md is equal to 801_copy__o.md ... passed in 0.003s
+    Then the file 801b_copy__o.test.md is equal to 801_copy__o.md ... passed in 0.003s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'copy' task - 802 - Copy a file to another, changing the encoding" status="passed" time="0.017693"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'copy' task - 802 - Copy a file to another, changing the encoding
+    When running the pipeline 802_copy.dm ... passed in 0.009s
+    Then the file 802_copy__o.test.md is equal to 802_copy__o.md ... passed in 0.005s
+    Then the file 802b_copy__o.test.md is equal to 802b_copy__o.md ... passed in 0.003s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'markdown-include' task - 901 - Include Markdown Files" status="passed" time="0.0219"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'markdown-include' task - 901 - Include Markdown Files
+    When running the pipeline 901_include.dm ... passed in 0.012s
+    Then the file 901_include__o.test.md is equal to 901_include__o.md ... passed in 0.010s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'klartext-to-xml' task - C01 - Simple conversion from klartext to xml" status="passed" time="0.024489"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'klartext-to-xml' task - C01 - Simple conversion from klartext to xml
+    When running the pipeline C01_klartext.dm ... passed in 0.011s
+    Then the file C01_klartext__o.test.xml is equal to C01_klartext__o.xml ... passed in 0.014s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'include' task - E01 - Include multiple klartext files" status="passed" time="0.02109"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'include' task - E01 - Include multiple klartext files
+    When running the pipeline E01_include.dm ... passed in 0.011s
+    Then the file E01_include__o.test.xml is equal to E01_include__o.xml ... passed in 0.010s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'include' task - E02 - Include nested klartext files" status="passed" time="0.021206"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'include' task - E02 - Include nested klartext files
+    When running the pipeline E02_include.dm ... passed in 0.012s
+    Then the file E02_include__o.test.xml is equal to E02_include__o.xml ... passed in 0.009s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="run-pipeline.Tests running pipelines" name="Testing the 'pdf-to-png' task - G01" status="passed" time="0.952057"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: Testing the 'pdf-to-png' task - G01
+    When running the pipeline G01_pdf-to-png.dm ... passed in 0.952s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

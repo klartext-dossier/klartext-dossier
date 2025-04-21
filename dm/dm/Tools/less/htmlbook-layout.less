@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+@small-skip:              0.5 * @font-size;
+@large-skip:              1.5 * @font-size;
+
+.captioned-element {
+    margin: (2*@small-skip) 0 @small-skip 0;
+            
+    caption
+    {
+        margin: 0 0 (0.5*@small-skip) @small-skip;            
+    }
+}
+
+.nested-headers {
+    h1, h2, h3, h4, h5, h6
+    {      
+        margin: 0 0 0.4*@font-size 0;
+    }
+}
+
+html 
+{
+    body[data-type="book"] 
+    {
+        line-height: 130%;
+
+        p 
+        {
+            padding: 0;
+            margin: @small-skip 0 0 0;
+        
+            &:first-of-type 
+            {
+              margin-top: 0;
+            }
+        }
+
+        section[data-type="chapter"], nav[data-type="toc"], section[data-type="introduction"], section[data-type="appendix"], section[data-type="bibliography"], section[data-type="glossary"], section[data-type="colophon"], section[data-type="acknowledgments"], section[data-type="afterword"], section[data-type="conclusion"]
+        {       
+            > h1, > header h1 
+            {
+                margin: 1.8*@font-size 0 0.5*@font-size 0;
+            }
+        }
+
+        h1
+        {  
+            margin: 1.8*@font-size 0 0.5*@font-size 0;
+        }
+
+        h2
+        {
+
+            margin: 1.4*@font-size 0 0.5*@font-size 0;
+        }
+
+        h3
+        {
+        
+            margin: 1.3*@font-size 0 0.5*@font-size 0;
+        }
+
+        h4
+        {
+        
+            margin: 1.2*@font-size 0 0.5*@font-size 0;
+        }
+
+        h5
+        {
+
+            margin: 1.1*@font-size 0 0.5*@font-size 0;
+        }
+
+        h6
+        {
+            margin: @font-size 0 0.5*@font-size 0;
+        }
+
+        aside[data-type="sidebar"]
+        {
+            display: block;
+            float: right;
+            width: 30%;
+
+            margin: @small-skip;
+            padding: @small-skip;
+
+            .nested-headers();
+        }
+
+        div[data-type='note'], div[data-type='warning'], div[data-type='tip'], div[data-type='caution'], div[data-type='important']
+        {
+            padding: @small-skip;
+            margin-bottom: 0;
+            margin-top: @small-skip;
+            margin-left: -6px;
+
+            .nested-headers();
+        }
+
+        div[data-type="equation"]
+        {
+            padding: @small-skip;    
+            margin-top: @small-skip;
+
+            .nested-headers();
+        }      
+
+        div[data-type="example"]
+        {
+            margin-top: @small-skip;
+            padding: @small-skip;
+
+            .nested-headers();
+
+            pre
+            {
+                padding: 0;
+                border: 0;   
+                margin-bottom: 0;
+            }  
+        }
+
+        table
+        {
+            .captioned-element();
+
+            th, td
+            {
+                padding: @small-skip;
+            }
+
+            thead, th
+            {
+                width: 11em;
+            }
+        }
+
+        figure 
+        {
+            .captioned-element();
+
+            img 
+            {
+                height: 5cm;
+            }
+        }
+
+        img 
+        {
+            width: 100%;
+        }
+ 
+        ol
+        {
+            padding-left: @small-skip + 3pt;
+            margin-left: @small-skip;
+        }
+      
+        ul
+        {
+            padding-left: @small-skip;
+            margin-left: @small-skip;
+        }
+
+        li 
+        {
+            margin-top: 0.5*@small-skip;
+
+            > * 
+            {
+                margin-top: 0.5*@small-skip;
+                margin-bottom: 0.5*@small-skip;
+            }
+        }
+      
+        dl
+        {
+            padding: @small-skip 0 0 0;
+        
+            dt
+            {
+                padding-bottom: @small-skip;
+            }
+        
+            dd
+            {
+                margin-left: @large-skip;
+                padding: 0 0 @small-skip 0;      
+            }
+        }
+
+        blockquote
+        {
+            padding: @small-skip;
+            margin: @small-skip 0 0 -3px;
+ 
+            :first-child
+            {
+                margin-top: 0;
+            }  
+
+            :last-child
+            {
+                margin-bottom: 0;
+            }  
+        }
+
+        ul.checklist
+        {
+            margin: 0;
+            padding: 0;
+
+            li
+            {
+               padding-right: 8px;
+            }
+        }
+      
+        div, dl, hr
+        {
+            margin: 0;
+        }
+           
+        section[data-type="titlepage"]
+        {
+            header 
+            {
+                margin-bottom: 3em;
+            }
+
+            h1 
+            {
+                margin-top: @large-skip;
+            }
+
+            p[data-type="subtitle"] 
+            {
+                margin-top: @large-skip;
+            }
+            
+            p[data-type="author"] 
+            {
+                margin-top: @large-skip;
+            }  
+        }
+
+        section[data-type="halftitlepage"] 
+        {
+            header 
+            {
+                margin-bottom: 3em;
+            }
+
+            h1 
+            {
+                margin-top: @large-skip;
+            }
+ 
+            p[data-type="subtitle"], p[data-type="author"] 
+            {
+                display: none;
+            }
+        }     
+    }
+}
