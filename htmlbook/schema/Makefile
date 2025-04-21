@@ -1,3 +1,3 @@
 install: 
-	mkdir -p ../../dossier/dm/Tools/xsd
-	cp *.xsd ../../dossier/dm/Tools/xsd
+	mkdir -p ../../dm/dm/Tools/xsd
+	cp *.xsd ../../dm/dm/Tools/xsd

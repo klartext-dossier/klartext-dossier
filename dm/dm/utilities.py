@@ -15,8 +15,8 @@ def guessToolsDir() -> str:
     """
 
     # we are running inside the IDE
-    if os.path.exists('/workspaces/dossier/dossier/dm/Tools'):
-        return '/workspaces/dossier/dossier/dm/Tools'
+    if os.path.exists('/workspaces/dossier/dm/dm/Tools'):
+        return '/workspaces/dossier/dm/dm/Tools'
     
     # we are running in Azure
     if '/usr/local/bin/behave' == os.path.abspath(sys.argv[0]):

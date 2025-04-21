@@ -8,10 +8,10 @@ def before_scenario(context, feature):
     logging.disable(logging.INFO)
     
     # determine tools directory
-    if path.exists('/workspaces/dossier/dossier/dm/Tools'):
-        context.toolsdir = '/workspaces/dossier/dossier/dm/Tools'
-    elif path.exists('/workspaces/mono/dossier/dossier/dm/Tools'):
-        context.toolsdir = '/workspaces/mono/dossier/dossier/dm/Tools'
+    if path.exists('/workspaces/dossier/dm/dm/Tools'):
+        context.toolsdir = '/workspaces/dossier/dm/dm/Tools'
+    elif path.exists('/workspaces/mono/dossier/dm/dm/Tools'):
+        context.toolsdir = '/workspaces/mono/dossier/dm/dm/Tools'
     if 'toolsdir' in context.config.userdata:
         context.toolsdir = context.config.userdata['toolsdir']
     logging.debug(f'toolsdir: {context.toolsdir}')
