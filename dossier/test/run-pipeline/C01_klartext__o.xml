@@ -14,11 +14,11 @@
 <p xmlns="http://www.w3.org/1999/xhtml">Establish a plan for the software development. Design the plan appropriate to the scope, the magnitude and the software safety classification of the software system.</p>
             <achieves ref="SD2_OC1">
             </achieves>
-            <references section="5.1.1" class="A,B,C" ref="IEC62304:2006">
+            <references section="5.1.1" class="A,B,C" ref="IEC62304">
             </references>
-            <references section="7.3.1" ref="ISO13485:2003">
+            <references section="7.3.1" ref="ISO13485">
             </references>
-            <references section="14.4" ref="IEC60601-1:2005">
+            <references section="14.4" ref="IEC60601-1">
             </references>
         </base-practice>
         <base-practice id="SD2_BP2">
@@ -38,7 +38,7 @@
 </div>
             <achieves ref="SD2_OC2">
             </achieves>
-            <references section="4.3" class="A,B,C" ref="IEC62304:2006">
+            <references section="4.3" class="A,B,C" ref="IEC62304">
             </references>
         </base-practice>
     </base-practices>

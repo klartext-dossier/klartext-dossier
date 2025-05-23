@@ -20,9 +20,9 @@ process: #SD.2
 
 			achieves> SD2_OC1
 
-			references> IEC62304:2006 section="5.1.1" class="A,B,C"
-			references> ISO13485:2003 section="7.3.1"
-			references> IEC60601-1:2005 section="14.4"
+			references> IEC62304 section="5.1.1" class="A,B,C"
+			references> ISO13485 section="7.3.1"
+			references> IEC60601-1 section="14.4"
 
 
         base-practice: #SD2_BP2
@@ -43,7 +43,7 @@ process: #SD.2
 
 			achieves> SD2_OC2
 			
-			references> IEC62304:2006 section="4.3" class="A,B,C"
+			references> IEC62304 section="4.3" class="A,B,C"
 
 process: #SD.2
 

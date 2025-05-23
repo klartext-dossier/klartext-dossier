@@ -57,17 +57,19 @@ def processMarkdownFile(md: str) -> str:
 
 markdownContentInstance = markdown.Markdown(extensions=COMMON_EXTENSIONS+['mdx.xhtml'], extension_configs=EXTENSION_CONFIGS)
 
-def processMarkdownContent(md: str) -> str:
+def processMarkdownContent(md: str, namespaces: dict[str, str]) -> str:
 
     """ Converts markdown content.
 
         Parses markdown content with the extensions necessary to create a segment of HTMLBook compliant xhtml. 
 
         Args:
-            md: The markdown input.
+            md:         The markdown input.
+            namespaces: The namespaces defined in the klartext file
 
         Returns:
             The markdown content converted to xhtml.
     """
-
+    
+    markdownContentInstance.namespaces = namespaces
     return markdownContentInstance.reset().convert(md)

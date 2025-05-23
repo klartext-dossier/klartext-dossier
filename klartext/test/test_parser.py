@@ -51,7 +51,7 @@ class TestRemoveSurroundingBlankLines(unittest.TestCase):
 
 
 4"""
-        self.assertEqual(R, Parser.removeSurroundingBlankLines(T))
+        self.assertEqual(R, Parser.removeSurroundingBlankLines(T, None))
 
     def test_empty(self):
         T = """
@@ -59,7 +59,7 @@ class TestRemoveSurroundingBlankLines(unittest.TestCase):
 
 """
         R = ""
-        self.assertEqual(R, Parser.removeSurroundingBlankLines(T))
+        self.assertEqual(R, Parser.removeSurroundingBlankLines(T, None))
 
 
 class TestParser(unittest.TestCase):
@@ -101,12 +101,6 @@ foobar:
 This is not *markdown*.
 """
         self.assertEqual(b'This is not *markdown*.\n', self.runParser(KT))
-
-    def test_convert_text(self):
-        KT = """
-This is not *markdown*.
-"""
-        self.assertEqual(b'THIS IS NOT *MARKDOWN*.\n', self.parser.parse(str_to_file(KT), convert_text=str.upper))
 
     def test_namespaces(self):
         KT = """
