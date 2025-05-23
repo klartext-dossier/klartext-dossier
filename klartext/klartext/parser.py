@@ -30,7 +30,7 @@ class Parser:
 
 
     @staticmethod
-    def removeSurroundingBlankLines(text: str) -> str:
+    def removeSurroundingBlankLines(text: str, namespaces: dict[str, str]) -> str:
         
         """ Default conversion for text content.
         
@@ -38,6 +38,7 @@ class Parser:
 
             Args:
                 text: The text content
+                namespaces: The namespaces defined in the klartext file
 
             Returns:
                 The text content without leading and trailing blank lines
@@ -51,18 +52,20 @@ class Parser:
 
 
     @staticmethod
-    def convertMarkdown(text: str) -> str:
+    def convertMarkdown(text: str, namespaces: dict[str, str]) -> str:
         
         """ Markdown conversion for text content.
         
             Converts the text content from Markdown to xhtml.
 
             Args:
-                text: The text content
+                text:       The text content
+                namespaces: The namespaces defined in the klartext file
 
             Returns:
                 The text content converted from Markdown to xhtml
         """        
+        markdownInstance.namespaces = namespaces
         return markdownInstance.reset().convert(text)
 
 
@@ -324,7 +327,7 @@ class Parser:
                         if content.startswith('"') and content.endswith('"'):
                             content = content[1:-1]
                         elif convert_text is not None:
-                            content = convert_text(Parser.removeSurroundingBlankLines(content))
+                            content = convert_text(Parser.removeSurroundingBlankLines(content, self.namespaces), self.namespaces)
 
                     prefix = attribs.get('prefix')
                     namespace = attribs.get('namespace')
@@ -366,7 +369,7 @@ class Parser:
                     i += 1
                     text = tokens[i].content()                
                 if convert_text is not None:
-                    xml += convert_text(Parser.removeSurroundingBlankLines(text_content)) + '\n'
+                    xml += convert_text(Parser.removeSurroundingBlankLines(text_content, self.namespaces), self.namespaces) + '\n'
                 else:
                     xml += text_content
                 continue
