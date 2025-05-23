@@ -184,7 +184,11 @@ class Parser:
                 raise ParseError(f'Namespace prefix "{prefix}" has not been imported')
             return hashlib.md5(prefix.encode('utf-8')).hexdigest() + "__" + id
         else:
-            return id
+            if id in self.namespaces:
+                id = self.namespaces[id]
+                return hashlib.md5(id.encode('utf-8')).hexdigest()
+            else:
+                return id
 
     def _nextToken(self) -> Token:
         current_line = self._readLine()
