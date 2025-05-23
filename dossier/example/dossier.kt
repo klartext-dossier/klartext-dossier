@@ -6,14 +6,16 @@ dossier:
 
         md::device: #DEVICE name="Generic Dialysis System"
 
-            md::intended-use: 
-                The /r/DEVICE/ is a dialysis machine for chronic haemodialysis treatments.
+            !include "intended-use-statement.kt"
 
 
     document-model: name="Technical Documentation"
+
+        document: #APP name="Application Specification"
 
         document: #RA name="Risk Analysis"
 
         file: name="Risk Management File"
 
+            include> APP
             include> RA
