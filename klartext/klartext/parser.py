@@ -1,7 +1,7 @@
 """ Module providing a parser for the klartext markup language.
 """
 
-import logging, re, collections, os, io
+import logging, re, collections, os, io, hashlib
 from typing import Callable, Tuple
 import markdown
 
@@ -21,8 +21,8 @@ class Parser:
 
     # Regular expressions used for parsing
     ATTR_RE    = re.compile(r'\s*(?P<name>[\w_\-]+)\s*=\s*"(?P<value>[^"]*)"\s*')
-    TAG_RE     = re.compile(r'^\s*((?P<prefix>\w+)\:\:)?(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?:\s*(#(?P<id>[\w\-_\.]+)\s*)?(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
-    LINK_RE    = re.compile(r'^\s*(?P<link>[\w\-_]+)>\s+(?P<ref>\S+)\s*(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
+    TAG_RE     = re.compile(r'^\s*((?P<prefix>\w+)\:\:)?(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?:\s*(#((?P<idprefix>\w+):)?(?P<id>[\w\-_\.]+)\s*)?(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
+    LINK_RE    = re.compile(r'^\s*(?P<link>[\w\-_]+)>\s+((?P<refprefix>\w+):)?(?P<ref>\S+)\s*(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
     ID_RE      = re.compile(r'\s+#(?P<id>[\w_]+)')
     INCLUDE_RE = re.compile(r'^\s*!include\s+"(?P<file>[^"]+)"\s*$')
     IMPORT_RE  = re.compile(r'^\s*!import\s+"(?P<namespace>[^"]+)"\s+as\s+(?P<prefix>\w+)\s*$')
@@ -176,6 +176,15 @@ class Parser:
 
         return Parser._indentSpaces(indent) + line
 
+    def _prefixed_id(self, id: str, prefix: str | None) -> str:
+        if prefix:
+            if prefix in self.namespaces:
+                prefix = self.namespaces[prefix]
+            else:
+                raise ParseError(f'Namespace prefix "{prefix}" has not been imported')
+            return hashlib.md5(prefix.encode('utf-8')).hexdigest() + "__" + id
+        else:
+            return id
 
     def _nextToken(self) -> Token:
         current_line = self._readLine()
@@ -229,7 +238,7 @@ class Parser:
         if match_tag:
             a = Parser._getAttributes(match_tag.group('rest'))
             if match_tag.group('id'):
-                a['id'] = match_tag.group('id')
+                a['id'] = self._prefixed_id(match_tag.group('id'), match_tag.group('idprefix'))
             if match_tag.group('class'):
                 a['class'] = match_tag.group('class')
             if match_tag.group('prefix'):
@@ -248,7 +257,7 @@ class Parser:
         match_link = self.LINK_RE.match(current_line)
         if match_link:
             attribs = Parser._getAttributes(match_link.group('rest'))
-            attribs['ref'] = match_link.group('ref')
+            attribs['ref'] = self._prefixed_id(match_link.group('ref'), match_link.group('refprefix'))
             return Token(indent, Token.TAG, { Token.TAG: match_link.group('link'), 'attribs': attribs, 'content': match_link.group('content') } )
 
         # line of text
