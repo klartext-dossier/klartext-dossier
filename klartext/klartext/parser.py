@@ -283,7 +283,7 @@ class Parser:
         return tokens
 
 
-    def parse(self, infile: io.TextIOBase, convert_text: Callable[[str], str] = removeSurroundingBlankLines, basedir: str = "", lookup: Callable[[str, str], str] = lookupIncludeFile) -> bytes:
+    def parse(self, infile: io.TextIOBase, convert_text: Callable[[str, dict[str,str]], str] = removeSurroundingBlankLines, basedir: str = "", lookup: Callable[[str, str], str] = lookupIncludeFile) -> bytes:
 
         """ Parse a klartext file.
 
