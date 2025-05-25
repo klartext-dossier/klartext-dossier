@@ -3,7 +3,7 @@
     "displayName": "klartext",
     "description": "Language support for klartext",
     "publisher": "emhaka",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "engines": {
         "vscode": "^1.43.0"
     },

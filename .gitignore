@@ -105,5 +105,5 @@ klartext-pygments/venv
 docs/index.html
 .cache
 docs/index.html
-klartext-vscode/klartext-0.0.1.vsix
-klartext-vscode/dist/klartext-0.0.1.vsix
+klartext-vscode/klartext-*.vsix
+klartext-vscode/dist
