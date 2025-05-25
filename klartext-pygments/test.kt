@@ -24,3 +24,7 @@ tag:
     # Heading
 
     This *is* simple _markdown_.
+
+tag: #org::ident
+
+link> org::ident

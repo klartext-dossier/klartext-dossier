@@ -1,0 +1,16 @@
+<root>
+    <glossary id="cfda9ff7e058cf7579097cf2ab9c852b">
+        <entry>
+            <term>Medical Device
+            </term>
+            <definition>
+<p xmlns="http://www.w3.org/1999/xhtml">A device with a medical purpose.</p>
+            </definition>
+        </entry>
+    </glossary>
+    <tag id="cfda9ff7e058cf7579097cf2ab9c852b__foobar">
+<p xmlns="http://www.w3.org/1999/xhtml">This is a <a data-type="xref" data-xrefstyle="glossary" href="#cfda9ff7e058cf7579097cf2ab9c852b__medical_device">medical device</a> according to the MDR, while this is a <a data-type="xref" data-xrefstyle="glossary" href="#45ff539123fc2f5408f798869aab58e2__medical_device">medical device</a> according to ISO 13485.</p>
+    </tag>
+    <link ref="cfda9ff7e058cf7579097cf2ab9c852b__foobar">
+    </link>
+</root>

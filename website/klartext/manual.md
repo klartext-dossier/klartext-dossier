@@ -255,6 +255,31 @@ It is possible to define namespaces for tags used in `klartext`:
     </ex:tag>
     ```
 
+Namespaces can also be used to make sure that IDs are unique within a scope:
+
+=== "klartext input"
+    ``` klartext
+    !import "http://www.klartext-dossier.org/example" as ex
+    !import "http://www.klartext-dossier.org/foobar" as foo
+
+    tag: #ex
+
+        subtag: #ex::subid
+
+        another: #foo::subid
+    ```
+
+=== "XML output"
+    ``` xml
+    <tag id="5ca887e102362bf87d99968ef3410b06">
+        <subtag id="5ca887e102362bf87d99968ef3410b06__subid">
+        </subtag>
+        <another id="443d4219c8274b65b61ba7347889ade8__subid">
+        </another>
+    </tag>
+    ```
+
+
 ## Includes
 
 `klartext` files allow to include other `klartext` files:
