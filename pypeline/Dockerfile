@@ -54,3 +54,6 @@ ARG KLARTEXT_PYGMENTS_VERSION=0.1.0
 ADD klartext_pygments-$KLARTEXT_PYGMENTS_VERSION-py3-none-any.whl /
 RUN pip install klartext_pygments-$KLARTEXT_PYGMENTS_VERSION-py3-none-any.whl
 RUN rm /*.whl
+
+# Install vcse
+npm install -g vcse
