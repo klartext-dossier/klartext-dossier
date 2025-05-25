@@ -56,4 +56,4 @@ RUN pip install klartext_pygments-$KLARTEXT_PYGMENTS_VERSION-py3-none-any.whl
 RUN rm /*.whl
 
 # Install vcse
-RUN npm install -g vcse
+RUN npm install -g @vscode/vsce
