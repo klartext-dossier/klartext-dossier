@@ -11,7 +11,7 @@ root:
             definition:
                 A device with a medical purpose.
 
-    tag: #mdr:foobar
-        This is a {mdr:medical device} according to the MDR, while this is a {qm:medical device} according to ISO 13485.
+    tag: #mdr::foobar
+        This is a {mdr::medical device} according to the MDR, while this is a {qm::medical device} according to ISO 13485.
 
-    link> mdr:foobar
+    link> mdr::foobar

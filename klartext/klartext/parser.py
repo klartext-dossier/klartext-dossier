@@ -21,8 +21,8 @@ class Parser:
 
     # Regular expressions used for parsing
     ATTR_RE    = re.compile(r'\s*(?P<name>[\w_\-]+)\s*=\s*"(?P<value>[^"]*)"\s*')
-    TAG_RE     = re.compile(r'^\s*((?P<prefix>\w+)\:\:)?(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?:\s*(#((?P<idprefix>\w+):)?(?P<id>[\w\-_\.]+)\s*)?(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
-    LINK_RE    = re.compile(r'^\s*(?P<link>[\w\-_]+)>\s+((?P<refprefix>\w+):)?(?P<ref>\S+)\s*(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
+    TAG_RE     = re.compile(r'^\s*((?P<prefix>\w+)\:\:)?(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?:\s*(#((?P<idprefix>\w+)::)?(?P<id>[\w\-_\.]+)\s*)?(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
+    LINK_RE    = re.compile(r'^\s*(?P<link>[\w\-_]+)>\s+((?P<refprefix>\w+)::)?(?P<ref>\S+)\s*(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
     ID_RE      = re.compile(r'\s+#(?P<id>[\w_]+)')
     INCLUDE_RE = re.compile(r'^\s*!include\s+"(?P<file>[^"]+)"\s*$')
     IMPORT_RE  = re.compile(r'^\s*!import\s+"(?P<namespace>[^"]+)"\s+as\s+(?P<prefix>\w+)\s*$')
@@ -378,6 +378,7 @@ class Parser:
             elif Token.EOF == tokens[i]:
                 break
             else:
+                print(tokens[i])
                 raise ParseError('Parse error', tokens[i])
             i += 1
 

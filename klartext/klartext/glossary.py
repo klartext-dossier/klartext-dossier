@@ -53,7 +53,7 @@ class GlossaryExtension(markdown.extensions.Extension):
     """
 
     def extendMarkdown(self, md: markdown.Markdown) -> None:
-        templatePattern = GlossaryInlineProcessor(r'{((?P<prefix>\w+):)?(?P<term>\w[^}]+)}')
+        templatePattern = GlossaryInlineProcessor(r'{((?P<prefix>\w+)::)?(?P<term>\w[^}]+)}')
         templatePattern.md = md
         md.inlinePatterns.register(templatePattern, 'gls', 80)
 
