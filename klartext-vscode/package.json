@@ -33,7 +33,9 @@
             }
         ]
     },
-    "dependencies": {
-        "vsce": "^2.10.0"
-    }
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/klartext-dossier/klartext-dossier"
+    },
+    "homepage": "https://https://www.klartext-dossier.org/"
 }
