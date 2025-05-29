@@ -27,10 +27,60 @@ def ext_match_g(context: object, text: str, used_text: str) -> bool:
         Returns:
             true, if the strings are equal when compared case-insensitive, otherwise false
     """
-
+    
     text = string(text).strip().lower()
     used_text = string(used_text).strip().lower()
     return text == used_text
+
+
+def _term_used_g(context: object, term: str) -> bool:
+
+    term = string(term).lower().strip()
+
+    glossary_id = None
+    if 'glossary' in context.eval_context:
+        glossary_id = context.eval_context['glossary'].get('id')
+    
+    root = context.context_node.getroottree()
+
+    references = []
+    if glossary_id is not None:
+        href = f'#{glossary_id}__'
+        references = root.xpath(f'//xhtml:a[@data-type="xref" and @data-xrefstyle="glossary" and contains(@href, "{glossary_id}") and not(ancestor::glossary)]/text()', namespaces={'xhtml': 'http://www.w3.org/1999/xhtml'})
+    else:
+        references = root.xpath('//xhtml:a[@data-type="xref" and @data-xrefstyle="glossary" and not(ancestor::glossary)]/text()', namespaces={'xhtml': 'http://www.w3.org/1999/xhtml'})
+    
+    for text in references:
+        if ext_match_g(context, text, term):
+            return True
+    
+    return False
+
+
+def ext_entry_used_g(context: object, entries: list[lxml.etree._Element]) -> bool:
+    
+    root = context.context_node.getroottree()
+    parent = context.context_node.getparent()
+
+    glossary_id = None
+    if parent is not None and 'glossary' == parent.tag:
+        context.eval_context['glossary'] = parent
+        glossary_id = parent.get('id')
+
+    for entry in entries:
+        for term in entry.findall('term'):
+            if _term_used_g(context, term.text):
+                return True
+    
+            for glossary_entry in root.xpath(f'//glossary/entry'):
+                if glossary_entry != entry:
+                    references = glossary_entry.xpath(f'definition//xhtml:a[@data-type="xref" and @data-xrefstyle="glossary"]/text()', namespaces={'xhtml': 'http://www.w3.org/1999/xhtml'})
+                    for referenced_term in references:
+                        if ext_match_g(context, referenced_term, term.text):
+                            if ext_entry_used_g(context, [glossary_entry]):
+                                return True
+
+    return False
 
 
 def ext_id(context: object, text: str | list[str]) -> str:
@@ -206,6 +256,7 @@ def register_dossier_extensions(namespace: str) -> None:
 
     ns = lxml.etree.FunctionNamespace(namespace)
 
+    ns['entry-used-g'] = ext_entry_used_g
     ns['match-g'] = ext_match_g
     ns['id'] = ext_id
     ns['unique-id'] = ext_unique_id
