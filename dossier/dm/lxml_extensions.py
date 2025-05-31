@@ -74,9 +74,12 @@ def ext_entry_used_g(context: object, entries: list[lxml.etree._Element]) -> boo
     for entry in entries:
         for term in entry.findall('term'):
             term_text = term.text.strip().lower()
+
+            # check if the term is directly used in a reference
             if _term_used_g(context, term_text):
                 return True
     
+            # check if the term is used in the definition of a used term
             for glossary_entry in root.xpath(f'//glossary/entry'):
                 if glossary_entry != entry:
                     references = glossary_entry.xpath(f'definition//xhtml:a[@data-type="xref" and @data-xrefstyle="glossary"]', namespaces={'xhtml': 'http://www.w3.org/1999/xhtml'})

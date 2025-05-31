@@ -53,6 +53,17 @@ document:
             definition:
                 Sample definition C
 
+        entry:
+            term: "Recursive Term 1"
+            
+            definition:
+                Uses {recursive term 2}
+
+        entry:
+            term: "Recursive Term 2"
+            
+            definition:
+                Uses {recursive term 1}
 
     content:
         This is 
@@ -61,3 +72,4 @@ document:
         - b {glsb::sample term}
         - c {sample term}
         - d {unspecified term}
+        - e {recursive term 1}
