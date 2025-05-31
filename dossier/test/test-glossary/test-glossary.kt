@@ -39,6 +39,12 @@ document:
             definition:
                 Sample definition
 
+        entry:
+            term: "Unspecified Term"
+
+            definition:
+                Sample definition
+
     glossary: title="Glossary C"
 
         entry:
@@ -54,3 +60,4 @@ document:
         - a {glsa::sample term}
         - b {glsb::sample term}
         - c {sample term}
+        - d {unspecified term}

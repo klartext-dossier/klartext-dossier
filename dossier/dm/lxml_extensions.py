@@ -33,27 +33,31 @@ def ext_match_g(context: object, text: str, used_text: str) -> bool:
     return text == used_text
 
 
+HREF_RE = re.compile(r'#(?P<glossary>[a-zA-Z0-9]+)__.*')
+
+def _refered_glossary(reference: lxml.etree._Element) -> str | None:
+    href = HREF_RE.match(reference.get('href'))
+    if href:
+        return href.group('glossary')
+
+    return None
+
+
 def _term_used_g(context: object, term: str) -> bool:
 
-    term = string(term).lower().strip()
-
-    glossary_id = None
-    if 'glossary' in context.eval_context:
-        glossary_id = context.eval_context['glossary'].get('id')
-    
     root = context.context_node.getroottree()
 
-    references = []
-    if glossary_id is not None:
-        href = f'#{glossary_id}__'
-        references = root.xpath(f'//xhtml:a[@data-type="xref" and @data-xrefstyle="glossary" and contains(@href, "{glossary_id}") and not(ancestor::glossary)]/text()', namespaces={'xhtml': 'http://www.w3.org/1999/xhtml'})
-    else:
-        references = root.xpath('//xhtml:a[@data-type="xref" and @data-xrefstyle="glossary" and not(ancestor::glossary)]/text()', namespaces={'xhtml': 'http://www.w3.org/1999/xhtml'})
-    
-    for text in references:
-        if ext_match_g(context, text, term):
+    term_text = string(term).strip().lower()
+    term_id = context.eval_context['glossary'].get('id') if 'glossary' in context.eval_context else None
+
+    references = root.xpath(f'//xhtml:a[@data-type="xref" and @data-xrefstyle="glossary" and not(ancestor::glossary)]', namespaces={'xhtml': 'http://www.w3.org/1999/xhtml'})
+    for reference in references:
+        ref_text = reference.text.strip().lower()
+        ref_id = _refered_glossary(reference)
+
+        if ext_match_g(context, term_text, ref_text) and ((term_id == ref_id) or (ref_id is None)):
             return True
-    
+
     return False
 
 
@@ -62,21 +66,25 @@ def ext_entry_used_g(context: object, entries: list[lxml.etree._Element]) -> boo
     root = context.context_node.getroottree()
     parent = context.context_node.getparent()
 
-    glossary_id = None
+    term_id = None
     if parent is not None and 'glossary' == parent.tag:
         context.eval_context['glossary'] = parent
-        glossary_id = parent.get('id')
+        term_id = parent.get('id')
 
     for entry in entries:
         for term in entry.findall('term'):
-            if _term_used_g(context, term.text):
+            term_text = term.text.strip().lower()
+            if _term_used_g(context, term_text):
                 return True
     
             for glossary_entry in root.xpath(f'//glossary/entry'):
                 if glossary_entry != entry:
-                    references = glossary_entry.xpath(f'definition//xhtml:a[@data-type="xref" and @data-xrefstyle="glossary"]/text()', namespaces={'xhtml': 'http://www.w3.org/1999/xhtml'})
-                    for referenced_term in references:
-                        if ext_match_g(context, referenced_term, term.text):
+                    references = glossary_entry.xpath(f'definition//xhtml:a[@data-type="xref" and @data-xrefstyle="glossary"]', namespaces={'xhtml': 'http://www.w3.org/1999/xhtml'})
+                    for reference in references:
+                        ref_text = reference.text.strip().lower()
+                        ref_id = _refered_glossary(reference)
+
+                        if ext_match_g(context, term_text, ref_text) and ((term_id == ref_id) or (ref_id is None)):
                             if ext_entry_used_g(context, [glossary_entry]):
                                 return True
 
