@@ -19,6 +19,7 @@ md::intended-use: #gds-intended-use
         Patients with symptomatic kidney failure and low glomerular filtration rate (GFR < 15 mL/min).
 
         icd> icd::code-N18.5
+        icd> icd::code-Z99.2
         
     md::patient-group:
         The /r/DEVICE/ is intended for patients with permanent kidney failure and a body-weight > 40 kg.
