@@ -5,6 +5,7 @@ import hashlib, lxml.etree, re
 
 
 MULT_SPACES = re.compile(r'\s+')
+HREF_RE     = re.compile(r'#(?P<glossary>[a-zA-Z0-9]+)__(?P<term>.*)')
 
 
 def string(str_or_list: str | list[str]) -> str:
@@ -15,6 +16,40 @@ def string(str_or_list: str | list[str]) -> str:
     return str(str_or_list)
 
 
+def ext_term_g(context: object, terms: list[lxml.etree._Element]) -> str:
+
+    for term in terms:
+        return term.text.strip()
+
+
+def ext_entry_link_g(context: object, entries: list[lxml.etree._Element]) -> str:
+
+    for entry in entries:
+        glossary = entry.getparent()
+        glossary_id = glossary.get('id')
+        term = entry.find('term')
+
+        if term is not None:
+            id_text = MULT_SPACES.sub('_', term.text.strip().lower())
+
+            if glossary_id is not None:
+                return f'{glossary_id}__{id_text}'
+            else:
+                return f'{id_text}'
+
+    return ""
+
+
+def ext_defined_fully_g(context: object, refs: list[lxml.etree._Element]) -> bool:
+
+    href = HREF_RE.match(string(refs))
+    if href:
+        print(f'MATCH {href.group("glossary")}, {href.group("term")}')
+        return True
+
+    return False
+
+
 def ext_match_g(context: object, text: str, used_text: str) -> bool:
 
     """ Compares two texts case-insensitive.
@@ -22,7 +57,7 @@ def ext_match_g(context: object, text: str, used_text: str) -> bool:
         Args:
             context:   the xpath context
             text:      first string
-            used_text: seconde string
+            used_text: second string
 
         Returns:
             true, if the strings are equal when compared case-insensitive, otherwise false
@@ -30,10 +65,9 @@ def ext_match_g(context: object, text: str, used_text: str) -> bool:
     
     text = string(text).strip().lower()
     used_text = string(used_text).strip().lower()
+
     return text == used_text
 
-
-HREF_RE = re.compile(r'#(?P<glossary>[a-zA-Z0-9]+)__.*')
 
 def _refered_glossary(reference: lxml.etree._Element) -> str | None:
     href = HREF_RE.match(reference.get('href'))
@@ -268,7 +302,10 @@ def register_dossier_extensions(namespace: str) -> None:
     ns = lxml.etree.FunctionNamespace(namespace)
 
     ns['entry-used-g'] = ext_entry_used_g
+    ns['defined-fully-g'] = ext_defined_fully_g
+    ns['entry-link-g'] = ext_entry_link_g
     ns['match-g'] = ext_match_g
+    ns['term-g'] = ext_term_g
     ns['id'] = ext_id
     ns['unique-id'] = ext_unique_id
     ns['lower-case'] = ext_lowercase

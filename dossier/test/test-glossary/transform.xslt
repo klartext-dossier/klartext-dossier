@@ -8,14 +8,32 @@
         </xsl:copy>
     </xsl:template>
    
+    <xsl:template match="xhtml:a[@data-type='xref' and @data-xrefstyle='glossary']">       
+        <xsl:variable name="term" select="text()"/>
+        <xsl:choose>
+            <xsl:when test="dm:defined-fully-g(@href)">
+                <xsl:copy-of select="."/>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="syntax-error"><xsl:value-of select="$term"/></span>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>    
+
     <xsl:template match="content|document">
         <xsl:apply-templates/>
     </xsl:template>
 
+    <xsl:template match="definition">
+        <dd>
+            <xsl:apply-templates/>
+        </dd>
+    </xsl:template>
+
     <xsl:template match="entry">
         <xsl:if test="dm:entry-used-g(.)">
-            <dt><xsl:value-of select="term[1]"/></dt>    
-            <dd><xsl:apply-templates select="definition"/></dd>    
+            <dt id="{dm:entry-link-g(.)}"><xsl:value-of select="dm:term-g(term[1])"/></dt>    
+            <xsl:apply-templates/>
         </xsl:if>
     </xsl:template>
 
