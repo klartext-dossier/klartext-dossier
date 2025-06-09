@@ -16,4 +16,5 @@ pipeline:
 
     xhtml-to-pdf:
         stylesheet: "htmlbook.css"
+        stylesheet: "htmlbook-debug.css"
         output: "test-glossary.pdf"

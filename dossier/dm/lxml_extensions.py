@@ -4,8 +4,9 @@
 import hashlib, lxml.etree, re
 
 
-MULT_SPACES = re.compile(r'\s+')
-HREF_RE     = re.compile(r'#(?P<glossary>[a-zA-Z0-9]+)__(?P<term>.*)')
+MULT_SPACES  = re.compile(r'\s+')
+HREF_FULL_RE = re.compile(r'#(?P<glossary>[a-zA-Z0-9]+)__(?P<term>.*)')
+HREF_PART_RE = re.compile(r'#(?P<term>.*)')
 
 
 def string(str_or_list: str | list[str]) -> str:
@@ -40,12 +41,87 @@ def ext_entry_link_g(context: object, entries: list[lxml.etree._Element]) -> str
     return ""
 
 
+def ext_lookup_g(context: object, refs: list[lxml.etree._Element]) -> lxml.etree._Element:
+
+    root = context.context_node.getroottree()
+
+    if len(refs) != 1:
+        return False    
+    ref = refs[0]
+
+    link = lxml.etree.Element('a')
+    link.set('data-type', 'xref')
+    link.set('data-xrefstyle', 'glossary')
+
+    href = HREF_FULL_RE.match(ref.get('href'))
+    if href:
+        glossary = href.group("glossary")
+        term = href.group("term")
+        terms = root.xpath(f'//glossary[@id="{glossary}"]//term')
+        for text in terms:
+            if MULT_SPACES.sub('_', text.text.strip().lower()) == term:
+                link.set('href', f'#{glossary}__{term}')
+                link.text = ref.text
+                link.set('data-match', 'full')
+                return link
+
+    href = HREF_PART_RE.match(ref.get('href'))
+    if href:
+        term = href.group("term")
+        terms = root.xpath(f'//glossary//term')
+        cnt = 0
+        for text in terms:
+            if MULT_SPACES.sub('_', text.text.strip().lower()) == term:
+                cnt += 1
+                glossary = text.getparent().getparent().get('id')
+                if glossary is not None:                    
+                    link.set('href', f'#{glossary}__{term}')
+                else:    
+                    link.set('href', f'#{term}')
+                link.text = ref.text
+        if 1 == cnt:
+            link.set('data-match', 'unique')
+            return link
+        if cnt > 1:
+            link.set('data-match', 'ambigiuous')
+            return link
+
+    return ref
+
+
 def ext_defined_fully_g(context: object, refs: list[lxml.etree._Element]) -> bool:
 
-    href = HREF_RE.match(string(refs))
+    root = context.context_node.getroottree()
+
+    href = HREF_FULL_RE.match(string(refs))
     if href:
-        print(f'MATCH {href.group("glossary")}, {href.group("term")}')
-        return True
+        glossary = href.group("glossary")
+        term = href.group("term")
+        terms = root.xpath(f'//glossary[@id="{glossary}"]//term')
+        for text in terms:
+            if MULT_SPACES.sub('_', text.text.strip().lower()) == term:
+                # print(f'MATCH {glossary}, {term}')
+                return True
+
+    return False
+
+
+def ext_defined_uniquely_g(context: object, refs: list[lxml.etree._Element]) -> bool:
+
+    root = context.context_node.getroottree()
+
+    href = HREF_PART_RE.match(string(refs))
+    if href:
+        term = href.group("term")
+        terms = root.xpath(f'//glossary//term')
+        for text in terms:
+            cnt = 0
+            if MULT_SPACES.sub('_', text.text.strip().lower()) == term:
+                cnt += 1
+            
+            if cnt>0:
+                print(f'MATCH {term} {cnt} times')
+                return True
 
     return False
 
@@ -70,7 +146,7 @@ def ext_match_g(context: object, text: str, used_text: str) -> bool:
 
 
 def _refered_glossary(reference: lxml.etree._Element) -> str | None:
-    href = HREF_RE.match(reference.get('href'))
+    href = HREF_FULL_RE.match(reference.get('href'))
     if href:
         return href.group('glossary')
 
@@ -302,7 +378,9 @@ def register_dossier_extensions(namespace: str) -> None:
     ns = lxml.etree.FunctionNamespace(namespace)
 
     ns['entry-used-g'] = ext_entry_used_g
+    ns['lookup-g'] = ext_lookup_g
     ns['defined-fully-g'] = ext_defined_fully_g
+    ns['defined-uniquely-g'] = ext_defined_uniquely_g
     ns['entry-link-g'] = ext_entry_link_g
     ns['match-g'] = ext_match_g
     ns['term-g'] = ext_term_g
