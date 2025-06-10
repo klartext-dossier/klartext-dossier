@@ -13,8 +13,8 @@
     </xsl:template>
 
     <xsl:template match="definition">
-        <dd>
-            <xsl:apply-templates/>
+        <dd data-type="glossdef">
+            <dfn><xsl:apply-templates/></dfn>
         </dd>
     </xsl:template>
 
@@ -24,7 +24,7 @@
 
     <xsl:template match="entry">
         <xsl:if test="gls:used(.)">
-            <dt id="{gls:link(.)}"><xsl:value-of select="gls:term(term[1])"/></dt>    
+            <dt id="{gls:link(.)}" data-type="glossterm"><xsl:value-of select="gls:term(term[1])"/></dt>    
             <xsl:apply-templates select="definition"/>
         </xsl:if>
     </xsl:template>
@@ -33,7 +33,7 @@
         <section data-type="glossary">
             <h1><xsl:value-of select="@title"/></h1>
 
-            <dl>
+            <dl data-type="glossary">
                 <xsl:apply-templates select="entry">        
                     <xsl:sort select="term[1]"/>
                 </xsl:apply-templates>
