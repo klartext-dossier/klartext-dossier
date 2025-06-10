@@ -1,4 +1,4 @@
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:dm="http://www.hoelzer-kluepfel.de/dossier" exclude-result-prefixes="dm">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:dm="http://www.hoelzer-kluepfel.de/dossier" xmlns:gls="http://klartext-dossier.org/glossary" exclude-result-prefixes="dm gls">
 
     <xsl:output method="xml" indent="yes"/>
 
@@ -46,8 +46,8 @@
     <xsl:template match="xhtml:a[@data-type='xref' and @data-xrefstyle='glossary']">       
         <xsl:variable name="term" select="normalize-space(text())"/>
         <xsl:choose>
-            <xsl:when test="//term[dm:match-g(normalize-space(text()), $term)]">
-                <xsl:variable name="ref" select="//term[dm:match-g(normalize-space(text()), $term)]/../term[1]/text()"/>
+            <xsl:when test="//term[gls:match(normalize-space(text()), $term)]">
+                <xsl:variable name="ref" select="//term[gls:match(normalize-space(text()), $term)]/../term[1]/text()"/>
                 <a href="#{dm:id(string($ref))}"><xsl:value-of select="."/></a>
             </xsl:when>
             <xsl:otherwise>

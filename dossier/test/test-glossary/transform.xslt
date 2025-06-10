@@ -1,4 +1,4 @@
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:dm="http://klartext-dossier.org/dossier">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:dm="http://klartext-dossier.org/dossier" xmlns:gls="http://klartext-dossier.org/glossary">
 
     <xsl:output method="xml" indent="yes"/>
 
@@ -7,10 +7,6 @@
             <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
     </xsl:template>
-   
-    <xsl:template match="xhtml:a[@data-type='xref' and @data-xrefstyle='glossary']">
-        <xsl:copy-of select="dm:lookup-g(.)"/>
-    </xsl:template>    
 
     <xsl:template match="content|document">
         <xsl:apply-templates/>
@@ -22,12 +18,14 @@
         </dd>
     </xsl:template>
 
-    <xsl:template match="term"/>        
-    
+    <xsl:template match="xhtml:a[@data-type='xref' and @data-xrefstyle='glossary']">
+        <xsl:copy-of select="gls:lookup(.)"/>
+    </xsl:template>    
+
     <xsl:template match="entry">
-        <xsl:if test="dm:entry-used-g(.)">
-            <dt id="{dm:entry-link-g(.)}"><xsl:value-of select="dm:term-g(term[1])"/></dt>    
-            <xsl:apply-templates/>
+        <xsl:if test="gls:used(.)">
+            <dt id="{gls:link(.)}"><xsl:value-of select="gls:term(term[1])"/></dt>    
+            <xsl:apply-templates select="definition"/>
         </xsl:if>
     </xsl:template>
 

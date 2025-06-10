@@ -1,4 +1,4 @@
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:re="http://exslt.org/regular-expressions" xmlns:dm="http://www.hoelzer-kluepfel.de/dossier" exclude-result-prefixes="re dm">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:re="http://exslt.org/regular-expressions" xmlns:dm="http://www.hoelzer-kluepfel.de/dossier" xmlns:gls="http://klartext-dossier.org/glossary" exclude-result-prefixes="re dm gls">
 
     <!-- Import the common transformation stylesheet -->
     <xsl:import href="common-transformations.xslt"/>
@@ -31,7 +31,7 @@
         <xsl:param name="depth" select="1"/>        
         <xsl:variable name="ref">#<xsl:value-of select="dm:id(string($term-to-check))"/></xsl:variable>
         <xsl:choose>
-            <xsl:when test="//xhtml:a[dm:match-g(@href, $ref)]">
+            <xsl:when test="//xhtml:a[gls:match(@href, $ref)]">
                 <xsl:value-of select="$term-to-check"/>
             </xsl:when>
             <xsl:otherwise>
