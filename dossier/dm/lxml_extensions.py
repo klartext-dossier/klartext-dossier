@@ -83,9 +83,10 @@ def ext_lookup_g(context: object, refs: list[lxml.etree._Element]) -> lxml.etree
             link.set('data-match', 'unique')
             return link
         if cnt > 1:
-            link.set('data-match', 'ambigiuous')
+            link.set('data-match', 'ambiguous')
             return link
 
+    ref.set('data-match', 'none')
     return ref
 
 

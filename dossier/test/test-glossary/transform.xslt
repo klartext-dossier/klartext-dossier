@@ -22,6 +22,8 @@
         </dd>
     </xsl:template>
 
+    <xsl:template match="term"/>        
+    
     <xsl:template match="entry">
         <xsl:if test="dm:entry-used-g(.)">
             <dt id="{dm:entry-link-g(.)}"><xsl:value-of select="dm:term-g(term[1])"/></dt>    

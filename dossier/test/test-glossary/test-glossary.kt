@@ -73,3 +73,4 @@ document:
         - c {sample term}
         - d {unspecified term}
         - e {recursive term 1}
+        - f {foobar}
