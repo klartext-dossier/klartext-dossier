@@ -8,6 +8,7 @@ pipeline:
 
     xml-transform:
         stylesheet: "transform.xslt"
+        stylesheet: "glossary.xslt"
 
     save:
         output: "test.html"
