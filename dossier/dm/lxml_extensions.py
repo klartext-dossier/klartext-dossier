@@ -202,11 +202,31 @@ def register_dossier_extensions(namespace: str) -> None:
 
 def ext_term_g(context: object, terms: list[lxml.etree._Element]) -> str:
 
+    """ Select the term to display for a glossary entry.
+    
+        Args:
+            context: the xpath context (containing the current node)
+            terms:   a list of term elements
+
+        Returns:
+            the text of the first term element, with leading and trailing whitespace removed.
+    """
+
     for term in terms:
         return term.text.strip()
 
 
 def ext_entry_link_g(context: object, entries: list[lxml.etree._Element]) -> str:
+
+    """ Provides a link to a glossary entry.
+    
+        Args:
+            context: the xpath context (containing the current node)
+            entries: a list of entry elements
+
+        Returns:
+            a string containing an id of the glossary entry, or an empty string if no entry is found
+    """
 
     for entry in entries:
         glossary = entry.getparent()
@@ -225,6 +245,16 @@ def ext_entry_link_g(context: object, entries: list[lxml.etree._Element]) -> str
 
 
 def ext_lookup_g(context: object, refs: list[lxml.etree._Element]) -> lxml.etree._Element:
+
+    """ Looks up a glossary term and returns a link to the entry.
+    
+        Args:
+            context: the xpath context (containing the current node)
+            refs:    a list of reference links (xhtml:a elements with data-type="xref" and data-xrefstyle="glossary")
+
+        Returns:
+            an element representing the link to the glossary entry, or the original reference if no entry is found
+    """
 
     root = context.context_node.getroottree()
 
@@ -320,6 +350,16 @@ def _term_used_g(context: object, term: str) -> bool:
 
 def ext_entry_used_g(context: object, entries: list[lxml.etree._Element]) -> bool:
     
+    """ Checks if a glossary entry is used in the document.
+    
+        Args:
+            context: the xpath context (containing the current node)
+            entries: a list of entry elements   
+
+        Returns:
+            true, if the entry is used in the document, otherwise false
+    """
+
     root = context.context_node.getroottree()
     parent = context.context_node.getparent()
 
