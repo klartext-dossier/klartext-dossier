@@ -68,7 +68,7 @@ document:
     content:
         This is 
         
-        - a {glsa::sample term}
+        - a {glsa::sample terms}
         - b {glsb::sample term}
         - c {sample term}
         - d {unspecified term}

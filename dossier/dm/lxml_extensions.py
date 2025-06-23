@@ -273,7 +273,8 @@ def ext_lookup_g(context: object, refs: list[lxml.etree._Element]) -> lxml.etree
         terms = root.xpath(f'//glossary[@id="{glossary}"]//term')
         for text in terms:
             if MULT_SPACES.sub('_', text.text.strip().lower()) == term:
-                link.set('href', f'#{glossary}__{term}')
+                referenced_term = text.getparent().find('term')
+                link.set('href', f'#{glossary}_{ext_id(context, referenced_term.text).lower()}')
                 link.text = ref.text
                 link.set('data-match', 'full')
                 return link
