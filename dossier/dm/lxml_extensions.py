@@ -4,7 +4,9 @@
 import hashlib, lxml.etree, re
 
 
-MULT_SPACES = re.compile(r'\s+')
+MULT_SPACES  = re.compile(r'\s+')
+HREF_FULL_RE = re.compile(r'#(?P<glossary>[a-zA-Z0-9]+)__(?P<term>.*)')
+HREF_PART_RE = re.compile(r'#(?P<term>.*)')
 
 
 def string(str_or_list: str | list[str]) -> str:
@@ -13,24 +15,6 @@ def string(str_or_list: str | list[str]) -> str:
         return str_or_list[0]
         
     return str(str_or_list)
-
-
-def ext_match_g(context: object, text: str, used_text: str) -> bool:
-
-    """ Compares two texts case-insensitive.
-    
-        Args:
-            context:   the xpath context
-            text:      first string
-            used_text: seconde string
-
-        Returns:
-            true, if the strings are equal when compared case-insensitive, otherwise false
-    """
-
-    text = string(text).strip().lower()
-    used_text = string(used_text).strip().lower()
-    return text == used_text
 
 
 def ext_id(context: object, text: str | list[str]) -> str:
@@ -192,7 +176,6 @@ def register_dossier_extensions(namespace: str) -> None:
         - id
         - lower-case
         - lstrip
-        - match-g
         - rstrip
         - sentence-case
         - simplify
@@ -206,7 +189,6 @@ def register_dossier_extensions(namespace: str) -> None:
 
     ns = lxml.etree.FunctionNamespace(namespace)
 
-    ns['match-g'] = ext_match_g
     ns['id'] = ext_id
     ns['unique-id'] = ext_unique_id
     ns['lower-case'] = ext_lowercase

@@ -1302,7 +1302,6 @@ html body[data-type="book"] h5 {
 html body[data-type="book"] h6 {
   font-size: 100%;
 }
-html body[data-type="book"] dfn,
 html body[data-type="book"] dt {
   font-style: normal;
   font-weight: bold;
@@ -1405,6 +1404,9 @@ html body[data-type="book"] ul > li {
 html body[data-type="book"] dl dt {
   font-family: Roboto, LiberationSans, sans-serif;
   font-weight: bold;
+}
+html body[data-type="book"] dl dfn {
+  font-style: normal;
 }
 html body[data-type="book"] blockquote p[data-type="attribution"] {
   font-style: italic;
