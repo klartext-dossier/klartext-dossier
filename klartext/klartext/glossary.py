@@ -8,7 +8,8 @@ from klartext import ParseError
 
 
 def reference(term):
-    return re.sub(r'[^\w]+', '_', term).lower()
+    # return re.sub(r'[^\w]+', '_', term).lower()
+    return re.sub(r'\s+', '_', term).lower()
     
     
 class GlossaryInlineProcessor(markdown.inlinepatterns.InlineProcessor):
