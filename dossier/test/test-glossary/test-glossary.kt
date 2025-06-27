@@ -65,6 +65,12 @@ document:
             definition:
                 Uses {recursive term 1}
 
+        entry:
+            term: "Term-With-Hyphen"
+            
+            definition:
+                Has hyphens.
+                
     content:
         This is 
         
@@ -74,3 +80,4 @@ document:
         - d {unspecified term}
         - e {recursive term 1}
         - f {foobar}
+        - g {term-with-hyphen}
