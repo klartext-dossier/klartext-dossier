@@ -1,0 +1,18 @@
+<root id="ID" xml:lang="en">
+    <german xml:lang="de">
+    </german>
+    <german ref="ID" xml:lang="de">
+    </german>
+    <english xml:lang="en">
+    </english>
+    <english ref="ID" xml:lang="en">
+    </english>
+    <british xml:lang="en-GB">
+    </british>
+    <british ref="ID" xml:lang="en-GB">
+    </british>
+    <default>
+    </default>
+    <default ref="ID">
+    </default>
+</root>
