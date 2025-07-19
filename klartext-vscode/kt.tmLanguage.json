@@ -65,65 +65,26 @@
 				"name": "entity.name",				
 				"match": "^\\s*(\\w+\\:\\:)?([\\w_-]+)(\\.[\\w_-]+)?(:)\\s*(#(\\w+\\:\\:)?[\\w\\-_\\.]+\\s*)?(\\[[a-zA-Z]{2,3}(-[a-zA-Z]{2,3})?\\])?(([\\w\\-_]+\\s*=\\s*\"[^\"]*\"\\s*)*)(.*)$",
 				"captures": {
-					"1": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.name.namespace.kt"
-						}]
-					},
-					"2": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.name.tag.kt"
-						}]
-					},
-					"3": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.name.tag.kt"
-						}]
-					},
-					"4": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.other.attribute-name.kt"
-						}]
-					},
-					"5": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.name.type.kt"
-						}]
-					},
-					"7": {
-						"patterns": [{
-							"match": ".*",
-							"name": "comment.line.kt"
-						}]
-					},
-					"9": {
-						"name": "entity.other.attribute-name.kt",
-						"patterns": [							
-							{
-								"match": ".*",
-								"include": "#string"
-							}
-						]
-					},
-					"10": {
-						"patterns": [							
-							{
-								"match": ".*",					
-								"name": "entity.name.tag.kt"
-							}
-						]
-					},
-					"11": {
-						"name": "text.kt",
-						"patterns": [{
-							"include": "#markdown"
-						}]
-					}
+					"1":  { "name": "entity.name.namespace.kt"},
+					"2":  { "name": "entity.name.tag.kt" },
+					"3":  { "name": "entity.name.tag.kt"},
+					"4":  { "name": "entity.other.attribute-name.kt"},
+					"5":  { "name": "entity.name.type.kt" },
+					"7":  { "name": "comment.line.kt"},
+					"9":  { "name": "entity.other.attribute-name.kt",
+							"patterns": [							
+								{
+									"match": ".*",
+									"include": "#string"
+								}
+							]
+						  },
+					"10": {	"name": "entity.name.tag.kt" },
+					"11": {	"name": "text.kt",
+							"patterns": [{
+								"include": "#markdown"
+							}]
+						  }
 				}
 			}]
 		},
@@ -132,65 +93,26 @@
 				"name": "entity.name",				
 				"match": "^\\s*(\\w+\\:\\:)?([\\w_-]+)(\\.[\\w_-]+)?(>)\\s*((\\w+\\:\\:)?[\\w\\-_\\.]+\\s*)?(\\[[a-zA-Z]{2,3}(-[a-zA-Z]{2,3})?\\])?(([\\w\\-_]+\\s*=\\s*\"[^\"]*\"\\s*)*)(.*)$",
 				"captures": {
-					"1": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.name.namespace.kt"
-						}]
-					},
-					"2": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.name.tag.kt"
-						}]
-					},
-					"3": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.name.tag.kt"
-						}]
-					},
-					"4": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.other.attribute-name.kt"
-						}]
-					},
-					"5": {
-						"patterns": [{
-							"match": ".*",
-							"name": "entity.name.type.kt"
-						}]
-					},
-					"7": {
-						"patterns": [{
-							"match": ".*",
-							"name": "comment.line.kt"
-						}]
-					},
-					"9": {
-						"name": "entity.other.attribute-name.kt",
-						"patterns": [							
-							{
-								"match": ".*",
-								"include": "#string"
-							}
-						]
-					},
-					"10": {
-						"patterns": [							
-							{
-								"match": ".*",					
-								"name": "entity.name.tag.kt"
-							}
-						]
-					},
-					"11": {
-						"name": "text.kt",
-						"patterns": [{
-							"include": "#markdown"
-						}]
-					}
+					"1":  { "name": "entity.name.namespace.kt"},
+					"2":  { "name": "entity.name.tag.kt" },
+					"3":  { "name": "entity.name.tag.kt"},
+					"4":  { "name": "entity.other.attribute-name.kt"},
+					"5":  { "name": "entity.name.type.kt" },
+					"7":  { "name": "comment.line.kt"},
+					"9":  { "name": "entity.other.attribute-name.kt",
+							"patterns": [							
+								{
+									"match": ".*",
+									"include": "#string"
+								}
+							]
+						  },
+					"10": {	"name": "entity.name.tag.kt" },
+					"11": {	"name": "text.kt",
+							"patterns": [{
+								"include": "#markdown"
+							}]
+						  }
 				}
 			}]
 		},
