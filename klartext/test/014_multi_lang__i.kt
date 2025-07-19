@@ -1,6 +1,6 @@
 root: #ID [en]
 
-    space::german: [de] tag="value" foo="bar"
+    german: [de] tag="value" foo="bar"
     german> ID [de] 
 
     english: [en]
@@ -10,7 +10,4 @@ root: #ID [en]
     british> ID [en-GB]
 
     default:
-        Markdown _content_ *is* nice.
-    default> ID
-        Markdown _content_ *is* nice.
-    
+    default> ID    
