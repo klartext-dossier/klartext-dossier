@@ -21,8 +21,8 @@ class Parser:
 
     # Regular expressions used for parsing
     ATTR_RE    = re.compile(r'\s*(?P<name>[\w_\-]+)\s*=\s*"(?P<value>[^"]*)"\s*')
-    TAG_RE     = re.compile(r'^\s*((?P<prefix>\w+)\:\:)?(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?:\s*(#((?P<idprefix>\w+)::)?(?P<id>[\w\-_\.]+)\s*)?(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
-    LINK_RE    = re.compile(r'^\s*(?P<link>[\w\-_]+)>\s+((?P<refprefix>\w+)::)?(?P<ref>\S+)\s*(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
+    TAG_RE     = re.compile(r'^\s*((?P<prefix>\w+)\:\:)?(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?:\s*(#((?P<idprefix>\w+)::)?(?P<id>[\w\-_\.]+)\s*)?(\[(?P<language>([a-zA-Z]{2,3}(-[a-zA-Z]{2,3})?))\]\s*)?(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
+    LINK_RE    = re.compile(r'^\s*(?P<link>[\w\-_]+)>\s+((?P<refprefix>\w+)::)?(?P<ref>\S+)\s*(\[(?P<language>([a-zA-Z]{2,3}(-[a-zA-Z]{2,3})?))\]\s*)?(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
     ID_RE      = re.compile(r'\s+#(?P<id>[\w_]+)')
     INCLUDE_RE = re.compile(r'^\s*!include\s+"(?P<file>[^"]+)"\s*$')
     IMPORT_RE  = re.compile(r'^\s*!import\s+"(?P<namespace>[^"]+)"\s+as\s+(?P<prefix>\w+)\s*$')
@@ -248,6 +248,8 @@ class Parser:
                 a['id'] = self._prefixed_id(match_tag.group('id'), match_tag.group('idprefix'))
             if match_tag.group('class'):
                 a['class'] = match_tag.group('class')
+            if match_tag.group('language'):
+                a['xml:lang'] = match_tag.group('language')
             if match_tag.group('prefix'):
                 prefix = match_tag.group('prefix')
                 if prefix in self.namespaces:
@@ -263,9 +265,11 @@ class Parser:
         # link
         match_link = self.LINK_RE.match(current_line)
         if match_link:
-            attribs = Parser._getAttributes(match_link.group('rest'))
-            attribs['ref'] = self._prefixed_id(match_link.group('ref'), match_link.group('refprefix'))
-            return Token(indent, Token.TAG, { Token.TAG: match_link.group('link'), 'attribs': attribs, 'content': match_link.group('content') } )
+            a = Parser._getAttributes(match_link.group('rest'))
+            a['ref'] = self._prefixed_id(match_link.group('ref'), match_link.group('refprefix'))
+            if match_link.group('language'):
+                a['xml:lang'] = match_link.group('language')
+            return Token(indent, Token.TAG, { Token.TAG: match_link.group('link'), 'attribs': a, 'content': match_link.group('content') } )
 
         # line of text
         return Token(indent, Token.TEXT, current_line)
