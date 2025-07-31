@@ -356,6 +356,7 @@ def ext_entry_used_g(context: object, entries: list[lxml.etree._Element], stack:
         Args:
             context: the xpath context (containing the current node)
             entries: a list of entry elements   
+            stack:   a list of entries already evaluated to be used
 
         Returns:
             true, if the entry is used in the document, otherwise false
