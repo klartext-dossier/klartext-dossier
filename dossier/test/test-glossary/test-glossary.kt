@@ -3,6 +3,38 @@
 
 document:
 
+    glossary: title="Recursive"
+
+        entry:
+            term: "Rec-A"
+
+            definition:
+                Uses {Rec-B}.
+                
+        entry:
+            term: "Rec-B"
+
+            definition:
+                Uses {Rec-A}.
+                
+        entry:
+            term: "Rec-1"
+
+            definition:
+                Uses {Rec-2}.
+                
+        entry:
+            term: "Rec-2"
+
+            definition:
+                Uses {Rec-3}.
+                
+        entry:
+            term: "Rec-3"
+
+            definition:
+                Uses {Rec-1}.
+                
     glossary: #glsa title="Glossary A"
 
         entry:
@@ -81,3 +113,4 @@ document:
         - e {recursive term 1}
         - f {foobar}
         - g {term-with-hyphen}
+        // - h {Rec-B}
