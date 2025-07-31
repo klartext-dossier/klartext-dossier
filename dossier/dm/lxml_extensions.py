@@ -349,7 +349,7 @@ def _term_used_g(context: object, term: str) -> bool:
     return False
 
 
-def ext_entry_used_g(context: object, entries: list[lxml.etree._Element]) -> bool:
+def ext_entry_used_g(context: object, entries: list[lxml.etree._Element], stack: list[lxml.etree._Element] = []) -> bool:
     
     """ Checks if a glossary entry is used in the document.
     
@@ -370,6 +370,11 @@ def ext_entry_used_g(context: object, entries: list[lxml.etree._Element]) -> boo
         term_id = parent.get('id')
 
     for entry in entries:
+
+        # break recursion, as we already evaluated this entry
+        if entry in stack:
+            return True
+
         for term in entry.findall('term'):
             term_text = term.text.strip().lower()
 
@@ -385,8 +390,9 @@ def ext_entry_used_g(context: object, entries: list[lxml.etree._Element]) -> boo
                         ref_text = reference.text.strip().lower()
                         ref_id = _refered_glossary(reference)
 
-                        if ext_match_g(context, term_text, ref_text) and ((term_id == ref_id) or (ref_id is None)):
-                            if ext_entry_used_g(context, [glossary_entry]):
+                        if ext_match_g(context, term_text, ref_text) and ((term_id == ref_id) or (ref_id is None)):     
+                            stack.append(glossary_entry)                       
+                            if ext_entry_used_g(context, [glossary_entry], stack):
                                 return True
 
     return False
