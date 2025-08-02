@@ -1,4 +1,4 @@
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:gls="http://klartext-dossier.org/glossary">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:gls="http://klartext-dossier.org/glossary" exclude-result-prefixes="gls">
 
     <xsl:output method="xml" indent="yes"/>
 
@@ -8,9 +8,20 @@
         </xsl:copy>
     </xsl:template>
 
+    <xsl:template match="definition/origin[1]">
+        <div class="reference">
+            <xsl:variable name="target" select="@ref"/>
+            <a href="#{$target}"><xsl:value-of select="normalize-space(//reference[@id=$target]/@name)"/></a>
+            <xsl:if test="@section">
+                <xsl:text>, </xsl:text>
+                <xsl:value-of select="@section"/>
+            </xsl:if>            
+        </div>
+    </xsl:template>
+    
     <xsl:template match="definition">
         <dd data-type="glossdef">
-            <dfn><xsl:apply-templates/></dfn>
+            <xsl:apply-templates/>
         </dd>
     </xsl:template>
 
@@ -20,16 +31,15 @@
 
     <xsl:template match="entry">
         <xsl:if test="gls:used(.)">
-            <dt id="{gls:link(.)}" data-type="glossterm"><xsl:value-of select="gls:term(term[1])"/></dt>    
+            <dt id="{gls:link(.)}" data-type="glossterm"><dfn><xsl:value-of select="gls:term(term[1])"/></dfn></dt>    
             <xsl:apply-templates select="definition"/>
         </xsl:if>
     </xsl:template>
 
     <xsl:template match="glossary">
-        <section data-type="glossary">
-            <h1><xsl:value-of select="@title"/></h1>
-
-            <dl data-type="glossary">
+        <section data-type="sect1">
+            <h1><xsl:value-of select="name"/></h1>
+            <dl>
                 <xsl:apply-templates select="entry">        
                     <xsl:sort select="term[1]"/>
                 </xsl:apply-templates>
