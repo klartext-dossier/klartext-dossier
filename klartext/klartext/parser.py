@@ -21,8 +21,7 @@ class Parser:
 
     # Regular expressions used for parsing
     ATTR_RE    = re.compile(r'\s*(?P<name>[\w_\-]+)\s*=\s*"(?P<value>[^"]*)"\s*')
-    TAG_RE     = re.compile(r'^\s*((?P<prefix>\w+)\:\:)?(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?:\s*(#(?P<id>[\w\-_\.]+)\s*)?(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
-    LINK_RE    = re.compile(r'^\s*(?P<link>[\w\-_]+)>\s+(?P<ref>\S+)\s*(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
+    TAG_RE     = re.compile(r'^\s*((?P<prefix>\w+)\:\:)?(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?((:\s*(#(?P<id>[\w\-_\.]+)\s*)?)|(>\s*(?P<ref>\S+)))\s*(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
     ID_RE      = re.compile(r'\s+#(?P<id>[\w_]+)')
     INCLUDE_RE = re.compile(r'^\s*!include\s+"(?P<file>[^"]+)"\s*$')
     IMPORT_RE  = re.compile(r'^\s*!import\s+"(?P<namespace>[^"]+)"\s+as\s+(?P<prefix>\w+)\s*$')
@@ -230,6 +229,8 @@ class Parser:
             a = Parser._getAttributes(match_tag.group('rest'))
             if match_tag.group('id'):
                 a['id'] = match_tag.group('id')
+            if match_tag.group('ref'):
+                a['ref'] = match_tag.group('ref')
             if match_tag.group('class'):
                 a['class'] = match_tag.group('class')
             if match_tag.group('prefix'):
@@ -243,13 +244,6 @@ class Parser:
                 namespace = None
                 
             return Token(indent, Token.TAG, { Token.TAG: match_tag.group('tag'), 'attribs': a, 'content': match_tag.group('content'), 'prefix': prefix, 'namespace': namespace } )
-            
-        # link
-        match_link = self.LINK_RE.match(current_line)
-        if match_link:
-            attribs = Parser._getAttributes(match_link.group('rest'))
-            attribs['ref'] = match_link.group('ref')
-            return Token(indent, Token.TAG, { Token.TAG: match_link.group('link'), 'attribs': attribs, 'content': match_link.group('content') } )
 
         # line of text
         return Token(indent, Token.TEXT, current_line)
