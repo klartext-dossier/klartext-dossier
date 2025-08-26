@@ -21,4 +21,5 @@ Examples: Input files
     | 010_nested_links__i.kt       | 010_nested_links__o.xml        |
     | 011_include__i.kt            | 011_include__o.xml             |
     | 013_import__i.kt             | 013_import__o.xml              |
+    | 014_multi_lang__i.kt         | 014_multi_lang__o.xml          |
     

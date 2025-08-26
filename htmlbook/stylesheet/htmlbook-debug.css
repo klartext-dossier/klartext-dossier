@@ -1,4 +1,22 @@
 .syntax-error {
-  color: red;
+  color: red !important;
   font-weight: bold;
 }
+
+a[data-match="none"] {
+  color: red !important;
+  font-weight: bold;
+  text-decoration: underline !important;
+}
+
+a[data-match="ambiguous"] {
+  color: red !important;
+  text-decoration: underline !important;
+}
+
+a[data-match="unique"] {
+  text-decoration: underline !important;
+}
+
+/* a[data-match="full"] {
+} */

@@ -1,22 +1,18 @@
 from behave import when, then # pylint: disable=no-name-in-module
 
 from lxml import etree
-from klartext import Parser
 
 import dmt.test
-import dm.tasks.SequenceTask
-from dm.markdown_parser import processMarkdownContent
+
+from dm.pipeline import Pipeline
 
 
 @when(u'running the pipeline {pipeline_file}.dm')
 def step_run(context, pipeline_file):
     try:
         with open(pipeline_file+'.dm', 'r', encoding='utf-8') as infile:            
-            parser = Parser()
-            inp = parser.parse(infile, convert_text=processMarkdownContent)
-            xml = etree.fromstring(inp)
-            task = dm.tasks.SequenceTask(xml, 'pipeline', context.toolsdir)
-            task.run()
+            pipe = dm.Pipeline.Pipeline(infile)
+            pipe.run(context=context)
     except Exception as e:
         print(e)
         context.exception = e

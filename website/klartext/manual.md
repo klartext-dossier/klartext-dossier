@@ -115,6 +115,24 @@ The second way uses a slightly abbreviated syntax:
     <article id="ARTICLE1"/>
     ```
 
+## Languages
+
+Another common attribute is used to identify the language of a tag's content:
+
+=== "klartext input"
+    ``` klartext
+    article: [de]
+    ```
+
+will be converted to
+
+=== "XML output"
+    ``` xml
+    <article xml:lang="de"/>
+    ```
+
+Note that when using an ID and a language, the ID has to come first.
+
 ## Links
 
 The most common use for IDs is to provide an anchor for linking to a tag. Links can be defined in this way:
@@ -254,6 +272,31 @@ It is possible to define namespaces for tags used in `klartext`:
         </subtag>
     </ex:tag>
     ```
+
+Namespaces can also be used to make sure that IDs are unique within a scope:
+
+=== "klartext input"
+    ``` klartext
+    !import "http://www.klartext-dossier.org/example" as ex
+    !import "http://www.klartext-dossier.org/foobar" as foo
+
+    tag: #ex
+
+        subtag: #ex::subid
+
+        another: #foo::subid
+    ```
+
+=== "XML output"
+    ``` xml
+    <tag id="5ca887e102362bf87d99968ef3410b06">
+        <subtag id="5ca887e102362bf87d99968ef3410b06__subid">
+        </subtag>
+        <another id="443d4219c8274b65b61ba7347889ade8__subid">
+        </another>
+    </tag>
+    ```
+
 
 ## Includes
 

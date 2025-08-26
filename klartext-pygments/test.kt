@@ -12,7 +12,7 @@ org::link> ID key="value"
 // This is a comment
     // And this too
     
-one: #ID content 1
+one: #ID [de] content 1
     two: #id another-key="anothervalue" content 2
         three: content 3
 
@@ -24,3 +24,7 @@ tag:
     # Heading
 
     This *is* simple _markdown_.
+
+tag: #org::ident
+
+link> org::ident [en]

@@ -1,0 +1,41 @@
+{
+    "name": "klartext",
+    "displayName": "klartext",
+    "description": "Language support for klartext",
+    "publisher": "emhaka",
+    "version": "0.0.2",
+    "engines": {
+        "vscode": "^1.43.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "kt",
+                "aliases": [
+                    "klartext",
+                    "kt"
+                ],
+                "extensions": [
+                    ".kt",
+                    ".dm"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "kt",
+                "scopeName": "source.klartext",
+                "path": "./kt.tmLanguage.json"
+            }
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/klartext-dossier/klartext-dossier"
+    },
+    "homepage": "https://https://www.klartext-dossier.org/"
+}

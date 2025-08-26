@@ -112,3 +112,8 @@ klartext-vscode/klartext-0.0.2.vsix
 klartext-vscode/dist/klartext-0.0.1.vsix
 klartext-vscode/dist/klartext-0.0.2.vsix
 dossier/example/test.xml
+klartext-vscode/klartext-*.vsix
+klartext-vscode/dist
+dossier/test/test-glossary/test-glossary.pdf
+dossier/test/test-glossary/test.html
+dossier/test/test-glossary/test.xml

@@ -1,7 +1,7 @@
 """ Module providing a parser for the klartext markup language.
 """
 
-import logging, re, collections, os, io
+import logging, re, collections, os, io, hashlib
 from typing import Callable, Tuple
 import markdown
 
@@ -21,7 +21,7 @@ class Parser:
 
     # Regular expressions used for parsing
     ATTR_RE    = re.compile(r'\s*(?P<name>[\w_\-]+)\s*=\s*"(?P<value>[^"]*)"\s*')
-    TAG_RE     = re.compile(r'^\s*((?P<prefix>\w+)\:\:)?(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?((:\s*(#(?P<id>[\w\-_\.]+)\s*)?)|(>\s*(?P<ref>\S+)))\s*(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
+    TAG_RE     = re.compile(r'^\s*((?P<prefix>\w+)\:\:)?(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?((:\s*(#(?P<id>[\w\-_\.]+)\s*)?)|(>\s*(?P<ref>\S+)))\s*(\[(?P<language>([a-zA-Z]{2,3}(-[a-zA-Z]{2,3})?))\]\s*)?(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
     ID_RE      = re.compile(r'\s+#(?P<id>[\w_]+)')
     INCLUDE_RE = re.compile(r'^\s*!include\s+"(?P<file>[^"]+)"\s*$')
     IMPORT_RE  = re.compile(r'^\s*!import\s+"(?P<namespace>[^"]+)"\s+as\s+(?P<prefix>\w+)\s*$')
@@ -29,7 +29,7 @@ class Parser:
 
 
     @staticmethod
-    def removeSurroundingBlankLines(text: str) -> str:
+    def removeSurroundingBlankLines(text: str, namespaces: dict[str, str]) -> str:
         
         """ Default conversion for text content.
         
@@ -37,6 +37,7 @@ class Parser:
 
             Args:
                 text: The text content
+                namespaces: The namespaces defined in the klartext file
 
             Returns:
                 The text content without leading and trailing blank lines
@@ -50,18 +51,20 @@ class Parser:
 
 
     @staticmethod
-    def convertMarkdown(text: str) -> str:
+    def convertMarkdown(text: str, namespaces: dict[str, str]) -> str:
         
         """ Markdown conversion for text content.
         
             Converts the text content from Markdown to xhtml.
 
             Args:
-                text: The text content
+                text:       The text content
+                namespaces: The namespaces defined in the klartext file
 
             Returns:
                 The text content converted from Markdown to xhtml
         """        
+        markdownInstance.namespaces = namespaces
         return markdownInstance.reset().convert(text)
 
 
@@ -175,6 +178,19 @@ class Parser:
 
         return Parser._indentSpaces(indent) + line
 
+    def _prefixed_id(self, id: str, prefix: str | None) -> str:
+        if prefix:
+            if prefix in self.namespaces:
+                prefix = self.namespaces[prefix]
+            else:
+                raise ParseError(f'Namespace prefix "{prefix}" has not been imported')
+            return hashlib.md5(prefix.encode('utf-8')).hexdigest() + "__" + id
+        else:
+            if id in self.namespaces:
+                id = self.namespaces[id]
+                return hashlib.md5(id.encode('utf-8')).hexdigest()
+            else:
+                return id
 
     def _nextToken(self) -> Token:
         current_line = self._readLine()
@@ -229,10 +245,14 @@ class Parser:
             a = Parser._getAttributes(match_tag.group('rest'))
             if match_tag.group('id'):
                 a['id'] = match_tag.group('id')
+                if match_tag.group('idprefix'):
+                    a['id'] = self._prefixed_id(match_tag.group('id'), match_tag.group('idprefix'))
             if match_tag.group('ref'):
                 a['ref'] = match_tag.group('ref')
             if match_tag.group('class'):
                 a['class'] = match_tag.group('class')
+            if match_tag.group('language'):
+                a['xml:lang'] = match_tag.group('language')
             if match_tag.group('prefix'):
                 prefix = match_tag.group('prefix')
                 if prefix in self.namespaces:
@@ -261,7 +281,7 @@ class Parser:
         return tokens
 
 
-    def parse(self, infile: io.TextIOBase, convert_text: Callable[[str], str] = removeSurroundingBlankLines, basedir: str = "", lookup: Callable[[str, str], str] = lookupIncludeFile) -> bytes:
+    def parse(self, infile: io.TextIOBase, convert_text: Callable[[str, dict[str,str]], str] = removeSurroundingBlankLines, basedir: str = "", lookup: Callable[[str, str], str] = lookupIncludeFile) -> bytes:
 
         """ Parse a klartext file.
 
@@ -305,7 +325,7 @@ class Parser:
                         if content.startswith('"') and content.endswith('"'):
                             content = content[1:-1]
                         elif convert_text is not None:
-                            content = convert_text(Parser.removeSurroundingBlankLines(content))
+                            content = convert_text(Parser.removeSurroundingBlankLines(content, self.namespaces), self.namespaces)
 
                     prefix = attribs.get('prefix')
                     namespace = attribs.get('namespace')
@@ -347,7 +367,7 @@ class Parser:
                     i += 1
                     text = tokens[i].content()                
                 if convert_text is not None:
-                    xml += convert_text(Parser.removeSurroundingBlankLines(text_content)) + '\n'
+                    xml += convert_text(Parser.removeSurroundingBlankLines(text_content, self.namespaces), self.namespaces) + '\n'
                 else:
                     xml += text_content
                 continue
@@ -356,6 +376,7 @@ class Parser:
             elif Token.EOF == tokens[i]:
                 break
             else:
+                print(tokens[i])
                 raise ParseError('Parse error', tokens[i])
             i += 1
 
