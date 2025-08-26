@@ -21,8 +21,7 @@ class Parser:
 
     # Regular expressions used for parsing
     ATTR_RE    = re.compile(r'\s*(?P<name>[\w_\-]+)\s*=\s*"(?P<value>[^"]*)"\s*')
-    TAG_RE     = re.compile(r'^\s*((?P<prefix>\w+)\:\:)?(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?((:\s*(#(?P<id>[\w\-_\.]+)\s*)?)|(>\s*(?P<ref>\S+)))\s*(\[(?P<language>([a-zA-Z]{2,3}(-[a-zA-Z]{2,3})?))\]\s*)?(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
-    ID_RE      = re.compile(r'\s+#(?P<id>[\w_]+)')
+    TAG_RE     = re.compile(r'^\s*((?P<prefix>\w+)\:\:)?(?P<tag>[\w\-_]+)(\.(?P<class>[\w\-_]+))?((:\s*(#((?P<idprefix>\w+)\:\:)?(?P<id>[\w\-_\.]+)\s*)?)|(>\s*(?P<ref>\S+)))\s*(\[(?P<language>([a-zA-Z]{2,3}(-[a-zA-Z]{2,3})?))\]\s*)?(?P<rest>([\w\-_]+\s*=\s*"[^"]*"\s*)*)(?P<content>.*)?$')
     INCLUDE_RE = re.compile(r'^\s*!include\s+"(?P<file>[^"]+)"\s*$')
     IMPORT_RE  = re.compile(r'^\s*!import\s+"(?P<namespace>[^"]+)"\s+as\s+(?P<prefix>\w+)\s*$')
     VERB_RE    = re.compile(r'^\s*```')
@@ -245,8 +244,6 @@ class Parser:
             a = Parser._getAttributes(match_tag.group('rest'))
             if match_tag.group('id'):
                 a['id'] = match_tag.group('id')
-                if match_tag.group('idprefix'):
-                    a['id'] = self._prefixed_id(match_tag.group('id'), match_tag.group('idprefix'))
             if match_tag.group('ref'):
                 a['ref'] = match_tag.group('ref')
             if match_tag.group('class'):
