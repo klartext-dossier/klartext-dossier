@@ -16,13 +16,13 @@ md::intended-use: #gds-intended-use
         md::clinical-function: name="Net Fluid Removal"
             Removal of excess water from the /r/PATIENT/'s blood
 
-        ops> ops::code-8-854.x
+        ops::ops-code> ops::code-8-854.x
 
     md::medical-indication:
         /r/PATIENT/s with permanent kidney failure and low glomerular filtration rate (GFR < 15 mL/min).
 
-        icd> icd::code-N18.5
-        icd> icd::code-Z99.2
+        icd::icd-code> icd::code-N18.5
+        icd::icd-code> icd::code-Z99.2
         
     md::patient-group: #PATIENT name="Patient"
         Patients with permanent kidney failure and a body-weight > 40 kg.

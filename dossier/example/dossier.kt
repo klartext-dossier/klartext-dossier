@@ -6,7 +6,7 @@ dossier:
 
         md::device: #DEVICE name="Generic Dialysis System"
 
-            !include "intended-use-statement.kt"
+            md::intended-use> gds-intended-use
 
 
     document-model: name="Technical Documentation"
