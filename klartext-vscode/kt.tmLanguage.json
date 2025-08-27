@@ -94,7 +94,20 @@
 			"match": ".*",
 			"captures": {
 				"0": {
-					"patterns": [{
+					"patterns": [
+					{
+						"name": "text.kt",
+						"match": "(/r/)([^/]+)(/)",
+						"captures": {
+							"2": {
+								"patterns": [{
+									"match": ".*",
+									"name": "comment.line.kt"
+								}]
+							}
+						}
+					},
+					{
 						"name": "text.kt",
 						"match": "(/[^/]+/)([^/]+)(/)",
 						"captures": {
