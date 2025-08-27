@@ -2,9 +2,9 @@
 
 dossier:
 
-    information-model: #MD
+    information-model:
 
-        md::device: #DEVICE name="Generic Dialysis System"
+        md::device: #device name="Generic Dialysis System"
 
             md::intended-use> gds-intended-use
 

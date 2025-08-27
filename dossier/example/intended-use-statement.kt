@@ -5,26 +5,26 @@
 md::intended-use: #gds-intended-use
 
     md::intended-use-summary:
-        The /r/DEVICE/ is a dialysis machine providing haemodialysis treatments for /r/PATIENT/s with permanent kidney failure.
+        The /r/device/ is a dialysis machine providing haemodialysis treatments for /r/patient/s with permanent kidney failure.
 
     md::medical-purpose:
-        The /r/DEVICE/ provides a renal replacement therapy with the following clinical functions:
+        The /r/device/ provides a renal replacement therapy with the following clinical functions:
         
         md::clinical-function: name="Ultrafiltration"
-            Removal of substances with low molecular weight from the /r/PATIENT/'s blood
+            Removal of substances with low molecular weight from the /r/patient/'s blood
 
         md::clinical-function: name="Net Fluid Removal"
-            Removal of excess water from the /r/PATIENT/'s blood
+            Removal of excess water from the /r/patient/'s blood
 
         ops::ops-code> ops::code-8-854.x
 
     md::medical-indication:
-        /r/PATIENT/s with permanent kidney failure and low glomerular filtration rate (GFR < 15 mL/min).
+        /r/patient/s with permanent kidney failure and low glomerular filtration rate (GFR < 15 mL/min).
 
         icd::icd-code> icd::code-N18.5
         icd::icd-code> icd::code-Z99.2
         
-    md::patient-group: #PATIENT name="Patient"
+    md::patient-group: #patient name="Patient"
         Patients with permanent kidney failure and a body-weight > 40 kg.
 
     md::intended-user: #physician name="Nephrologist"

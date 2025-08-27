@@ -1405,6 +1405,7 @@ html body[data-type="book"] dl dt {
   font-family: Roboto, LiberationSans, sans-serif;
   font-weight: bold;
 }
+html body[data-type="book"] dl dd,
 html body[data-type="book"] dl dfn {
   font-style: normal;
 }
