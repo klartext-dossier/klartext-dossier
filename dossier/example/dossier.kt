@@ -17,5 +17,5 @@ dossier:
 
         file: name="Risk Management File"
 
-            include> APP
-            include> RA
+            document> APP
+            document> RA
