@@ -741,6 +741,14 @@ html body[data-type="book"] dl dd {
   margin-left: 18pt;
   padding: 0 0 6pt 0;
 }
+html body[data-type="book"] dl dd[data-type="glossdef"] {
+  margin-left: 0;
+  padding: 0 0 6pt 0;
+}
+html body[data-type="book"] dl dd[data-type="glossdef"] .glossdomain {
+  font-style: italic;
+  color: gray;
+}
 html body[data-type="book"] blockquote {
   padding: 6pt;
   margin: 6pt 0 0 -3px;
@@ -1405,6 +1413,7 @@ html body[data-type="book"] dl dt {
   font-family: Roboto, LiberationSans, sans-serif;
   font-weight: bold;
 }
+html body[data-type="book"] dl dd,
 html body[data-type="book"] dl dfn {
   font-style: normal;
 }
