@@ -14,8 +14,10 @@ setup(
     url                     = "https://www.klartext-dossier.org/klartext-dossier",
     keywords                = "documentation processing",
 
-    classifiers             = [ 
-                            	"License :: OSI Approved :: BSD License",
+    license                 = "BSD-3-Clause",
+    license_files           = [ "../LICENSE.md" ],
+
+    classifiers             = [                             	
                                 "Development Status :: 3 - Alpha",
                                 "Environment :: Console",
                                 "Intended Audience :: Developers",
