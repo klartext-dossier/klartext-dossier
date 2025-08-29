@@ -17,6 +17,24 @@ def string(str_or_list: str | list[str]) -> str:
     return str(str_or_list)
 
 
+def ext_match_g(context: object, text: str, used_text: str) -> bool:
+
+    """ Compares two texts case-insensitive.
+    
+        Args:
+            context:   the xpath context
+            text:      first string
+            used_text: second string
+
+        Returns:
+            true, if the strings are equal when compared case-insensitive, otherwise false
+    """
+
+    text = string(text).strip().lower()
+    used_text = string(used_text).strip().lower()
+    return text == used_text
+
+
 def ext_id(context: object, text: str | list[str]) -> str:
 
     """ Generates a textual id.
