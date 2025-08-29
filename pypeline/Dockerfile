@@ -21,7 +21,8 @@ RUN apt-get update && apt-get install -y wget gnupg
 ADD google.gpg /
 RUN cp google.gpg /etc/apt/trusted.gpg.d
 RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-RUN apt-get update && apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 --no-install-recommends 
+RUN apt-get update && apt-get install -y google-chrome-stable --no-install-recommends 
+RUN apt-get install -y fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 --no-install-recommends 
 
 # Install additional packages
 RUN apt-get update && apt-get install -y fonts-liberation fonts-crosextra-carlito fonts-cabin fonts-roboto imagemagick poppler-utils tidy
