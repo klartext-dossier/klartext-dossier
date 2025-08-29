@@ -190,6 +190,17 @@ html
                 margin-left: @large-skip;
                 padding: 0 0 @small-skip 0;      
             }
+
+            dd[data-type="glossdef"]
+            {
+                margin-left: 0;
+                padding: 0 0 @small-skip 0;   
+                                                
+                .glossdomain {
+                    font-style: italic;
+                    color: gray;
+                }
+            }
         }
 
         blockquote

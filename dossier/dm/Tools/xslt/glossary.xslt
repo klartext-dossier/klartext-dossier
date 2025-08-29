@@ -21,6 +21,9 @@
     
     <xsl:template match="definition">
         <dd data-type="glossdef">
+            <xsl:if test="@domain">
+                <div class="glossdomain"><xsl:value-of select="@domain"/></div>            
+            </xsl:if>
             <xsl:apply-templates/>
         </dd>
     </xsl:template>
