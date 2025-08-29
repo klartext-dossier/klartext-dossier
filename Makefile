@@ -6,7 +6,7 @@ subdirs:
 	$(MAKE) -C klartext-vscode
 	$(MAKE) -C htmlbook install
 	$(MAKE) -C mdx
-	$(MAKE) -C dossier package  
+	$(MAKE) -C dossier package test
 
 website:
 	mkdocs build
