@@ -37,8 +37,10 @@ book: [en]
         chapter:
             title: Intended Users
 
-            section:        
-                title: Dialysis Nurse
+            section:     
+                header   
+                    title: Dialysis Nurse
+                    author: My Self
 
                 This is the main user of the /r/device/. 
 

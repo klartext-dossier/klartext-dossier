@@ -34,7 +34,7 @@
     </xsl:template>
 
 
-    <xsl:template match="section/title">
+    <xsl:template match="section/title|section/header/title">
         <xsl:element name="h{count(ancestor::section)}">
             <xsl:apply-templates/>
         </xsl:element>
@@ -61,7 +61,7 @@
     </xsl:template>
 
     <!-- Headers of book elements -->
-    <xsl:template match="chapter/header|appendix/header|bibliography/header|glossary/header|preface/header|foreword/header|introduction/header|halftitlepage/header|titlepage/header|copyright-page/header|dedication/header|colophon/header|acknowledgments/header|afterword/header|conclusion/header|part/header|index/header">
+    <xsl:template match="chapter/header|appendix/header|bibliography/header|glossary/header|preface/header|foreword/header|introduction/header|halftitlepage/header|titlepage/header|copyright-page/header|dedication/header|colophon/header|acknowledgments/header|afterword/header|conclusion/header|part/header|index/header|section/header">
         <h1>
             <xsl:apply-templates select="title/*"/>
         </h1>
