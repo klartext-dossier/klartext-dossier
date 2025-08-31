@@ -7,7 +7,7 @@ pipeline:
 
     xml-transform:
         stylesheet: "common-transformations.xslt"
-        stylesheet: "kt-to-docbook.xslt"
+        stylesheet: "kt-to-htmlbook.xslt"
         stylesheet: "glossary.xslt"
         stylesheet: "unique-ids.xslt"
         stylesheet: "table-of-contents.xslt"
