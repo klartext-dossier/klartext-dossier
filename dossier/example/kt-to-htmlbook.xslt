@@ -34,12 +34,14 @@
     </xsl:template>
 
 
+    <!-- Section titles -->
     <xsl:template match="section/title|section/header/title">
         <xsl:element name="h{count(ancestor::section)}">
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>
 
+    <!-- Sections -->
     <xsl:template match="section">
         <section data-type="sect{count(ancestor::section)+1}">
             <xsl:apply-templates/>
@@ -76,8 +78,24 @@
         </h1>
     </xsl:template>
 
-    <!-- Book elements -->
-    <xsl:template match="chapter|appendix|bibliography|glossary|preface|foreword|introduction|halftitlepage|titlepage|copyright-page|dedication|colophon|acknowledgments|afterword|conclusion|index">
+    <!-- Bibliography -->
+    <xsl:template match="bibliography">
+        <section data-type="bibliography">
+            <xsl:apply-templates/>
+            <xsl:copy-of select="//references"/>
+        </section>
+    </xsl:template>
+
+    <!-- Glossary -->
+    <xsl:template match="glossary">
+        <section data-type="glossary">
+            <xsl:apply-templates/>
+            <xsl:copy-of select="/root/glossary"/>
+        </section>
+    </xsl:template>
+
+    <!-- Other book elements -->
+    <xsl:template match="chapter|appendix|preface|foreword|introduction|halftitlepage|titlepage|copyright-page|dedication|colophon|acknowledgments|afterword|conclusion|index">
         <section data-type="{local-name()}">
             <xsl:apply-templates/>
         </section>

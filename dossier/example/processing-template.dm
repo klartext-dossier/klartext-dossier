@@ -4,16 +4,22 @@ pipeline:
         input: "doc-use-specification.kt"
         input: "intended-use-statement.kt"
         input: "dossier.kt"
+        input: "glossary.kt"
 
     xml-transform:
         stylesheet: "common-transformations.xslt"
         stylesheet: "kt-to-htmlbook.xslt"
+
+    save:
+        output: "test.xml"
+
+    xml-transform:
         stylesheet: "glossary.xslt"
         stylesheet: "unique-ids.xslt"
         stylesheet: "table-of-contents.xslt"
 
     save:
-        output: "test.xml"
+        output: "test.xhtml"
 
     xhtml-to-pdf:
         stylesheet: "htmlbook.less"
