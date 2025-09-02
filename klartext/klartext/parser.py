@@ -333,14 +333,23 @@ class Parser:
 
                     prefix = attribs.get('prefix')
                     namespace = attribs.get('namespace')
+
+                    namespaces = ""
+                    if 0 == indent:
+                        for ns in self.namespaces.keys():
+                            if ns != prefix:
+                                namespaces += f' xmlns:{ns}="{self.namespaces[ns]}"'    
+
                     if prefix and namespace:
-                        tokens[i] = Token(indent, Token.XML, Parser._indentSpaces(indent) + f'<{prefix}:{tagname} xmlns:{prefix}="{namespace}"{a}>{content}')
+                        tokens[i] = Token(indent, Token.XML, Parser._indentSpaces(indent) + f'<{prefix}:{tagname} xmlns:{prefix}="{namespace}"{namespaces}{a}>{content}')
                     else:
-                        tokens[i] = Token(indent, Token.XML, Parser._indentSpaces(indent) + f'<{tagname}{a}>{content}')
+                        tokens[i] = Token(indent, Token.XML, Parser._indentSpaces(indent) + f'<{tagname}{a}{namespaces}>{content}')
+                    
                     for i in range(i+1, len(tokens)):
                         indent = tokens[i].indent()
                         if indent <= level:
                             break
+                    
                     if prefix and namespace:
                         tokens.insert(i, Token(level, Token.XML, Parser._indentSpaces(level) + f'</{prefix}:{tagname}>'))
                     else:
