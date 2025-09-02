@@ -1,7 +1,7 @@
 """ Module providing xpath extensions.
 """
 
-import hashlib, lxml.etree, re
+import hashlib, lxml.etree, re, copy
 
 
 MULT_SPACES  = re.compile(r'\s+')
@@ -29,9 +29,10 @@ def ext_match_g(context: object, text: str, used_text: str) -> bool:
         Returns:
             true, if the strings are equal when compared case-insensitive, otherwise false
     """
-
+    
     text = string(text).strip().lower()
     used_text = string(used_text).strip().lower()
+
     return text == used_text
 
 
@@ -217,7 +218,7 @@ def register_dossier_extensions(namespace: str) -> None:
     ns['strip'] = ext_strip
     ns['simplify'] = ext_simplify
 
-
+    
 def ext_term_g(context: object, terms: list[lxml.etree._Element]) -> str:
 
     """ Select the term to display for a glossary entry.
@@ -232,6 +233,8 @@ def ext_term_g(context: object, terms: list[lxml.etree._Element]) -> str:
 
     for term in terms:
         return term.text.strip()
+    
+    return ""
 
 
 def ext_entry_link_g(context: object, entries: list[lxml.etree._Element]) -> str:
@@ -320,25 +323,6 @@ def ext_lookup_g(context: object, refs: list[lxml.etree._Element]) -> lxml.etree
 
     ref.set('data-match', 'none')
     return ref
-
-
-def ext_match_g(context: object, text: str, used_text: str) -> bool:
-
-    """ Compares two texts case-insensitive.
-    
-        Args:
-            context:   the xpath context
-            text:      first string
-            used_text: second string
-
-        Returns:
-            true, if the strings are equal when compared case-insensitive, otherwise false
-    """
-    
-    text = string(text).strip().lower()
-    used_text = string(used_text).strip().lower()
-
-    return text == used_text
 
 
 def _refered_glossary(reference: lxml.etree._Element) -> str | None:
@@ -522,3 +506,98 @@ def register_vcf_extensions(namespace: str) -> None:
 
     ns['N'] = ext_N
     ns['ADR'] = ext_ADR
+
+
+
+def ext_evaluate(context: object, xpath: str | list[str]) -> list[object]:
+
+    """ Evaluates an xpath expression.
+    
+        Args:
+            context: the xpath context (containing the current node)
+            xpath:   an xpath expression
+
+        Returns:
+            the result of evaluating the xpath expression on the root document
+    # """
+
+    root = context.context_node.getroottree()
+
+    evaluator = lxml.etree.XPathEvaluator(root)
+
+    return evaluator(string(xpath))
+
+
+def _copy_element(element: lxml.etree.Element) -> lxml.etree.Element:
+    copy = lxml.etree.Element(element.tag)
+    return copy
+
+def _add_subelements(element: lxml.etree.Element, parent: lxml.etree.Element) -> None:
+    for child in list(parent):
+        subelement = _copy_element(child)
+        if '{http://klartext-dossier.org/klartext-templates}value-of' == child.tag:
+            subelement.text = "FOOBAR"
+        _add_subelements(subelement, child)
+        element.append(subelement)
+
+
+def ext_for_each(context: object) -> list[object]:
+
+    # """ Evaluates an xpath expression.
+    
+    #     Args:
+    #         context: the xpath context (containing the current node)
+    #         xpath:   an xpath expression
+
+    #     Returns:
+    #         the result of evaluating the xpath expression on the root document
+    # """
+
+    element = context.context_node
+
+    evaluator = lxml.etree.XPathEvaluator(element)
+    nodes = evaluator(element.get("select"))
+
+    result = lxml.etree.Element("result")
+    for node in nodes:
+        _add_subelements(result, element)
+
+    return result
+
+
+def ext_value_of(context: object) -> list[object]:
+
+    # """ Evaluates an xpath expression.
+    
+    #     Args:
+    #         context: the xpath context (containing the current node)
+    #         xpath:   an xpath expression
+
+    #     Returns:
+    #         the result of evaluating the xpath expression on the root document
+    # """
+
+    element = context.context_node
+
+    evaluator = lxml.etree.XPathEvaluator(element)
+
+    return evaluator(element.get("select"))
+
+
+def register_template_extensions(namespace: str) -> None:
+
+    # """ Registers the lxml extensions.
+
+    #     Registers the extensions
+
+    #     - evaluate
+
+    #     Args:
+    #         namespace: the namespace to register the extentions under.
+    # """
+
+    ns = lxml.etree.FunctionNamespace(namespace)
+
+    ns['evaluate'] = ext_evaluate
+    ns['for-each'] = ext_for_each
+    ns['value-of'] = ext_value_of

@@ -1,6 +1,15 @@
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:ktt="http://klartext-dossier.org/klartext-templates" xmlns:exsl="http://exslt.org/common" extension-element-prefixes="exsl ktt">
 
     <xsl:output method="xml" indent="yes"/>
+
+    <xsl:template match="ktt:for-each">
+        <xsl:copy-of select="ktt:for-each()/*"/>
+    </xsl:template>
+
+    <!-- <xsl:template match="ktt:value-of">
+        <xsl:copy-of select="ktt:value-of()"/>
+    </xsl:template> -->
+
 
     <!-- This is the default template. It copies every element that is not matched by another template. -->
     <xsl:template match="@*|node()">

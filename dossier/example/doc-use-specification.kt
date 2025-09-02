@@ -1,3 +1,6 @@
+!import "http://klartext-dossier.org/klartext-templates" as ktt
+!import "http://www.klartext-dossier.org/medical-device-file" as md
+
 book: [en]
 
     titlepage:
@@ -7,22 +10,13 @@ book: [en]
         title: Table of Contents
 
     chapter:
-        title: Intended Users
+        title:
+            ktt::value-of: select="//md:device/md:name"            
 
-        section:     
-            title: Dialysis Nurse
-
-            This is the main {user} of the /r/device/. 
-
-            section:        
-                title: Special Dialysis Nurse
-
-                This is the main {user} of the /r/device/. 
-
-        section:        
-            title: Physician
-
-            This is the main {user} of the /r/device/. 
+        // ktt::for-each: select="//intended-user"
+        //     section:
+        //         title: 
+        //             ktt::value-of: select="@name"
 
     bibliography:
         title: Bibliography

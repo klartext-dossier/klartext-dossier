@@ -6,6 +6,9 @@ pipeline:
         input: "dossier.kt"
         input: "glossary.kt"
 
+    save:
+        output: "test-included.xml"
+
     xml-transform:
         stylesheet: "common-transformations.xslt"
         stylesheet: "kt-to-htmlbook.xslt"
