@@ -1,4 +1,4 @@
-<root>
+<root xmlns:mdr="https://klartext-dossier.org/glossaries/medical-device-regulation" xmlns:qm="https://klartext-dossier.org/glossaries/iso-13485">
     <glossary id="cfda9ff7e058cf7579097cf2ab9c852b">
         <entry>
             <term>Medical Device
