@@ -7,7 +7,7 @@
     </xsl:template>
 
     <xsl:template match="ktt:value-of">
-        <xsl:value-of select="ktt:value-of()"/>
+        <xsl:apply-templates select="ktt:value-of()"/>
     </xsl:template>
 
 

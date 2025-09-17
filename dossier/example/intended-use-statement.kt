@@ -27,9 +27,9 @@ md::intended-use: #gds-intended-use
     md::patient-group: #patient name="Patient"
         Patients with {permanent kidney failure} and a {body-weight} > 40 kg.
 
-    intended-user: #physician name="Nephrologist"
+    md::intended-user: #physician name="Nephrologist"
 
-    intended-user: #nurse name="Dialysis Nurse"
+    md::intended-user: #nurse name="Dialysis Nurse"
 
     md::intended-user: #technician name="Medical Technician"
 

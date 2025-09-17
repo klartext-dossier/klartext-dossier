@@ -13,7 +13,7 @@ book: [en]
         title:
             ktt::value-of: select="//md:device/@name"            
 
-        ktt::for-each: select="//intended-user"
+        ktt::for-each: select="//md:intended-user"
             section:
                 title: 
                     ktt::value-of: select="@name"
