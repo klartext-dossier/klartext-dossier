@@ -1,4 +1,4 @@
-<root><book xml:lang="en">
+<root><book xmlns:ktt="http://klartext-dossier.org/klartext-templates" xmlns:md="http://www.klartext-dossier.org/medical-device-file" xml:lang="en">
     <titlepage>
         <title><p xmlns="http://www.w3.org/1999/xhtml">Use Specification for <r>device</r></p>
         </title>
@@ -9,9 +9,17 @@
     </table-of-contents>
     <chapter>
         <title>
-            <ktt:value-of xmlns:ktt="http://klartext-dossier.org/klartext-templates" select="//md:device/md:name">
+            <ktt:value-of select="//md:device/@name">
             </ktt:value-of>
         </title>
+        <ktt:for-each select="//intended-user">
+            <section>
+                <title>
+                    <ktt:value-of select="@name">
+                    </ktt:value-of>
+                </title>
+            </section>
+        </ktt:for-each>
     </chapter>
     <bibliography>
         <title><p xmlns="http://www.w3.org/1999/xhtml">Bibliography</p>
@@ -21,7 +29,7 @@
         <title><p xmlns="http://www.w3.org/1999/xhtml">Glossary</p>
         </title>
     </glossary>
-</book><md:intended-use xmlns:md="http://www.klartext-dossier.org/medical-device-file" id="gds-intended-use">
+</book><md:intended-use xmlns:md="http://www.klartext-dossier.org/medical-device-file" xmlns:ops="http://www.klartext-dossier.org/ops-2025" xmlns:icd="http://www.klartext-dossier.org/icd-10-gm" id="gds-intended-use">
     <md:intended-use-summary>
 <p xmlns="http://www.w3.org/1999/xhtml">The <r>device</r> is a <a data-type="xref" data-xrefstyle="glossary" href="#dialysis_machine">dialysis machine</a> providing <a data-type="xref" data-xrefstyle="glossary" href="#haemodialysis">haemodialysis</a> treatments for patients with <a data-type="xref" data-xrefstyle="glossary" href="#permanent_kidney_failure">permanent kidney failure</a>.</p>
     </md:intended-use-summary>
@@ -33,14 +41,14 @@
         <md:clinical-function name="Net Fluid Removal">
 <p xmlns="http://www.w3.org/1999/xhtml">Removal of excess water from the patient's blood</p>
         </md:clinical-function>
-        <ops:ops-code xmlns:ops="http://www.klartext-dossier.org/ops-2025" ref="ce07f3354c0c031d666337ce95e8b929__code-8-854.x">
+        <ops:ops-code ref="ce07f3354c0c031d666337ce95e8b929__code-8-854.x">
         </ops:ops-code>
     </md:medical-purpose>
     <md:medical-indication>
 <p xmlns="http://www.w3.org/1999/xhtml"><r>patient</r>s with <a data-type="xref" data-xrefstyle="glossary" href="#permanent_kidney_failure">permanent kidney failure</a> and low <a data-type="xref" data-xrefstyle="glossary" href="#glomerular_filtration_rate">glomerular filtration rate</a> (<a data-type="xref" data-xrefstyle="glossary" href="#gfr">GFR</a> &lt; 15 mL/min).</p>
-        <icd:icd-code xmlns:icd="http://www.klartext-dossier.org/icd-10-gm" ref="28c38fae6024c6bfd21ce5a98b6b1c99__code-N18.5">
+        <icd:icd-code ref="28c38fae6024c6bfd21ce5a98b6b1c99__code-N18.5">
         </icd:icd-code>
-        <icd:icd-code xmlns:icd="http://www.klartext-dossier.org/icd-10-gm" ref="28c38fae6024c6bfd21ce5a98b6b1c99__code-Z99.2">
+        <icd:icd-code ref="28c38fae6024c6bfd21ce5a98b6b1c99__code-Z99.2">
         </icd:icd-code>
     </md:medical-indication>
     <md:patient-group name="Patient" id="patient">
@@ -54,9 +62,9 @@
     </md:intended-user>
     <md:use-environment name="Hospital Ward" id="ward">
     </md:use-environment>
-</md:intended-use><dossier>
+</md:intended-use><dossier xmlns:md="http://www.klartext-dossier.org/medical-device-file">
     <information-model>
-        <md:device xmlns:md="http://www.klartext-dossier.org/medical-device-file" name="Generic Dialysis System" id="device">
+        <md:device name="Generic Dialysis System" id="device">
             <md:intended-use ref="gds-intended-use">
             </md:intended-use>
         </md:device>

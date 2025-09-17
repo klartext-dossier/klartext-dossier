@@ -11,12 +11,12 @@ book: [en]
 
     chapter:
         title:
-            ktt::value-of: select="//md:device/md:name"            
+            ktt::value-of: select="//md:device/@name"            
 
-        // ktt::for-each: select="//intended-user"
-        //     section:
-        //         title: 
-        //             ktt::value-of: select="@name"
+        ktt::for-each: select="//intended-user"
+            section:
+                title: 
+                    ktt::value-of: select="@name"
 
     bibliography:
         title: Bibliography

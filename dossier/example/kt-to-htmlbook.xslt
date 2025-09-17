@@ -3,12 +3,12 @@
     <xsl:output method="xml" indent="yes"/>
 
     <xsl:template match="ktt:for-each">
-        <xsl:copy-of select="ktt:for-each()/*"/>
+        <xsl:apply-templates select="ktt:for-each()/*"/>
     </xsl:template>
 
-    <!-- <xsl:template match="ktt:value-of">
-        <xsl:copy-of select="ktt:value-of()"/>
-    </xsl:template> -->
+    <xsl:template match="ktt:value-of">
+        <xsl:value-of select="ktt:value-of()"/>
+    </xsl:template>
 
 
     <!-- This is the default template. It copies every element that is not matched by another template. -->

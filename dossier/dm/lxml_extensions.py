@@ -508,37 +508,22 @@ def register_vcf_extensions(namespace: str) -> None:
     ns['ADR'] = ext_ADR
 
 
-
-def ext_evaluate(context: object, xpath: str | list[str]) -> list[object]:
-
-    """ Evaluates an xpath expression.
-    
-        Args:
-            context: the xpath context (containing the current node)
-            xpath:   an xpath expression
-
-        Returns:
-            the result of evaluating the xpath expression on the root document
-    # """
-
-    root = context.context_node.getroottree()
-
-    evaluator = lxml.etree.XPathEvaluator(root)
-
-    return evaluator(string(xpath))
-
-
 def _copy_element(element: lxml.etree.Element) -> lxml.etree.Element:
     copy = lxml.etree.Element(element.tag)
     return copy
 
-def _add_subelements(element: lxml.etree.Element, parent: lxml.etree.Element) -> None:
-    for child in list(parent):
-        subelement = _copy_element(child)
+def _add_subelements(result: lxml.etree.Element, element: lxml.etree.Element, origin: lxml.etree.Element) -> None:
+    for child in list(element):
         if '{http://klartext-dossier.org/klartext-templates}value-of' == child.tag:
-            subelement.text = "FOOBAR"
-        _add_subelements(subelement, child)
-        element.append(subelement)
+            evaluator = lxml.etree.XPathEvaluator(origin, namespaces=element.nsmap)            
+            nodes = evaluator(child.get("select"))
+            print(origin, child.get("select"), nodes)
+            for node in nodes:
+                result.text = node
+        else:
+            subelement = _copy_element(child)
+            _add_subelements(subelement, child, origin)
+            result.append(subelement)
 
 
 def ext_for_each(context: object) -> list[object]:
@@ -560,7 +545,7 @@ def ext_for_each(context: object) -> list[object]:
 
     result = lxml.etree.Element("result")
     for node in nodes:
-        _add_subelements(result, element)
+        _add_subelements(result, element, node)
 
     return result
 
@@ -574,14 +559,16 @@ def ext_value_of(context: object) -> list[object]:
     #         xpath:   an xpath expression
 
     #     Returns:
-    #         the result of evaluating the xpath expression on the root document
+    #         the result of evaluating the xpath expression on the current node
     # """
 
     element = context.context_node
 
-    evaluator = lxml.etree.XPathEvaluator(element)
+    evaluator = lxml.etree.XPathEvaluator(element, namespaces=element.nsmap)
 
-    return evaluator(element.get("select"))
+    result = evaluator(element.get("select"))
+        
+    return result
 
 
 def register_template_extensions(namespace: str) -> None:
@@ -589,15 +576,15 @@ def register_template_extensions(namespace: str) -> None:
     # """ Registers the lxml extensions.
 
     #     Registers the extensions
-
-    #     - evaluate
-
+    #
+    #     - for-each
+    #     - value-of
+    #
     #     Args:
     #         namespace: the namespace to register the extentions under.
     # """
 
     ns = lxml.etree.FunctionNamespace(namespace)
 
-    ns['evaluate'] = ext_evaluate
     ns['for-each'] = ext_for_each
     ns['value-of'] = ext_value_of
