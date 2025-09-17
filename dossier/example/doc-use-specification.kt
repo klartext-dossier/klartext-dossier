@@ -18,6 +18,11 @@ book: [en]
                 title: 
                     ktt::value-of: select="@name"
 
+                ktt::for-each: select="//md:clinical-function"
+                    section:
+                        title:
+                            ktt::value-of: select="@name"
+
     bibliography:
         title: Bibliography
 

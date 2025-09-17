@@ -519,6 +519,11 @@ def _add_subelements(result: lxml.etree.Element, element: lxml.etree.Element, or
             nodes = evaluator(child.get("select"))
             for node in nodes:
                 result.text = node
+        elif '{http://klartext-dossier.org/klartext-templates}for-each' == child.tag:
+            evaluator = lxml.etree.XPathEvaluator(child, namespaces=child.nsmap)
+            nodes = evaluator(child.get("select"))
+            for node in nodes:
+                _add_subelements(result, child, node)
         else:
             subelement = _copy_element(child)
             _add_subelements(subelement, child, origin)
