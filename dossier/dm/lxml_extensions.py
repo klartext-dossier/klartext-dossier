@@ -515,15 +515,26 @@ def _copy_element(element: lxml.etree.Element) -> lxml.etree.Element:
 def _add_subelements(result: lxml.etree.Element, element: lxml.etree.Element, origin: lxml.etree.Element) -> None:
     for child in list(element):
         if '{http://klartext-dossier.org/klartext-templates}value-of' == child.tag:
+            evaluator = lxml.etree.XPathEvaluator(origin, namespaces=element.nsmap)   
+            select = child.get("select")
+            if select is not None:     
+                nodes = evaluator(select)
+                for node in nodes:
+                    result.text = node
+        elif '{http://klartext-dossier.org/klartext-templates}copy-of' == child.tag:
             evaluator = lxml.etree.XPathEvaluator(origin, namespaces=element.nsmap)            
-            nodes = evaluator(child.get("select"))
-            for node in nodes:
-                result.text = node
+            select = child.get("select")
+            if select is not None:     
+                nodes = evaluator(select)
+                for node in nodes:
+                    result.append(node)
         elif '{http://klartext-dossier.org/klartext-templates}for-each' == child.tag:
             evaluator = lxml.etree.XPathEvaluator(child, namespaces=child.nsmap)
-            nodes = evaluator(child.get("select"))
-            for node in nodes:
-                _add_subelements(result, child, node)
+            select = child.get("select")
+            if select is not None:     
+                nodes = evaluator(select)
+                for node in nodes:
+                    _add_subelements(result, child, node)
         else:
             subelement = _copy_element(child)
             _add_subelements(subelement, child, origin)
@@ -533,13 +544,13 @@ def _add_subelements(result: lxml.etree.Element, element: lxml.etree.Element, or
 def ext_for_each(context: object) -> list[object]:
 
     # """ Evaluates an xpath expression.
-    
+    # 
     #     Args:
     #         context: the xpath context (containing the current node)
     #         xpath:   an xpath expression
-
+    # 
     #     Returns:
-    #         the result of evaluating the xpath expression on the root document
+    #         the result of evaluating the xpath expression 
     # """
 
     element = context.context_node
@@ -556,7 +567,7 @@ def ext_for_each(context: object) -> list[object]:
 
 def ext_value_of(context: object) -> list[object]:
 
-    # """ Evaluates an xpath expression.
+    # """ Evaluates an xpath expression as a string value.
     
     #     Args:
     #         context: the xpath context (containing the current node)
@@ -570,9 +581,34 @@ def ext_value_of(context: object) -> list[object]:
 
     evaluator = lxml.etree.XPathEvaluator(element, namespaces=element.nsmap)
 
-    result = evaluator(element.get("select"))
+    select = element.get("select")
+    if select is not None:
+        return evaluator(select)
         
-    return result
+    return ""
+
+
+def ext_copy_of(context: object) -> list[object]:
+
+    # """ Evaluates an xpath expression as a nodeset.
+    # 
+    #     Args:
+    #         context: the xpath context (containing the current node)
+    #         xpath:   an xpath expression
+    # 
+    #     Returns:
+    #         the result of evaluating the xpath expression on the current node
+    # """
+
+    element = context.context_node
+
+    evaluator = lxml.etree.XPathEvaluator(element, namespaces=element.nsmap)
+
+    select = element.get("select")
+    if select is not None:
+        return evaluator(select)
+        
+    return []
 
 
 def register_template_extensions(namespace: str) -> None:
@@ -583,6 +619,7 @@ def register_template_extensions(namespace: str) -> None:
     #
     #     - for-each
     #     - value-of
+    #     - copy-of
     #
     #     Args:
     #         namespace: the namespace to register the extentions under.
@@ -592,3 +629,4 @@ def register_template_extensions(namespace: str) -> None:
 
     ns['for-each'] = ext_for_each
     ns['value-of'] = ext_value_of
+    ns['copy-of'] = ext_copy_of
