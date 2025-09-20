@@ -1,27 +1,27 @@
-!import "http://klartext-dossier.org/klartext-templates" as ktt
+!import "http://klartext-dossier.org/klartext-templates" as kt
 !import "http://www.klartext-dossier.org/medical-device-file" as md
 
 book: [en]
 
     titlepage:
-        title: Use Specification for /r/device/ 
+        title: Use Specification for /r/device/
 
     table-of-contents:
         title: Table of Contents
 
     chapter:
         title:
-            ktt::value-of: select="//md:device/@name"            
+            kt::value-of: select="//md:device/@name"
 
-        ktt::for-each: select="//md:intended-user"
+        kt::for-each: select="//md:intended-user"
             section:
-                title: 
-                    ktt::value-of: select="@name"
+                title:
+                    kt::value-of: select="@name"
 
-                ktt::for-each: select="//md:clinical-function"
+                kt::for-each: select="//md:clinical-function"
                     section:
                         title:
-                            ktt::value-of: select="@name"
+                            kt::value-of: select="@name"
 
     bibliography:
         title: Bibliography
