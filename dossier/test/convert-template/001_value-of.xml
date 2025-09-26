@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <head/>
+  <body data-type="book">
+    <data xmlns="" name="foobar" id="ID1">
+    </data>
+    foobar
+    <data xmlns="" name="foobar" id="ID1">
+    </data>
+</body>
+</html>

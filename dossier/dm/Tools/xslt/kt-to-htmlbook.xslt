@@ -14,6 +14,10 @@
         <xsl:copy-of select="kt:copy-of()"/>
     </xsl:template>
 
+    <xsl:template match="kt:if">
+        <xsl:apply-templates select="kt:if()/*"/>
+    </xsl:template>
+
 
     <!-- This is the default template. It copies every element that is not matched by another template. -->
     <xsl:template match="@*|node()">

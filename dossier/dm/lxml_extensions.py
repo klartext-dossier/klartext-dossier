@@ -510,6 +510,7 @@ def register_vcf_extensions(namespace: str) -> None:
 
 def _copy_element(element: lxml.etree.Element) -> lxml.etree.Element:
     copy = lxml.etree.Element(element.tag)
+    copy.text = element.text
     return copy
 
 def _add_subelements(result: lxml.etree.Element, element: lxml.etree.Element, origin: lxml.etree.Element) -> None:
@@ -567,7 +568,7 @@ def ext_for_each(context: object) -> list[object]:
 
 def ext_value_of(context: object) -> list[object]:
 
-    # """ Evaluates an xpath expression as a string value.
+    # """ Evaluates an xpath expression
     
     #     Args:
     #         context: the xpath context (containing the current node)
@@ -611,6 +612,35 @@ def ext_copy_of(context: object) -> list[object]:
     return []
 
 
+def ext_if(context: object) -> list[object]:
+
+    # """ Conditionally includes the children.
+    # 
+    #     Args:
+    #         context: the xpath context (containing the current node)
+    #         xpath:   an xpath expression
+    # 
+    #     Returns:
+    #         the result of evaluating the xpath expression 
+    # """
+
+    element = context.context_node
+
+    evaluator = lxml.etree.XPathEvaluator(element, namespaces=element.nsmap)
+    test = element.get("test")
+
+    if test is not None:
+        nodes = evaluator(test)
+
+        if len(nodes) > 0:
+            result = lxml.etree.Element("result")
+            _add_subelements(result, element, element)
+
+            return result
+
+    return []
+
+
 def register_template_extensions(namespace: str) -> None:
 
     # """ Registers the lxml extensions.
@@ -620,6 +650,7 @@ def register_template_extensions(namespace: str) -> None:
     #     - for-each
     #     - value-of
     #     - copy-of
+    #     - if
     #
     #     Args:
     #         namespace: the namespace to register the extentions under.
@@ -630,3 +661,4 @@ def register_template_extensions(namespace: str) -> None:
     ns['for-each'] = ext_for_each
     ns['value-of'] = ext_value_of
     ns['copy-of'] = ext_copy_of
+    ns['if'] = ext_if

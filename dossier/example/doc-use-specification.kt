@@ -13,6 +13,13 @@ book: [en]
         title:
             kt::value-of: select="//md:device/@name"
 
+        kt::if: test="//md:intended-use-summary"
+            section:
+                title: 
+                    Intended Use Summary
+
+                kt::copy-of: select="//md:intended-use-summary/*"
+                    
         kt::for-each: select="//md:intended-user"
             section:
                 title:

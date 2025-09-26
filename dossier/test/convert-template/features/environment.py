@@ -1,0 +1,27 @@
+import logging, io, sys
+
+from os import path
+
+from dm.utilities import guessToolsDir
+from dm.context import Context
+
+
+def before_scenario(context, feature):
+    logging.disable(logging.INFO)                            
+                              
+    context.toolsdir = guessToolsDir()
+    if 'toolsdir' in context.config.userdata:
+        context.toolsdir = context.config.userdata['toolsdir']
+    logging.debug(f'toolsdir: {context.toolsdir}')
+
+    context.context = Context(toolsdir=context.toolsdir)
+
+    # capture stdout
+    context.real_stdout = sys.stdout
+    context.stdout_mock = io.StringIO()
+    sys.stdout = context.stdout_mock
+    
+
+def after_scenario(context, feature):
+    context.exception = None
+    sys.stdout = context.real_stdout
