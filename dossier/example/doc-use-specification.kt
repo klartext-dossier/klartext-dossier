@@ -20,15 +20,14 @@ book: [en]
 
                 kt::copy-of: select="//md:intended-use-summary/*"
                     
-        kt::for-each: select="//md:intended-user"
-            section:
-                title:
-                    kt::value-of: select="@name"
+        section:
+            title: 
+                Intended Users
 
-                kt::for-each: select="//md:clinical-function"
-                    section:
-                        title:
-                            kt::value-of: select="@name"
+            kt::for-each: select="//md:intended-user"
+                section:
+                    title:
+                        kt::value-of: select="@name"
 
     bibliography:
         title: Bibliography

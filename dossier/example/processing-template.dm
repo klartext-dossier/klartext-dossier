@@ -6,25 +6,30 @@ pipeline:
         input: "dossier.kt"
         input: "glossary.kt"
 
-    save:
-        output: "test-included.xml"
+    if: test="debug"
+        save:
+            output: "test-included.xml"
 
     xml-transform:
         stylesheet: "common-transformations.xslt"
-        stylesheet: "kt-to-htmlbook.xslt"
+        stylesheet: "klartext-templates.xslt"
 
-    save:
-        output: "test.xml"
+    if: test="debug"
+        save:
+            output: "test.xml"
 
     xml-transform:
+        stylesheet: "kt-to-htmlbook.xslt"
         stylesheet: "glossary.xslt"
         stylesheet: "unique-ids.xslt"
         stylesheet: "table-of-contents.xslt"
 
-    save:
-        output: "test.xhtml"
+    if: test="debug"
+        save:
+            output: "test.xhtml"
 
     xhtml-to-pdf:
         stylesheet: "htmlbook.less"
+        stylesheet: test="debug" "htmlbook-debug.css"
         output: "doc-use-specification.pdf"
     

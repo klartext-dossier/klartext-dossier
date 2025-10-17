@@ -7,3 +7,5 @@ book:
     kt::value-of: select="//data/@name"
 
     kt::value-of: select="//data"
+
+    kt::value-of: select="//foobar"
