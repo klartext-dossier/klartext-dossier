@@ -1,5 +1,5 @@
 !include "includefile.kt"
-!import "http://www.klartext-dossier.org" as org
+!import "http://klartext-dossier.org" as org
 
 single: Some _Content_
 

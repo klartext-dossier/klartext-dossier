@@ -1,4 +1,4 @@
-!import "http://www.klartext-dossier.org/medical-device-file" as md
+!import "http://klartext-dossier.org/medical-device-file" as md
 
 dossier:
 

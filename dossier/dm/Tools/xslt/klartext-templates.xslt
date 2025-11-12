@@ -2,6 +2,13 @@
 
     <xsl:output method="xml" indent="yes"/>
 
+    <!-- This is the default template. It copies every element that is not matched by another template. -->
+    <xsl:template match="@*|node()">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
+
     <xsl:template match="kt:for-each">
         <xsl:apply-templates select="kt:for-each()/*"/>
     </xsl:template>
@@ -16,14 +23,6 @@
 
     <xsl:template match="kt:if">
         <xsl:apply-templates select="kt:if()/*"/>
-    </xsl:template>
-
-
-    <!-- This is the default template. It copies every element that is not matched by another template. -->
-    <xsl:template match="@*|node()">
-        <xsl:copy>
-            <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
     </xsl:template>
 
 </xsl:stylesheet>

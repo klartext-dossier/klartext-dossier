@@ -1,5 +1,5 @@
 !import "http://klartext-dossier.org/klartext-templates" as kt
-!import "http://www.klartext-dossier.org/medical-device-file" as md
+!import "http://klartext-dossier.org/medical-device-file" as md
 
 book: [en]
 
@@ -20,6 +20,23 @@ book: [en]
 
                 kt::copy-of: select="//md:intended-use-summary/*"
                     
+        section:
+            title: 
+                Medical Indication
+
+            kt::copy-of: select="//md:medical-indication/*"
+
+        section:
+            title: 
+                Patient Groups
+
+            kt::for-each: select="//md:patient-group"
+                section:
+                    title:
+                        kt::value-of: select="@name"
+                    
+                    kt::copy-of: select="*"
+
         section:
             title: 
                 Intended Users

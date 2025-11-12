@@ -12,6 +12,15 @@ glossary: #gds
             A machine that provides a renal replacement therapy.
             
     entry:
+        term: "Glomerular Filtration Rate (GFR)"
+        term: "Glomerular Filtration Rate"
+        term: "Glomerular Filtration Rates"
+        term: "GFR"
+
+        definition: 
+            Overall measure of kidney function, representing the volume of plasma the kidneys filter in a given time.
+            
+    entry:
         term: "Haemodialysis"
 
         definition: 
