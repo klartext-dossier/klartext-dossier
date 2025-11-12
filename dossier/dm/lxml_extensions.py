@@ -1,7 +1,7 @@
 """ Module providing xpath extensions.
 """
 
-import hashlib, lxml.etree, re
+import hashlib, lxml.etree, re, copy
 
 
 MULT_SPACES  = re.compile(r'\s+')
@@ -15,6 +15,25 @@ def string(str_or_list: str | list[str]) -> str:
         return str_or_list[0]
         
     return str(str_or_list)
+
+
+def ext_match_g(context: object, text: str, used_text: str) -> bool:
+
+    """ Compares two texts case-insensitive.
+    
+        Args:
+            context:   the xpath context
+            text:      first string
+            used_text: second string
+
+        Returns:
+            true, if the strings are equal when compared case-insensitive, otherwise false
+    """
+    
+    text = string(text).strip().lower()
+    used_text = string(used_text).strip().lower()
+
+    return text == used_text
 
 
 def ext_id(context: object, text: str | list[str]) -> str:
@@ -199,7 +218,7 @@ def register_dossier_extensions(namespace: str) -> None:
     ns['strip'] = ext_strip
     ns['simplify'] = ext_simplify
 
-
+    
 def ext_term_g(context: object, terms: list[lxml.etree._Element]) -> str:
 
     """ Select the term to display for a glossary entry.
@@ -214,6 +233,8 @@ def ext_term_g(context: object, terms: list[lxml.etree._Element]) -> str:
 
     for term in terms:
         return term.text.strip()
+    
+    return ""
 
 
 def ext_entry_link_g(context: object, entries: list[lxml.etree._Element]) -> str:
@@ -302,25 +323,6 @@ def ext_lookup_g(context: object, refs: list[lxml.etree._Element]) -> lxml.etree
 
     ref.set('data-match', 'none')
     return ref
-
-
-def ext_match_g(context: object, text: str, used_text: str) -> bool:
-
-    """ Compares two texts case-insensitive.
-    
-        Args:
-            context:   the xpath context
-            text:      first string
-            used_text: second string
-
-        Returns:
-            true, if the strings are equal when compared case-insensitive, otherwise false
-    """
-    
-    text = string(text).strip().lower()
-    used_text = string(used_text).strip().lower()
-
-    return text == used_text
 
 
 def _refered_glossary(reference: lxml.etree._Element) -> str | None:
@@ -504,3 +506,159 @@ def register_vcf_extensions(namespace: str) -> None:
 
     ns['N'] = ext_N
     ns['ADR'] = ext_ADR
+
+
+def _copy_element(element: lxml.etree.Element) -> lxml.etree.Element:
+    copy = lxml.etree.Element(element.tag)
+    copy.text = element.text
+    return copy
+
+def _add_subelements(result: lxml.etree.Element, element: lxml.etree.Element, origin: lxml.etree.Element) -> None:
+    for child in list(element):
+        if '{http://klartext-dossier.org/klartext-templates}value-of' == child.tag:
+            evaluator = lxml.etree.XPathEvaluator(origin, namespaces=element.nsmap)   
+            select = child.get("select")
+            if select is not None:     
+                nodes = evaluator(select)
+                for node in nodes:
+                    result.text = node
+        elif '{http://klartext-dossier.org/klartext-templates}copy-of' == child.tag:
+            evaluator = lxml.etree.XPathEvaluator(origin, namespaces=element.nsmap)            
+            select = child.get("select")
+            if select is not None:     
+                nodes = evaluator(select)
+                for node in nodes:
+                    result.append(node)
+        elif '{http://klartext-dossier.org/klartext-templates}for-each' == child.tag:
+            evaluator = lxml.etree.XPathEvaluator(child, namespaces=child.nsmap)
+            select = child.get("select")
+            if select is not None:     
+                nodes = evaluator(select)
+                for node in nodes:
+                    _add_subelements(result, child, node)
+        else:
+            subelement = _copy_element(child)
+            _add_subelements(subelement, child, origin)
+            result.append(subelement)
+
+
+def ext_for_each(context: object) -> list[object]:
+
+    # """ Evaluates an xpath expression.
+    # 
+    #     Args:
+    #         context: the xpath context (containing the current node)
+    #         xpath:   an xpath expression
+    # 
+    #     Returns:
+    #         the result of evaluating the xpath expression 
+    # """
+
+    element = context.context_node
+
+    evaluator = lxml.etree.XPathEvaluator(element, namespaces=element.nsmap)
+    nodes = evaluator(element.get("select"))
+
+    result = lxml.etree.Element("result")
+    for node in nodes:
+        _add_subelements(result, element, node)
+
+    return result
+
+
+def ext_value_of(context: object) -> list[object]:
+
+    # """ Evaluates an xpath expression
+    
+    #     Args:
+    #         context: the xpath context (containing the current node)
+    #         xpath:   an xpath expression
+
+    #     Returns:
+    #         the result of evaluating the xpath expression on the current node
+    # """
+
+    element = context.context_node
+
+    evaluator = lxml.etree.XPathEvaluator(element, namespaces=element.nsmap)
+
+    select = element.get("select")
+    if select is not None:
+        return evaluator(select)
+        
+    return ""
+
+
+def ext_copy_of(context: object) -> list[object]:
+
+    # """ Evaluates an xpath expression as a nodeset.
+    # 
+    #     Args:
+    #         context: the xpath context (containing the current node)
+    #         xpath:   an xpath expression
+    # 
+    #     Returns:
+    #         the result of evaluating the xpath expression on the current node
+    # """
+
+    element = context.context_node
+
+    evaluator = lxml.etree.XPathEvaluator(element, namespaces=element.nsmap)
+
+    select = element.get("select")
+    if select is not None:
+        return evaluator(select)
+        
+    return []
+
+
+def ext_if(context: object) -> list[object]:
+
+    # """ Conditionally includes the children.
+    # 
+    #     Args:
+    #         context: the xpath context (containing the current node)
+    #         xpath:   an xpath expression
+    # 
+    #     Returns:
+    #         the result of evaluating the xpath expression 
+    # """
+
+    element = context.context_node
+
+    evaluator = lxml.etree.XPathEvaluator(element, namespaces=element.nsmap)
+    test = element.get("test")
+
+    if test is not None:
+        nodes = evaluator(test)
+
+        if len(nodes) > 0:
+            result = lxml.etree.Element("result")
+            _add_subelements(result, element, element)
+
+            return result
+
+    return []
+
+
+def register_template_extensions(namespace: str) -> None:
+
+    # """ Registers the lxml extensions.
+
+    #     Registers the extensions
+    #
+    #     - for-each
+    #     - value-of
+    #     - copy-of
+    #     - if
+    #
+    #     Args:
+    #         namespace: the namespace to register the extentions under.
+    # """
+
+    ns = lxml.etree.FunctionNamespace(namespace)
+
+    ns['for-each'] = ext_for_each
+    ns['value-of'] = ext_value_of
+    ns['copy-of'] = ext_copy_of
+    ns['if'] = ext_if

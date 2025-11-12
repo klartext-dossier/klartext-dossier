@@ -11,7 +11,7 @@ setup(
     author                  = "Matthias Hölzer-Klüpfel",
     author_email            = "matthias@hoelzer-kluepfel.de",
     description             = "Markdown externions",
-    url                     = "https://www.klartext-dossier.org/klartext-dossier",
+    url                     = "https://klartext-dossier.org/klartext-dossier",
     keywords                = "documentation processing",
 
     license                 = "BSD-3-Clause",

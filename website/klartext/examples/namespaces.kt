@@ -1,5 +1,5 @@
-!import "http://www.klartext-dossier.org/example" as ex
-!import "http://www.klartext-dossier.org/foobar" as foo
+!import "http://klartext-dossier.org/example" as ex
+!import "http://klartext-dossier.org/foobar" as foo
 
 tag: #ex
 
