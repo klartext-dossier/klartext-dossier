@@ -20,7 +20,8 @@ COMMON_EXTENSIONS = [
     'klartext.inline', 
     'mdx.checkbox', 
     'mdx.toc', 
-    'mdx.admonition', 
+    'mdx.admonition',
+    'grid_tables' 
 ]
 
 
