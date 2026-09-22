@@ -21,7 +21,7 @@ COMMON_EXTENSIONS = [
     'mdx.checkbox', 
     'mdx.toc', 
     'mdx.admonition',
-    'grid_tables' 
+    'grid-table' 
 ]
 
 
