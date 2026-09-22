@@ -26,7 +26,7 @@
         <xsl:variable name="sect2_nr"><xsl:value-of select="count(preceding-sibling::xhtml:section[@data-type='sect2']) + 1"/></xsl:variable>
 
         <li class="sect2">
-            <a data-nr="{$chapter_nr}.{$sect1_nr}.{$sect2_nr}"><xsl:attribute name="href">#<xsl:value-of select="xhtml:h2/@id|xhtml:header/xhtml:h2/@id"/></xsl:attribute><xsl:value-of select="xhtml:h2|xhtml:header/xhtml:h2"/></a>
+            <a data-nr="{$chapter_nr}.{$sect1_nr}.{$sect2_nr}"><xsl:attribute name="href">#<xsl:value-of select="xhtml:h2/@id|xhtml:header/xhtml:h2/@id"/></xsl:attribute><xsl:value-of select="normalize-space(xhtml:h2|xhtml:header/xhtml:h2)"/></a>
         </li>    
     </xsl:template>
 
@@ -35,7 +35,7 @@
         <xsl:param name="chapter_nr"/>
         <xsl:variable name="sect1_nr"><xsl:value-of select="count(preceding-sibling::xhtml:section[@data-type='sect1']) + 1"/></xsl:variable>
         <li class="sect1">
-            <a data-nr="{$chapter_nr}.{$sect1_nr}"><xsl:attribute name="href">#<xsl:value-of select="xhtml:h1/@id|xhtml:header/xhtml:h1/@id"/></xsl:attribute><xsl:value-of select="xhtml:h1|xhtml:header/xhtml:h1"/></a>
+            <a data-nr="{$chapter_nr}.{$sect1_nr}"><xsl:attribute name="href">#<xsl:value-of select="xhtml:h1/@id|xhtml:header/xhtml:h1/@id"/></xsl:attribute><xsl:value-of select="normalize-space(xhtml:h1|xhtml:header/xhtml:h1)"/></a>
 
             <xsl:if test="xhtml:section[@data-type='sect2']">
                 <ol>
@@ -53,7 +53,7 @@
         <xsl:variable name="chapter_nr"><xsl:value-of select="count(preceding-sibling::xhtml:section[@data-type='chapter']) + 1"/></xsl:variable>
 
         <li class="chapter">
-            <a data-nr="{$chapter_nr}"><xsl:attribute name="href">#<xsl:value-of select="xhtml:h1/@id|xhtml:header/xhtml:h1/@id"/></xsl:attribute><xsl:value-of select="xhtml:h1|xhtml:header/xhtml:h1"/></a>
+            <a data-nr="{$chapter_nr}"><xsl:attribute name="href">#<xsl:value-of select="xhtml:h1/@id|xhtml:header/xhtml:h1/@id"/></xsl:attribute><xsl:value-of select="normalize-space(xhtml:h1|xhtml:header/xhtml:h1)"/></a>
 
             <xsl:if test="xhtml:section[@data-type='sect1']">
                 <ol>
@@ -70,7 +70,7 @@
         <xsl:variable name="part_nr"><xsl:number format="I" select="count(preceding-sibling::xhtml:div[@data-type='part']) + 1"/></xsl:variable>
 
         <li class="part">
-            <a data-nr="{$part_nr}"><xsl:attribute name="href">#<xsl:value-of select="xhtml:h1/@id|xhtml:header/xhtml:h1/@id"/></xsl:attribute><xsl:value-of select="xhtml:h1|xhtml:header/xhtml:h1"/></a>
+            <a data-nr="{$part_nr}"><xsl:attribute name="href">#<xsl:value-of select="xhtml:h1/@id|xhtml:header/xhtml:h1/@id"/></xsl:attribute><xsl:value-of select="normalize-space(xhtml:h1|xhtml:header/xhtml:h1)"/></a>
 
             <xsl:if test="xhtml:section[@data-type='chapter']">
                 <ol>
@@ -84,14 +84,14 @@
     <xsl:template match="xhtml:section[@data-type='appendix']" mode="toc">
         <xsl:variable name="chapter_nr"><xsl:value-of select="substring('ABCDEFGHIJKLMNOPQRSTUVWXYZ', count(preceding-sibling::xhtml:section[@data-type='appendix']) + 1, 1)"/></xsl:variable>
         <li class="chapter">
-            <a data-nr="{$chapter_nr}"><xsl:attribute name="href">#<xsl:value-of select="xhtml:h1/@id|xhtml:header/xhtml:h1/@id"/></xsl:attribute><xsl:value-of select="xhtml:h1|xhtml:header/xhtml:h1"/></a>
+            <a data-nr="{$chapter_nr}"><xsl:attribute name="href">#<xsl:value-of select="xhtml:h1/@id|xhtml:header/xhtml:h1/@id"/></xsl:attribute><xsl:value-of select="normalize-space(xhtml:h1|xhtml:header/xhtml:h1)"/></a>
         </li>
     </xsl:template>
 
     <!-- Generate TOC entries for glossary and bibliography. -->
     <xsl:template match="xhtml:section[contains('glossary bibliography', @data-type)]" mode="toc">
         <li class="chapter">
-            <a><xsl:attribute name="href">#<xsl:value-of select="xhtml:h1/@id|xhtml:header/xhtml:h1/@id"/></xsl:attribute><xsl:value-of select="xhtml:h1|xhtml:header/xhtml:h1"/></a>
+            <a><xsl:attribute name="href">#<xsl:value-of select="xhtml:h1/@id|xhtml:header/xhtml:h1/@id"/></xsl:attribute><xsl:value-of select="normalize-space(xhtml:h1|xhtml:header/xhtml:h1)"/></a>
         </li>
     </xsl:template>
 

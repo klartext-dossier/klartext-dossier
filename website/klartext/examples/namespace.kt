@@ -1,4 +1,4 @@
-!import "http://www.klartext-dossier.org/example" as ex
+!import "http://klartext-dossier.org/example" as ex
 
 ex::tag:
 
