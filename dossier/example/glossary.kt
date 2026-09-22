@@ -27,6 +27,12 @@ glossary: #gds
             A renal replacement therapy.
             
     entry:
+        term: "Molecular Weight"
+
+        definition: 
+            The mass of a molecule, typically measured in Daltons (Da) or atomic mass units (amu).
+            
+    entry:
         term: "Permanent Kidney Failure"
         term: "Permanent Kidney Failures"
 

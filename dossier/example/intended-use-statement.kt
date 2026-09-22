@@ -7,11 +7,11 @@
 md::intended-use: #gds-intended-use
 
     md::intended-use-summary:
-        The /r/device/ is a {gds::dialysis machine} providing {gds::haemodialysis} treatments for patients with {gds::permanent kidney failure}.
+        The /r/device/ is intended to perform extracorporeal blood purification treatment for patients with acute or {gds::permanent kidney failure}, or other conditions requiring renal replacement therapy. The device circulates the patient's blood through an extracorporeal circuit containing a dialyser (artificial kidney), where diffusion and ultrafiltration processes remove waste products, toxins, and excess fluids, and assist in maintaining electrolyte and acid-base balance.
 
     md::medical-purpose:
-        The /r/device/ provides a renal replacement therapy with the following {gds::clinical functions}:
-        
+        The purpose of the /r/device/ is to support or replace the kidney's natural function in removing metabolic waste products, toxins, and excess fluid from the blood, and to assist in maintaining normal electrolyte and acid-base balance.
+
         md::clinical-function: name="Ultrafiltration"
             Removal of substances with low {gds::molecular weight} from the patient's blood
 
