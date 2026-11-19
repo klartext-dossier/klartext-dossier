@@ -56,9 +56,12 @@ jobs:
 #        path: pypeline
 #        merge-multiple: True
  
+    - name: Create dist directory in pypeline
+      run: mkdir -p pypeline/dist
+
     - name: Provide klartext-pygments package to pypeline
       run: cp klartext-pygments/dist/* pypeline/dist/
-      
+
     - name: Dump
       run: ls -lR pypeline
 
