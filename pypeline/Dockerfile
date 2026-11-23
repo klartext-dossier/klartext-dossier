@@ -12,7 +12,7 @@ RUN useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME
 # Install software
 RUN apt update
 RUN apt install -y curl
-RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
 RUN apt install -y nodejs
 RUN npm install -g less
 
@@ -40,6 +40,7 @@ RUN pip install -r /requirements.txt
 RUN rm /requirements.txt
 
 # Provide documentation generation
+RUN npm install -g corepack
 RUN corepack enable
 RUN mkdir -p /opt/npm/node_modules/.bin
 ENV PATH="/opt/npm/node_modules/.bin/:${PATH}"
