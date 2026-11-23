@@ -31,7 +31,7 @@ pytidylib==0.3.2
 setuptools==84.2.1
 types-Markdown==3.11.3.20261122
 types-Pygments==2.21.0.20261122
-virtualenv==21.15.12
+virtualenv<21
 WeasyPrint==70.0
 wheel==0.48.0
 xmlschema==4.3.2
