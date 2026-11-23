@@ -1,7 +1,6 @@
 {
 	"name": "Pypeline",
 	"image": "klartext/pypeline",
-	"context": ".",
 	
 	"runArgs": [
 		// Comment out the next line to run as root instead. Linux users, 
@@ -9,28 +8,29 @@
 		"-u", "vscode",		
 		"--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined",
 		"-e", "LANG=C",
-		"-e", "TZ=Europe/Germany"
+		"-e", "TZ=Europe/Berlin"
 	],
 
-	// Use 'settings' to set *default* container specific settings.json values on container create. 
-	// You can edit these settings after create using File > Preferences > Settings > Remote.
-	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/bash"
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash"
+			},
+			"extensions": [
+				"ms-python.python",
+				"alexkrechik.cucumberautocomplete",
+				"shd101wyy.markdown-preview-enhanced",
+				"davidanson.vscode-markdownlint",
+				"rogalmic.vscode-xml-complete",
+				"ms-vscode.azure-account",
+				"ms-azure-devops.azure-pipelines",
+				"geeebe.duplicate",
+				"brunnerh.insert-unicode",
+				"github.vscode-github-actions",
+				"ms-vscode.makefile-tools"
+			]
+		}
 	},
-
-	"extensions": [
-		"ms-python.python",
-		"alexkrechik.cucumberautocomplete",
-		"shd101wyy.markdown-preview-enhanced",
-		"davidanson.vscode-markdownlint",
-		"rogalmic.vscode-xml-complete",
-		"ms-vscode.azure-account",
-		"ms-azure-devops.azure-pipelines",
-		"geeebe.duplicate",
-		"brunnerh.insert-unicode",
-		"github.vscode-github-actions",
-		"ms-vscode.makefile-tools"
-	],
 
 	"containerEnv": {
         "PYTHONPATH": "/workspaces/dossier/mdx:/workspaces/dossier/klartext:/workspaces/dossier/dossier:/workspaces/dossier/Test"
