@@ -15,7 +15,7 @@ setup(
     keywords                = "dossier documentation processing",
 
     license                 = "BSD-3-Clause",
-    license_files           = [ "../LICENSE.md" ],
+    license_files           = [ "LICENSE.md" ],
 
     classifiers             = [ 
                                 "Development Status :: 3 - Alpha",

@@ -8,7 +8,8 @@ hatch==1.14.0
 lxml-stubs==0.5.1
 lxml==6.1.3
 markdown-customblocks==1.5.4
-Markdown==3.11.3
+markdown-grid-tables==0.6.0
+Markdown==3.7
 MarkdownPP==1.5.1
 mkdocs-git-authors-plugin==0.10.0
 mkdocs-git-committers-plugin-2==2.5.0 
